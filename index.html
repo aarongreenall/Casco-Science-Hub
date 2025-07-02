@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Casco School Science Hub</title>
+
+    <!-- Tailwind CSS CDN (Loads Tailwind's basic styles) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS custom color configuration (MUST come AFTER the CDN script) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF', /* More vibrant teal */
+                        'casco-dark-teal': '#009999', /* Darker version of new main teal */
+                        'casco-light-teal': '#33EBEB', /* Lighter version of new main teal */
+                        'casco-light-bg': '#E0F2F1', /* Retained for subtle background */
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Link to your custom CSS file (for additional styles and custom Tailwind components) -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- MathJax for rendering equations (will be used on topic pages, but included here for consistency) -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJax configuration
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header Section -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <h1 class="text-3xl md:text-4xl font-bold mb-2 md:mb-0">The Casco School Science Hub</h1>
+            <nav class="relative">
+                <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6">
+                    <!-- Home Link -->
+                    <li><a href="index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg">Home</a></li>
+
+                    <!-- KS3 Dropdown -->
+                    <li class="group relative">
+                        <button class="nav-dropdown-btn flex items-center hover:text-casco-light-teal transition-colors duration-300 text-lg" aria-expanded="false">
+                            KS3
+                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <ul class="nav-dropdown-menu absolute hidden bg-casco-dark-teal text-white shadow-lg rounded-md mt-2 w-48 z-10">
+                            <li><a href="ks3/biology/index.html" class="block px-4 py-2 hover:bg-casco-main-teal rounded-t-md">Biology</a></li>
+                            <li><a href="ks3/chemistry/index.html" class="block px-4 py-2 hover:bg-casco-main-teal">Chemistry</a></li>
+                            <li><a href="ks3/physics/index.html" class="block px-4 py-2 hover:bg-casco-main-teal rounded-b-md">Physics</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- KS4 Dropdown (Now with nested subject dropdowns) -->
+                    <li class="group relative">
+                        <button class="nav-dropdown-btn flex items-center hover:text-casco-light-teal transition-colors duration-300 text-lg" aria-expanded="false">
+                            KS4
+                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <ul class="nav-dropdown-menu absolute hidden bg-casco-dark-teal text-white shadow-lg rounded-md mt-2 w-48 z-10">
+                            <!-- Biology Nested Dropdown -->
+                            <li class="group relative">
+                                <button class="nav-dropdown-btn flex items-center w-full text-left px-4 py-2 hover:bg-casco-main-teal" aria-expanded="false">
+                                    Biology
+                                    <svg class="ml-auto w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </button>
+                                <ul class="nav-dropdown-menu absolute hidden bg-casco-dark-teal text-white shadow-lg rounded-md mt-0 left-full top-0 w-64 z-20">
+                                    <li><a href="ks4/biology/b1_characteristics.html" class="block px-4 py-2 hover:bg-casco-main-teal rounded-t-md">B1. Characteristics of living organisms</a></li>
+                                    <li><a href="ks4/biology/b2_cells.html" class="block px-4 py-2 hover:bg-casco-main-teal">B2. Cells</a></li>
+                                    <li><a href="ks4/biology/b3_movement_into_out_of_cells.html" class="block px-4 py-2 hover:bg-casco-main-teal">B3. Movement into and out of cells</a></li>
+                                    <li><a href="ks4/biology/b4_biological_molecules.html" class="block px-4 py-2 hover:bg-casco-main-teal">B4. Biological molecules</a></li>
+                                    <li><a href="ks4/biology/b5_enzymes.html" class="block px-4 py-2 hover:bg-casco-main-teal">B5. Enzymes</a></li>
+                                    <li><a href="ks4/biology/b6_plant_nutrition.html" class="block px-4 py-2 hover:bg-casco-main-teal">B6. Plant nutrition</a></li>
+                                    <li><a href="ks4/biology/b7_human_nutrition.html" class="block px-4 py-2 hover:bg-casco-main-teal">B7. Human nutrition</a></li>
+                                    <li><a href="ks4/biology/b8_transport_in_plants.html" class="block px-4 py-2 hover:bg-casco-main-teal">B8. Transport in plants</a></li>
+                                    <li><a href="ks4/biology/b9_transport_in_animals.html" class="block px-4 py-2 hover:bg-casco-main-teal">B9. Transport in animals</a></li>
+                                    <li><a href="ks4/biology/b10_diseases_immunity.html" class="block px-4 py-2 hover:bg-casco-main-teal">B10. Diseases and immunity</a></li>
+                                    <li><a href="ks4/biology/b11_gas_exchange_in_humans.html" class="block px-4 py-2 hover:bg-casco-main-teal">B11. Gas exchange in humans</a></li>
+                                    <li><a href="ks4/biology/b12_respiration.html" class="block px-4 py-2 hover:bg-casco-main-teal">B12. Respiration</a></li>
+                                    <li><a href="ks4/biology/b13_coordination_response.html" class="block px-4 py-2 hover:bg-casco-main-teal">B13. Coordination and response</a></li>
+                                    <li><a href="ks4/biology/b14_drugs.html" class="block px-4 py-2 hover:bg-casco-main-teal">B14. Drugs</a></li>
+                                    <li><a href="ks4/biology/b15_reproduction.html" class="block px-4 py-2 hover:bg-casco-main-teal">B15. Reproduction</a></li>
+                                    <li><a href="ks4/biology/b16_inheritance.html" class="block px-4 py-2 hover:bg-casco-main-teal">B16. Inheritance</a></li>
+                                    <li><a href="ks4/biology/b17_variation_selection.html" class="block px-4 py-2 hover:bg-casco-main-teal">B17. Variation and selection</a></li>
+                                    <li><a href="ks4/biology/b18_organisms_environment.html" class="block px-4 py-2 hover:bg-casco-main-teal">B18. Organisms and their environment</a></li>
+                                    <li><a href="ks4/biology/b19_human_influences_ecosystems.html" class="block px-4 py-2 hover:bg-casco-main-teal rounded-b-md">B19. Human influences on ecosystems</a></li>
+                                </ul>
+                            </li>
+                            <!-- Chemistry Nested Dropdown -->
+                            <li class="group relative">
+                                <button class="nav-dropdown-btn flex items-center w-full text-left px-4 py-2 hover:bg-casco-main-teal" aria-expanded="false">
+                                    Chemistry
+                                    <svg class="ml-auto w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </button>
+                                <ul class="nav-dropdown-menu absolute hidden bg-casco-dark-teal text-white shadow-lg rounded-md mt-0 left-full top-0 w-64 z-20">
+                                    <li><a href="ks4/chemistry/c1_states_of_matter.html" class="block px-4 py-2 hover:bg-casco-main-teal rounded-t-md">C1. States of matter</a></li>
+                                    <li><a href="ks4/chemistry/c2_atoms_elements_compounds.html" class="block px-4 py-2 hover:bg-casco-main-teal">C2. Atoms, elements and compounds</a></li>
+                                    <li><a href="ks4/chemistry/c3_stoichiometry.html" class="block px-4 py-2 hover:bg-casco-main-teal">C3. Stoichiometry</a></li>
+                                    <li><a href="ks4/chemistry/c4_electrochemistry.html" class="block px-4 py-2 hover:bg-casco-main-teal">C4. Electrochemistry</a></li>
+                                    <li><a href="ks4/chemistry/c5_chemical_energetics.html" class="block px-4 py-2 hover:bg-casco-main-teal">C5. Chemical energetics</a></li>
+                                    <li><a href="ks4/chemistry/c6_chemical_reactions.html" class="block px-4 py-2 hover:bg-casco-main-teal">C6. Chemical reactions</a></li>
+                                    <li><a href="ks4/chemistry/c7_acids_bases_salts.html" class="block px-4 py-2 hover:bg-casco-main-teal">C7. Acids, bases and salts</a></li>
+                                    <li><a href="ks4/chemistry/c8_the_periodic_table.html" class="block px-4 py-2 hover:bg-casco-main-teal">C8. The Periodic Table</a></li>
+                                    <li><a href="ks4/chemistry/c9_metals.html" class="block px-4 py-2 hover:bg-casco-main-teal">C9. Metals</a></li>
+                                    <li><a href="ks4/chemistry/c10_chemistry_of_environment.html" class="block px-4 py-2 hover:bg-casco-main-teal">C10. Chemistry of the environment</a></li>
+                                    <li><a href="ks4/chemistry/c11_organic_chemistry.html" class="block px-4 py-2 hover:bg-casco-main-teal">C11. Organic chemistry</a></li>
+                                    <li><a href="ks4/chemistry/c12_experimental_techniques_analysis.html" class="block px-4 py-2 hover:bg-casco-main-teal rounded-b-md">C12. Experimental techniques and chemical analysis</a></li>
+                                </ul>
+                            </li>
+                            <!-- Physics Nested Dropdown -->
+                            <li class="group relative">
+                                <button class="nav-dropdown-btn flex items-center w-full text-left px-4 py-2 hover:bg-casco-main-teal" aria-expanded="false">
+                                    Physics
+                                    <svg class="ml-auto w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </button>
+                                <ul class="nav-dropdown-menu absolute hidden bg-casco-dark-teal text-white shadow-lg rounded-md mt-0 left-full top-0 w-64 z-20">
+                                    <li><a href="ks4/physics/p1_motion_forces_energy.html" class="block px-4 py-2 hover:bg-casco-main-teal rounded-t-md">P1. Motion, forces and energy</a></li>
+                                    <li><a href="ks4/physics/p2_thermal_physics.html" class="block px-4 py-2 hover:bg-casco-main-teal">P2. Thermal physics</a></li>
+                                    <li><a href="ks4/physics/p3_waves.html" class="block px-4 py-2 hover:bg-casco-main-teal">P3. Waves</a></li>
+                                    <li><a href="ks4/physics/p4_electricity_magnetism.html" class="block px-4 py-2 hover:bg-casco-main-teal">P4. Electricity and magnetism</a></li>
+                                    <li><a href="ks4/physics/p5_nuclear_physics.html" class="block px-4 py-2 hover:bg-casco-main-teal">P5. Nuclear physics</a></li>
+                                    <li><a href="ks4/physics/p6_space_physics.html" class="block px-4 py-2 hover:bg-casco-main-teal">P6. Space physics</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- KS5 Dropdown -->
+                    <li class="group relative">
+                        <button class="nav-dropdown-btn flex items-center hover:text-casco-light-teal transition-colors duration-300 text-lg" aria-expanded="false">
+                            KS5
+                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <ul class="nav-dropdown-menu absolute hidden bg-casco-dark-teal text-white shadow-lg rounded-md mt-2 w-48 z-10">
+                            <li><a href="ks5/ib_biology/index.html" class="block px-4 py-2 hover:bg-casco-main-teal rounded-t-md">IB Biology</a></li>
+                            <li><a href="ks5/ib_chemistry/index.html" class="block px-4 py-2 hover:bg-casco-main-teal">IB Chemistry</a></li>
+                            <li><a href="ks5/ib_physics/index.html" class="block px-4 py-2 hover:bg-casco-main-teal">IB Physics</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto p-4 md:p-8">
+        <!-- Welcome Section -->
+        <section id="welcome" class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">Welcome, Casco School Scientists!</h2>
+            <p class="text-lg leading-relaxed">
+                This is your central resource for all things science. Navigate through the key stages above to find comprehensive notes, engaging videos, and interactive tools to deepen your understanding in Biology, Chemistry, and Physics.
+            </p>
+            <p class="mt-4 text-lg leading-relaxed">
+                Let's explore the wonders of science together!
+            </p>
+        </section>
+
+        <!-- General Interactive Content Section (can be moved later) -->
+        <section id="interactive" class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">Quick Science Fact</h2>
+            <div class="space-y-6">
+                <div class="interactive-card bg-casco-light-bg p-4 rounded-lg shadow-sm text-center">
+                    <h3 class="text-lg font-medium text-gray-900 mb-2">Science Fact Generator</h3>
+                    <p id="scienceFact" class="text-gray-700 mb-4">Click the button to get a random science fact!</p>
+                    <button id="generateFactBtn" class="bg-casco-main-teal hover:bg-casco-dark-teal text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 shadow-md">
+                        Generate Fact
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">
+            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
+        </div>
+    </footer>
+
+    <!-- JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>

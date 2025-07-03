@@ -1,0 +1,183 @@
+/* style.css */
+
+/* Define custom Tailwind colors based on The Casco School logo */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Adjusted to be even more distinctly teal */
+    --color-casco-main-teal: #00BFBF; /* More vibrant teal */
+    --color-casco-dark-teal: #009999; /* Darker version of new main teal */
+    --color-casco-light-teal: #33EBEB; /* Lighter version of new main teal */
+    --color-casco-light-bg: #E0F2F1; /* Retained for subtle background */
+  }
+}
+
+@layer components {
+  .bg-casco-main-teal { background-color: var(--color-casco-main-teal); }
+  .bg-casco-dark-teal { background-color: var(--color-casco-dark-teal); }
+  .bg-casco-light-teal { background-color: var(--color-casco-light-teal); }
+  .bg-casco-light-bg { background-color: var(--color-casco-light-bg); }
+
+  .to-casco-main-teal { --tw-gradient-to: var(--color-casco-main-teal); }
+  .from-casco-dark-teal { --tw-gradient-from: var(--color-casco-dark-teal); }
+
+  .text-casco-main-teal { color: var(--color-casco-main-teal); }
+  .text-casco-dark-teal { color: var(--color-casco-dark-teal); }
+  .text-casco-light-teal { color: var(--color-casco-light-teal); }
+
+  .hover\:bg-casco-main-teal:hover { background-color: var(--color-casco-main-teal); }
+  .hover\:bg-casco-dark-teal:hover { background-color: var(--color-casco-dark-teal); }
+  .hover\:text-casco-light-teal:hover { color: var(--color-casco-light-teal); }
+  .hover\:underline:hover { text-decoration: underline; } /* Ensure underline on hover for links */
+}
+
+
+/* Basic body styling (Tailwind handles most of it, but this is for fallback/specific overrides) */
+body {
+    font-family: 'Inter', sans-serif; /* Using Inter font as per instructions */
+}
+
+/* Ensure YouTube embeds are responsive (if added to sub-pages) */
+.aspect-w-16 {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+}
+
+.aspect-w-16 iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+/* Add some subtle hover effects for navigation links */
+nav ul li a, nav ul li button {
+    transition: color 0.3s ease-in-out;
+}
+
+/* Add a subtle shadow on hover for cards */
+.interactive-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+/* General styling for sections to ensure consistent padding and margins */
+section {
+    margin-bottom: 2rem; /* Add some space between sections */
+}
+
+/* Styling for the fact generator button */
+#generateFactBtn {
+    transition: background-color 0.3s ease-in-out, transform 0.1s ease-in-out;
+}
+
+#generateFactBtn:active {
+    transform: scale(0.98);
+}
+
+/* Styling for dropdown menus */
+.nav-dropdown-menu {
+    min-width: 12rem; /* Ensure dropdowns are wide enough for text */
+    position: absolute; /* Essential for dropdowns to layer correctly */
+    top: 100%; /* Position below the parent button for top-level dropdowns */
+    left: 0;
+    z-index: 10; /* Ensure it's above other content */
+    background-color: var(--color-casco-dark-teal); /* Use custom color */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-lg */
+    border-radius: 0.375rem; /* rounded-md */
+    padding: 0; /* Reset padding to control list item padding */
+    
+    /* Initial hidden state with transition properties */
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden; /* Hide content that overflows max-height */
+    pointer-events: none; /* Prevent interaction when hidden */
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+/* Show dropdown when parent li has 'is-active' class */
+li.is-active > .nav-dropdown-menu {
+    max-height: 500px; /* A large enough value to show all content */
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Specific positioning for nested dropdowns (e.g., Biology/Chemistry/Physics topics) */
+.nav-dropdown-menu li > .nav-dropdown-menu { /* Target direct child UL of an LI within a dropdown */
+    top: 0; /* Align top of nested menu with its parent LI */
+    left: 100%; /* Position to the right of its parent LI */
+    margin-top: 0; /* Remove default margin-top from Tailwind */
+    z-index: 20; /* Ensure nested menus are above their parent menus */
+}
+
+/* Styles for dropdown links */
+.nav-dropdown-menu a {
+    display: block; /* Make links fill the block */
+    padding: 0.5rem 1rem; /* px-4 py-2 */
+    white-space: nowrap;
+    color: black; /* Changed to black for readability */
+}
+
+.nav-dropdown-menu a:hover {
+    background-color: var(--color-casco-main-teal); /* hover:bg-casco-main-teal */
+    color: white; /* Ensure text color remains white on hover */
+}
+
+.nav-dropdown-menu li:first-child a {
+    border-top-left-radius: 0.375rem; /* rounded-t-md */
+    border-top-right-radius: 0.375rem;
+}
+
+.nav-dropdown-menu li:last-child a {
+    border-bottom-left-radius: 0.375rem; /* rounded-b-md */
+    border-bottom-right-radius: 0.375rem;
+}
+
+/* Styles for the dropdown buttons themselves */
+.nav-dropdown-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem; /* Adjust padding as needed */
+    display: flex;
+    align-items: center;
+    width: 100%; /* Ensure buttons fill their parent li for clicks */
+    justify-content: space-between; /* Push arrow to the right */
+    color: white; /* Ensure button text color is white by default */
+}
+/* Hover state for top-level buttons */
+nav > ul > li > .nav-dropdown-btn:hover {
+    color: var(--color-casco-light-teal);
+}
+/* Hover state for nested buttons */
+.nav-dropdown-menu li > .nav-dropdown-btn {
+    color: black; /* Changed to black for readability */
+}
+.nav-dropdown-menu li > .nav-dropdown-btn:hover {
+    background-color: var(--color-casco-main-teal);
+    color: white; /* Ensure text color remains white on hover */
+}
+
+
+/* Arrow styling */
+.nav-dropdown-btn svg {
+    transition: transform 0.2s ease-in-out;
+}
+/* Rotate arrow when parent li has 'is-active' class */
+li.is-active > .nav-dropdown-btn svg {
+    transform: rotate(180deg); /* Arrow points up when open */
+}
+/* Ensure nested menu arrows always point down unless their direct parent is active */
+.nav-dropdown-menu li > .nav-dropdown-btn svg {
+    transform: rotate(0deg); /* Default to pointing down */
+}
+/* Rotate nested menu arrow when its direct parent li has 'is-active' */
+.nav-dropdown-menu li.is-active > .nav-dropdown-btn svg {
+    transform: rotate(180deg); /* Arrow points up when open */
+}

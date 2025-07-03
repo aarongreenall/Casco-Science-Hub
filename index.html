@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Casco School Science Hub</title>
 
-    <!-- Tailwind CSS CDN (Loads Tailwind's basic styles) -->
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Tailwind CSS custom color configuration (MUST come AFTER the CDN script) -->
+    <!-- Tailwind CSS custom color configuration MUST come AFTER the CDN script -->
     <script>
         tailwind.config = {
             theme: {
@@ -23,40 +23,164 @@
         }
     </script>
     
-    <!-- Link to your custom CSS file (for additional styles and custom Tailwind components) -->
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- MathJax for rendering equations (will be used on topic pages, but included here for consistency) -->
+    <!-- Custom CSS embedded directly for reliable preview and deployment -->
+    <style>
+        /* Basic body font fallback */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Ensure YouTube embeds are responsive (if added to sub-pages) */
+        .aspect-w-16 {
+          position: relative;
+          width: 100%;
+          padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+        }
+
+        .aspect-w-16 iframe {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+        }
+
+        /* Add some subtle hover effects for navigation links */
+        nav ul li a, nav ul li button {
+            transition: color 0.3s ease-in-out;
+        }
+
+        /* Add a subtle shadow on hover for cards */
+        .interactive-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* General styling for sections to ensure consistent padding and margins */
+        section {
+            margin-bottom: 2rem; /* Add some space between sections */
+        }
+
+        /* Styling for the fact generator button */
+        #generateFactBtn {
+            transition: background-color 0.3s ease-in-out, transform 0.1s ease-in-out;
+        }
+
+        #generateFactBtn:active {
+            transform: scale(0.98);
+        }
+
+        /* Styling for dropdown menus */
+        .nav-dropdown-menu {
+            min-width: 12rem; /* Ensure dropdowns are wide enough for text */
+            position: absolute; /* Essential for dropdowns to layer correctly */
+            top: 100%; /* Position below the parent button for top-level dropdowns */
+            left: 0;
+            z-index: 10; /* Ensure it's above other content */
+            background-color: var(--color-casco-dark-teal); /* Use custom color */
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-lg */
+            border-radius: 0.375rem; /* rounded-md */
+            padding: 0; /* Reset padding to control list item padding */
+            display: none; /* Crucial: Hidden by default, controlled by JS */
+        }
+
+        /* Specific positioning for nested dropdowns (e.g., Biology/Chemistry/Physics topics) */
+        .nav-dropdown-menu li > .nav-dropdown-menu { /* Target direct child UL of an LI within a dropdown */
+            top: 0; /* Align top of nested menu with its parent LI */
+            left: 100%; /* Position to the right of its parent LI */
+            margin-top: 0; /* Remove default margin-top from Tailwind */
+            z-index: 20; /* Ensure nested menus are above their parent menus */
+        }
+
+        /* Styles for dropdown links */
+        .nav-dropdown-menu a {
+            display: block; /* Make links fill the block */
+            padding: 0.5rem 1rem; /* px-4 py-2 */
+            white-space: nowrap;
+        }
+
+        .nav-dropdown-menu a:hover {
+            background-color: var(--color-casco-main-teal); /* hover:bg-casco-main-teal */
+            color: white; /* Ensure text color remains white on hover */
+        }
+
+        .nav-dropdown-menu li:first-child a {
+            border-top-left-radius: 0.375rem; /* rounded-t-md */
+            border-top-right-radius: 0.375rem;
+        }
+
+        .nav-dropdown-menu li:last-child a {
+            border-bottom-left-radius: 0.375rem; /* rounded-b-md */
+            border-bottom-right-radius: 0.375rem;
+        }
+
+        /* Styles for the dropdown buttons themselves */
+        .nav-dropdown-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem 1rem; /* Adjust padding as needed */
+            display: flex;
+            align-items: center;
+            width: 100%; /* Ensure buttons fill their parent li for clicks */
+            justify-content: space-between; /* Push arrow to the right */
+            color: white; /* Ensure button text color is white by default */
+        }
+        /* Hover state for top-level buttons */
+        nav > ul > li > .nav-dropdown-btn:hover {
+            color: var(--color-casco-light-teal);
+        }
+        /* Hover state for nested buttons */
+        .nav-dropdown-menu li > .nav-dropdown-btn:hover {
+            background-color: var(--color-casco-main-teal);
+        }
+
+
+        /* Arrow styling */
+        .nav-dropdown-btn svg {
+            transition: transform 0.2s ease-in-out;
+        }
+        /* Rotate arrow when dropdown is open */
+        .nav-dropdown-btn[aria-expanded="true"] svg {
+            transform: rotate(180deg); /* Arrow points up when open */
+        }
+        /* Ensure nested menu arrows always point down unless their direct parent is active */
+        .nav-dropdown-menu li > .nav-dropdown-btn svg {
+            transform: rotate(0deg); /* Default to pointing down */
+        }
+        /* Rotate nested menu arrow when its direct parent li has 'aria-expanded="true"' */
+        .nav-dropdown-menu li > .nav-dropdown-btn[aria-expanded="true"] svg {
+            transform: rotate(180deg); /* Arrow points up when open */
+        }
+
+    </style>
+
+    <!-- MathJax (not strictly needed for dropdown debug, but keeping for consistency) -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
-        // MathJax configuration
         MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']]
-            },
-            svg: {
-                fontCache: 'global'
-            }
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
         };
     </script>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
-    <!-- Header Section -->
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
             <h1 class="text-3xl md:text-4xl font-bold mb-2 md:mb-0">The Casco School Science Hub</h1>
             <nav class="relative">
                 <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6">
-                    <!-- Home Link -->
                     <li><a href="index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg">Home</a></li>
 
                     <!-- KS3 Dropdown -->
-                    <li class="group relative">
+                    <li class="relative">
                         <button class="nav-dropdown-btn flex items-center hover:text-casco-light-teal transition-colors duration-300 text-lg" aria-expanded="false">
                             KS3
                             <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
-                        <ul class="nav-dropdown-menu absolute hidden bg-casco-dark-teal text-white shadow-lg rounded-md mt-2 w-48 z-10">
+                        <ul class="nav-dropdown-menu">
                             <li><a href="ks3/biology/index.html" class="block px-4 py-2 hover:bg-casco-main-teal rounded-t-md">Biology</a></li>
                             <li><a href="ks3/chemistry/index.html" class="block px-4 py-2 hover:bg-casco-main-teal">Chemistry</a></li>
                             <li><a href="ks3/physics/index.html" class="block px-4 py-2 hover:bg-casco-main-teal rounded-b-md">Physics</a></li>
@@ -64,19 +188,19 @@
                     </li>
 
                     <!-- KS4 Dropdown (Now with nested subject dropdowns) -->
-                    <li class="group relative">
+                    <li class="relative">
                         <button class="nav-dropdown-btn flex items-center hover:text-casco-light-teal transition-colors duration-300 text-lg" aria-expanded="false">
                             KS4
                             <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
-                        <ul class="nav-dropdown-menu absolute hidden bg-casco-dark-teal text-white shadow-lg rounded-md mt-2 w-48 z-10">
+                        <ul class="nav-dropdown-menu">
                             <!-- Biology Nested Dropdown -->
-                            <li class="group relative">
+                            <li class="relative">
                                 <button class="nav-dropdown-btn flex items-center w-full text-left px-4 py-2 hover:bg-casco-main-teal" aria-expanded="false">
                                     Biology
                                     <svg class="ml-auto w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                                 </button>
-                                <ul class="nav-dropdown-menu absolute hidden bg-casco-dark-teal text-white shadow-lg rounded-md mt-0 left-full top-0 w-64 z-20">
+                                <ul class="nav-dropdown-menu">
                                     <li><a href="ks4/biology/b1_characteristics.html" class="block px-4 py-2 hover:bg-casco-main-teal rounded-t-md">B1. Characteristics of living organisms</a></li>
                                     <li><a href="ks4/biology/b2_cells.html" class="block px-4 py-2 hover:bg-casco-main-teal">B2. Cells</a></li>
                                     <li><a href="ks4/biology/b3_movement_into_out_of_cells.html" class="block px-4 py-2 hover:bg-casco-main-teal">B3. Movement into and out of cells</a></li>
@@ -99,12 +223,12 @@
                                 </ul>
                             </li>
                             <!-- Chemistry Nested Dropdown -->
-                            <li class="group relative">
+                            <li class="relative">
                                 <button class="nav-dropdown-btn flex items-center w-full text-left px-4 py-2 hover:bg-casco-main-teal" aria-expanded="false">
                                     Chemistry
                                     <svg class="ml-auto w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                                 </button>
-                                <ul class="nav-dropdown-menu absolute hidden bg-casco-dark-teal text-white shadow-lg rounded-md mt-0 left-full top-0 w-64 z-20">
+                                <ul class="nav-dropdown-menu">
                                     <li><a href="ks4/chemistry/c1_states_of_matter.html" class="block px-4 py-2 hover:bg-casco-main-teal rounded-t-md">C1. States of matter</a></li>
                                     <li><a href="ks4/chemistry/c2_atoms_elements_compounds.html" class="block px-4 py-2 hover:bg-casco-main-teal">C2. Atoms, elements and compounds</a></li>
                                     <li><a href="ks4/chemistry/c3_stoichiometry.html" class="block px-4 py-2 hover:bg-casco-main-teal">C3. Stoichiometry</a></li>
@@ -120,12 +244,12 @@
                                 </ul>
                             </li>
                             <!-- Physics Nested Dropdown -->
-                            <li class="group relative">
+                            <li class="relative">
                                 <button class="nav-dropdown-btn flex items-center w-full text-left px-4 py-2 hover:bg-casco-main-teal" aria-expanded="false">
                                     Physics
                                     <svg class="ml-auto w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                                 </button>
-                                <ul class="nav-dropdown-menu absolute hidden bg-casco-dark-teal text-white shadow-lg rounded-md mt-0 left-full top-0 w-64 z-20">
+                                <ul class="nav-dropdown-menu">
                                     <li><a href="ks4/physics/p1_motion_forces_energy.html" class="block px-4 py-2 hover:bg-casco-main-teal rounded-t-md">P1. Motion, forces and energy</a></li>
                                     <li><a href="ks4/physics/p2_thermal_physics.html" class="block px-4 py-2 hover:bg-casco-main-teal">P2. Thermal physics</a></li>
                                     <li><a href="ks4/physics/p3_waves.html" class="block px-4 py-2 hover:bg-casco-main-teal">P3. Waves</a></li>
@@ -138,12 +262,12 @@
                     </li>
 
                     <!-- KS5 Dropdown -->
-                    <li class="group relative">
+                    <li class="relative">
                         <button class="nav-dropdown-btn flex items-center hover:text-casco-light-teal transition-colors duration-300 text-lg" aria-expanded="false">
                             KS5
                             <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
-                        <ul class="nav-dropdown-menu absolute hidden bg-casco-dark-teal text-white shadow-lg rounded-md mt-2 w-48 z-10">
+                        <ul class="nav-dropdown-menu">
                             <li><a href="ks5/ib_biology/index.html" class="block px-4 py-2 hover:bg-casco-main-teal rounded-t-md">IB Biology</a></li>
                             <li><a href="ks5/ib_chemistry/index.html" class="block px-4 py-2 hover:bg-casco-main-teal">IB Chemistry</a></li>
                             <li><a href="ks5/ib_physics/index.html" class="block px-4 py-2 hover:bg-casco-main-teal">IB Physics</a></li>
@@ -189,7 +313,111 @@
         </div>
     </footer>
 
-    <!-- JavaScript file -->
-    <script src="script.js"></script>
+    <!-- JavaScript embedded directly for reliable preview -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Smooth scrolling for navigation links (if applicable on a single page)
+            document.querySelectorAll('nav a').forEach(anchor => {
+                // Only apply smooth scroll if the link is to an ID on the same page
+                if (anchor.getAttribute('href').startsWith('#')) {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        document.querySelector(this.getAttribute('href')).scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    });
+                }
+            });
+
+            // Dropdown menu functionality for all nav-dropdown-btn elements
+            const dropdownButtons = document.querySelectorAll('.nav-dropdown-btn');
+
+            dropdownButtons.forEach(button => {
+                button.addEventListener('click', function(event) {
+                    event.stopPropagation(); // Prevent click from bubbling up to document and immediately closing
+                    const parentLi = this.closest('li'); // Get the immediate parent <li>
+                    const dropdownMenu = this.nextElementSibling; // Get the next sibling, which is the <ul> menu
+
+                    if (parentLi && dropdownMenu && dropdownMenu.classList.contains('nav-dropdown-menu')) { // Ensure it's a dropdown menu
+                        // Close all other open dropdowns at the same level
+                        const siblingLis = parentLi.parentNode.children;
+                        Array.from(siblingLis).forEach(siblingLi => {
+                            if (siblingLi !== parentLi && siblingLi.classList.contains('relative')) { // Check for 'relative' class for dropdown parents
+                                siblingLi.classList.remove('is-active'); // Remove active class
+                                const siblingMenu = siblingLi.querySelector('.nav-dropdown-menu');
+                                if (siblingMenu) {
+                                    siblingMenu.style.opacity = '0';
+                                    siblingMenu.style.pointerEvents = 'none';
+                                    const associatedButton = siblingLi.querySelector('.nav-dropdown-btn');
+                                    if (associatedButton) {
+                                        associatedButton.setAttribute('aria-expanded', 'false');
+                                    }
+                                }
+                            }
+                        });
+                        
+                        // Toggle 'is-active' class on the clicked parent <li>
+                        parentLi.classList.toggle('is-active');
+
+                        // Toggle visibility
+                        if (parentLi.classList.contains('is-active')) {
+                            dropdownMenu.style.opacity = '1';
+                            dropdownMenu.style.pointerEvents = 'auto';
+                            button.setAttribute('aria-expanded', 'true');
+                        } else {
+                            dropdownMenu.style.opacity = '0';
+                            dropdownMenu.style.pointerEvents = 'none';
+                            button.setAttribute('aria-expanded', 'false');
+                        }
+                    }
+                });
+            });
+
+            // Close all dropdowns when clicking anywhere outside a dropdown button or menu
+            document.addEventListener('click', function(event) {
+                // Select all active dropdown parents
+                document.querySelectorAll('nav li.relative.is-active').forEach(activeLi => {
+                    // Check if the click was outside this active dropdown's parent li
+                    if (!activeLi.contains(event.target)) {
+                        activeLi.classList.remove('is-active');
+                        const dropdownMenu = activeLi.querySelector('.nav-dropdown-menu');
+                        if (dropdownMenu) {
+                            dropdownMenu.style.opacity = '0';
+                            dropdownMenu.style.pointerEvents = 'none';
+                            const button = activeLi.querySelector('.nav-dropdown-btn');
+                            if (button) {
+                                button.setAttribute('aria-expanded', 'false');
+                            }
+                        }
+                    }
+                });
+            });
+
+
+            // Interactive Content: Science Fact Generator
+            const scienceFacts = [
+                "The human brain weighs about 3 pounds but uses 20% of the body's oxygen and calories.",
+                "A bolt of lightning is five times hotter than the surface of the Sun.",
+                "Honey never spoils. Archaeologists have found pots of honey in ancient Egyptian tombs that are over 3,000 years old and still edible.",
+                "There are more stars in the universe than grains of sand on all the beaches on Earth.",
+                "The Earth's core is as hot as the surface of the Sun.",
+                "A group of owls is called a parliament.",
+                "The fastest land animal is the cheetah, which can reach speeds of up to 70 mph (112 km/h).",
+                "The total weight of all ants on Earth is roughly equal to the total weight of all humans.",
+                "Sound travels about 4.3 times faster in water than in air.",
+                "The shortest war in history was between Britain and Zanzibar on August 27, 1896. It lasted only 38 minutes."
+            ];
+
+            const generateFactBtn = document.getElementById('generateFactBtn');
+            const scienceFactDisplay = document.getElementById('scienceFact');
+
+            if (generateFactBtn && scienceFactDisplay) {
+                generateFactBtn.addEventListener('click', () => {
+                    const randomIndex = Math.floor(Math.random() * scienceFacts.length);
+                    scienceFactDisplay.textContent = scienceFacts[randomIndex];
+                });
+            }
+        });
+    </script>
 </body>
 </html>

@@ -286,9 +286,6 @@
             <p class="text-lg leading-relaxed">
                 This is your central resource for all things science. Navigate through the key stages above to find comprehensive notes, engaging videos, and interactive tools to deepen your understanding in Biology, Chemistry, and Physics.
             </p>
-            <p class="mt-4 text-lg leading-relaxed">
-                Let's explore the wonders of science together!
-            </p>
         </section>
 
         <!-- General Interactive Content Section (can be moved later) -->
@@ -313,7 +310,7 @@
         </div>
     </footer>
 
-    <!-- JavaScript embedded directly for reliable preview -->
+    <!-- JavaScript embedded directly for reliable preview and deployment -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Smooth scrolling for navigation links (if applicable on a single page)
@@ -342,13 +339,11 @@
                         // Close all other open dropdowns at the same level
                         const siblingLis = parentLi.parentNode.children;
                         Array.from(siblingLis).forEach(siblingLi => {
-                            if (siblingLi !== parentLi && siblingLi.classList.contains('relative')) { // Check for 'relative' class for dropdown parents
-                                siblingLi.classList.remove('is-active'); // Remove active class
+                            if (siblingLi !== parentLi && siblingLi.tagName === 'LI') { // Check if it's another LI sibling
                                 const siblingMenu = siblingLi.querySelector('.nav-dropdown-menu');
-                                if (siblingMenu) {
-                                    siblingMenu.style.opacity = '0';
-                                    siblingMenu.style.pointerEvents = 'none';
-                                    const associatedButton = siblingLi.querySelector('.nav-dropdown-btn');
+                                const associatedButton = siblingLi.querySelector('.nav-dropdown-btn');
+                                if (siblingMenu && siblingMenu.style.display === 'block') { // Check if visible
+                                    siblingMenu.style.display = 'none';
                                     if (associatedButton) {
                                         associatedButton.setAttribute('aria-expanded', 'false');
                                     }
@@ -356,18 +351,13 @@
                             }
                         });
                         
-                        // Toggle 'is-active' class on the clicked parent <li>
-                        parentLi.classList.toggle('is-active');
-
                         // Toggle visibility
-                        if (parentLi.classList.contains('is-active')) {
-                            dropdownMenu.style.opacity = '1';
-                            dropdownMenu.style.pointerEvents = 'auto';
-                            button.setAttribute('aria-expanded', 'true');
-                        } else {
-                            dropdownMenu.style.opacity = '0';
-                            dropdownMenu.style.pointerEvents = 'none';
+                        if (dropdownMenu.style.display === 'block') {
+                            dropdownMenu.style.display = 'none';
                             button.setAttribute('aria-expanded', 'false');
+                        } else {
+                            dropdownMenu.style.display = 'block';
+                            button.setAttribute('aria-expanded', 'true');
                         }
                     }
                 });
@@ -375,19 +365,13 @@
 
             // Close all dropdowns when clicking anywhere outside a dropdown button or menu
             document.addEventListener('click', function(event) {
-                // Select all active dropdown parents
-                document.querySelectorAll('nav li.relative.is-active').forEach(activeLi => {
-                    // Check if the click was outside this active dropdown's parent li
-                    if (!activeLi.contains(event.target)) {
-                        activeLi.classList.remove('is-active');
-                        const dropdownMenu = activeLi.querySelector('.nav-dropdown-menu');
-                        if (dropdownMenu) {
-                            dropdownMenu.style.opacity = '0';
-                            dropdownMenu.style.pointerEvents = 'none';
-                            const button = activeLi.querySelector('.nav-dropdown-btn');
-                            if (button) {
-                                button.setAttribute('aria-expanded', 'false');
-                            }
+                document.querySelectorAll('.nav-dropdown-menu').forEach(dropdownMenu => {
+                    const button = dropdownMenu.previousElementSibling; // Get the button associated with this menu
+                    if (button && dropdownMenu.style.display === 'block') { // Check if it's visible
+                        // Check if the click was outside the button AND outside the menu
+                        if (!button.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                            dropdownMenu.style.display = 'none';
+                            button.setAttribute('aria-expanded', 'false');
                         }
                     }
                 });

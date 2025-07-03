@@ -45,18 +45,6 @@
           left: 0;
         }
 
-        /* Add some subtle hover effects for navigation links */
-        nav ul li a, nav ul li button {
-            transition: color 0.3s ease-in-out;
-        }
-
-        /* Add a subtle shadow on hover for cards */
-        .interactive-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease-in-out;
-        }
-
         /* General styling for sections to ensure consistent padding and margins */
         section {
             margin-bottom: 2rem; /* Add some space between sections */
@@ -71,112 +59,212 @@
             transform: scale(0.98);
         }
 
-        /* Styling for dropdown menus */
-        .nav-dropdown-menu {
-            min-width: 12rem; /* Ensure dropdowns are wide enough for text */
-            background-color: var(--color-casco-dark-teal); /* Use custom color */
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-lg */
+        /* --- Navigation Specific Styles --- */
+
+        /* Mobile Menu Overlay */
+        #mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-casco-dark-teal);
+            z-index: 50; /* High z-index to cover everything */
+            transform: translateX(100%); /* Start off-screen to the right */
+            transition: transform 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem;
+            overflow-y: auto; /* Enable scrolling for long menus */
+        }
+
+        #mobile-menu-overlay.is-open {
+            transform: translateX(0); /* Slide in */
+        }
+
+        #mobile-menu-overlay ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #mobile-menu-overlay li {
+            margin-bottom: 0.5rem;
+            position: relative; /* For nested absolute positioning if needed, but we'll use accordion */
+        }
+
+        #mobile-menu-overlay a, #mobile-menu-overlay button {
+            display: block;
+            width: 100%;
+            padding: 0.75rem 1rem;
+            color: white;
+            text-align: left;
+            font-size: 1.125rem; /* text-lg */
             border-radius: 0.375rem; /* rounded-md */
-            padding: 0; /* Reset padding to control list item padding */
-            
-            /* Initial hidden state */
-            display: none; 
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
         }
 
-        /* Show dropdown when parent li has 'is-active' class */
-        li.is-active > .nav-dropdown-menu {
-            display: block; /* Force display when active */
+        #mobile-menu-overlay a:hover, #mobile-menu-overlay button:hover {
+            background-color: var(--color-casco-main-teal);
         }
 
-        /* Default positioning for top-level dropdowns (absolute on desktop, static on mobile) */
-        /* Mobile-first: stacked */
+        /* Mobile Accordion Sub-menus */
+        #mobile-menu-overlay .mobile-submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+            background-color: rgba(0, 0, 0, 0.2); /* Slightly darker background for sub-items */
+            border-radius: 0.375rem;
+            margin-top: 0.25rem;
+            padding-left: 1rem; /* Indent sub-items */
+        }
+
+        #mobile-menu-overlay .mobile-submenu.is-open {
+            max-height: 500px; /* Adjust as needed for content height */
+        }
+
+        #mobile-menu-overlay .mobile-submenu a, #mobile-menu-overlay .mobile-submenu button {
+            font-size: 1rem; /* text-base */
+            padding: 0.5rem 1rem;
+        }
+
+        /* Mobile Hamburger Icon */
+        #hamburger-button {
+            display: block; /* Show on mobile */
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 60; /* Ensure it's above the overlay */
+            position: absolute;
+            right: 1.5rem;
+            top: 1.5rem;
+        }
+
+        #close-mobile-menu {
+            align-self: flex-end; /* Push to top right of overlay */
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            margin-bottom: 1rem;
+        }
+
+        /* Desktop Navigation (Hidden by default, shown on md breakpoint) */
+        #desktop-nav {
+            display: none; /* Hidden on mobile */
+        }
+
         @media (min-width: 768px) { /* md breakpoint */
-            nav > ul > li > .nav-dropdown-menu {
+            #hamburger-button {
+                display: none; /* Hide hamburger on desktop */
+            }
+            #desktop-nav {
+                display: block; /* Show desktop nav */
+            }
+
+            /* Desktop Dropdown Menus */
+            .desktop-dropdown-menu {
                 position: absolute;
                 top: 100%; /* Position below the parent button */
                 left: 0;
+                min-width: 12rem;
+                background-color: var(--color-casco-dark-teal);
+                color: white;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+                border-radius: 0.375rem;
+                padding: 0;
+                display: none; /* Hidden by default, shown on hover/focus */
                 z-index: 10;
             }
-        }
 
-        /* Specific positioning for nested dropdowns (e.g., Biology/Chemistry/Physics topics) */
-        /* Mobile-first: stacked */
-        @media (min-width: 768px) { /* md breakpoint */
-            .nav-dropdown-menu li > .nav-dropdown-menu { /* Target direct child UL of an LI within a dropdown */
-                position: absolute; /* Keep absolute for nested positioning */
+            /* Show desktop dropdown on hover for top-level */
+            #desktop-nav > ul > li.group:hover > .desktop-dropdown-menu {
+                display: block;
+            }
+
+            /* Nested Desktop Dropdowns (e.g., Biology/Chemistry/Physics topics) */
+            .desktop-dropdown-menu .group > .desktop-dropdown-menu {
                 top: 0; /* Align top of nested menu with its parent LI */
                 left: 100%; /* Position to the right of its parent LI */
-                margin-top: 0; /* Remove default margin-top from Tailwind */
-                z-index: 20; /* Ensure nested menus are above their parent menus */
+                margin-top: 0;
+                z-index: 20;
+            }
+
+            /* Show nested desktop dropdown on hover */
+            .desktop-dropdown-menu .group:hover > .desktop-dropdown-menu {
+                display: block;
+            }
+
+            /* Styles for desktop dropdown links */
+            .desktop-dropdown-menu a {
+                display: block;
+                padding: 0.5rem 1rem;
+                white-space: nowrap;
+                color: black; /* Black text for readability */
+            }
+
+            .desktop-dropdown-menu a:hover {
+                background-color: var(--color-casco-main-teal);
+                color: white; /* White text on hover */
+            }
+
+            .desktop-dropdown-menu li:first-child a {
+                border-top-left-radius: 0.375rem;
+                border-top-right-radius: 0.375rem;
+            }
+
+            .desktop-dropdown-menu li:last-child a {
+                border-bottom-left-radius: 0.375rem;
+                border-bottom-right-radius: 0.375rem;
+            }
+
+            /* Desktop Dropdown Buttons */
+            .desktop-dropdown-btn {
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 0.5rem 1rem;
+                display: flex;
+                align-items: center;
+                width: 100%;
+                justify-content: space-between;
+                color: white; /* Default color for top-level buttons */
+            }
+            #desktop-nav > ul > li > .desktop-dropdown-btn {
+                color: white; /* Top-level buttons are white */
+            }
+            #desktop-nav > ul > li > .desktop-dropdown-btn:hover {
+                color: var(--color-casco-light-teal); /* Hover color for top-level buttons */
+            }
+            .desktop-dropdown-menu li > .desktop-dropdown-btn {
+                color: black; /* Nested buttons are black */
+            }
+            .desktop-dropdown-menu li > .desktop-dropdown-btn:hover {
+                background-color: var(--color-casco-main-teal);
+                color: white; /* White text on hover for nested buttons */
+            }
+
+            /* Arrow styling for desktop */
+            .desktop-dropdown-btn svg {
+                transition: transform 0.2s ease-in-out;
+            }
+            /* Arrow points down by default */
+            /* Rotate arrow when dropdown is open (though desktop uses hover) */
+            .desktop-dropdown-btn[aria-expanded="true"] svg {
+                transform: rotate(180deg); /* Arrow points up when open */
+            }
+            /* Nested arrows should point right on desktop */
+            .desktop-dropdown-menu li > .desktop-dropdown-btn svg {
+                transform: rotate(-90deg); /* Arrow points right */
+            }
+            /* Rotate nested arrow when its direct parent is hovered/active */
+            .desktop-dropdown-menu li.group:hover > .desktop-dropdown-btn svg {
+                transform: rotate(0deg); /* Arrow points down when active */
             }
         }
-
-        /* Styles for dropdown links */
-        .nav-dropdown-menu a {
-            display: block; /* Make links fill the block */
-            padding: 0.5rem 1rem; /* px-4 py-2 */
-            white-space: nowrap;
-            color: black; /* Changed to black for readability */
-        }
-
-        .nav-dropdown-menu a:hover {
-            background-color: var(--color-casco-main-teal); /* hover:bg-casco-main-teal */
-            color: white; /* Ensure text color remains white on hover */
-        }
-
-        .nav-dropdown-menu li:first-child a {
-            border-top-left-radius: 0.375rem; /* rounded-t-md */
-            border-top-right-radius: 0.375rem;
-        }
-
-        .nav-dropdown-menu li:last-child a {
-            border-bottom-left-radius: 0.375rem; /* rounded-b-md */
-            border-bottom-right-radius: 0.375rem;
-        }
-
-        /* Styles for the dropdown buttons themselves */
-        .nav-dropdown-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem 1rem; /* Adjust padding as needed */
-            display: flex;
-            align-items: center;
-            width: 100%; /* Ensure buttons fill their parent li for clicks */
-            justify-content: space-between; /* Push arrow to the right */
-            color: white; /* Ensure button text color is white by default */
-        }
-        /* Hover state for top-level buttons */
-        nav > ul > li > .nav-dropdown-btn:hover {
-            color: var(--color-casco-light-teal);
-        }
-        /* Hover state for nested buttons */
-        .nav-dropdown-menu li > .nav-dropdown-btn {
-            color: black; /* Changed to black for readability */
-        }
-        .nav-dropdown-menu li > .nav-dropdown-btn:hover {
-            background-color: var(--color-casco-main-teal);
-            color: white; /* Ensure text color remains white on hover */
-        }
-
-
-        /* Arrow styling */
-        .nav-dropdown-btn svg {
-            transition: transform 0.2s ease-in-out;
-        }
-        /* Rotate arrow when parent li has 'is-active' class */
-        li.is-active > .nav-dropdown-btn svg {
-            transform: rotate(180deg); /* Arrow points up when open */
-        }
-        /* Ensure nested menu arrows always point down unless their direct parent is active */
-        .nav-dropdown-menu li > .nav-dropdown-btn svg {
-            transform: rotate(0deg); /* Default to pointing down */
-        }
-        /* Rotate nested menu arrow when its direct parent li has 'is-active' */
-        .nav-dropdown-menu li.is-active > .nav-dropdown-btn svg {
-            transform: rotate(180deg); /* Arrow points up when open */
-        }
-
     </style>
 
     <!-- MathJax (not strictly needed for dropdown debug, but keeping for consistency) -->
@@ -189,110 +277,117 @@
     </script>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
-    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl">
-        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
-            <h1 class="text-3xl md:text-4xl font-bold mb-2 md:mb-0">The Casco School Science Hub</h1>
-            <nav class="relative">
-                <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6">
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl md:text-4xl font-bold">The Casco School Science Hub</h1>
+            
+            <!-- Hamburger Button (Mobile Only) -->
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden">
+                &#9776; <!-- Hamburger icon -->
+            </button>
+
+            <!-- Desktop Navigation (Visible on md and larger screens) -->
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex space-x-6">
                     <li><a href="index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg">Home</a></li>
 
-                    <!-- KS3 Dropdown -->
-                    <li class="relative">
-                        <button class="nav-dropdown-btn flex items-center hover:text-casco-light-teal transition-colors duration-300 text-lg" aria-expanded="false">
+                    <!-- KS3 Dropdown (Desktop) -->
+                    <li class="group relative">
+                        <button class="desktop-dropdown-btn flex items-center text-lg" aria-expanded="false">
                             KS3
                             <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
-                        <ul class="nav-dropdown-menu">
-                            <li><a href="ks3/biology/index.html" class="block px-4 py-2 hover:bg-casco-main-teal rounded-t-md">Biology</a></li>
-                            <li><a href="ks3/chemistry/index.html" class="block px-4 py-2 hover:bg-casco-main-teal">Chemistry</a></li>
-                            <li><a href="ks3/physics/index.html" class="block px-4 py-2 hover:bg-casco-main-teal">Physics</a></li>
+                        <ul class="desktop-dropdown-menu">
+                            <li><a href="ks3/biology/index.html" class="rounded-t-md">Biology</a></li>
+                            <li><a href="ks3/chemistry/index.html">Chemistry</a></li>
+                            <li><a href="ks3/physics/index.html" class="rounded-b-md">Physics</a></li>
                         </ul>
                     </li>
 
-                    <!-- KS4 Dropdown (Now with nested subject dropdowns) -->
-                    <li class="relative">
-                        <button class="nav-dropdown-btn flex items-center hover:text-casco-light-teal transition-colors duration-300 text-lg" aria-expanded="false">
+                    <!-- KS4 Dropdown (Desktop) -->
+                    <li class="group relative">
+                        <button class="desktop-dropdown-btn flex items-center text-lg" aria-expanded="false">
                             KS4
                             <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
-                        <ul class="nav-dropdown-menu">
-                            <!-- Biology Nested Dropdown -->
-                            <li class="relative">
-                                <button class="nav-dropdown-btn flex items-center w-full text-left px-4 py-2 hover:bg-casco-main-teal" aria-expanded="false">
+                        <ul class="desktop-dropdown-menu">
+                            <!-- Biology Nested Dropdown (Desktop) -->
+                            <li class="group relative">
+                                <button class="desktop-dropdown-btn flex items-center w-full text-left" aria-expanded="false">
                                     Biology
                                     <svg class="ml-auto w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                                 </button>
-                                <ul class="nav-dropdown-menu">
-                                    <li><a href="ks4/biology/b1_characteristics.html" class="block px-4 py-2 hover:bg-casco-main-teal rounded-t-md">B1. Characteristics of living organisms</a></li>
-                                    <li><a href="ks4/biology/b2_cells.html" class="block px-4 py-2 hover:bg-casco-main-teal">B2. Cells</a></li>
-                                    <li><a href="ks4/biology/b3_movement_into_out_of_cells.html" class="block px-4 py-2 hover:bg-casco-main-teal">B3. Movement into and out of cells</a></li>
-                                    <li><a href="ks4/biology/b4_biological_molecules.html" class="block px-4 py-2 hover:bg-casco-main-teal">B4. Biological molecules</a></li>
-                                    <li><a href="ks4/biology/b5_enzymes.html" class="block px-4 py-2 hover:bg-casco-main-teal">B5. Enzymes</a></li>
-                                    <li><a href="ks4/biology/b6_plant_nutrition.html" class="block px-4 py-2 hover:bg-casco-main-teal">B6. Plant nutrition</a></li>
-                                    <li><a href="ks4/biology/b7_human_nutrition.html" class="block px-4 py-2 hover:bg-casco-main-teal">B7. Human nutrition</a></li>
-                                    <li><a href="ks4/biology/b8_transport_in_plants.html" class="block px-4 py-2 hover:bg-casco-main-teal">B8. Transport in plants</a></li>
-                                    <li><a href="ks4/biology/b9_transport_in_animals.html" class="block px-4 py-2 hover:bg-casco-main-teal">B9. Transport in animals</a></li>
-                                    <li><a href="ks4/biology/b10_diseases_immunity.html" class="block px-4 py-2 hover:bg-casco-main-teal">B10. Diseases and immunity</a></li>
-                                    <li><a href="ks4/biology/b11_gas_exchange_in_humans.html" class="block px-4 py-2 hover:bg-casco-main-teal">B11. Gas exchange in humans</a></li>
-                                    <li><a href="ks4/biology/b12_respiration.html" class="block px-4 py-2 hover:bg-casco-main-teal">B12. Respiration</a></li>
-                                    <li><a href="ks4/biology/b13_coordination_response.html" class="block px-4 py-2 hover:bg-casco-main-teal">B13. Coordination and response</a></li>
-                                    <li><a href="ks4/biology/b14_drugs.html" class="block px-4 py-2 hover:bg-casco-main-teal">B14. Drugs</a></li>
-                                    <li><a href="ks4/biology/b15_reproduction.html" class="block px-4 py-2 hover:bg-casco-main-teal">B15. Reproduction</a></li>
-                                    <li><a href="ks4/biology/b16_inheritance.html" class="block px-4 py-2 hover:bg-casco-main-teal">B16. Inheritance</a></li>
-                                    <li><a href="ks4/biology/b17_variation_selection.html" class="block px-4 py-2 hover:bg-casco-main-teal">B17. Variation and selection</a></li>
-                                    <li><a href="ks4/biology/b18_organisms_environment.html" class="block px-4 py-2 hover:bg-casco-main-teal">B18. Organisms and their environment</a></li>
-                                    <li><a href="ks4/biology/b19_human_influences_ecosystems.html" class="block px-4 py-2 hover:bg-casco-main-teal rounded-b-md">B19. Human influences on ecosystems</a></li>
+                                <ul class="desktop-dropdown-menu">
+                                    <li><a href="ks4/biology/b1_characteristics.html">B1. Characteristics of living organisms</a></li>
+                                    <li><a href="ks4/biology/b2_cells.html">B2. Cells</a></li>
+                                    <li><a href="ks4/biology/b3_movement_into_out_of_cells.html">B3. Movement into and out of cells</a></li>
+                                    <li><a href="ks4/biology/b4_biological_molecules.html">B4. Biological molecules</a></li>
+                                    <li><a href="ks4/biology/b5_enzymes.html">B5. Enzymes</a></li>
+                                    <li><a href="ks4/biology/b6_plant_nutrition.html">B6. Plant nutrition</a></li>
+                                    <li><a href="ks4/biology/b7_human_nutrition.html">B7. Human nutrition</a></li>
+                                    <li><a href="ks4/biology/b8_transport_in_plants.html">B8. Transport in plants</a></li>
+                                    <li><a href="ks4/biology/b9_transport_in_animals.html">B9. Transport in animals</a></li>
+                                    <li><a href="ks4/biology/b10_diseases_immunity.html">B10. Diseases and immunity</a></li>
+                                    <li><a href="ks4/biology/b11_gas_exchange_in_humans.html">B11. Gas exchange in humans</a></li>
+                                    <li><a href="ks4/biology/b12_respiration.html">B12. Respiration</a></li>
+                                    <li><a href="ks4/biology/b13_coordination_response.html">B13. Coordination and response</a></li>
+                                    <li><a href="ks4/biology/b14_drugs.html">B14. Drugs</a></li>
+                                    <li><a href="ks4/biology/b15_reproduction.html">B15. Reproduction</a></li>
+                                    <li><a href="ks4/biology/b16_inheritance.html">B16. Inheritance</a></li>
+                                    <li><a href="ks4/biology/b17_variation_selection.html">B17. Variation and selection</a></li>
+                                    <li><a href="ks4/biology/b18_organisms_environment.html">B18. Organisms and their environment</a></li>
+                                    <li><a href="ks4/biology/b19_human_influences_ecosystems.html">B19. Human influences on ecosystems</a></li>
                                 </ul>
                             </li>
-                            <!-- Chemistry Nested Dropdown -->
-                            <li class="relative">
-                                <button class="nav-dropdown-btn flex items-center w-full text-left px-4 py-2 hover:bg-casco-main-teal" aria-expanded="false">
+                            <!-- Chemistry Nested Dropdown (Desktop) -->
+                            <li class="group relative">
+                                <button class="desktop-dropdown-btn flex items-center w-full text-left" aria-expanded="false">
                                     Chemistry
                                     <svg class="ml-auto w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                                 </button>
-                                <ul class="nav-dropdown-menu">
-                                    <li><a href="ks4/chemistry/c1_states_of_matter.html" class="block px-4 py-2 hover:bg-casco-main-teal rounded-t-md">C1. States of matter</a></li>
-                                    <li><a href="ks4/chemistry/c2_atoms_elements_compounds.html" class="block px-4 py-2 hover:bg-casco-main-teal">C2. Atoms, elements and compounds</a></li>
-                                    <li><a href="ks4/chemistry/c3_stoichiometry.html" class="block px-4 py-2 hover:bg-casco-main-teal">C3. Stoichiometry</a></li>
-                                    <li><a href="ks4/chemistry/c4_electrochemistry.html" class="block px-4 py-2 hover:bg-casco-main-teal">C4. Electrochemistry</a></li>
-                                    <li><a href="ks4/chemistry/c5_chemical_energetics.html" class="block px-4 py-2 hover:bg-casco-main-teal">C5. Chemical energetics</a></li>
-                                    <li><a href="ks4/chemistry/c6_chemical_reactions.html" class="block px-4 py-2 hover:bg-casco-main-teal">C6. Chemical reactions</a></li>
-                                    <li><a href="ks4/chemistry/c7_acids_bases_salts.html" class="block px-4 py-2 hover:bg-casco-main-teal">C7. Acids, bases and salts</a></li>
-                                    <li><a href="ks4/chemistry/c8_the_periodic_table.html" class="block px-4 py-2 hover:bg-casco-main-teal">C8. The Periodic Table</a></li>
-                                    <li><a href="ks4/chemistry/c9_metals.html" class="block px-4 py-2 hover:bg-casco-main-teal">C9. Metals</a></li>
-                                    <li><a href="ks4/chemistry/c10_chemistry_of_environment.html" class="block px-4 py-2 hover:bg-casco-main-teal">C10. Chemistry of the environment</a></li>
-                                    <li><a href="ks4/chemistry/c11_organic_chemistry.html" class="block px-4 py-2 hover:bg-casco-main-teal">C11. Organic chemistry</a></li>
-                                    <li><a href="ks4/chemistry/c12_experimental_techniques_analysis.html" class="block px-4 py-2 hover:bg-casco-main-teal rounded-b-md">C12. Experimental techniques and chemical analysis</a></li>
+                                <ul class="desktop-dropdown-menu">
+                                    <li><a href="ks4/chemistry/c1_states_of_matter.html">C1. States of matter</a></li>
+                                    <li><a href="ks4/chemistry/c2_atoms_elements_compounds.html">C2. Atoms, elements and compounds</a></li>
+                                    <li><a href="ks4/chemistry/c3_stoichiometry.html">C3. Stoichiometry</a></li>
+                                    <li><a href="ks4/chemistry/c4_electrochemistry.html">C4. Electrochemistry</a></li>
+                                    <li><a href="ks4/chemistry/c5_chemical_energetics.html">C5. Chemical energetics</a></li>
+                                    <li><a href="ks4/chemistry/c6_chemical_reactions.html">C6. Chemical reactions</a></li>
+                                    <li><a href="ks4/chemistry/c7_acids_bases_salts.html">C7. Acids, bases and salts</a></li>
+                                    <li><a href="ks4/chemistry/c8_the_periodic_table.html">C8. The Periodic Table</a></li>
+                                    <li><a href="ks4/chemistry/c9_metals.html">C9. Metals</a></li>
+                                    <li><a href="ks4/chemistry/c10_chemistry_of_environment.html">C10. Chemistry of the environment</a></li>
+                                    <li><a href="ks4/chemistry/c11_organic_chemistry.html">C11. Organic chemistry</a></li>
+                                    <li><a href="ks4/chemistry/c12_experimental_techniques_analysis.html">C12. Experimental techniques and chemical analysis</a></li>
                                 </ul>
                             </li>
-                            <!-- Physics Nested Dropdown -->
-                            <li class="relative">
-                                <button class="nav-dropdown-btn flex items-center w-full text-left px-4 py-2 hover:bg-casco-main-teal" aria-expanded="false">
+                            <!-- Physics Nested Dropdown (Desktop) -->
+                            <li class="group relative">
+                                <button class="desktop-dropdown-btn flex items-center w-full text-left" aria-expanded="false">
                                     Physics
                                     <svg class="ml-auto w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                                 </button>
-                                <ul class="nav-dropdown-menu">
-                                    <li><a href="ks4/physics/p1_motion_forces_energy.html" class="block px-4 py-2 hover:bg-casco-main-teal rounded-t-md">P1. Motion, forces and energy</a></li>
-                                    <li><a href="ks4/physics/p2_thermal_physics.html" class="block px-4 py-2 hover:bg-casco-main-teal">P2. Thermal physics</a></li>
-                                    <li><a href="ks4/physics/p3_waves.html" class="block px-4 py-2 hover:bg-casco-main-teal">P3. Waves</a></li>
-                                    <li><a href="ks4/physics/p4_electricity_magnetism.html" class="block px-4 py-2 hover:bg-casco-main-teal">P4. Electricity and magnetism</a></li>
-                                    <li><a href="ks4/physics/p5_nuclear_physics.html" class="block px-4 py-2 hover:bg-casco-main-teal">P5. Nuclear physics</a></li>
-                                    <li><a href="ks4/physics/p6_space_physics.html" class="block px-4 py-2 hover:bg-casco-main-teal">P6. Space physics</a></li>
+                                <ul class="desktop-dropdown-menu">
+                                    <li><a href="ks4/physics/p1_motion_forces_energy.html">P1. Motion, forces and energy</a></li>
+                                    <li><a href="ks4/physics/p2_thermal_physics.html">P2. Thermal physics</a></li>
+                                    <li><a href="ks4/physics/p3_waves.html">P3. Waves</a></li>
+                                    <li><a href="ks4/physics/p4_electricity_magnetism.html">P4. Electricity and magnetism</a></li>
+                                    <li><a href="ks4/physics/p5_nuclear_physics.html">P5. Nuclear physics</a></li>
+                                    <li><a href="ks4/physics/p6_space_physics.html">P6. Space physics</a></li>
                                 </ul>
                             </li>
                         </ul>
                     </li>
 
-                    <!-- KS5 Dropdown -->
-                    <li class="relative">
-                        <button class="nav-dropdown-btn flex items-center hover:text-casco-light-teal transition-colors duration-300 text-lg" aria-expanded="false">
+                    <!-- KS5 Dropdown (Desktop) -->
+                    <li class="group relative">
+                        <button class="desktop-dropdown-btn flex items-center text-lg" aria-expanded="false">
                             KS5
                             <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
-                        <ul class="nav-dropdown-menu">
-                            <li><a href="ks5/ib_biology/index.html" class="block px-4 py-2 hover:bg-casco-main-teal rounded-t-md">IB Biology</a></li>
-                            <li><a href="ks5/ib_chemistry/index.html" class="block px-4 py-2 hover:bg-casco-main-teal">IB Chemistry</a></li>
-                            <li><a href="ks5/ib_physics/index.html" class="block px-4 py-2 hover:bg-casco-main-teal">IB Physics</a></li>
+                        <ul class="desktop-dropdown-menu">
+                            <li><a href="ks5/ib_biology/index.html" class="rounded-t-md">IB Biology</a></li>
+                            <li><a href="ks5/ib_chemistry/index.html">IB Chemistry</a></li>
+                            <li><a href="ks5/ib_physics/index.html" class="rounded-b-md">IB Physics</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -300,13 +395,123 @@
         </div>
     </header>
 
+    <!-- Mobile Menu Overlay (Hidden by default) -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-casco-dark-teal z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-6 overflow-y-auto">
+        <button id="close-mobile-menu" class="self-end text-white text-4xl leading-none">&times;</button>
+        <nav class="flex-grow">
+            <ul class="space-y-2">
+                <li><a href="index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
+                
+                <!-- KS3 Accordion (Mobile) -->
+                <li>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS3
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="ks3/biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="ks3/chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="ks3/physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                    </ul>
+                </li>
+
+                <!-- KS4 Accordion (Mobile) -->
+                <li>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS4
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <!-- Biology Nested Accordion (Mobile) -->
+                        <li>
+                            <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-lg rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                                Biology
+                                <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/30 rounded-md mt-1 pl-4">
+                                <li><a href="ks4/biology/b1_characteristics.html" class="block p-3 text-white hover:bg-casco-main-teal">B1. Characteristics of living organisms</a></li>
+                                <li><a href="ks4/biology/b2_cells.html" class="block p-3 text-white hover:bg-casco-main-teal">B2. Cells</a></li>
+                                <li><a href="ks4/biology/b3_movement_into_out_of_cells.html" class="block p-3 text-white hover:bg-casco-main-teal">B3. Movement into and out of cells</a></li>
+                                <li><a href="ks4/biology/b4_biological_molecules.html" class="block p-3 text-white hover:bg-casco-main-teal">B4. Biological molecules</a></li>
+                                <li><a href="ks4/biology/b5_enzymes.html" class="block p-3 text-white hover:bg-casco-main-teal">B5. Enzymes</a></li>
+                                <li><a href="ks4/biology/b6_plant_nutrition.html" class="block p-3 text-white hover:bg-casco-main-teal">B6. Plant nutrition</a></li>
+                                <li><a href="ks4/biology/b7_human_nutrition.html" class="block p-3 text-white hover:bg-casco-main-teal">B7. Human nutrition</a></li>
+                                <li><a href="ks4/biology/b8_transport_in_plants.html" class="block p-3 text-white hover:bg-casco-main-teal">B8. Transport in plants</a></li>
+                                <li><a href="ks4/biology/b9_transport_in_animals.html" class="block p-3 text-white hover:bg-casco-main-teal">B9. Transport in animals</a></li>
+                                <li><a href="ks4/biology/b10_diseases_immunity.html" class="block p-3 text-white hover:bg-casco-main-teal">B10. Diseases and immunity</a></li>
+                                <li><a href="ks4/biology/b11_gas_exchange_in_humans.html" class="block p-3 text-white hover:bg-casco-main-teal">B11. Gas exchange in humans</a></li>
+                                <li><a href="ks4/biology/b12_respiration.html" class="block p-3 text-white hover:bg-casco-main-teal">B12. Respiration</a></li>
+                                <li><a href="ks4/biology/b13_coordination_response.html" class="block p-3 text-white hover:bg-casco-main-teal">B13. Coordination and response</a></li>
+                                <li><a href="ks4/biology/b14_drugs.html" class="block p-3 text-white hover:bg-casco-main-teal">B14. Drugs</a></li>
+                                <li><a href="ks4/biology/b15_reproduction.html" class="block p-3 text-white hover:bg-casco-main-teal">B15. Reproduction</a></li>
+                                <li><a href="ks4/biology/b16_inheritance.html" class="block p-3 text-white hover:bg-casco-main-teal">B16. Inheritance</a></li>
+                                <li><a href="ks4/biology/b17_variation_selection.html" class="block p-3 text-white hover:bg-casco-main-teal">B17. Variation and selection</a></li>
+                                <li><a href="ks4/biology/b18_organisms_environment.html" class="block p-3 text-white hover:bg-casco-main-teal">B18. Organisms and their environment</a></li>
+                                <li><a href="ks4/biology/b19_human_influences_ecosystems.html" class="block p-3 text-white hover:bg-casco-main-teal">B19. Human influences on ecosystems</a></li>
+                            </ul>
+                        </li>
+                        <!-- Chemistry Nested Accordion (Mobile) -->
+                        <li>
+                            <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-lg rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                                Chemistry
+                                <svg class="ml-1 w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/30 rounded-md mt-1 pl-4">
+                                <li><a href="ks4/chemistry/c1_states_of_matter.html" class="block p-3 text-white hover:bg-casco-main-teal">C1. States of matter</a></li>
+                                <li><a href="ks4/chemistry/c2_atoms_elements_compounds.html" class="block p-3 text-white hover:bg-casco-main-teal">C2. Atoms, elements and compounds</a></li>
+                                <li><a href="ks4/chemistry/c3_stoichiometry.html" class="block p-3 text-white hover:bg-casco-main-teal">C3. Stoichiometry</a></li>
+                                <li><a href="ks4/chemistry/c4_electrochemistry.html" class="block p-3 text-white hover:bg-casco-main-teal">C4. Electrochemistry</a></li>
+                                <li><a href="ks4/chemistry/c5_chemical_energetics.html" class="block p-3 text-white hover:bg-casco-main-teal">C5. Chemical energetics</a></li>
+                                <li><a href="ks4/chemistry/c6_chemical_reactions.html" class="block p-3 text-white hover:bg-casco-main-teal">C6. Chemical reactions</a></li>
+                                <li><a href="ks4/chemistry/c7_acids_bases_salts.html" class="block p-3 text-white hover:bg-casco-main-teal">C7. Acids, bases and salts</a></li>
+                                <li><a href="ks4/chemistry/c8_the_periodic_table.html" class="block p-3 text-white hover:bg-casco-main-teal">C8. The Periodic Table</a></li>
+                                <li><a href="ks4/chemistry/c9_metals.html" class="block p-3 text-white hover:bg-casco-main-teal">C9. Metals</a></li>
+                                <li><a href="ks4/chemistry/c10_chemistry_of_environment.html" class="block p-3 text-white hover:bg-casco-main-teal">C10. Chemistry of the environment</a></li>
+                                <li><a href="ks4/chemistry/c11_organic_chemistry.html" class="block p-3 text-white hover:bg-casco-main-teal">C11. Organic chemistry</a></li>
+                                <li><a href="ks4/chemistry/c12_experimental_techniques_analysis.html" class="block p-3 text-white hover:bg-casco-main-teal">C12. Experimental techniques and chemical analysis</a></li>
+                            </ul>
+                        </li>
+                        <!-- Physics Nested Accordion (Mobile) -->
+                        <li>
+                            <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-lg rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                                Physics
+                                <svg class="ml-1 w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/30 rounded-md mt-1 pl-4">
+                                <li><a href="ks4/physics/p1_motion_forces_energy.html" class="block p-3 text-white hover:bg-casco-main-teal">P1. Motion, forces and energy</a></li>
+                                <li><a href="ks4/physics/p2_thermal_physics.html" class="block p-3 text-white hover:bg-casco-main-teal">P2. Thermal physics</a></li>
+                                <li><a href="ks4/physics/p3_waves.html" class="block p-3 text-white hover:bg-casco-main-teal">P3. Waves</a></li>
+                                <li><a href="ks4/physics/p4_electricity_magnetism.html" class="block p-3 text-white hover:bg-casco-main-teal">P4. Electricity and magnetism</a></li>
+                                <li><a href="ks4/physics/p5_nuclear_physics.html" class="block p-3 text-white hover:bg-casco-main-teal">P5. Nuclear physics</a></li>
+                                <li><a href="ks4/physics/p6_space_physics.html" class="block p-3 text-white hover:bg-casco-main-teal">P6. Space physics</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- KS5 Accordion (Mobile) -->
+                <li>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS5
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="ks5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
+                        <li><a href="ks5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
+                        <li><a href="ks5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
     <!-- Main Content Area -->
     <main class="container mx-auto p-4 md:p-8">
         <!-- Welcome Section -->
         <section id="welcome" class="bg-white p-6 rounded-lg shadow-md mb-8">
             <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">Welcome, Casco School Scientists!</h2>
             <p class="text-lg leading-relaxed">
-                This is your central resource for all things science. Navigate through the key stages above to find comprehensive notes, engaging videos, and interactive tools to deepen your understanding in Biology, Chemistry, and Physics.
+                This is your central resource for all things science. Navigate through the menu above to find comprehensive notes, engaging videos, and interactive tools to deepen your understanding in Biology, Chemistry, and Physics.
             </p>
         </section>
 
@@ -332,71 +537,141 @@
         </div>
     </footer>
 
-    <!-- JavaScript embedded directly for reliable preview and deployment -->
+    <!-- JavaScript embedded directly for reliable deployment -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Smooth scrolling for navigation links (if applicable on a single page)
-            document.querySelectorAll('nav a').forEach(anchor => {
-                // Only apply smooth scroll if the link is to an ID on the same page
-                if (anchor.getAttribute('href').startsWith('#')) {
-                    anchor.addEventListener('click', function (e) {
-                        e.preventDefault();
-                        document.querySelector(this.getAttribute('href')).scrollIntoView({
-                            behavior: 'smooth'
+            // --- Mobile Menu / Hamburger Logic ---
+            const hamburgerButton = document.getElementById('hamburger-button');
+            const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+            const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+            if (hamburgerButton && mobileMenuOverlay) {
+                hamburgerButton.addEventListener('click', () => {
+                    mobileMenuOverlay.classList.add('is-open');
+                });
+            }
+
+            if (closeMobileMenuButton && mobileMenuOverlay) {
+                closeMobileMenuButton.addEventListener('click', () => {
+                    mobileMenuOverlay.classList.remove('is-open');
+                    // Close any open accordions when closing the main mobile menu
+                    document.querySelectorAll('#mobile-menu-overlay .mobile-accordion-content.is-open').forEach(content => {
+                        content.classList.remove('is-open');
+                        content.style.maxHeight = '0';
+                        const btn = content.previousElementSibling;
+                        if (btn) btn.setAttribute('aria-expanded', 'false');
+                    });
+                });
+            }
+
+            // --- Accordion Logic (for mobile menu) ---
+            const mobileAccordionButtons = document.querySelectorAll('.mobile-accordion-btn');
+
+            mobileAccordionButtons.forEach(button => {
+                button.addEventListener('click', function(event) {
+                    event.stopPropagation(); // Prevent click from bubbling up
+                    const content = this.nextElementSibling; // The <ul> that is the accordion content
+
+                    if (content && content.classList.contains('mobile-accordion-content')) {
+                        // Close other open accordions at the same level
+                        const parentUl = this.closest('ul'); // Get the parent <ul> (either main or nested)
+                        if (parentUl) {
+                            parentUl.querySelectorAll('.mobile-accordion-content.is-open').forEach(openContent => {
+                                if (openContent !== content) { // Don't close the one just clicked
+                                    openContent.classList.remove('is-open');
+                                    openContent.style.maxHeight = '0';
+                                    const btn = openContent.previousElementSibling;
+                                    if (btn) btn.setAttribute('aria-expanded', 'false');
+                                }
+                            });
+                        }
+                        
+                        // Toggle this accordion
+                        content.classList.toggle('is-open');
+                        if (content.classList.contains('is-open')) {
+                            content.style.maxHeight = content.scrollHeight + 'px'; // Set height dynamically
+                            button.setAttribute('aria-expanded', 'true');
+                        } else {
+                            content.style.maxHeight = '0';
+                            button.setAttribute('aria-expanded', 'false');
+                        }
+                    }
+                });
+            });
+
+            // --- Desktop Hover Logic (for desktop navigation) ---
+            const desktopNavGroups = document.querySelectorAll('#desktop-nav .group');
+
+            desktopNavGroups.forEach(groupLi => {
+                const desktopMenu = groupLi.querySelector('.desktop-dropdown-menu');
+                const desktopButton = groupLi.querySelector('.desktop-dropdown-btn');
+
+                if (desktopMenu && desktopButton) {
+                    groupLi.addEventListener('mouseenter', () => {
+                        // Close any other open top-level desktop menus
+                        document.querySelectorAll('#desktop-nav > ul > li.group.is-open').forEach(openGroup => {
+                            if (openGroup !== groupLi) {
+                                openGroup.classList.remove('is-open');
+                                const menu = openGroup.querySelector('.desktop-dropdown-menu');
+                                const btn = openGroup.querySelector('.desktop-dropdown-btn');
+                                if (menu) menu.style.display = 'none';
+                                if (btn) btn.setAttribute('aria-expanded', 'false');
+                            }
                         });
+                        
+                        // Open current menu
+                        desktopMenu.style.display = 'block';
+                        desktopButton.setAttribute('aria-expanded', 'true');
+                        groupLi.classList.add('is-open'); // For arrow rotation
+                    });
+                    groupLi.addEventListener('mouseleave', () => {
+                        // Only close if not hovering over a nested menu that's still open
+                        // This prevents flicker when moving from parent to child menu
+                        setTimeout(() => {
+                            if (!groupLi.matches(':hover')) { // Check if mouse is truly outside
+                                desktopMenu.style.display = 'none';
+                                desktopButton.setAttribute('aria-expanded', 'false');
+                                groupLi.classList.remove('is-open'); // For arrow rotation
+                            }
+                        }, 100); // Small delay to allow mouse to enter sub-menu
+                    });
+
+                    // For nested desktop menus, also ensure they close if parent is no longer hovered
+                    desktopMenu.querySelectorAll('.group').forEach(nestedGroupLi => {
+                        const nestedMenu = nestedGroupLi.querySelector('.desktop-dropdown-menu');
+                        const nestedButton = nestedGroupLi.querySelector('.desktop-dropdown-btn');
+                        if (nestedMenu && nestedButton) {
+                            nestedGroupLi.addEventListener('mouseenter', () => {
+                                nestedMenu.style.display = 'block';
+                                nestedButton.setAttribute('aria-expanded', 'true');
+                                nestedGroupLi.classList.add('is-open'); // For arrow rotation
+                            });
+                            nestedGroupLi.addEventListener('mouseleave', () => {
+                                setTimeout(() => {
+                                    if (!nestedGroupLi.matches(':hover')) {
+                                        nestedMenu.style.display = 'none';
+                                        nestedButton.setAttribute('aria-expanded', 'false');
+                                        nestedGroupLi.classList.remove('is-open'); // For arrow rotation
+                                    }
+                                }, 100); // Small delay
+                            });
+                        }
                     });
                 }
             });
 
-            // Dropdown menu functionality for all nav-dropdown-btn elements
-            const dropdownButtons = document.querySelectorAll('.nav-dropdown-btn');
-
-            dropdownButtons.forEach(button => {
-                button.addEventListener('click', function(event) {
-                    event.stopPropagation(); // Prevent click from bubbling up to document and immediately closing
-                    const parentLi = this.closest('li'); // Get the immediate parent <li>
-                    const dropdownMenu = this.nextElementSibling; // Get the next sibling, which is the <ul> menu
-
-                    if (parentLi && dropdownMenu && dropdownMenu.classList.contains('nav-dropdown-menu')) { // Ensure it's a dropdown menu
-                        // Close all other open dropdowns at the same level
-                        const siblingLis = parentLi.parentNode.children;
-                        Array.from(siblingLis).forEach(siblingLi => {
-                            if (siblingLi !== parentLi && siblingLi.tagName === 'LI') { // Check if it's another LI sibling
-                                const siblingMenu = siblingLi.querySelector('.nav-dropdown-menu');
-                                const associatedButton = siblingLi.querySelector('.nav-dropdown-btn');
-                                if (siblingMenu && siblingMenu.style.display === 'block') { // Check if visible
-                                    siblingMenu.style.display = 'none';
-                                    if (associatedButton) {
-                                        associatedButton.setAttribute('aria-expanded', 'false');
-                                    }
-                                }
-                            }
-                        });
-                        
-                        // Toggle visibility
-                        if (dropdownMenu.style.display === 'block') {
-                            dropdownMenu.style.display = 'none';
-                            button.setAttribute('aria-expanded', 'false');
-                        } else {
-                            dropdownMenu.style.display = 'block';
-                            button.setAttribute('aria-expanded', 'true');
-                        }
-                    }
-                });
-            });
-
-            // Close all dropdowns when clicking anywhere outside a dropdown button or menu
+            // Close all desktop dropdowns when clicking anywhere outside the nav (excluding mobile overlay)
             document.addEventListener('click', function(event) {
-                document.querySelectorAll('nav .nav-dropdown-menu').forEach(dropdownMenu => {
-                    const button = dropdownMenu.previousElementSibling; // Get the button associated with this menu
-                    if (button && dropdownMenu.style.display === 'block') { // Check if it's visible
-                        // Check if the click was outside the button AND outside the menu
-                        if (!button.contains(event.target) && !dropdownMenu.contains(event.target)) {
-                            dropdownMenu.style.display = 'none';
-                            button.setAttribute('aria-expanded', 'false');
-                        }
-                    }
-                });
+                if (window.innerWidth >= 768 && !event.target.closest('#desktop-nav') && !event.target.closest('#mobile-menu-overlay')) {
+                    document.querySelectorAll('#desktop-nav .desktop-dropdown-menu').forEach(menu => {
+                        menu.style.display = 'none';
+                        const btn = menu.previousElementSibling;
+                        if (btn) btn.setAttribute('aria-expanded', 'false');
+                    });
+                    document.querySelectorAll('#desktop-nav .group.is-open').forEach(group => {
+                        group.classList.remove('is-open'); // For arrow rotation
+                    });
+                }
             });
 
 

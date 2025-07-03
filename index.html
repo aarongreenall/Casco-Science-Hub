@@ -79,30 +79,29 @@
             border-radius: 0.375rem; /* rounded-md */
             padding: 0; /* Reset padding to control list item padding */
             
-            /* Initial hidden state with transition properties */
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden; /* Hide content that overflows max-height */
-            pointer-events: none; /* Prevent interaction when hidden */
-            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
-
-            /* Default positioning for top-level dropdowns (absolute) */
-            position: absolute;
-            top: 100%; /* Position below the parent button */
-            left: 0;
-            z-index: 10; /* Ensure it's above other content */
+            /* Initial hidden state */
+            display: none; 
         }
 
         /* Show dropdown when parent li has 'is-active' class */
         li.is-active > .nav-dropdown-menu {
-            max-height: 500px; /* A large enough value to show all content */
-            opacity: 1;
-            pointer-events: auto;
+            display: block; /* Force display when active */
+        }
+
+        /* Default positioning for top-level dropdowns (absolute on desktop, static on mobile) */
+        /* Mobile-first: stacked */
+        @media (min-width: 768px) { /* md breakpoint */
+            nav > ul > li > .nav-dropdown-menu {
+                position: absolute;
+                top: 100%; /* Position below the parent button */
+                left: 0;
+                z-index: 10;
+            }
         }
 
         /* Specific positioning for nested dropdowns (e.g., Biology/Chemistry/Physics topics) */
-        /* On larger screens (md:), they appear to the right */
-        @media (min-width: 768px) { /* Tailwind's 'md' breakpoint */
+        /* Mobile-first: stacked */
+        @media (min-width: 768px) { /* md breakpoint */
             .nav-dropdown-menu li > .nav-dropdown-menu { /* Target direct child UL of an LI within a dropdown */
                 position: absolute; /* Keep absolute for nested positioning */
                 top: 0; /* Align top of nested menu with its parent LI */
@@ -111,8 +110,6 @@
                 z-index: 20; /* Ensure nested menus are above their parent menus */
             }
         }
-        /* On smaller screens, nested menus will naturally stack below due to default flow */
-
 
         /* Styles for dropdown links */
         .nav-dropdown-menu a {
@@ -367,10 +364,8 @@
                             if (siblingLi !== parentLi && siblingLi.tagName === 'LI') { // Check if it's another LI sibling
                                 const siblingMenu = siblingLi.querySelector('.nav-dropdown-menu');
                                 const associatedButton = siblingLi.querySelector('.nav-dropdown-btn');
-                                if (siblingMenu && siblingMenu.style.maxHeight !== '0px') { // Check if visible
-                                    siblingMenu.style.maxHeight = '0px';
-                                    siblingMenu.style.opacity = '0';
-                                    siblingMenu.style.pointerEvents = 'none';
+                                if (siblingMenu && siblingMenu.style.display === 'block') { // Check if visible
+                                    siblingMenu.style.display = 'none';
                                     if (associatedButton) {
                                         associatedButton.setAttribute('aria-expanded', 'false');
                                     }
@@ -379,16 +374,11 @@
                         });
                         
                         // Toggle visibility
-                        if (dropdownMenu.style.maxHeight !== '0px') {
-                            dropdownMenu.style.maxHeight = '0px';
-                            dropdownMenu.style.opacity = '0';
-                            dropdownMenu.style.pointerEvents = 'none';
+                        if (dropdownMenu.style.display === 'block') {
+                            dropdownMenu.style.display = 'none';
                             button.setAttribute('aria-expanded', 'false');
                         } else {
-                            // Set a large enough max-height to contain content, or calculate dynamically
-                            dropdownMenu.style.maxHeight = dropdownMenu.scrollHeight + 'px'; // Dynamic height
-                            dropdownMenu.style.opacity = '1';
-                            dropdownMenu.style.pointerEvents = 'auto';
+                            dropdownMenu.style.display = 'block';
                             button.setAttribute('aria-expanded', 'true');
                         }
                     }
@@ -399,12 +389,10 @@
             document.addEventListener('click', function(event) {
                 document.querySelectorAll('nav .nav-dropdown-menu').forEach(dropdownMenu => {
                     const button = dropdownMenu.previousElementSibling; // Get the button associated with this menu
-                    if (button && dropdownMenu.style.maxHeight !== '0px') { // Check if it's visible
+                    if (button && dropdownMenu.style.display === 'block') { // Check if it's visible
                         // Check if the click was outside the button AND outside the menu
                         if (!button.contains(event.target) && !dropdownMenu.contains(event.target)) {
-                            dropdownMenu.style.maxHeight = '0px';
-                            dropdownMenu.style.opacity = '0';
-                            dropdownMenu.style.pointerEvents = 'none';
+                            dropdownMenu.style.display = 'none';
                             button.setAttribute('aria-expanded', 'false');
                         }
                     }

@@ -109,7 +109,7 @@
         }
 
         /* Mobile Accordion Sub-menus */
-        #mobile-menu-overlay .mobile-submenu {
+        #mobile-menu-overlay .mobile-accordion-content {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-in-out;
@@ -119,11 +119,11 @@
             padding-left: 1rem; /* Indent sub-items */
         }
 
-        #mobile-menu-overlay .mobile-submenu.is-open {
+        #mobile-menu-overlay .mobile-accordion-content.is-open {
             max-height: 500px; /* Adjust as needed for content height */
         }
 
-        #mobile-menu-overlay .mobile-submenu a, #mobile-menu-overlay .mobile-submenu button {
+        #mobile-menu-overlay .mobile-accordion-content a, #mobile-menu-overlay .mobile-accordion-content button {
             font-size: 1rem; /* text-base */
             padding: 0.5rem 1rem;
         }
@@ -172,7 +172,6 @@
                 left: 0;
                 min-width: 12rem;
                 background-color: var(--color-casco-dark-teal);
-                color: white;
                 box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
                 border-radius: 0.375rem;
                 padding: 0;
@@ -387,7 +386,7 @@
                         <ul class="desktop-dropdown-menu">
                             <li><a href="ks5/ib_biology/index.html" class="rounded-t-md">IB Biology</a></li>
                             <li><a href="ks5/ib_chemistry/index.html">IB Chemistry</a></li>
-                            <li><a href="ks5/ib_physics/index.html" class="rounded-b-md">IB Physics</a></li>
+                            <li><a href="ks5/ib_physics/index.html">IB Physics</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -573,11 +572,14 @@
                     const content = this.nextElementSibling; // The <ul> that is the accordion content
 
                     if (content && content.classList.contains('mobile-accordion-content')) {
+                        
                         // Close other open accordions at the same level
                         const parentUl = this.closest('ul'); // Get the parent <ul> (either main or nested)
                         if (parentUl) {
+                            // Find all accordion contents within this parentUl
                             parentUl.querySelectorAll('.mobile-accordion-content.is-open').forEach(openContent => {
-                                if (openContent !== content) { // Don't close the one just clicked
+                                // Only close if it's currently open and not the one just clicked
+                                if (openContent !== content) {
                                     openContent.classList.remove('is-open');
                                     openContent.style.maxHeight = '0';
                                     const btn = openContent.previousElementSibling;
@@ -607,15 +609,17 @@
                 const desktopButton = groupLi.querySelector('.desktop-dropdown-btn');
 
                 if (desktopMenu && desktopButton) {
+                    // Open on mouseenter
                     groupLi.addEventListener('mouseenter', () => {
                         // Close any other open top-level desktop menus
-                        document.querySelectorAll('#desktop-nav > ul > li.group.is-open').forEach(openGroup => {
+                        document.querySelectorAll('#desktop-nav > ul > li.group').forEach(openGroup => {
                             if (openGroup !== groupLi) {
-                                openGroup.classList.remove('is-open');
                                 const menu = openGroup.querySelector('.desktop-dropdown-menu');
                                 const btn = openGroup.querySelector('.desktop-dropdown-btn');
-                                if (menu) menu.style.display = 'none';
-                                if (btn) btn.setAttribute('aria-expanded', 'false');
+                                if (menu && menu.style.display === 'block') {
+                                    menu.style.display = 'none';
+                                    if (btn) btn.setAttribute('aria-expanded', 'false');
+                                }
                             }
                         });
                         
@@ -624,36 +628,39 @@
                         desktopButton.setAttribute('aria-expanded', 'true');
                         groupLi.classList.add('is-open'); // For arrow rotation
                     });
-                    groupLi.addEventListener('mouseleave', () => {
-                        // Only close if not hovering over a nested menu that's still open
-                        // This prevents flicker when moving from parent to child menu
+
+                    // Close on mouseleave (with a slight delay to allow moving to sub-menu)
+                    groupLi.addEventListener('mouseleave', (e) => {
+                        // Check if the mouse is truly outside the entire group (li and its children)
+                        // Use a setTimeout to allow mouse to enter the submenu before closing
                         setTimeout(() => {
                             if (!groupLi.matches(':hover')) { // Check if mouse is truly outside
                                 desktopMenu.style.display = 'none';
                                 desktopButton.setAttribute('aria-expanded', 'false');
                                 groupLi.classList.remove('is-open'); // For arrow rotation
                             }
-                        }, 100); // Small delay to allow mouse to enter sub-menu
+                        }, 150); // Increased delay
                     });
 
-                    // For nested desktop menus, also ensure they close if parent is no longer hovered
-                    desktopMenu.querySelectorAll('.group').forEach(nestedGroupLi => {
+                    // For nested desktop menus (e.g., Biology/Chemistry/Physics), ensure they open/close on hover
+                    desktopMenu.querySelectorAll('li.group').forEach(nestedGroupLi => {
                         const nestedMenu = nestedGroupLi.querySelector('.desktop-dropdown-menu');
                         const nestedButton = nestedGroupLi.querySelector('.desktop-dropdown-btn');
                         if (nestedMenu && nestedButton) {
-                            nestedGroupLi.addEventListener('mouseenter', () => {
+                            nestedGroupLi.addEventListener('mouseenter', (e) => {
+                                e.stopPropagation(); // Prevent parent menu from closing
                                 nestedMenu.style.display = 'block';
                                 nestedButton.setAttribute('aria-expanded', 'true');
                                 nestedGroupLi.classList.add('is-open'); // For arrow rotation
                             });
-                            nestedGroupLi.addEventListener('mouseleave', () => {
+                            nestedGroupLi.addEventListener('mouseleave', (e) => {
                                 setTimeout(() => {
                                     if (!nestedGroupLi.matches(':hover')) {
                                         nestedMenu.style.display = 'none';
                                         nestedButton.setAttribute('aria-expanded', 'false');
                                         nestedGroupLi.classList.remove('is-open'); // For arrow rotation
                                     }
-                                }, 100); // Small delay
+                                }, 150); // Increased delay
                             });
                         }
                     });
@@ -662,7 +669,8 @@
 
             // Close all desktop dropdowns when clicking anywhere outside the nav (excluding mobile overlay)
             document.addEventListener('click', function(event) {
-                if (window.innerWidth >= 768 && !event.target.closest('#desktop-nav') && !event.target.closest('#mobile-menu-overlay')) {
+                // Only run this if on desktop view (or if mobile overlay is not open)
+                if (window.innerWidth >= 768 && !event.target.closest('#desktop-nav') && !mobileMenuOverlay.classList.contains('is-open')) {
                     document.querySelectorAll('#desktop-nav .desktop-dropdown-menu').forEach(menu => {
                         menu.style.display = 'none';
                         const btn = menu.previousElementSibling;

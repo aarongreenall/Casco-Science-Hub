@@ -23,7 +23,7 @@
         }
     </script>
     
-    <!-- Custom CSS embedded directly for reliable preview and deployment -->
+    <!-- Custom CSS embedded directly for reliable deployment -->
     <style>
         /* Basic body font fallback */
         body {
@@ -286,7 +286,7 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
         }
-        .content-button img {
+        .content-button img, .content-button svg { /* Added svg for direct SVG embedding */
             width: 80px; /* Adjusted icon size */
             height: 80px; /* Adjusted icon size */
             object-fit: contain; /* Ensure image fits without cropping */
@@ -344,7 +344,7 @@
             
             <!-- Hamburger Button (Mobile Only) -->
             <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
-                &#9776; <!-- Hamburger icon -->
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
 
             <!-- Desktop Navigation (Visible on md and larger screens) -->
@@ -482,23 +482,23 @@
         <!-- New Buttons Section -->
         <section id="main-buttons" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             <a href="ks3/index.html" class="content-button">
-                <img src="https://placehold.co/120x120/00BFBF/ffffff/png?text=KS3%0AScience" alt="Key Stage 3 Icon">
+                <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="color: white;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253"></path></svg>
                 <span>Key Stage 3</span>
             </a>
             <a href="ks4/index.html" class="content-button">
-                <img src="https://placehold.co/120x120/00BFBF/ffffff/png?text=KS4%0AScience" alt="Key Stage 4 Icon">
+                <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="color: white;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 10.5a.75.75 0 100 1.5.75.75 0 000-1.5zM12 10.5a.75.75 0 100 1.5.75.75 0 000-1.5zM15 10.5a.75.75 0 100 1.5.75.75 0 000-1.5z"></path></svg>
                 <span>Key Stage 4</span>
             </a>
             <a href="ks5/index.html" class="content-button">
-                <img src="https://placehold.co/120x120/00BFBF/ffffff/png?text=KS5%0A(IB)" alt="Key Stage 5 Icon">
+                <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="color: white;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253"></path></svg>
                 <span>Key Stage 5 (IB)</span>
             </a>
             <a href="https://classroom.google.com" target="_blank" class="content-button">
-                <img src="https://placehold.co/120x120/00BFBF/ffffff/png?text=Google%0AClassroom" alt="Google Classroom Icon">
+                <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="color: white;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                 <span>Google Classroom</span>
             </a>
             <a href="https://notebooklm.google.com" target="_blank" class="content-button">
-                <img src="https://placehold.co/120x120/00BFBF/ffffff/png?text=Notebook%0ALM" alt="Notebook LM Icon">
+                <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="color: white;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
                 <span>Notebook LM</span>
             </a>
             <!-- Add more buttons here as needed -->

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KS5 Science - Casco School Science</title>
     <!-- Tailwind CSS CDN -->
-    <script src="../../https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Tailwind CSS custom color configuration MUST come AFTER the CDN script -->
     <script>
         tailwind.config = {
@@ -23,9 +23,43 @@
     </script>
     <!-- Custom CSS embedded directly -->
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        section { margin-bottom: 2rem; }
+        /* Basic body font fallback */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Ensure YouTube embeds are responsive (if added to sub-pages) */
+        .aspect-w-16 {
+          position: relative;
+          width: 100%;
+          padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+        }
+
+        .aspect-w-16 iframe {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+        }
+
+        /* General styling for sections to ensure consistent padding and margins */
+        section {
+            margin-bottom: 2rem;
+        }
+
+        /* Styling for the fact generator button */
+        #generateFactBtn {
+            transition: background-color 0.3s ease-in-out, transform 0.1s ease-in-out;
+        }
+
+        #generateFactBtn:active {
+            transform: scale(0.98);
+        }
+
         /* --- Navigation Specific Styles (copied from main index.html for consistency) --- */
+
+        /* Mobile Menu Overlay */
         #mobile-menu-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--color-casco-dark-teal); z-index: 50; transform: translateX(100%); transition: transform 0.3s ease-in-out; display: flex; flex-direction: column; padding: 1.5rem; overflow-y: auto;
         }
@@ -51,9 +85,9 @@
         @media (min-width: 768px) {
             #hamburger-button { display: none; }
             #desktop-nav { display: block; }
-            #desktop-nav ul { flex-direction: row; space-x-6; } /* Corrected for desktop */
-            #desktop-nav li { margin-bottom: 0; } /* Corrected for desktop */
-            #desktop-nav a { padding: 0.5rem 1rem; text-align: center; } /* Corrected for desktop */
+            #desktop-nav ul { display: flex; gap: 1.5rem; }
+            #desktop-nav li { margin-bottom: 0; }
+            #desktop-nav a { padding: 0.5rem 1rem; text-align: center; }
         }
         /* --- Content Button Styles (copied from main index.html for consistency) --- */
         .content-button {
@@ -87,9 +121,9 @@
             <nav id="desktop-nav" class="hidden md:block">
                 <ul class="flex space-x-6">
                     <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../ks3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../ks4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../ks5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                    <li><a href="../KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
+                    <li><a href="../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
+                    <li><a href="../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
                 </ul>
             </nav>
         </div>
@@ -109,9 +143,9 @@
                         <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                     <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
-                        <li><a href="chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
-                        <li><a href="physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                        <li><a href="../KS3/biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="../KS3/chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="../KS3/physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
                     </ul>
                 </li>
 
@@ -122,9 +156,9 @@
                         <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                     <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../ks4/biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
-                        <li><a href="../ks4/chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
-                        <li><a href="../ks4/physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                        <li><a href="biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
                     </ul>
                 </li>
 
@@ -135,9 +169,9 @@
                         <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                     <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../ks5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
-                        <li><a href="../ks5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
-                        <li><a href="../ks5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
+                        <li><a href="ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
+                        <li><a href="ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
+                        <li><a href="ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
                     </ul>
                 </li>
             </ul>
@@ -147,11 +181,45 @@
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
             <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">KS5 Science Overview</h2>
-            <p class="text-lg leading-relaxed">
-                Welcome to the Key Stage 5 (IB Diploma Programme) Science section! Content for IB Biology, IB Chemistry, and IB Physics will be added here soon.
+            <p class="text-lg leading-relaxed mb-6">
+                Select a subject below to explore the Key Stage 5 (IB Diploma Programme and A-Level) curricula.
             </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- A-Level Biology Button -->
+                <a href="alevel_biology/index.html" class="content-button">
+                    <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="color: white;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                    <span>A-Level Biology</span>
+                </a>
+                <!-- A-Level Chemistry Button -->
+                <a href="alevel_chemistry/index.html" class="content-button">
+                    <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="color: white;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18.75V21m0-2.25c-2.781 0-5.433-.608-7.812-1.722A9.75 9.75 0 0112 3.75c2.781 0 5.433.608 7.812 1.722A9.75 9.75 0 0112 18.75z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18.75V21m0-2.25c-2.781 0-5.433-.608-7.812-1.722A9.75 9.75 0 0112 3.75c2.781 0 5.433.608 7.812 1.722A9.75 9.75 0 0112 18.75z"></path></svg>
+                    <span>A-Level Chemistry</span>
+                </a>
+                <!-- A-Level Physics Button -->
+                <a href="alevel_physics/index.html" class="content-button">
+                    <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="color: white;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                    <span>A-Level Physics</span>
+                </a>
+                <!-- IB Biology Button -->
+                <a href="ib_biology/index.html" class="content-button">
+                    <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="color: white;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253"></path></svg>
+                    <span>IB Biology</span>
+                </a>
+                <!-- IB Chemistry Button -->
+                <a href="ib_chemistry/index.html" class="content-button">
+                    <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="color: white;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18.75V21m0-2.25c-2.781 0-5.433-.608-7.812-1.722A9.75 9.75 0 0112 3.75c2.781 0 5.433.608 7.812 1.722A9.75 9.75 0 0112 18.75z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18.75V21m0-2.25c-2.781 0-5.433-.608-7.812-1.722A9.75 9.75 0 0112 3.75c2.781 0 5.433.608 7.812 1.722A9.75 9.75 0 0112 18.75z"></path></svg>
+                    <span>IB Chemistry</span>
+                </a>
+                <!-- IB Physics Button -->
+                <a href="ib_physics/index.html" class="content-button">
+                    <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="color: white;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                    <span>IB Physics</span>
+                </a>
+            </div>
         </section>
     </main>
+
+    <!-- Footer Section -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
         <div class="container mx-auto text-center text-sm">
             &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
@@ -173,6 +241,7 @@
             if (closeMobileMenuButton && mobileMenuOverlay) {
                 closeMobileMenuButton.addEventListener('click', () => {
                     mobileMenuOverlay.classList.remove('is-open');
+                    // Close any open accordions when closing the main mobile menu
                     document.querySelectorAll('#mobile-menu-overlay .mobile-accordion-content.is-open').forEach(content => {
                         content.classList.remove('is-open');
                         content.style.maxHeight = '0';
@@ -214,6 +283,116 @@
                     }
                 });
             });
+
+            // --- Desktop Hover Logic (for desktop navigation) ---
+            // This version of index.html uses simple links for desktop nav, no hover dropdowns here.
+            // The following code is for the desktop dropdowns if they were present.
+            // It's kept here as a placeholder for other pages that might use it,
+            // but is effectively inactive for the main desktop nav on this page.
+            const desktopNavGroups = document.querySelectorAll('#desktop-nav .group');
+
+            desktopNavGroups.forEach(groupLi => {
+                const desktopMenu = groupLi.querySelector('.desktop-dropdown-menu');
+                const desktopButton = groupLi.querySelector('.desktop-dropdown-btn');
+
+                if (desktopMenu && desktopButton) {
+                    // Open on mouseenter
+                    groupLi.addEventListener('mouseenter', () => {
+                        // Close any other open top-level desktop menus
+                        document.querySelectorAll('#desktop-nav > ul > li.group').forEach(openGroup => {
+                            if (openGroup !== groupLi) {
+                                const menu = openGroup.querySelector('.desktop-dropdown-menu');
+                                const btn = openGroup.querySelector('.desktop-dropdown-btn');
+                                if (menu && menu.style.display === 'block') {
+                                    menu.style.display = 'none';
+                                    if (btn) btn.setAttribute('aria-expanded', 'false');
+                                }
+                            });
+                        }
+                        
+                        // Open current menu
+                        desktopMenu.style.display = 'block';
+                        desktopButton.setAttribute('aria-expanded', 'true');
+                        groupLi.classList.add('is-open'); // For arrow rotation
+                    });
+
+                    // Close on mouseleave (with a slight delay to allow moving to sub-menu)
+                    groupLi.addEventListener('mouseleave', (e) => {
+                        // Check if the mouse is truly outside the entire group (li and its children)
+                        // Use a setTimeout to allow mouse to enter the submenu before closing
+                        setTimeout(() => {
+                            if (!groupLi.matches(':hover')) { // Check if mouse is truly outside
+                                desktopMenu.style.display = 'none';
+                                desktopButton.setAttribute('aria-expanded', 'false');
+                                groupLi.classList.remove('is-open'); // For arrow rotation
+                            }
+                        }, 150); // Increased delay
+                    });
+
+                    // For nested desktop menus (e.g., Biology/Chemistry/Physics), ensure they open/close on hover
+                    desktopMenu.querySelectorAll('li.group').forEach(nestedGroupLi => {
+                        const nestedMenu = nestedGroupLi.querySelector('.desktop-dropdown-menu');
+                        const nestedButton = nestedGroupLi.querySelector('.desktop-dropdown-btn');
+                        if (nestedMenu && nestedButton) {
+                            nestedGroupLi.addEventListener('mouseenter', (e) => {
+                                e.stopPropagation(); // Prevent parent menu from closing
+                                nestedMenu.style.display = 'block';
+                                nestedButton.setAttribute('aria-expanded', 'true');
+                                nestedGroupLi.classList.add('is-open'); // For arrow rotation
+                            });
+                            nestedGroupLi.addEventListener('mouseleave', (e) => {
+                                setTimeout(() => {
+                                    if (!nestedGroupLi.matches(':hover')) {
+                                        nestedMenu.style.display = 'none';
+                                        nestedButton.setAttribute('aria-expanded', 'false');
+                                        nestedGroupLi.classList.remove('is-open'); // For arrow rotation
+                                    }
+                                }, 150); // Increased delay
+                            });
+                        }
+                    });
+                }
+            });
+
+            // Close all desktop dropdowns when clicking anywhere outside the nav (excluding mobile overlay)
+            document.addEventListener('click', function(event) {
+                // Only run this if on desktop view (or if mobile overlay is not open)
+                if (window.innerWidth >= 768 && !event.target.closest('#desktop-nav') && !mobileMenuOverlay.classList.contains('is-open')) {
+                    document.querySelectorAll('#desktop-nav .desktop-dropdown-menu').forEach(menu => {
+                        menu.style.display = 'none';
+                        const btn = menu.previousElementSibling;
+                        if (btn) btn.setAttribute('aria-expanded', 'false');
+                    });
+                    document.querySelectorAll('#desktop-nav .group.is-open').forEach(group => {
+                        group.classList.remove('is-open'); // For arrow rotation
+                    });
+                }
+            });
+
+
+            // Interactive Content: Science Fact Generator
+            const scienceFacts = [
+                "The human brain weighs about 3 pounds but uses 20% of the body's oxygen and calories.",
+                "A bolt of lightning is five times hotter than the surface of the Sun.",
+                "Honey never spoils. Archaeologists have found pots of honey in ancient Egyptian tombs that are over 3,000 years old and still edible.",
+                "There are more stars in the universe than grains of sand on all the beaches on Earth.",
+                "The Earth's core is as hot as the surface of the Sun.",
+                "A group of owls is called a parliament.",
+                "The fastest land animal is the cheetah, which can reach speeds of up to 70 mph (112 km/h).",
+                "The total weight of all ants on Earth is roughly equal to the total weight of all humans.",
+                "Sound travels about 4.3 times faster in water than in air.",
+                "The shortest war in history was between Britain and Zanzibar on August 27, 1896. It lasted only 38 minutes."
+            ];
+
+            const generateFactBtn = document.getElementById('generateFactBtn');
+            const scienceFactDisplay = document.getElementById('scienceFact');
+
+            if (generateFactBtn && scienceFactDisplay) {
+                generateFactBtn.addEventListener('click', () => {
+                    const randomIndex = Math.floor(Math.random() * scienceFacts.length);
+                    scienceFactDisplay.textContent = scienceFacts[randomIndex];
+                });
+            }
         });
     </script>
 </body>

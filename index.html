@@ -3,30 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KS4 Science - The Casco School Science Hub</title>
+    <title>Casco School Science</title>
+
     <!-- Tailwind CSS CDN -->
-    <script src="../../https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Tailwind CSS custom color configuration MUST come AFTER the CDN script -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'casco-main-teal': '#00BFBF',
-                        'casco-dark-teal': '#009999',
-                        'casco-light-teal': '#33EBEB',
-                        'casco-light-bg': '#E0F2F1',
+                        'casco-main-teal': '#00BFBF', /* More vibrant teal */
+                        'casco-dark-teal': '#009999', /* Darker version of new main teal */
+                        'casco-light-teal': '#33EBEB', /* Lighter version of new main teal */
+                        'casco-light-bg': '#E0F2F1', /* Retained for subtle background */
                     }
                 }
             }
         }
     </script>
-    <link rel="stylesheet" href="../../style.css">
+    
+    <!-- Custom CSS file (MUST be in the root folder) -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- MathJax for rendering equations (will be used on topic pages, but included here for consistency) -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // MathJax configuration
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <a href="index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
             
             <!-- Hamburger Button (Mobile Only) -->
             <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
@@ -36,10 +53,10 @@
             <!-- Desktop Navigation (Visible on md and larger screens) -->
             <nav id="desktop-nav" class="hidden md:block">
                 <ul class="flex space-x-6">
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../ks3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../ks4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../ks5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                    <li><a href="index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
+                    <li><a href="ks3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
+                    <li><a href="ks4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
+                    <li><a href="ks5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
                 </ul>
             </nav>
         </div>
@@ -50,7 +67,7 @@
         <button id="close-mobile-menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200" aria-label="Close mobile menu">&times;</button>
         <nav class="flex-grow">
             <ul class="space-y-2">
-                <li><a href="../../index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
+                <li><a href="index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
                 
                 <!-- KS3 Accordion (Mobile) -->
                 <li>
@@ -59,9 +76,9 @@
                         <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                     <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../ks3/biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
-                        <li><a href="../ks3/chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
-                        <li><a href="../ks3/physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                        <li><a href="ks3/biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="ks3/chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="ks3/physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
                     </ul>
                 </li>
 
@@ -79,25 +96,25 @@
                                 <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                             </button>
                             <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/30 rounded-md mt-1 pl-4">
-                                <li><a href="biology/b1_characteristics.html" class="block p-3 text-white hover:bg-casco-main-teal">B1. Characteristics of living organisms</a></li>
-                                <li><a href="biology/b2_cells.html" class="block p-3 text-white hover:bg-casco-main-teal">B2. Cells</a></li>
-                                <li><a href="biology/b3_movement_into_out_of_cells.html" class="block p-3 text-white hover:bg-casco-main-teal">B3. Movement into and out of cells</a></li>
-                                <li><a href="biology/b4_biological_molecules.html" class="block p-3 text-white hover:bg-casco-main-teal">B4. Biological molecules</a></li>
-                                <li><a href="biology/b5_enzymes.html" class="block p-3 text-white hover:bg-casco-main-teal">B5. Enzymes</a></li>
-                                <li><a href="biology/b6_plant_nutrition.html" class="block p-3 text-white hover:bg-casco-main-teal">B6. Plant nutrition</a></li>
-                                <li><a href="biology/b7_human_nutrition.html" class="block p-3 text-white hover:bg-casco-main-teal">B7. Human nutrition</a></li>
-                                <li><a href="biology/b8_transport_in_plants.html" class="block p-3 text-white hover:bg-casco-main-teal">B8. Transport in plants</a></li>
-                                <li><a href="biology/b9_transport_in_animals.html" class="block p-3 text-white hover:bg-casco-main-teal">B9. Transport in animals</a></li>
-                                <li><a href="biology/b10_diseases_immunity.html" class="block p-3 text-white hover:bg-casco-main-teal">B10. Diseases and immunity</a></li>
-                                <li><a href="biology/b11_gas_exchange_in_humans.html" class="block p-3 text-white hover:bg-casco-main-teal">B11. Gas exchange in humans</a></li>
-                                <li><a href="biology/b12_respiration.html" class="block p-3 text-white hover:bg-casco-main-teal">B12. Respiration</a></li>
-                                <li><a href="biology/b13_coordination_response.html" class="block p-3 text-white hover:bg-casco-main-teal">B13. Coordination and response</a></li>
-                                <li><a href="biology/b14_drugs.html" class="block p-3 text-white hover:bg-casco-main-teal">B14. Drugs</a></li>
-                                <li><a href="biology/b15_reproduction.html" class="block p-3 text-white hover:bg-casco-main-teal">B15. Reproduction</a></li>
-                                <li><a href="biology/b16_inheritance.html" class="block p-3 text-white hover:bg-casco-main-teal">B16. Inheritance</a></li>
-                                <li><a href="biology/b17_variation_selection.html" class="block p-3 text-white hover:bg-casco-main-teal">B17. Variation and selection</a></li>
-                                <li><a href="biology/b18_organisms_environment.html" class="block p-3 text-white hover:bg-casco-main-teal">B18. Organisms and their environment</a></li>
-                                <li><a href="biology/b19_human_influences_ecosystems.html" class="block p-3 text-white hover:bg-casco-main-teal">B19. Human influences on ecosystems</a></li>
+                                <li><a href="ks4/biology/b1_characteristics.html" class="block p-3 text-white hover:bg-casco-main-teal">B1. Characteristics of living organisms</a></li>
+                                <li><a href="ks4/biology/b2_cells.html" class="block p-3 text-white hover:bg-casco-main-teal">B2. Cells</a></li>
+                                <li><a href="ks4/biology/b3_movement_into_out_of_cells.html" class="block p-3 text-white hover:bg-casco-main-teal">B3. Movement into and out of cells</a></li>
+                                <li><a href="ks4/biology/b4_biological_molecules.html" class="block p-3 text-white hover:bg-casco-main-teal">B4. Biological molecules</a></li>
+                                <li><a href="ks4/biology/b5_enzymes.html" class="block p-3 text-white hover:bg-casco-main-teal">B5. Enzymes</a></li>
+                                <li><a href="ks4/biology/b6_plant_nutrition.html" class="block p-3 text-white hover:bg-casco-main-teal">B6. Plant nutrition</a></li>
+                                <li><a href="ks4/biology/b7_human_nutrition.html" class="block p-3 text-white hover:bg-casco-main-teal">B7. Human nutrition</a></li>
+                                <li><a href="ks4/biology/b8_transport_in_plants.html" class="block p-3 text-white hover:bg-casco-main-teal">B8. Transport in plants</a></li>
+                                <li><a href="ks4/biology/b9_transport_in_animals.html" class="block p-3 text-white hover:bg-casco-main-teal">B9. Transport in animals</a></li>
+                                <li><a href="ks4/biology/b10_diseases_immunity.html" class="block p-3 text-white hover:bg-casco-main-teal">B10. Diseases and immunity</a></li>
+                                <li><a href="ks4/biology/b11_gas_exchange_in_humans.html" class="block p-3 text-white hover:bg-casco-main-teal">B11. Gas exchange in humans</a></li>
+                                <li><a href="ks4/biology/b12_respiration.html" class="block p-3 text-white hover:bg-casco-main-teal">B12. Respiration</a></li>
+                                <li><a href="ks4/biology/b13_coordination_response.html" class="block p-3 text-white hover:bg-casco-main-teal">B13. Coordination and response</a></li>
+                                <li><a href="ks4/biology/b14_drugs.html" class="block p-3 text-white hover:bg-casco-main-teal">B14. Drugs</a></li>
+                                <li><a href="ks4/biology/b15_reproduction.html" class="block p-3 text-white hover:bg-casco-main-teal">B15. Reproduction</a></li>
+                                <li><a href="ks4/biology/b16_inheritance.html" class="block p-3 text-white hover:bg-casco-main-teal">B16. Inheritance</a></li>
+                                <li><a href="ks4/biology/b17_variation_selection.html" class="block p-3 text-white hover:bg-casco-main-teal">B17. Variation and selection</a></li>
+                                <li><a href="ks4/biology/b18_organisms_environment.html" class="block p-3 text-white hover:bg-casco-main-teal">B18. Organisms and their environment</a></li>
+                                <li><a href="ks4/biology/b19_human_influences_ecosystems.html" class="block p-3 text-white hover:bg-casco-main-teal">B19. Human influences on ecosystems</a></li>
                             </ul>
                         </li>
                         <!-- Chemistry Nested Accordion -->
@@ -107,18 +124,18 @@
                                 <svg class="ml-1 w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                             </button>
                             <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/30 rounded-md mt-1 pl-4">
-                                <li><a href="chemistry/c1_states_of_matter.html" class="block p-3 text-white hover:bg-casco-main-teal">C1. States of matter</a></li>
-                                <li><a href="chemistry/c2_atoms_elements_compounds.html" class="block p-3 text-white hover:bg-casco-main-teal">C2. Atoms, elements and compounds</a></li>
-                                <li><a href="chemistry/c3_stoichiometry.html" class="block p-3 text-white hover:bg-casco-main-teal">C3. Stoichiometry</a></li>
-                                <li><a href="chemistry/c4_electrochemistry.html" class="block p-3 text-white hover:bg-casco-main-teal">C4. Electrochemistry</a></li>
-                                <li><a href="chemistry/c5_chemical_energetics.html" class="block p-3 text-white hover:bg-casco-main-teal">C5. Chemical energetics</a></li>
-                                <li><a href="chemistry/c6_chemical_reactions.html" class="block p-3 text-white hover:bg-casco-main-teal">C6. Chemical reactions</a></li>
-                                <li><a href="chemistry/c7_acids_bases_salts.html" class="block p-3 text-white hover:bg-casco-main-teal">C7. Acids, bases and salts</a></li>
-                                <li><a href="chemistry/c8_the_periodic_table.html" class="block p-3 text-white hover:bg-casco-main-teal">C8. The Periodic Table</a></li>
-                                <li><a href="chemistry/c9_metals.html" class="block p-3 text-white hover:bg-casco-main-teal">C9. Metals</a></li>
-                                <li><a href="chemistry/c10_chemistry_of_environment.html" class="block p-3 text-white hover:bg-casco-main-teal">C10. Chemistry of the environment</a></li>
-                                <li><a href="chemistry/c11_organic_chemistry.html" class="block p-3 text-white hover:bg-casco-main-teal">C11. Organic chemistry</a></li>
-                                <li><a href="chemistry/c12_experimental_techniques_analysis.html" class="block p-3 text-white hover:bg-casco-main-teal">C12. Experimental techniques and chemical analysis</a></li>
+                                <li><a href="ks4/chemistry/c1_states_of_matter.html" class="block p-3 text-white hover:bg-casco-main-teal">C1. States of matter</a></li>
+                                <li><a href="ks4/chemistry/c2_atoms_elements_compounds.html" class="block p-3 text-white hover:bg-casco-main-teal">C2. Atoms, elements and compounds</a></li>
+                                <li><a href="ks4/chemistry/c3_stoichiometry.html" class="block p-3 text-white hover:bg-casco-main-teal">C3. Stoichiometry</a></li>
+                                <li><a href="ks4/chemistry/c4_electrochemistry.html" class="block p-3 text-white hover:bg-casco-main-teal">C4. Electrochemistry</a></li>
+                                <li><a href="ks4/chemistry/c5_chemical_energetics.html" class="block p-3 text-white hover:bg-casco-main-teal">C5. Chemical energetics</a></li>
+                                <li><a href="ks4/chemistry/c6_chemical_reactions.html" class="block p-3 text-white hover:bg-casco-main-teal">C6. Chemical reactions</a></li>
+                                <li><a href="ks4/chemistry/c7_acids_bases_salts.html" class="block p-3 text-white hover:bg-casco-main-teal">C7. Acids, bases and salts</a></li>
+                                <li><a href="ks4/chemistry/c8_the_periodic_table.html" class="block p-3 text-white hover:bg-casco-main-teal">C8. The Periodic Table</a></li>
+                                <li><a href="ks4/chemistry/c9_metals.html" class="block p-3 text-white hover:bg-casco-main-teal">C9. Metals</a></li>
+                                <li><a href="ks4/chemistry/c10_chemistry_of_environment.html" class="block p-3 text-white hover:bg-casco-main-teal">C10. Chemistry of the environment</a></li>
+                                <li><a href="ks4/chemistry/c11_organic_chemistry.html" class="block p-3 text-white hover:bg-casco-main-teal">C11. Organic chemistry</a></li>
+                                <li><a href="ks4/chemistry/c12_experimental_techniques_analysis.html" class="block p-3 text-white hover:bg-casco-main-teal">C12. Experimental techniques and chemical analysis</a></li>
                             </ul>
                         </li>
                         <!-- Physics Nested Accordion -->
@@ -128,12 +145,12 @@
                                 <svg class="ml-1 w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                             </button>
                             <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/30 rounded-md mt-1 pl-4">
-                                <li><a href="physics/p1_motion_forces_energy.html" class="block p-3 text-white hover:bg-casco-main-teal">P1. Motion, forces and energy</a></li>
-                                <li><a href="physics/p2_thermal_physics.html" class="block p-3 text-white hover:bg-casco-main-teal">P2. Thermal physics</a></li>
-                                <li><a href="physics/p3_waves.html" class="block p-3 text-white hover:bg-casco-main-teal">P3. Waves</a></li>
-                                <li><a href="physics/p4_electricity_magnetism.html" class="block p-3 text-white hover:bg-casco-main-teal">P4. Electricity and magnetism</a></li>
-                                <li><a href="physics/p5_nuclear_physics.html" class="block p-3 text-white hover:bg-casco-main-teal">P5. Nuclear physics</a></li>
-                                <li><a href="physics/p6_space_physics.html" class="block p-3 text-white hover:bg-casco-main-teal">P6. Space physics</a></li>
+                                <li><a href="ks4/physics/p1_motion_forces_energy.html" class="block p-3 text-white hover:bg-casco-main-teal">P1. Motion, forces and energy</a></li>
+                                <li><a href="ks4/physics/p2_thermal_physics.html" class="block p-3 text-white hover:bg-casco-main-teal">P2. Thermal physics</a></li>
+                                <li><a href="ks4/physics/p3_waves.html" class="block p-3 text-white hover:bg-casco-main-teal">P3. Waves</a></li>
+                                <li><a href="ks4/physics/p4_electricity_magnetism.html" class="block p-3 text-white hover:bg-casco-main-teal">P4. Electricity and magnetism</a></li>
+                                <li><a href="ks4/physics/p5_nuclear_physics.html" class="block p-3 text-white hover:bg-casco-main-teal">P5. Nuclear physics</a></li>
+                                <li><a href="ks4/physics/p6_space_physics.html" class="block p-3 text-white hover:bg-casco-main-teal">P6. Space physics</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -167,20 +184,29 @@
 
         <!-- New Buttons Section -->
         <section id="main-buttons" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            <a href="biology/index.html" class="content-button">
+            <a href="ks3/index.html" class="content-button">
                 <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="color: white;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253"></path></svg>
-                <span>Biology</span>
+                <span>Key Stage 3</span>
             </a>
-            <a href="chemistry/index.html" class="content-button">
-                <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="color: white;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18.75V21m0-2.25c-2.781 0-5.433-.608-7.812-1.722A9.75 9.75 0 0112 3.75c2.781 0 5.433.608 7.812 1.722A9.75 9.75 0 0112 18.75z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18.75V21m0-2.25c-2.781 0-5.433-.608-7.812-1.722A9.75 9.75 0 0112 3.75c2.781 0 5.433.608 7.812 1.722A9.75 9.75 0 0112 18.75z"></path></svg>
-                <span>Chemistry</span>
+            <a href="ks4/index.html" class="content-button">
+                <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="color: white;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 10.5a.75.75 0 100 1.5.75.75 0 000-1.5zM12 10.5a.75.75 0 100 1.5.75.75 0 000-1.5zM15 10.5a.75.75 0 100 1.5.75.75 0 000-1.5z"></path></svg>
+                <span>Key Stage 4</span>
             </a>
-            <a href="physics/index.html" class="content-button">
-                <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="color: white;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
-                <span>Physics</span>
+            <a href="ks5/index.html" class="content-button">
+                <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="color: white;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253"></path></svg>
+                <span>Key Stage 5 (IB)</span>
+            </a>
+            <a href="https://classroom.google.com" target="_blank" class="content-button">
+                <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="color: white;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                <span>Google Classroom</span>
+            </a>
+            <a href="https://notebooklm.google.com" target="_blank" class="content-button">
+                <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="color: white;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                <span>Notebook LM</span>
             </a>
             <!-- Add more buttons here as needed -->
         </section>
+
 
         <!-- General Interactive Content Section -->
         <section id="interactive" class="bg-white p-6 rounded-lg shadow-md mb-8">
@@ -204,177 +230,7 @@
         </div>
     </footer>
 
-    <!-- JavaScript embedded directly for reliable deployment -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // --- Mobile Menu / Hamburger Logic ---
-            const hamburgerButton = document.getElementById('hamburger-button');
-            const closeMobileMenuButton = document.getElementById('close-mobile-menu');
-            const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-
-            if (hamburgerButton && mobileMenuOverlay) {
-                hamburgerButton.addEventListener('click', () => {
-                    mobileMenuOverlay.classList.add('is-open');
-                });
-            }
-
-            if (closeMobileMenuButton && mobileMenuOverlay) {
-                closeMobileMenuButton.addEventListener('click', () => {
-                    mobileMenuOverlay.classList.remove('is-open');
-                    // Close any open accordions when closing the main mobile menu
-                    document.querySelectorAll('#mobile-menu-overlay .mobile-accordion-content.is-open').forEach(content => {
-                        content.classList.remove('is-open');
-                        content.style.maxHeight = '0';
-                        const btn = content.previousElementSibling;
-                        if (btn) btn.setAttribute('aria-expanded', 'false');
-                    });
-                });
-            }
-
-            // --- Accordion Logic (for mobile menu) ---
-            const mobileAccordionButtons = document.querySelectorAll('.mobile-accordion-btn');
-
-            mobileAccordionButtons.forEach(button => {
-                button.addEventListener('click', function(event) {
-                    event.stopPropagation(); // Prevent click from bubbling up
-                    const content = this.nextElementSibling; // The <ul> that is the accordion content
-
-                    if (content && content.classList.contains('mobile-accordion-content')) {
-                        
-                        // Close other open accordions at the same level
-                        const parentUl = this.closest('ul'); // Get the parent <ul> (either main or nested)
-                        if (parentUl) {
-                            // Find all accordion contents within this parentUl
-                            parentUl.querySelectorAll('.mobile-accordion-content.is-open').forEach(openContent => {
-                                // Only close if it's currently open and not the one just clicked
-                                if (openContent !== content) {
-                                    openContent.classList.remove('is-open');
-                                    openContent.style.maxHeight = '0';
-                                    const btn = openContent.previousElementSibling;
-                                    if (btn) btn.setAttribute('aria-expanded', 'false');
-                                }
-                            });
-                        }
-                        
-                        // Toggle this accordion
-                        content.classList.toggle('is-open');
-                        if (content.classList.contains('is-open')) {
-                            content.style.maxHeight = content.scrollHeight + 'px'; // Set height dynamically
-                            button.setAttribute('aria-expanded', 'true');
-                        } else {
-                            content.style.maxHeight = '0';
-                            button.setAttribute('aria-expanded', 'false');
-                        }
-                    }
-                });
-            });
-
-            // --- Desktop Hover Logic (for desktop navigation) ---
-            const desktopNavGroups = document.querySelectorAll('#desktop-nav .group');
-
-            desktopNavGroups.forEach(groupLi => {
-                const desktopMenu = groupLi.querySelector('.desktop-dropdown-menu');
-                const desktopButton = groupLi.querySelector('.desktop-dropdown-btn');
-
-                if (desktopMenu && desktopButton) {
-                    // Open on mouseenter
-                    groupLi.addEventListener('mouseenter', () => {
-                        // Close any other open top-level desktop menus
-                        document.querySelectorAll('#desktop-nav > ul > li.group').forEach(openGroup => {
-                            if (openGroup !== groupLi) {
-                                const menu = openGroup.querySelector('.desktop-dropdown-menu');
-                                const btn = openGroup.querySelector('.desktop-dropdown-btn');
-                                if (menu && menu.style.display === 'block') {
-                                    menu.style.display = 'none';
-                                    if (btn) btn.setAttribute('aria-expanded', 'false');
-                                }
-                            }
-                        });
-                        
-                        // Open current menu
-                        desktopMenu.style.display = 'block';
-                        desktopButton.setAttribute('aria-expanded', 'true');
-                        groupLi.classList.add('is-open'); // For arrow rotation
-                    });
-
-                    // Close on mouseleave (with a slight delay to allow moving to sub-menu)
-                    groupLi.addEventListener('mouseleave', (e) => {
-                        // Check if the mouse is truly outside the entire group (li and its children)
-                        // Use a setTimeout to allow mouse to enter the submenu before closing
-                        setTimeout(() => {
-                            if (!groupLi.matches(':hover')) { // Check if mouse is truly outside
-                                desktopMenu.style.display = 'none';
-                                desktopButton.setAttribute('aria-expanded', 'false');
-                                groupLi.classList.remove('is-open'); // For arrow rotation
-                            }
-                        }, 150); // Increased delay
-                    });
-
-                    // For nested desktop menus (e.g., Biology/Chemistry/Physics), ensure they open/close on hover
-                    desktopMenu.querySelectorAll('li.group').forEach(nestedGroupLi => {
-                        const nestedMenu = nestedGroupLi.querySelector('.desktop-dropdown-menu');
-                        const nestedButton = nestedGroupLi.querySelector('.desktop-dropdown-btn');
-                        if (nestedMenu && nestedButton) {
-                            nestedGroupLi.addEventListener('mouseenter', (e) => {
-                                e.stopPropagation(); // Prevent parent menu from closing
-                                nestedMenu.style.display = 'block';
-                                nestedButton.setAttribute('aria-expanded', 'true');
-                                nestedGroupLi.classList.add('is-open'); // For arrow rotation
-                            });
-                            nestedGroupLi.addEventListener('mouseleave', (e) => {
-                                setTimeout(() => {
-                                    if (!nestedGroupLi.matches(':hover')) {
-                                        nestedMenu.style.display = 'none';
-                                        nestedButton.setAttribute('aria-expanded', 'false');
-                                        nestedGroupLi.classList.remove('is-open'); // For arrow rotation
-                                    }
-                                }, 150); // Increased delay
-                            });
-                        }
-                    });
-                }
-            });
-
-            // Close all desktop dropdowns when clicking anywhere outside the nav (excluding mobile overlay)
-            document.addEventListener('click', function(event) {
-                // Only run this if on desktop view (or if mobile overlay is not open)
-                if (window.innerWidth >= 768 && !event.target.closest('#desktop-nav') && !mobileMenuOverlay.classList.contains('is-open')) {
-                    document.querySelectorAll('#desktop-nav .desktop-dropdown-menu').forEach(menu => {
-                        menu.style.display = 'none';
-                        const btn = menu.previousElementSibling;
-                        if (btn) btn.setAttribute('aria-expanded', 'false');
-                    });
-                    document.querySelectorAll('#desktop-nav .group.is-open').forEach(group => {
-                        group.classList.remove('is-open'); // For arrow rotation
-                    });
-                }
-            });
-
-
-            // Interactive Content: Science Fact Generator
-            const scienceFacts = [
-                "The human brain weighs about 3 pounds but uses 20% of the body's oxygen and calories.",
-                "A bolt of lightning is five times hotter than the surface of the Sun.",
-                "Honey never spoils. Archaeologists have found pots of honey in ancient Egyptian tombs that are over 3,000 years old and still edible.",
-                "There are more stars in the universe than grains of sand on all the beaches on Earth.",
-                "The Earth's core is as hot as the surface of the Sun.",
-                "A group of owls is called a parliament.",
-                "The fastest land animal is the cheetah, which can reach speeds of up to 70 mph (112 km/h).",
-                "The total weight of all ants on Earth is roughly equal to the total weight of all humans.",
-                "Sound travels about 4.3 times faster in water than in air.",
-                "The shortest war in history was between Britain and Zanzibar on August 27, 1896. It lasted only 38 minutes."
-            ];
-
-            const generateFactBtn = document.getElementById('generateFactBtn');
-            const scienceFactDisplay = document.getElementById('scienceFact');
-
-            if (generateFactBtn && scienceFactDisplay) {
-                generateFactBtn.addEventListener('click', () => {
-                    const randomIndex = Math.floor(Math.random() * scienceFacts.length);
-                    scienceFactDisplay.textContent = scienceFacts[randomIndex];
-                });
-            }
-        });
-    </script>
+    <!-- JavaScript file (MUST be in the root folder) -->
+    <script src="script.js"></script>
 </body>
 </html>

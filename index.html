@@ -23,7 +23,7 @@
         }
     </script>
     
-    <!-- Custom CSS embedded directly for reliable deployment -->
+    <!-- Custom CSS embedded directly for reliable preview and deployment -->
     <style>
         /* Basic body font fallback */
         body {
@@ -419,7 +419,7 @@
                         <li>
                             <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-lg rounded-md hover:bg-casco-main-teal" aria-expanded="false">
                                 Chemistry
-                                <svg class="ml-1 w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                             </button>
                             <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/30 rounded-md mt-1 pl-4">
                                 <li><a href="KS4/chemistry/c1_states_of_matter.html" class="block p-3 text-white hover:bg-casco-main-teal">C1. States of matter</a></li>
@@ -440,7 +440,7 @@
                         <li>
                             <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-lg rounded-md hover:bg-casco-main-teal" aria-expanded="false">
                                 Physics
-                                <svg class="ml-1 w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                             </button>
                             <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/30 rounded-md mt-1 pl-4">
                                 <li><a href="KS4/physics/p1_motion_forces_energy.html" class="block p-3 text-white hover:bg-casco-main-teal">P1. Motion, forces and energy</a></li>
@@ -471,24 +471,51 @@
     </div>
 
     <main class="container mx-auto p-4 md:p-8">
-        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">KS4 Science Overview</h2>
-            <p class="text-lg leading-relaxed mb-6">
-                Select a subject below to explore the Cambridge IGCSE Co-ordinated Sciences (Double Award) 0654 curriculum topics.
+        <!-- Welcome Section -->
+        <section id="welcome" class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">Welcome, Casco School Scientists!</h2>
+            <p class="text-lg leading-relaxed">
+                This is your central resource for all things science. Navigate through the menu above to find comprehensive notes, engaging videos, and interactive tools to deepen your understanding in Biology, Chemistry, and Physics.
             </p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <a href="biology/index.html" class="content-button">
-                    <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="color: white;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.017 12.017 0 002.944 12c0 2.87.973 5.591 2.706 7.783A11.955 11.955 0 0112 21.056c2.87 0 5.591-.973 7.783-2.706A12.017 12.017 0 0021.056 12c0-2.87-.973-5.591-2.706-7.783z"></path></svg>
-                    <span>Biology</span>
-                </a>
-                <a href="chemistry/index.html" class="content-button">
-                    <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="color: white;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18.75V21m0-2.25c-2.781 0-5.433-.608-7.812-1.722A9.75 9.75 0 0112 3.75c2.781 0 5.433.608 7.812 1.722A9.75 9.75 0 0112 18.75z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18.75V21m0-2.25c-2.781 0-5.433-.608-7.812-1.722A9.75 9.75 0 0112 3.75c2.781 0 5.433.608 7.812 1.722A9.75 9.75 0 0112 18.75z"></path></svg>
-                    <span>Chemistry</span>
-                </a>
-                <a href="physics/index.html" class="content-button">
-                    <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="color: white;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
-                    <span>Physics</span>
-                </a>
+        </section>
+
+        <!-- New Buttons Section -->
+        <section id="main-buttons" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            <a href="KS3/index.html" class="content-button">
+                <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="color: white;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253"></path></svg>
+                <span>Key Stage 3</span>
+            </a>
+            <a href="KS4/index.html" class="content-button">
+                <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="color: white;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 10.5a.75.75 0 100 1.5.75.75 0 000-1.5zM12 10.5a.75.75 0 100 1.5.75.75 0 000-1.5zM15 10.5a.75.75 0 100 1.5.75.75 0 000-1.5z"></path></svg>
+                <span>Key Stage 4</span>
+            </a>
+            <a href="KS5/index.html" class="content-button">
+                <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="color: white;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253"></path></svg>
+                <span>Key Stage 5 (IB)</span>
+            </a>
+            <a href="https://classroom.google.com" target="_blank" class="content-button">
+                <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="color: white;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                <span>Google Classroom</span>
+            </a>
+            <a href="https://notebooklm.google.com" target="_blank" class="content-button">
+                <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="color: white;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                <span>Notebook LM</span>
+            </a>
+            <!-- Add more buttons here as needed -->
+        </section>
+
+
+        <!-- General Interactive Content Section -->
+        <section id="interactive" class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">Quick Science Fact</h2>
+            <div class="space-y-6">
+                <div class="interactive-card bg-casco-light-bg p-4 rounded-lg shadow-sm text-center">
+                    <h3 class="text-lg font-medium text-gray-900 mb-2">Science Fact Generator</h3>
+                    <p id="scienceFact" class="text-gray-700 mb-4">Click the button to get a random science fact!</p>
+                    <button id="generateFactBtn" class="bg-casco-main-teal hover:bg-casco-dark-teal text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 shadow-md">
+                        Generate Fact
+                    </button>
+                </div>
             </div>
         </section>
     </main>
@@ -566,10 +593,6 @@
             });
 
             // --- Desktop Hover Logic (for desktop navigation) ---
-            // This version of index.html uses simple links for desktop nav, no hover dropdowns here.
-            // The following code is for the desktop dropdowns if they were present.
-            // It's kept here as a placeholder for other pages that might use it,
-            // but is effectively inactive for the main desktop nav on this page.
             const desktopNavGroups = document.querySelectorAll('#desktop-nav .group');
 
             desktopNavGroups.forEach(groupLi => {

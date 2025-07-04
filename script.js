@@ -1,117 +1,175 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2821
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
-{\colortbl;\red255\green255\blue255;\red77\green80\blue85;\red236\green241\blue247;\red0\green0\blue0;
-\red24\green112\blue43;\red111\green14\blue195;\red14\green110\blue109;}
-{\*\expandedcolortbl;;\cssrgb\c37255\c38824\c40784;\cssrgb\c94118\c95686\c97647;\cssrgb\c0\c0\c0;
-\cssrgb\c9412\c50196\c21961;\cssrgb\c51765\c18824\c80784;\cssrgb\c0\c50196\c50196;}
-\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\deftab720
-\pard\pardeftab720\partightenfactor0
+// script.js
 
-\f0\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 // script.js\cf0 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf0 \cb3 document.addEventListener(\cf5 \strokec5 'DOMContentLoaded'\cf0 \strokec4 , () => \{\cb1 \
-\cb3     \cf2 \strokec2 // Smooth scrolling for navigation links (if applicable on a single page)\cf0 \cb1 \strokec4 \
-\cb3     document.querySelectorAll(\cf5 \strokec5 'nav a'\cf0 \strokec4 ).forEach(anchor => \{\cb1 \
-\cb3         \cf2 \strokec2 // Only apply smooth scroll if the link is to an ID on the same page\cf0 \cb1 \strokec4 \
-\cb3         \cf6 \cb3 \strokec6 if\cf0 \cb3 \strokec4  (anchor.getAttribute(\cf5 \strokec5 'href'\cf0 \strokec4 ).startsWith(\cf5 \strokec5 '#'\cf0 \strokec4 )) \{\cb1 \
-\cb3             anchor.addEventListener(\cf5 \strokec5 'click'\cf0 \strokec4 , \cf6 \cb3 \strokec6 function\cf0 \cb3 \strokec4  (e) \{\cb1 \
-\cb3                 e.preventDefault();\cb1 \
-\cb3                 document.querySelector(\cf6 \cb3 \strokec6 this\cf0 \cb3 \strokec4 .getAttribute(\cf5 \strokec5 'href'\cf0 \strokec4 )).scrollIntoView(\{\cb1 \
-\cb3                     behavior: \cf5 \strokec5 'smooth'\cf0 \cb1 \strokec4 \
-\cb3                 \});\cb1 \
-\cb3             \});\cb1 \
-\cb3         \}\cb1 \
-\cb3     \});\cb1 \
-\
-\cb3     \cf2 \strokec2 // Dropdown menu functionality for all nav-dropdown-btn elements\cf0 \cb1 \strokec4 \
-\cb3     \cf6 \cb3 \strokec6 const\cf0 \cb3 \strokec4  dropdownButtons = document.querySelectorAll(\cf5 \strokec5 '.nav-dropdown-btn'\cf0 \strokec4 );\cb1 \
-\
-\cb3     dropdownButtons.forEach(button => \{\cb1 \
-\cb3         button.addEventListener(\cf5 \strokec5 'click'\cf0 \strokec4 , \cf6 \cb3 \strokec6 function\cf0 \cb3 \strokec4 (event) \{\cb1 \
-\cb3             event.stopPropagation(); \cf2 \strokec2 // Prevent click from bubbling up to document and immediately closing\cf0 \cb1 \strokec4 \
-\cb3             \cf6 \cb3 \strokec6 const\cf0 \cb3 \strokec4  parentLi = \cf6 \cb3 \strokec6 this\cf0 \cb3 \strokec4 .closest(\cf5 \strokec5 'li.group'\cf0 \strokec4 ); \cf2 \strokec2 // Get the parent <li> with 'group' class\cf0 \cb1 \strokec4 \
-\cb3             \cf6 \cb3 \strokec6 const\cf0 \cb3 \strokec4  dropdownMenu = \cf6 \cb3 \strokec6 this\cf0 \cb3 \strokec4 .nextElementSibling; \cf2 \strokec2 // Get the next sibling, which is the <ul> menu\cf0 \cb1 \strokec4 \
-\
-\cb3             \cf6 \cb3 \strokec6 if\cf0 \cb3 \strokec4  (parentLi && dropdownMenu && dropdownMenu.classList.contains(\cf5 \strokec5 'nav-dropdown-menu'\cf0 \strokec4 )) \{ \cf2 \strokec2 // Ensure it's a dropdown menu\cf0 \cb1 \strokec4 \
-\cb3                 \cf2 \strokec2 // Close all other open dropdowns at the same level\cf0 \cb1 \strokec4 \
-\cb3                 \cf6 \cb3 \strokec6 const\cf0 \cb3 \strokec4  siblingLis = parentLi.parentNode.children;\cb1 \
-\cb3                 \cf7 \cb3 \strokec7 Array\cf0 \cb3 \strokec4 .\cf6 \cb3 \strokec6 from\cf0 \cb3 \strokec4 (siblingLis).forEach(siblingLi => \{\cb1 \
-\cb3                     \cf6 \cb3 \strokec6 if\cf0 \cb3 \strokec4  (siblingLi !== parentLi && siblingLi.classList.contains(\cf5 \strokec5 'group'\cf0 \strokec4 )) \{\cb1 \
-\cb3                         siblingLi.classList.remove(\cf5 \strokec5 'is-active'\cf0 \strokec4 );\cb1 \
-\cb3                         \cf6 \cb3 \strokec6 const\cf0 \cb3 \strokec4  siblingMenu = siblingLi.querySelector(\cf5 \strokec5 '.nav-dropdown-menu'\cf0 \strokec4 );\cb1 \
-\cb3                         \cf6 \cb3 \strokec6 if\cf0 \cb3 \strokec4  (siblingMenu) \{\cb1 \
-\cb3                             siblingMenu.style.opacity = \cf5 \strokec5 '0'\cf0 \strokec4 ;\cb1 \
-\cb3                             siblingMenu.style.pointerEvents = \cf5 \strokec5 'none'\cf0 \strokec4 ;\cb1 \
-\cb3                             \cf6 \cb3 \strokec6 const\cf0 \cb3 \strokec4  associatedButton = siblingLi.querySelector(\cf5 \strokec5 '.nav-dropdown-btn'\cf0 \strokec4 );\cb1 \
-\cb3                             \cf6 \cb3 \strokec6 if\cf0 \cb3 \strokec4  (associatedButton) \{\cb1 \
-\cb3                                 associatedButton.setAttribute(\cf5 \strokec5 'aria-expanded'\cf0 \strokec4 , \cf5 \strokec5 'false'\cf0 \strokec4 );\cb1 \
-\cb3                             \}\cb1 \
-\cb3                         \}\cb1 \
-\cb3                     \}\cb1 \
-\cb3                 \});\cb1 \
-\cb3                 \cb1 \
-\cb3                 \cf2 \strokec2 // Toggle 'is-active' class on the clicked parent <li>\cf0 \cb1 \strokec4 \
-\cb3                 parentLi.classList.toggle(\cf5 \strokec5 'is-active'\cf0 \strokec4 );\cb1 \
-\
-\cb3                 \cf2 \strokec2 // Toggle visibility\cf0 \cb1 \strokec4 \
-\cb3                 \cf6 \cb3 \strokec6 if\cf0 \cb3 \strokec4  (parentLi.classList.contains(\cf5 \strokec5 'is-active'\cf0 \strokec4 )) \{\cb1 \
-\cb3                     dropdownMenu.style.opacity = \cf5 \strokec5 '1'\cf0 \strokec4 ;\cb1 \
-\cb3                     dropdownMenu.style.pointerEvents = \cf5 \strokec5 'auto'\cf0 \strokec4 ;\cb1 \
-\cb3                     button.setAttribute(\cf5 \strokec5 'aria-expanded'\cf0 \strokec4 , \cf5 \strokec5 'true'\cf0 \strokec4 );\cb1 \
-\cb3                 \} \cf6 \cb3 \strokec6 else\cf0 \cb3 \strokec4  \{\cb1 \
-\cb3                     dropdownMenu.style.opacity = \cf5 \strokec5 '0'\cf0 \strokec4 ;\cb1 \
-\cb3                     dropdownMenu.style.pointerEvents = \cf5 \strokec5 'none'\cf0 \strokec4 ;\cb1 \
-\cb3                     button.setAttribute(\cf5 \strokec5 'aria-expanded'\cf0 \strokec4 , \cf5 \strokec5 'false'\cf0 \strokec4 );\cb1 \
-\cb3                 \}\cb1 \
-\cb3             \}\cb1 \
-\cb3         \});\cb1 \
-\cb3     \});\cb1 \
-\
-\cb3     \cf2 \strokec2 // Close all dropdowns when clicking anywhere outside a dropdown button or menu\cf0 \cb1 \strokec4 \
-\cb3     document.addEventListener(\cf5 \strokec5 'click'\cf0 \strokec4 , \cf6 \cb3 \strokec6 function\cf0 \cb3 \strokec4 (event) \{\cb1 \
-\cb3         document.querySelectorAll(\cf5 \strokec5 'nav li.group.is-active'\cf0 \strokec4 ).forEach(activeLi => \{\cb1 \
-\cb3             \cf6 \cb3 \strokec6 if\cf0 \cb3 \strokec4  (!activeLi.contains(event.target)) \{\cb1 \
-\cb3                 activeLi.classList.remove(\cf5 \strokec5 'is-active'\cf0 \strokec4 );\cb1 \
-\cb3                 \cf6 \cb3 \strokec6 const\cf0 \cb3 \strokec4  dropdownMenu = activeLi.querySelector(\cf5 \strokec5 '.nav-dropdown-menu'\cf0 \strokec4 );\cb1 \
-\cb3                 \cf6 \cb3 \strokec6 if\cf0 \cb3 \strokec4  (dropdownMenu) \{\cb1 \
-\cb3                     dropdownMenu.style.opacity = \cf5 \strokec5 '0'\cf0 \strokec4 ;\cb1 \
-\cb3                     dropdownMenu.style.pointerEvents = \cf5 \strokec5 'none'\cf0 \strokec4 ;\cb1 \
-\cb3                     \cf6 \cb3 \strokec6 const\cf0 \cb3 \strokec4  button = activeLi.querySelector(\cf5 \strokec5 '.nav-dropdown-btn'\cf0 \strokec4 );\cb1 \
-\cb3                     \cf6 \cb3 \strokec6 if\cf0 \cb3 \strokec4  (button) \{\cb1 \
-\cb3                         button.setAttribute(\cf5 \strokec5 'aria-expanded'\cf0 \strokec4 , \cf5 \strokec5 'false'\cf0 \strokec4 );\cb1 \
-\cb3                     \}\cb1 \
-\cb3                 \}\cb1 \
-\cb3             \}\cb1 \
-\cb3         \});\cb1 \
-\cb3     \});\cb1 \
-\
-\
-\cb3     \cf2 \strokec2 // Interactive Content: Science Fact Generator\cf0 \cb1 \strokec4 \
-\cb3     \cf6 \cb3 \strokec6 const\cf0 \cb3 \strokec4  scienceFacts = [\cb1 \
-\cb3         \cf5 \strokec5 "The human brain weighs about 3 pounds but uses 20% of the body's oxygen and calories."\cf0 \strokec4 ,\cb1 \
-\cb3         \cf5 \strokec5 "A bolt of lightning is five times hotter than the surface of the Sun."\cf0 \strokec4 ,\cb1 \
-\cb3         \cf5 \strokec5 "Honey never spoils. Archaeologists have found pots of honey in ancient Egyptian tombs that are over 3,000 years old and still edible."\cf0 \strokec4 ,\cb1 \
-\cb3         \cf5 \strokec5 "There are more stars in the universe than grains of sand on all the beaches on Earth."\cf0 \strokec4 ,\cb1 \
-\cb3         \cf5 \strokec5 "The Earth's core is as hot as the surface of the Sun."\cf0 \strokec4 ,\cb1 \
-\cb3         \cf5 \strokec5 "A group of owls is called a parliament."\cf0 \strokec4 ,\cb1 \
-\cb3         \cf5 \strokec5 "The fastest land animal is the cheetah, which can reach speeds of up to 70 mph (112 km/h)."\cf0 \strokec4 ,\cb1 \
-\cb3         \cf5 \strokec5 "The total weight of all ants on Earth is roughly equal to the total weight of all humans."\cf0 \strokec4 ,\cb1 \
-\cb3         \cf5 \strokec5 "Sound travels about 4.3 times faster in water than in air."\cf0 \strokec4 ,\cb1 \
-\cb3         \cf5 \strokec5 "The shortest war in history was between Britain and Zanzibar on August 27, 1896. It lasted only 38 minutes."\cf0 \cb1 \strokec4 \
-\cb3     ];\cb1 \
-\
-\cb3     \cf6 \cb3 \strokec6 const\cf0 \cb3 \strokec4  generateFactBtn = document.getElementById(\cf5 \strokec5 'generateFactBtn'\cf0 \strokec4 );\cb1 \
-\cb3     \cf6 \cb3 \strokec6 const\cf0 \cb3 \strokec4  scienceFactDisplay = document.getElementById(\cf5 \strokec5 'scienceFact'\cf0 \strokec4 );\cb1 \
-\
-\cb3     \cf6 \cb3 \strokec6 if\cf0 \cb3 \strokec4  (generateFactBtn && scienceFactDisplay) \{\cb1 \
-\cb3         generateFactBtn.addEventListener(\cf5 \strokec5 'click'\cf0 \strokec4 , () => \{\cb1 \
-\cb3             \cf6 \cb3 \strokec6 const\cf0 \cb3 \strokec4  randomIndex = \cf7 \cb3 \strokec7 Math\cf0 \cb3 \strokec4 .floor(\cf7 \cb3 \strokec7 Math\cf0 \cb3 \strokec4 .random() * scienceFacts.length);\cb1 \
-\cb3             scienceFactDisplay.textContent = scienceFacts[randomIndex];\cb1 \
-\cb3         \});\cb1 \
-\cb3     \}\cb1 \
-\cb3 \});\cb1 \
-\
-}
+document.addEventListener('DOMContentLoaded', () => {
+    // --- Mobile Menu / Hamburger Logic ---
+    const hamburgerButton = document.getElementById('hamburger-button');
+    const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+    if (hamburgerButton && mobileMenuOverlay) {
+        hamburgerButton.addEventListener('click', () => {
+            mobileMenuOverlay.classList.add('is-open');
+        });
+    }
+
+    if (closeMobileMenuButton && mobileMenuOverlay) {
+        closeMobileMenuButton.addEventListener('click', () => {
+            mobileMenuOverlay.classList.remove('is-open');
+            // Close any open accordions when closing the main mobile menu
+            document.querySelectorAll('#mobile-menu-overlay .mobile-accordion-content.is-open').forEach(content => {
+                content.classList.remove('is-open');
+                content.style.maxHeight = '0';
+                const btn = content.previousElementSibling;
+                if (btn) btn.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
+
+    // --- Accordion Logic (for mobile menu) ---
+    const mobileAccordionButtons = document.querySelectorAll('.mobile-accordion-btn');
+
+    mobileAccordionButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.stopPropagation(); // Prevent click from bubbling up
+            const content = this.nextElementSibling; // The <ul> that is the accordion content
+
+            if (content && content.classList.contains('mobile-accordion-content')) {
+                
+                // Close other open accordions at the same level
+                const parentUl = this.closest('ul'); // Get the parent <ul> (either main or nested)
+                if (parentUl) {
+                    // Find all accordion contents within this parentUl
+                    parentUl.querySelectorAll('.mobile-accordion-content.is-open').forEach(openContent => {
+                        // Only close if it's currently open and not the one just clicked
+                        if (openContent !== content) {
+                            openContent.classList.remove('is-open');
+                            openContent.style.maxHeight = '0';
+                            const btn = openContent.previousElementSibling;
+                            if (btn) btn.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                }
+                
+                // Toggle this accordion
+                content.classList.toggle('is-open');
+                if (content.classList.contains('is-open')) {
+                    content.style.maxHeight = content.scrollHeight + 'px'; // Set height dynamically
+                    button.setAttribute('aria-expanded', 'true');
+                } else {
+                    content.style.maxHeight = '0';
+                    button.setAttribute('aria-expanded', 'false');
+                }
+            }
+        });
+    });
+
+    // --- Desktop Hover Logic (for desktop navigation) ---
+    // This version of index.html uses simple links for desktop nav, no hover dropdowns here.
+    // The following code is for the desktop dropdowns if they were present.
+    // It's kept here as a placeholder for other pages that might use it,
+    // but is effectively inactive for the main desktop nav on this page.
+    const desktopNavGroups = document.querySelectorAll('#desktop-nav .group');
+
+    desktopNavGroups.forEach(groupLi => {
+        const desktopMenu = groupLi.querySelector('.desktop-dropdown-menu');
+        const desktopButton = groupLi.querySelector('.desktop-dropdown-btn');
+
+        if (desktopMenu && desktopButton) {
+            // Open on mouseenter
+            groupLi.addEventListener('mouseenter', () => {
+                // Close any other open top-level desktop menus
+                document.querySelectorAll('#desktop-nav > ul > li.group').forEach(openGroup => {
+                    if (openGroup !== groupLi) {
+                        const menu = openGroup.querySelector('.desktop-dropdown-menu');
+                        const btn = openGroup.querySelector('.desktop-dropdown-btn');
+                        if (menu && menu.style.display === 'block') {
+                            menu.style.display = 'none';
+                            if (btn) btn.setAttribute('aria-expanded', 'false');
+                        }
+                    }
+                });
+                
+                // Open current menu
+                desktopMenu.style.display = 'block';
+                desktopButton.setAttribute('aria-expanded', 'true');
+                groupLi.classList.add('is-open'); // For arrow rotation
+            });
+
+            // Close on mouseleave (with a slight delay to allow moving to sub-menu)
+            groupLi.addEventListener('mouseleave', (e) => {
+                // Check if the mouse is truly outside the entire group (li and its children)
+                // Use a setTimeout to allow mouse to enter the submenu before closing
+                setTimeout(() => {
+                    if (!groupLi.matches(':hover')) { // Check if mouse is truly outside
+                        desktopMenu.style.display = 'none';
+                        desktopButton.setAttribute('aria-expanded', 'false');
+                        groupLi.classList.remove('is-open'); // For arrow rotation
+                    }
+                }, 150); // Increased delay
+            });
+
+            // For nested desktop menus (e.g., Biology/Chemistry/Physics), ensure they open/close on hover
+            desktopMenu.querySelectorAll('li.group').forEach(nestedGroupLi => {
+                const nestedMenu = nestedGroupLi.querySelector('.desktop-dropdown-menu');
+                const nestedButton = nestedGroupLi.querySelector('.desktop-dropdown-btn');
+                if (nestedMenu && nestedButton) {
+                    nestedGroupLi.addEventListener('mouseenter', (e) => {
+                        e.stopPropagation(); // Prevent parent menu from closing
+                        nestedMenu.style.display = 'block';
+                        nestedButton.setAttribute('aria-expanded', 'true');
+                        nestedGroupLi.classList.add('is-open'); // For arrow rotation
+                    });
+                    nestedGroupLi.addEventListener('mouseleave', (e) => {
+                        setTimeout(() => {
+                            if (!nestedGroupLi.matches(':hover')) {
+                                nestedMenu.style.display = 'none';
+                                nestedButton.setAttribute('aria-expanded', 'false');
+                                nestedGroupLi.classList.remove('is-open'); // For arrow rotation
+                            }
+                        }, 150); // Increased delay
+                    });
+                }
+            });
+        }
+    });
+
+    // Close all desktop dropdowns when clicking anywhere outside the nav (excluding mobile overlay)
+    document.addEventListener('click', function(event) {
+        // Only run this if on desktop view (or if mobile overlay is not open)
+        if (window.innerWidth >= 768 && !event.target.closest('#desktop-nav') && !mobileMenuOverlay.classList.contains('is-open')) {
+            document.querySelectorAll('#desktop-nav .desktop-dropdown-menu').forEach(menu => {
+                menu.style.display = 'none';
+                const btn = menu.previousElementSibling;
+                if (btn) btn.setAttribute('aria-expanded', 'false');
+            });
+            document.querySelectorAll('#desktop-nav .group.is-open').forEach(group => {
+                group.classList.remove('is-open'); // For arrow rotation
+            });
+        }
+    });
+
+
+    // Interactive Content: Science Fact Generator
+    const scienceFacts = [
+        "The human brain weighs about 3 pounds but uses 20% of the body's oxygen and calories.",
+        "A bolt of lightning is five times hotter than the surface of the Sun.",
+        "Honey never spoils. Archaeologists have found pots of honey in ancient Egyptian tombs that are over 3,000 years old and still edible.",
+        "There are more stars in the universe than grains of sand on all the beaches on Earth.",
+        "The Earth's core is as hot as the surface of the Sun.",
+        "A group of owls is called a parliament.",
+        "The fastest land animal is the cheetah, which can reach speeds of up to 70 mph (112 km/h).",
+        "The total weight of all ants on Earth is roughly equal to the total weight of all humans.",
+        "Sound travels about 4.3 times faster in water than in air.",
+        "The shortest war in history was between Britain and Zanzibar on August 27, 1896. It lasted only 38 minutes."
+    ];
+
+    const generateFactBtn = document.getElementById('generateFactBtn');
+    const scienceFactDisplay = document.getElementById('scienceFact');
+
+    if (generateFactBtn && scienceFactDisplay) {
+        generateFactBtn.addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * scienceFacts.length);
+            scienceFactDisplay.textContent = scienceFacts[randomIndex];
+        });
+    }
+});

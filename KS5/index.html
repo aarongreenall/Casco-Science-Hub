@@ -1,85 +1,220 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.4">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #6d6d6d; -webkit-text-stroke: #6d6d6d}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #6b0001; -webkit-text-stroke: #6b0001}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #fb0007; -webkit-text-stroke: #fb0007}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #0000ff; -webkit-text-stroke: #0000ff}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; -webkit-text-stroke: #000000}
-    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #4d5055; -webkit-text-stroke: #4d5055}
-    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; -webkit-text-stroke: #000000; min-height: 16.0px}
-    span.s1 {font-kerning: none; background-color: #ecf1f7}
-    span.s2 {font-kerning: none; color: #fb0007; background-color: #ecf1f7; -webkit-text-stroke: 0px #fb0007}
-    span.s3 {font-kerning: none; color: #2a2a2a; background-color: #ecf1f7; -webkit-text-stroke: 0px #2a2a2a}
-    span.s4 {font-kerning: none; color: #000000; background-color: #ecf1f7; -webkit-text-stroke: 0px #000000}
-    span.s5 {font-kerning: none; color: #0000ff; background-color: #ecf1f7; -webkit-text-stroke: 0px #0000ff}
-    span.s6 {font-kerning: none; color: #6b0001; background-color: #ecf1f7; -webkit-text-stroke: 0px #6b0001}
-    span.s7 {font-kerning: none; color: #18702b; background-color: #ecf1f7; -webkit-text-stroke: 0px #18702b}
-    span.s8 {font-kerning: none}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KS5 Science - Casco School Science</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="../../https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS custom color configuration MUST come AFTER the CDN script -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Custom CSS embedded directly -->
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        section { margin-bottom: 2rem; }
+        /* --- Navigation Specific Styles (copied from main index.html for consistency) --- */
+        #mobile-menu-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--color-casco-dark-teal); z-index: 50; transform: translateX(100%); transition: transform 0.3s ease-in-out; display: flex; flex-direction: column; padding: 1.5rem; overflow-y: auto;
+        }
+        #mobile-menu-overlay.is-open { transform: translateX(0); }
+        #mobile-menu-overlay ul { list-style: none; padding: 0; margin: 0; }
+        #mobile-menu-overlay li { margin-bottom: 0.5rem; position: relative; }
+        #mobile-menu-overlay a, #mobile-menu-overlay button {
+            display: block; width: 100%; padding: 0.75rem 1rem; color: white; text-align: left; font-size: 1.125rem; border-radius: 0.375rem; transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+        }
+        #mobile-menu-overlay a:hover, #mobile-menu-overlay button:hover { background-color: var(--color-casco-main-teal); }
+        #mobile-menu-overlay .mobile-accordion-content {
+            max-height: 0; overflow: hidden; transition: max-height 0.3s ease-in-out; background-color: rgba(0, 0, 0, 0.2); border-radius: 0.375rem; margin-top: 0.25rem; padding-left: 1rem;
+        }
+        #mobile-menu-overlay .mobile-accordion-content.is-open { max-height: 500px; }
+        #mobile-menu-overlay .mobile-accordion-content a, #mobile-menu-overlay .mobile-accordion-content button { font-size: 1rem; padding: 0.5rem 1rem; }
+        #hamburger-button {
+            display: block; background: none; border: none; color: white; font-size: 2rem; cursor: pointer; z-index: 60; position: absolute; right: 1.5rem; top: 1.5rem;
+        }
+        #close-mobile-menu {
+            align-self: flex-end; background: none; border: none; color: white; font-size: 2rem; cursor: pointer; margin-bottom: 1rem;
+        }
+        #desktop-nav { display: none; }
+        @media (min-width: 768px) {
+            #hamburger-button { display: none; }
+            #desktop-nav { display: block; }
+            #desktop-nav ul { flex-direction: row; space-x-6; } /* Corrected for desktop */
+            #desktop-nav li { margin-bottom: 0; } /* Corrected for desktop */
+            #desktop-nav a { padding: 0.5rem 1rem; text-align: center; } /* Corrected for desktop */
+        }
+        /* --- Content Button Styles (copied from main index.html for consistency) --- */
+        .content-button {
+            display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1rem; background-color: var(--color-casco-main-teal); color: white; border-radius: 0.75rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out; text-align: center; text-decoration: none; min-height: 150px;
+        }
+        .content-button:hover {
+            background-color: var(--color-casco-dark-teal); transform: translateY(-2px); box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+        .content-button svg {
+            width: 80px; height: 80px; object-fit: contain; margin-bottom: 0.5rem; border-radius: 0.5rem; background-color: rgba(255,255,255,0.2); padding: 5px; color: white;
+        }
+        .content-button span {
+            font-weight: 600; font-size: 1.125rem; line-height: 1.25; color: black;
+        }
+        #main-buttons {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem;
+        }
+    </style>
 </head>
-<body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE</span><span class="s2"> html</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s3">&lt;</span><span class="s1">html</span><span class="s4"> </span><span class="s2">lang</span><span class="s3">=</span><span class="s5">"en"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s3">&lt;</span><span class="s1">head</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">meta</span><span class="s4"> </span><span class="s1">charset</span><span class="s3">=</span><span class="s5">"UTF-8"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">meta</span><span class="s4"> </span><span class="s2">name</span><span class="s3">=</span><span class="s1">"viewport"</span><span class="s4"> </span><span class="s2">content</span><span class="s3">=</span><span class="s1">"width=device-width, initial-scale=1.0"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">title</span><span class="s3">&gt;</span><span class="s1">KS5 Science - The Casco School Science Hub</span><span class="s3">&lt;/</span><span class="s6">title</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- Tailwind CSS CDN --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">script</span><span class="s4"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"../../https://cdn.tailwindcss.com"</span><span class="s3">&gt;&lt;/</span><span class="s6">script</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- Tailwind CSS custom color configuration MUST come AFTER the CDN script --&gt;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s1">script</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>tailwind.config = {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>theme: {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>extend: {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>colors: {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s7">'casco-main-teal'</span><span class="s1">: </span><span class="s7">'#00BFBF'</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s7">'casco-dark-teal'</span><span class="s1">: </span><span class="s7">'#009999'</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s7">'casco-light-teal'</span><span class="s1">: </span><span class="s7">'#33EBEB'</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s7">'casco-light-bg'</span><span class="s1">: </span><span class="s7">'#E0F2F1'</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">script</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">link</span><span class="s4"> </span><span class="s2">rel</span><span class="s3">=</span><span class="s1">"stylesheet"</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"../../style.css"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s3">&lt;/</span><span class="s1">head</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s3">&lt;</span><span class="s6">body</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"font-sans bg-gray-100 text-gray-800"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">header</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"container mx-auto flex flex-col md:flex-row justify-between items-center"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">h1</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-3xl md:text-4xl font-bold mb-2 md:mb-0"</span><span class="s3">&gt;</span><span class="s1">KS5 Science (IB Diploma Programme)</span><span class="s3">&lt;/</span><span class="s6">h1</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">nav</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">ul</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex space-x-4 md:space-x-6"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">li</span><span class="s3">&gt;&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"../../index.html"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"hover:text-casco-light-teal transition-colors duration-300 text-lg"</span><span class="s3">&gt;</span><span class="s4">Home</span><span class="s3">&lt;/</span><span class="s6">a</span><span class="s3">&gt;&lt;/</span><span class="s6">li</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;!-- You might add subject links here later if needed for KS5 --&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">ul</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">nav</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">header</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">main</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"container mx-auto p-4 md:p-8"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">section</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white p-6 rounded-lg shadow-md mb-8"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">h2</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-2xl font-semibold text-casco-main-teal mb-4"</span><span class="s3">&gt;</span><span class="s4">KS5 Science Overview</span><span class="s3">&lt;/</span><span class="s6">h2</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-lg leading-relaxed"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>Welcome to the Key Stage 5 (IB Diploma Programme) Science section! Content for IB Biology, IB Chemistry, and IB Physics will be added here soon.</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-4 text-lg leading-relaxed"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>As the IB Coordinator, you know the depth and breadth of these subjects. We'll build out comprehensive resources here.</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">section</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s6">main</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">footer</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"container mx-auto text-center text-sm"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>&amp;copy; 2025 The Casco School Science Department.</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">footer</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s3">&lt;/</span><span class="s1">body</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s3">&lt;/</span><span class="s1">html</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s8"></span><br></p>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            
+            <!-- Hamburger Button (Mobile Only) -->
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776; <!-- Hamburger icon -->
+            </button>
+
+            <!-- Desktop Navigation (Visible on md and larger screens) -->
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
+                    <li><a href="../ks3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
+                    <li><a href="../ks4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
+                    <li><a href="../ks5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay (Hidden by default) -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-casco-dark-teal z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-6 overflow-y-auto">
+        <button id="close-mobile-menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200" aria-label="Close mobile menu">&times;</button>
+        <nav class="flex-grow">
+            <ul class="space-y-2">
+                <li><a href="../../index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
+                
+                <!-- KS3 Accordion (Mobile) -->
+                <li>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS3
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                    </ul>
+                </li>
+
+                <!-- KS4 Accordion (Mobile) -->
+                <li>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS4
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="../ks4/biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="../ks4/chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="../ks4/physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                    </ul>
+                </li>
+
+                <!-- KS5 Accordion (Mobile) -->
+                <li>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS5
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="../ks5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
+                        <li><a href="../ks5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
+                        <li><a href="../ks5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">KS5 Science Overview</h2>
+            <p class="text-lg leading-relaxed">
+                Welcome to the Key Stage 5 (IB Diploma Programme) Science section! Content for IB Biology, IB Chemistry, and IB Physics will be added here soon.
+            </p>
+        </section>
+    </main>
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">
+            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Mobile Menu / Hamburger Logic ---
+            const hamburgerButton = document.getElementById('hamburger-button');
+            const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+            const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+            if (hamburgerButton && mobileMenuOverlay) {
+                hamburgerButton.addEventListener('click', () => {
+                    mobileMenuOverlay.classList.add('is-open');
+                });
+            }
+
+            if (closeMobileMenuButton && mobileMenuOverlay) {
+                closeMobileMenuButton.addEventListener('click', () => {
+                    mobileMenuOverlay.classList.remove('is-open');
+                    document.querySelectorAll('#mobile-menu-overlay .mobile-accordion-content.is-open').forEach(content => {
+                        content.classList.remove('is-open');
+                        content.style.maxHeight = '0';
+                        const btn = content.previousElementSibling;
+                        if (btn) btn.setAttribute('aria-expanded', 'false');
+                    });
+                });
+            }
+
+            // --- Accordion Logic (for mobile menu) ---
+            const mobileAccordionButtons = document.querySelectorAll('.mobile-accordion-btn');
+
+            mobileAccordionButtons.forEach(button => {
+                button.addEventListener('click', function(event) {
+                    event.stopPropagation();
+                    const content = this.nextElementSibling;
+
+                    if (content && content.classList.contains('mobile-accordion-content')) {
+                        const parentUl = this.closest('ul');
+                        if (parentUl) {
+                            parentUl.querySelectorAll('.mobile-accordion-content.is-open').forEach(openContent => {
+                                if (openContent !== content) {
+                                    openContent.classList.remove('is-open');
+                                    openContent.style.maxHeight = '0';
+                                    const btn = openContent.previousElementSibling;
+                                    if (btn) btn.setAttribute('aria-expanded', 'false');
+                                }
+                            });
+                        }
+                        
+                        content.classList.toggle('is-open');
+                        if (content.classList.contains('is-open')) {
+                            content.style.maxHeight = content.scrollHeight + 'px';
+                            button.setAttribute('aria-expanded', 'true');
+                        } else {
+                            content.style.maxHeight = '0';
+                            button.setAttribute('aria-expanded', 'false');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>B15.4 Sexual reproduction in humans - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN - MUST COME FIRST -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS custom color configuration - MUST COME AFTER CDN -->
     <script>
         tailwind.config = {
             theme: {
@@ -19,68 +22,247 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+    
+    <!-- Link to external custom CSS file (assumed to be in repository root) -->
+    <link rel="stylesheet" href="../../../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="/Casco-Science-Hub/index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            
+            <!-- Hamburger Button (Mobile Only) -->
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776; <!-- Hamburger icon -->
+            </button>
+
+            <!-- Desktop Navigation (Visible on md and larger screens) -->
             <nav id="desktop-nav" class="hidden md:block">
                 <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../../KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                    <li><a href="/Casco-Science-Hub/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
+                    <li><a href="../../KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
+                    <li><a href="../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
+                    <li><a href="../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+
+    <!-- Mobile Menu Overlay (Hidden by default) -->
     <div id="mobile-menu-overlay" class="fixed inset-0 bg-casco-dark-teal z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-6 overflow-y-auto">
-        <button id="close-mobile-menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200" aria-label="Close mobile menu">&times;</button>
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&times;</button>
         <nav class="flex-grow">
             <ul class="space-y-2">
-                <li><a href="../../../index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
+                <li><a href="/Casco-Science-Hub/index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
+                
+                <!-- KS3 Accordion (Mobile) -->
                 <li>
-                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">KS3 <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS3
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
                     <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../../../KS3/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
-                        <li><a href="../../../KS3/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
-                        <li><a href="../../../KS3/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
                     </ul>
                 </li>
+
+                <!-- KS4 Accordion (Mobile) -->
                 <li>
-                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="true">KS4 <svg class="w-6 h-6 transform transition-transform duration-200 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-screen bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
-                        <li><a href="../../Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
-                        <li><a href="../../Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS4
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="../Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="../Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="../Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
                     </ul>
                 </li>
+
+                <!-- KS5 Accordion (Mobile) -->
                 <li>
-                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">KS5 <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS5
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
                     <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../../../KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
+                        <li><a href="../../KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
+                        <li><a href="../../KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
+                        <li><a href="../../KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </div>
+
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
             <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">B15.4 Sexual reproduction in humans</h2>
             <p class="text-lg leading-relaxed mb-6">
-                Content for B15.4 Sexual reproduction in humans will be added here.
+                **Sexual reproduction in humans** is a complex biological process that involves the fusion of male and female gametes to form a zygote, leading to the development of genetically unique offspring. This process ensures genetic variation within the human population, which is vital for adaptation and survival. Understanding the structures of the male and female reproductive systems, the processes of puberty, menstruation, fertilization, and fetal development is crucial for comprehending human life cycles.
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Learning Objectives:</h3>
+            <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-6">
+                <li>Identify in diagrams and images the main parts of the male reproductive system, limited to: testes, scrotum, sperm ducts, prostate gland, urethra, penis.</li>
+                <li>State the functions of the structures listed in 15.4.1.</li>
+                <li>Identify in diagrams and images the main parts of the female reproductive system, limited to: ovaries, oviducts (fallopian tubes), uterus, cervix, vagina.</li>
+                <li>State the functions of the structures listed in 15.4.3.</li>
+                <li>Describe the roles of oestrogen and progesterone in the menstrual cycle, limited to: oestrogen – causes rebuilding of uterus lining and stimulates LH; progesterone – maintains uterus lining.</li>
+                <li>Describe fertilisation as the fusion of the nucleus of the sperm and the nucleus of the egg cell.</li>
+                <li>Describe the early development of the zygote, limited to: zygote $\rightarrow$ embryo $\rightarrow$ fetus.</li>
+                <li>Describe the functions of the placenta and umbilical cord.</li>
+                <li>Describe the advantages and disadvantages of: breast-feeding; bottle-feeding.</li>
+                <li>Describe the advantages and disadvantages of: natural methods of birth control; chemical methods of birth control, limited to oral contraceptives; mechanical methods of birth control, limited to condoms; surgical methods of birth control, limited to vasectomy and female sterilisation.</li>
+            </ol>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Human Reproductive Systems:</h3>
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Male Reproductive System:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                The male reproductive system is adapted for the production and delivery of sperm (male gametes).
+            </p>
+            <div class="flex justify-center my-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Male_reproductive_system_diagram.svg/640px-Male_reproductive_system_diagram.svg.png" alt="Male Reproductive System Diagram" class="rounded-lg shadow-md max-w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Male+Repro';">
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                *Figure: Diagram illustrating the main parts of the male reproductive system.*
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Testes (singular: testis):** Produce sperm and male hormones (e.g., testosterone).</li>
+                <li>**Scrotum:** Sac that holds the testes outside the body, keeping them at an optimal temperature for sperm production.</li>
+                <li>**Sperm ducts (vas deferens):** Tubes that carry sperm from the testes to the urethra.</li>
+                <li>**Prostate gland:** Secretes fluid that nourishes and protects sperm, forming semen.</li>
+                <li>**Urethra:** Tube that carries urine and semen out of the body through the penis.</li>
+                <li>**Penis:** External organ adapted for sexual intercourse and urination.</li>
+            </ul>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Female Reproductive System:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                The female reproductive system is adapted for the production of egg cells (female gametes), fertilization, and supporting fetal development.
+            </p>
+            <div class="flex justify-center my-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Female_reproductive_system_diagram.svg/640px-Female_reproductive_system_diagram.svg.png" alt="Female Reproductive System Diagram" class="rounded-lg shadow-md max-w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Female+Repro';">
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                *Figure: Diagram illustrating the main parts of the female reproductive system.*
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Ovaries:** Produce egg cells and female hormones (e.g., oestrogen, progesterone).</li>
+                <li>**Oviducts (Fallopian tubes):** Tubes that carry egg cells from the ovaries to the uterus. Site of fertilization.</li>
+                <li>**Uterus (womb):** Muscular organ where a fertilized egg implants and develops into a fetus.</li>
+                <li>**Cervix:** Narrow opening at the base of the uterus, leading to the vagina.</li>
+                <li>**Vagina:** Muscular tube connecting the cervix to the outside of the body; receives sperm during sexual intercourse.</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Menstrual Cycle and Hormones:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                The **menstrual cycle** is a monthly cycle of changes in the female reproductive system, preparing the uterus for a possible pregnancy. It is controlled by hormones, primarily **oestrogen** and **progesterone**.
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Oestrogen:** Produced by the ovaries. Causes the rebuilding of the uterus lining after menstruation and stimulates the release of luteinizing hormone (LH), which triggers ovulation.</li>
+                <li>**Progesterone:** Produced by the corpus luteum (in the ovary) after ovulation. Maintains the uterus lining, making it thick and rich in blood vessels, ready for implantation. If pregnancy does not occur, progesterone levels fall, and the lining breaks down (menstruation).</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Fertilisation and Early Development:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                **Fertilisation** is the **fusion of the nucleus of the sperm (male gamete) and the nucleus of the egg cell (female gamete)**, typically occurring in the oviduct. This forms a **zygote**.
+            </p>
+            <p class="text-base leading-relaxed mb-4">
+                The early development of the zygote involves rapid cell division:
+            </p>
+            <p class="text-center text-lg font-semibold my-4">
+                `Zygote -> Embryo -> Fetus`
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>The **zygote** undergoes cell division (mitosis) to form a ball of cells.</li>
+                <li>This ball of cells develops into an **embryo** (from implantation until about 8 weeks).</li>
+                <li>After 8 weeks, the developing human is called a **fetus**.</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Placenta and Umbilical Cord:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                During pregnancy, the **placenta** and **umbilical cord** are vital structures:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Placenta:** A specialized organ that develops in the uterus during pregnancy.
+                    * **Functions:** Allows for the exchange of oxygen, nutrients, antibodies, and waste products (like urea, carbon dioxide) between the mother's blood and the fetus's blood. It also produces hormones to maintain pregnancy. *Note: Mother's and fetus's blood do not mix directly.*</li>
+                <li>**Umbilical Cord:** Connects the fetus to the placenta.
+                    * **Functions:** Contains blood vessels that transport oxygen and nutrients from the placenta to the fetus, and waste products from the fetus back to the placenta.</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Feeding Choices and Birth Control:</h3>
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Breast-feeding vs. Bottle-feeding:</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Breast-feeding (Advantages):** Provides natural antibodies to the baby (passive immunity), ideal nutrient composition, promotes bonding, reduces risk of allergies, free, helps mother lose weight.</li>
+                <li>**Breast-feeding (Disadvantages):** Can be challenging for some mothers, requires mother's presence, difficult to measure intake precisely.</li>
+                <li>**Bottle-feeding (Advantages):** Allows others to feed the baby, easier to measure intake, allows mother to return to work.</li>
+                <li>**Bottle-feeding (Disadvantages):** No antibodies from mother, formula can be expensive, requires sterilization, less bonding (potentially).</li>
+            </ul>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Methods of Birth Control:</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Natural Methods:** (e.g., rhythm method, withdrawal) Rely on tracking fertility cycles or withdrawal before ejaculation. Less reliable.</li>
+                <li>**Chemical Methods (Oral Contraceptives - "The Pill"):** Contain hormones (oestrogen and/or progesterone) that prevent ovulation, thicken cervical mucus, and thin the uterus lining. Highly effective if used correctly, but do not protect against STIs.</li>
+                <li>**Mechanical Methods (Condoms):** Barrier methods that prevent sperm from reaching the egg. Condoms (male and female) are the only method that also protect against STIs.</li>
+                <li>**Surgical Methods:** Permanent methods.
+                    * **Vasectomy (male sterilisation):** Sperm ducts are cut and tied.
+                    * **Female sterilisation (tubal ligation):** Oviducts are cut and tied.</li>
+            </ul>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Video: Human Reproduction (Explanation):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This video from **MooMooMath and Science** (2:37 min) provides an overview of human sexual reproduction.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/i5PtaCJJFjw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                Understanding the human reproductive system is fundamental.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Video: Fertilisation & Development (Explanation/Animation):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This animation explains the process of fertilization and the early stages of human development, including the roles of the placenta and umbilical cord.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/kCJUzdCBOk0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                This video (3:54 min) from **Cognitoedu** provides a clear animated overview of human development.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Interactive Simulation: Fertilization (Conceptual):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                While a direct PhET sim for human reproduction isn't available, conceptual understanding of fertilization can be built by exploring how cells interact and fuse.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://phet.colorado.edu/sims/html/meiosis/latest/meiosis_en.html" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed">
+                This simulation (Meiosis) helps in understanding the formation of gametes, which are essential for fertilization.
             </p>
         </section>
     </main>
+
+    <!-- Footer Section -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
         <div class="container mx-auto text-center text-sm">
             &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
         </div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Link to external script.js file (assumed to be in repository root) -->
+    <script src="../../../../script.js"></script>
 </body>
 </html>

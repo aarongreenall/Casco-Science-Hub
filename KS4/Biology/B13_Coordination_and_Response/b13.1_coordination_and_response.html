@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>B13.1 Coordination and response - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN - MUST COME FIRST -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS custom color configuration - MUST COME AFTER CDN -->
     <script>
         tailwind.config = {
             theme: {
@@ -19,68 +22,234 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+    
+    <!-- Link to external custom CSS file (assumed to be in repository root) -->
+    <link rel="stylesheet" href="../../../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="/Casco-Science-Hub/index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            
+            <!-- Hamburger Button (Mobile Only) -->
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776; <!-- Hamburger icon -->
+            </button>
+
+            <!-- Desktop Navigation (Visible on md and larger screens) -->
             <nav id="desktop-nav" class="hidden md:block">
                 <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../../KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                    <li><a href="/Casco-Science-Hub/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
+                    <li><a href="../../KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
+                    <li><a href="../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
+                    <li><a href="../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+
+    <!-- Mobile Menu Overlay (Hidden by default) -->
     <div id="mobile-menu-overlay" class="fixed inset-0 bg-casco-dark-teal z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-6 overflow-y-auto">
-        <button id="close-mobile-menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200" aria-label="Close mobile menu">&times;</button>
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&times;</button>
         <nav class="flex-grow">
             <ul class="space-y-2">
-                <li><a href="../../../index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
+                <li><a href="/Casco-Science-Hub/index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
+                
+                <!-- KS3 Accordion (Mobile) -->
                 <li>
-                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">KS3 <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS3
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
                     <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../../../KS3/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
-                        <li><a href="../../../KS3/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
-                        <li><a href="../../../KS3/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
                     </ul>
                 </li>
+
+                <!-- KS4 Accordion (Mobile) -->
                 <li>
-                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="true">KS4 <svg class="w-6 h-6 transform transition-transform duration-200 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-screen bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
-                        <li><a href="../../Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
-                        <li><a href="../../Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS4
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="../Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="../Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="../Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
                     </ul>
                 </li>
+
+                <!-- KS5 Accordion (Mobile) -->
                 <li>
-                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">KS5 <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS5
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
                     <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../../../KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
+                        <li><a href="../../KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
+                        <li><a href="../../KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
+                        <li><a href="../../KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </div>
+
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
             <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">B13.1 Coordination and response</h2>
             <p class="text-lg leading-relaxed mb-6">
-                Content for B13.1 Coordination and response will be added here.
+                Living organisms constantly interact with their environment and must be able to detect changes and respond appropriately to ensure their survival. This ability is facilitated by **coordination and response systems**, which involve communication between different parts of the organism. In humans, the nervous system and the endocrine (hormonal) system are the primary coordinating systems.
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Learning Objectives:</h3>
+            <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-6">
+                <li>Describe the nervous system in terms of: central nervous system (CNS) – brain and spinal cord; peripheral nervous system (PNS) – nerves.</li>
+                <li>Describe the functions of: neurones – conduction of electrical impulses; sensory neurones – transmit impulses from receptors to the CNS; relay neurones – transmit impulses within the CNS; motor neurones – transmit impulses from the CNS to effectors.</li>
+                <li>Describe the structure of a sensory neurone and a motor neurone, limited to: cell body, dendron, dendrites, axon, myelin sheath, Schwann cells, nodes of Ranvier, axon terminals.</li>
+                <li>Describe the components of a reflex arc, limited to: receptor, sensory neurone, relay neurone, motor neurone, effector.</li>
+                <li>Describe a reflex action as a means of automatically and rapidly integrating and coordinating stimuli with responses.</li>
+                <li>State that the nervous system coordinates and regulates body functions.</li>
+                <li>Describe the eye as a sense organ, limited to: cornea, iris, pupil, lens, retina, optic nerve, suspensory ligaments, ciliary bodies.</li>
+                <li>Describe the functions of the structures listed in 13.1.7, limited to: cornea – refracts light; iris – controls pupil diameter and thus the amount of light entering the eye; pupil – hole in the centre of the iris through which light enters; lens – changes shape to refract light and focus it onto the retina; retina – contains light-sensitive cells; optic nerve – transmits electrical impulses from the retina to the brain; suspensory ligaments and ciliary bodies – control the shape of the lens.</li>
+            </ol>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">The Nervous System:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                The **nervous system** is a complex network of specialized cells (neurons) that transmits signals between different parts of the body. It is responsible for coordinating and regulating most body functions, enabling rapid responses to stimuli. It is divided into two main parts:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Central Nervous System (CNS):** Consists of the **brain** and **spinal cord**. It is the processing center for all information.</li>
+                <li>**Peripheral Nervous System (PNS):** Consists of **nerves** that extend from the CNS to all parts of the body, carrying signals to and from the CNS.</li>
+            </ul>
+            <div class="flex justify-center my-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Human_nervous_system.svg/640px-Human_nervous_system.svg.png" alt="Human Nervous System" class="rounded-lg shadow-md max-w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Nervous+System';">
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                *Figure: Diagram of the human nervous system, showing the CNS and PNS.*
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Neurones (Nerve Cells):</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                **Neurones** are specialized cells that transmit electrical impulses (nerve impulses) throughout the nervous system. There are three main types of neurones:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Sensory Neurones:** Transmit impulses from **receptors** (e.g., in skin, eyes, ears) to the CNS. Their cell body is usually located off to the side of the main axon.</li>
+                <li>**Relay Neurones (Interneurones):** Transmit impulses **within the CNS** (between sensory and motor neurones).</li>
+                <li>**Motor Neurones:** Transmit impulses from the CNS to **effectors** (muscles or glands), causing a response. Their cell body is typically at one end, with a long axon extending to the effector.</li>
+            </ul>
+            <p class="text-base leading-relaxed mb-4">
+                Common structures of neurones include:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Cell body:** Contains the nucleus and most of the cytoplasm.</li>
+                <li>**Dendron/Dendrites:** Branching extensions that receive impulses from other neurones.</li>
+                <li>**Axon:** A long extension that transmits impulses away from the cell body.</li>
+                <li>**Myelin sheath:** A fatty insulating layer around some axons, formed by **Schwann cells**, which speeds up impulse transmission. Gaps in the myelin sheath are called **nodes of Ranvier**.</li>
+                <li>**Axon terminals:** Endings of the axon that transmit impulses to other neurones or effectors.</li>
+            </ul>
+            <div class="flex justify-center my-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Neurone_types.svg/640px-Neurone_types.svg.png" alt="Types of Neurones" class="rounded-lg shadow-md max-w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Neurone+Types';">
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                *Figure: Diagrams of a sensory neurone and a motor neurone, showing their structures.*
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Reflex Actions and Reflex Arcs:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                A **reflex action** is an automatic, rapid, involuntary response to a stimulus that does not involve conscious thought. It is a means of automatically and rapidly integrating and coordinating stimuli with responses, providing quick protection from harm.
+            </p>
+            <p class="text-base leading-relaxed mb-4">
+                A **reflex arc** is the neural pathway that mediates a reflex action. It typically involves five components:
+            </p>
+            <ol class="list-decimal list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Receptor:** Detects the stimulus (e.g., pain receptors in the skin).</li>
+                <li>**Sensory neurone:** Transmits the electrical impulse from the receptor to the CNS (spinal cord).</li>
+                <li>**Relay neurone:** Located within the CNS, it transmits the impulse from the sensory neurone to the motor neurone.</li>
+                <li>**Motor neurone:** Transmits the electrical impulse from the CNS to the effector.</li>
+                <li>**Effector:** A muscle or gland that carries out the response (e.g., a muscle contracting to withdraw a hand from a hot object).</li>
+            </ol>
+            <div class="flex justify-center my-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Reflex_arc_diagram.svg/640px-Reflex_arc_diagram.svg.png" alt="Reflex Arc Diagram" class="rounded-lg shadow-md max-w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Reflex+Arc';">
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                *Figure: Diagram illustrating a simple reflex arc.*
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">The Eye as a Sense Organ:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                The **eye** is a specialized sense organ adapted to detect light and form images. Its main structures and their functions are:
+            </p>
+            <div class="flex justify-center my-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Human_eye_diagram.svg/640px-Human_eye_diagram.svg.png" alt="Human Eye Diagram" class="rounded-lg shadow-md max-w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Eye+Diagram';">
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                *Figure: A diagram of the human eye, showing its main structures.*
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Cornea:** The transparent outer layer at the front of the eye. Its curved shape **refracts (bends) light** to focus it onto the retina.</li>
+                <li>**Iris:** The colored part of the eye. It is a muscular diaphragm that **controls the diameter of the pupil** and thus the amount of light entering the eye.</li>
+                <li>**Pupil:** The hole in the center of the iris through which light enters the eye. Its size changes to regulate light intensity.</li>
+                <li>**Lens:** A transparent, biconvex structure behind the iris. It changes shape (due to the action of suspensory ligaments and ciliary bodies) to **refract light** and **focus it onto the retina**.</li>
+                <li>**Retina:** The light-sensitive layer at the back of the eye. It contains photoreceptor cells (rods and cones) that detect light.</li>
+                <li>**Optic Nerve:** Transmits electrical impulses generated by the retina to the brain for interpretation.</li>
+                <li>**Suspensory Ligaments and Ciliary Bodies:** Structures that work together to **control the shape of the lens**, allowing the eye to focus on objects at different distances (accommodation).</li>
+            </ul>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Video: The Nervous System (Explanation):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This video from **MooMooMath and Science** (2:37 min) provides an introduction to the nervous system.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/i5PtaCJJFjw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                Understanding how the body coordinates responses is essential.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Video: The Eye (Explanation/Animation):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This animation explains the structure and function of the human eye, including how it focuses light and transmits signals to the brain.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/kCJUzdCBOk0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                This video (3:54 min) from **Cognitoedu** provides a clear animated overview of the eye.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Interactive Simulation: Bending Light (for lens action):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                The **PhET "Bending Light" simulation** can help visualize how light rays are refracted by lenses, which is fundamental to understanding how the eye's lens focuses light onto the retina.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://phet.colorado.edu/sims/html/bending-light/latest/bending-light_en.html" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed">
+                This simulation is an excellent tool for understanding light refraction in the eye.
             </p>
         </section>
     </main>
+
+    <!-- Footer Section -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
         <div class="container mx-auto text-center text-sm">
             &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
         </div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Link to external script.js file (assumed to be in repository root) -->
+    <script src="../../../../script.js"></script>
 </body>
 </html>

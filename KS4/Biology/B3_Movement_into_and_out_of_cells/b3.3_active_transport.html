@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>B3.3 Active transport - Casco School Science</title>
-    <!-- Tailwind CSS CDN -->
+    
+    <!-- Tailwind CSS CDN - MUST COME FIRST -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Tailwind CSS custom color configuration MUST come AFTER the CDN script -->
+    <!-- Tailwind CSS custom color configuration - MUST COME AFTER CDN -->
     <script>
         tailwind.config = {
             theme: {
@@ -21,68 +22,84 @@
             }
         }
     </script>
-    <!-- Link to external custom CSS file -->
-    <link rel="stylesheet" href="../../../style.css">
+    
+    <!-- Link to external custom CSS file (assumed to be in repository root) -->
+    <link rel="stylesheet" href="../../../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-
+            <a href="/Casco-Science-Hub/index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            
+            <!-- Hamburger Button (Mobile Only) -->
             <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
                 &#9776; <!-- Hamburger icon -->
             </button>
 
+            <!-- Desktop Navigation (Visible on md and larger screens) -->
             <nav id="desktop-nav" class="hidden md:block">
                 <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../../KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                    <li><a href="/Casco-Science-Hub/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
+                    <li><a href="../../KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
+                    <li><a href="../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
+                    <li><a href="../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
+    <!-- Mobile Menu Overlay (Hidden by default) -->
     <div id="mobile-menu-overlay" class="fixed inset-0 bg-casco-dark-teal z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-6 overflow-y-auto">
-        <button id="close-mobile-menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200" aria-label="Close mobile menu">&times;</button>
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&times;</button>
         <nav class="flex-grow">
             <ul class="space-y-2">
-                <li><a href="../../../index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
-
+                <li><a href="/Casco-Science-Hub/index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
+                
+                <!-- KS3 Accordion (Mobile) -->
                 <li>
                     <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
                         KS3
                         <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                     <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../../../KS3/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
-                        <li><a href="../../../KS3/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
-                        <li><a href="../../../KS3/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
                     </ul>
                 </li>
 
+                <!-- KS4 Accordion (Mobile) -->
                 <li>
-                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="true"> <!-- Expanded for KS4 -->
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
                         KS4
-                        <svg class="w-6 h-6 transform transition-transform duration-200 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
-                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-screen bg-casco-dark-teal/20 rounded-md mt-1"> <!-- Max height for expanded KS4 -->
-                        <li><a href="../index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
-                        <li><a href="../../Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
-                        <li><a href="../../Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="../Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="../Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="../Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
                     </ul>
                 </li>
 
+                <!-- KS5 Accordion (Mobile) -->
                 <li>
                     <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
                         KS5
                         <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                     <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../../../KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
+                        <li><a href="../../KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
+                        <li><a href="../../KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
+                        <li><a href="../../KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
                     </ul>
                 </li>
             </ul>
@@ -93,17 +110,82 @@
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
             <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">B3.3 Active transport</h2>
             <p class="text-lg leading-relaxed mb-6">
-                Content for B3.3 Active transport will be added here.
+                While diffusion and osmosis are passive processes that rely on concentration gradients, cells often need to move substances against their concentration gradient, from a region of lower concentration to a region of higher concentration. This requires energy and is achieved through **active transport**, a vital process for nutrient uptake and waste removal in living organisms.
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Learning Objectives:</h3>
+            <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-6">
+                <li>Describe active transport as the movement of particles through a cell membrane from a region of lower concentration to a region of higher concentration (i.e. against a concentration gradient), using energy from respiration.</li>
+                <li>Explain the importance of active transport as a process for movement of molecules or ions across membranes, including ion uptake by root hairs.</li>
+            </ol>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Understanding Active Transport:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                **Active transport** is the movement of particles through a cell membrane from a region of **lower concentration to a region of higher concentration**. This means it moves particles **against their concentration gradient**. Because this movement is 'uphill' (against the natural tendency of diffusion), it requires **energy**. This energy is typically supplied by **respiration** (specifically, ATP produced during respiration) within the cell.
+            </p>
+            <p class="text-base leading-relaxed mb-4">
+                Active transport is carried out by specific protein 'pumps' or 'carriers' embedded within the cell membrane. These proteins bind to the specific particles and use energy to move them across the membrane.
+            </p>
+            <div class="flex justify-center my-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Active_transport_diagram.svg/640px-Active_transport_diagram.svg.png" alt="Active Transport Diagram" class="rounded-lg shadow-md max-w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Active+Transport';">
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                *Figure: Diagram illustrating active transport, showing particles moving against a concentration gradient with energy input.*
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Importance of Active Transport:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                Active transport is crucial for various biological processes where substances need to be accumulated or removed against a concentration gradient:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Ion Uptake by Root Hairs:** Plant root hair cells absorb mineral ions (like nitrates, phosphates) from the soil, even when the concentration of these ions is lower in the soil than inside the root cell. This allows plants to accumulate essential nutrients. The energy for this process comes from the mitochondria in the root hair cells, which carry out aerobic respiration.</li>
+                <li>**Glucose Absorption in Small Intestine:** After digestion, glucose can be absorbed from the small intestine into the bloodstream by active transport, even when its concentration in the blood is higher than in the intestine.</li>
+                <li>**Kidney Function:** Cells in the kidneys use active transport to reabsorb useful substances (like glucose, amino acids, some salts) back into the blood from the filtrate, ensuring they are not lost in urine.</li>
+            </ul>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Video: Active Transport (Explanation):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This video from **MooMooMath and Science** (2:37 min) provides a clear explanation of active transport.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/i5PtaCJJFjw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                Understanding how cells move substances against gradients is vital.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Video: Active Transport in Root Hair Cells (Demonstration/Animation):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This animation demonstrates how active transport occurs in root hair cells to absorb mineral ions from the soil.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/kCJUzdCBOk0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                This video (3:54 min) from **Cognitoedu** provides a clear visual explanation of active transport in plants.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Interactive Simulation: Membrane Channels (Conceptual):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                The **PhET "Membrane Channels" simulation** (or "Membrane Transport") can help visualize how different molecules move across cell membranes, including the role of protein channels and pumps, which are involved in active transport.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://phet.colorado.edu/sims/html/membrane-channels/latest/membrane-channels_en.html" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed">
+                This simulation is an excellent tool for understanding transport across cell membranes.
             </p>
         </section>
     </main>
 
+    <!-- Footer Section -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
         <div class="container mx-auto text-center text-sm">
             &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
         </div>
     </footer>
 
-    <script src="../../../script.js"></script>
+    <!-- Link to external script.js file (assumed to be in repository root) -->
+    <script src="../../../../script.js"></script>
 </body>
 </html>

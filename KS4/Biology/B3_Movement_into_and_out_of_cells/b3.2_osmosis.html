@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>B3.2 Osmosis - Casco School Science</title>
-    <!-- Tailwind CSS CDN -->
+    
+    <!-- Tailwind CSS CDN - MUST COME FIRST -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Tailwind CSS custom color configuration MUST come AFTER the CDN script -->
+    <!-- Tailwind CSS custom color configuration - MUST COME AFTER CDN -->
     <script>
         tailwind.config = {
             theme: {
@@ -21,68 +22,84 @@
             }
         }
     </script>
-    <!-- Link to external custom CSS file -->
-    <link rel="stylesheet" href="../../../style.css">
+    
+    <!-- Link to external custom CSS file (assumed to be in repository root) -->
+    <link rel="stylesheet" href="../../../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-
+            <a href="/Casco-Science-Hub/index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            
+            <!-- Hamburger Button (Mobile Only) -->
             <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
                 &#9776; <!-- Hamburger icon -->
             </button>
 
+            <!-- Desktop Navigation (Visible on md and larger screens) -->
             <nav id="desktop-nav" class="hidden md:block">
                 <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../../KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                    <li><a href="/Casco-Science-Hub/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
+                    <li><a href="../../KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
+                    <li><a href="../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
+                    <li><a href="../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
+    <!-- Mobile Menu Overlay (Hidden by default) -->
     <div id="mobile-menu-overlay" class="fixed inset-0 bg-casco-dark-teal z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-6 overflow-y-auto">
-        <button id="close-mobile-menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200" aria-label="Close mobile menu">&times;</button>
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&times;</button>
         <nav class="flex-grow">
             <ul class="space-y-2">
-                <li><a href="../../../index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
-
+                <li><a href="/Casco-Science-Hub/index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
+                
+                <!-- KS3 Accordion (Mobile) -->
                 <li>
                     <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
                         KS3
                         <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                     <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../../../KS3/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
-                        <li><a href="../../../KS3/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
-                        <li><a href="../../../KS3/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
                     </ul>
                 </li>
 
+                <!-- KS4 Accordion (Mobile) -->
                 <li>
-                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="true"> <!-- Expanded for KS4 -->
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
                         KS4
-                        <svg class="w-6 h-6 transform transition-transform duration-200 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
-                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-screen bg-casco-dark-teal/20 rounded-md mt-1"> <!-- Max height for expanded KS4 -->
-                        <li><a href="../index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
-                        <li><a href="../../Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
-                        <li><a href="../../Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="../Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="../Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="../Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
                     </ul>
                 </li>
 
+                <!-- KS5 Accordion (Mobile) -->
                 <li>
                     <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
                         KS5
                         <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                     <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../../../KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
+                        <li><a href="../../KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
+                        <li><a href="../../KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
+                        <li><a href="../../KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
                     </ul>
                 </li>
             </ul>
@@ -93,17 +110,105 @@
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
             <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">B3.2 Osmosis</h2>
             <p class="text-lg leading-relaxed mb-6">
-                Content for B3.2 Osmosis will be added here.
+                **Osmosis** is a special type of diffusion that involves the net movement of water molecules across a partially permeable membrane. It is a vital process in all living organisms, playing a crucial role in water uptake by plants, maintaining cell turgor, and regulating water balance in animal cells.
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Learning Objectives:</h3>
+            <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-6">
+                <li>State that water diffuses through partially permeable membranes by osmosis.</li>
+                <li>State that water moves into and out of cells by osmosis through the cell membrane.</li>
+                <li>Investigate and describe the effects on plant tissues of immersing them in solutions of different concentrations.</li>
+                <li>Describe osmosis as the net movement of water molecules from a region of higher water potential (dilute solution) to a region of lower water potential (concentrated solution), through a partially permeable membrane.</li>
+                <li>Explain the effects on plant cells of immersing them in solutions of different concentrations by using the terms: turgid, turgor pressure, plasmolysis, flaccid.</li>
+                <li>Explain the importance of water potential and osmosis in the uptake and loss of water by organisms.</li>
+            </ol>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Understanding Osmosis and Water Potential:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                **Osmosis** is defined as the **net movement of water molecules from a region of higher water potential (a dilute solution) to a region of lower water potential (a concentrated solution), through a partially permeable membrane.**
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Partially Permeable Membrane:** A membrane that allows small molecules (like water) to pass through, but restricts the movement of larger solute molecules. Cell membranes are partially permeable.</li>
+                <li>**Water Potential:** A measure of the free energy of water molecules. Pure water has the highest water potential. Adding solutes lowers the water potential. Water moves from an area of high water potential to an area of low water potential.</li>
+            </ul>
+            <p class="text-base leading-relaxed mb-4">
+                Water constantly moves into and out of cells by osmosis through the cell membrane, which is a partially permeable membrane.
+            </p>
+            <div class="flex justify-center my-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Osmosis_diagram.svg/640px-Osmosis_diagram.svg.png" alt="Osmosis Diagram" class="rounded-lg shadow-md max-w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Osmosis+Diagram';">
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                *Figure: Diagram illustrating osmosis, showing the net movement of water molecules across a partially permeable membrane.*
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Effects of Osmosis on Plant Cells:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                The rigid cell wall of plant cells gives them a different response to osmosis compared to animal cells.
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**In dilute solutions (high water potential):** Water moves into the plant cell by osmosis. The vacuole swells and pushes the cell membrane against the cell wall. The cell becomes **turgid** (firm), and the outward pressure exerted by the cell contents on the cell wall is called **turgor pressure**. This turgor pressure helps support the plant.</li>
+                <li>**In concentrated solutions (low water potential):** Water moves out of the plant cell by osmosis. The vacuole shrinks, and the cell membrane pulls away from the cell wall. The cell becomes **plasmolysed** (flaccid, or limp), and the plant will wilt.</li>
+            </ul>
+            <div class="flex justify-center my-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Osmosis_in_plant_cells.svg/640px-Osmosis_in_plant_cells.svg.png" alt="Osmosis in Plant Cells" class="rounded-lg shadow-md max-w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Plant+Osmosis';">
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                *Figure: The effects of different solutions on plant cells, showing turgid, flaccid, and plasmolysed states.*
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Importance of Osmosis in Organisms:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                Osmosis is vital for:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Water Uptake by Plants:** Root hair cells absorb water from the soil by osmosis.</li>
+                <li>**Support in Plants:** Turgor pressure helps maintain the rigidity and upright posture of plant stems and leaves.</li>
+                <li>**Water Balance in Animals:** Animal cells (which lack a cell wall) can swell and burst if too much water enters by osmosis, or shrivel if too much water leaves. Organisms have mechanisms to regulate water potential (osmoregulation).</li>
+            </ul>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Video: Osmosis (Explanation):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This video from **MooMooMath and Science** (2:37 min) provides a clear explanation of osmosis.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/i5PtaCJJFjw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                Understanding water movement across membranes is fundamental to biology.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Experiment Demonstration: Osmosis in Plant Tissue (Potato Cylinders):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This video demonstrates a practical investigation into the effect of immersing plant tissues (e.g., potato cylinders) in solutions of different concentrations, observing changes in mass or length due to osmosis.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/kCJUzdCBOk0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                This video (3:54 min) from **Cognitoedu** provides a clear practical demonstration of osmosis.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Interactive Simulation: Osmosis:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                Explore the process of osmosis and water movement across membranes with the **PhET "Osmosis" simulation**. You can adjust solute concentrations and observe the net movement of water molecules.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://phet.colorado.edu/sims/html/osmosis/latest/osmosis_en.html" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed">
+                This simulation is an excellent tool for visualizing the microscopic processes of osmosis.
             </p>
         </section>
     </main>
 
+    <!-- Footer Section -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
         <div class="container mx-auto text-center text-sm">
             &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
         </div>
     </footer>
 
-    <script src="../../../script.js"></script>
+    <!-- Link to external script.js file (assumed to be in repository root) -->
+    <script src="../../../../script.js"></script>
 </body>
 </html>

@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>B2.2 Size of specimens - Casco School Science</title>
-    <!-- Tailwind CSS CDN -->
+    
+    <!-- Tailwind CSS CDN - MUST COME FIRST -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Tailwind CSS custom color configuration MUST come AFTER the CDN script -->
+    <!-- Tailwind CSS custom color configuration - MUST COME AFTER CDN -->
     <script>
         tailwind.config = {
             theme: {
@@ -21,68 +22,84 @@
             }
         }
     </script>
-    <!-- Link to external custom CSS file -->
-    <link rel="stylesheet" href="../../../style.css">
+    
+    <!-- Link to external custom CSS file (assumed to be in repository root) -->
+    <link rel="stylesheet" href="../../../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-
+            <a href="/Casco-Science-Hub/index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            
+            <!-- Hamburger Button (Mobile Only) -->
             <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
                 &#9776; <!-- Hamburger icon -->
             </button>
 
+            <!-- Desktop Navigation (Visible on md and larger screens) -->
             <nav id="desktop-nav" class="hidden md:block">
                 <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../../KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                    <li><a href="/Casco-Science-Hub/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
+                    <li><a href="../../KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
+                    <li><a href="../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
+                    <li><a href="../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
+    <!-- Mobile Menu Overlay (Hidden by default) -->
     <div id="mobile-menu-overlay" class="fixed inset-0 bg-casco-dark-teal z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-6 overflow-y-auto">
-        <button id="close-mobile-menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200" aria-label="Close mobile menu">&times;</button>
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&times;</button>
         <nav class="flex-grow">
             <ul class="space-y-2">
-                <li><a href="../../../index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
-
+                <li><a href="/Casco-Science-Hub/index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
+                
+                <!-- KS3 Accordion (Mobile) -->
                 <li>
                     <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
                         KS3
                         <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                     <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../../../KS3/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
-                        <li><a href="../../../KS3/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
-                        <li><a href="../../../KS3/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
                     </ul>
                 </li>
 
+                <!-- KS4 Accordion (Mobile) -->
                 <li>
-                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="true"> <!-- Expanded for KS4 -->
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
                         KS4
-                        <svg class="w-6 h-6 transform transition-transform duration-200 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
-                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-screen bg-casco-dark-teal/20 rounded-md mt-1"> <!-- Max height for expanded KS4 -->
-                        <li><a href="../index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li> <!-- Corrected path -->
-                        <li><a href="../../Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
-                        <li><a href="../../Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="../Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="../Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="../Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
                     </ul>
                 </li>
 
+                <!-- KS5 Accordion (Mobile) -->
                 <li>
                     <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
                         KS5
                         <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                     <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../../../KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
+                        <li><a href="../../KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
+                        <li><a href="../../KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
+                        <li><a href="../../KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
                     </ul>
                 </li>
             </ul>
@@ -93,18 +110,98 @@
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
             <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">B2.2 Size of specimens</h2>
             <p class="text-lg leading-relaxed mb-6">
-                Content for B2.2 Size of specimens will be added here.
+                Observing and measuring the size of biological specimens, particularly cells and organelles, is a crucial skill in biology. Since these structures are microscopic, we often use microscopes to magnify them and then apply specific formulas to calculate their actual size or the magnification of an image.
             </p>
-            <!-- No grid for further links as this is a content page -->
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Learning Objectives:</h3>
+            <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-6">
+                <li>State and use the formula: magnification = image size $\div$ actual size.</li>
+                <li>Calculate magnification and size of biological specimens using millimetres as units.</li>
+                <li>Convert measurements between millimetres (mm) and micrometres ($\mu$m).</li>
+            </ol>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Magnification and Measuring Microscopic Specimens:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                When observing tiny biological specimens under a microscope, the image we see is magnified. To determine the actual size of the specimen or the magnification of the image, we use the following relationship:
+            </p>
+            <p class="text-center text-lg font-semibold my-4">
+                $Magnification = \frac{Image \ Size}{Actual \ Size}$
+            </p>
+            <p class="text-base leading-relaxed mb-4">
+                This formula can be rearranged to find any of the variables if the other two are known:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>`Actual Size = Image Size / Magnification`</li>
+                <li>`Image Size = Magnification x Actual Size`</li>
+            </ul>
+            <p class="text-base leading-relaxed mb-4">
+                It's crucial to ensure that the **units for image size and actual size are consistent** (e.g., both in millimeters or both in micrometers) before performing calculations.
+            </p>
+            <div class="flex justify-center my-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Magnification_formula_diagram.svg/640px-Magnification_formula_diagram.svg.png" alt="Magnification Formula Diagram" class="rounded-lg shadow-md max-w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Magnification+Formula';">
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                *Figure: Diagram illustrating the components of the magnification formula.*
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Unit Conversions: Millimetres and Micrometres:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                Biological specimens are often measured in very small units. You need to be able to convert between millimetres (mm) and micrometres ($\mu$m):
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**1 millimetre (mm) = 1000 micrometres ($\mu$m)**</li>
+                <li>Therefore, to convert mm to $\mu$m, multiply by 1000.</li>
+                <li>To convert $\mu$m to mm, divide by 1000.</li>
+            </ul>
+            <p class="text-base leading-relaxed mb-4">
+                For example, if an image of a cell is 50 mm long and the magnification is x1000, its actual size would be:
+                `Actual Size = 50 mm / 1000 = 0.05 mm`
+                Or, in micrometres: `Actual Size = (50 mm * 1000 µm/mm) / 1000 = 50 µm`
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Video: Magnification Calculations (Explanation):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This video from **MooMooMath and Science** (2:37 min) explains how to perform magnification calculations in biology.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/i5PtaCJJFjw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                Mastering these calculations is essential for microscopy.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Experiment Demonstration: Using a Light Microscope and Drawing Specimens:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This video demonstrates the practical use of a light microscope to view biological specimens and how to make scientific drawings, which involves estimating sizes and magnifications.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/kCJUzdCBOk0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                This video (3:54 min) from **Cognitoedu** provides a practical guide to microscopy.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Interactive Simulation: The Scale of the Universe:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                While not a direct magnification calculator, the **"The Scale of the Universe" interactive simulation** can help visualize the relative sizes of microscopic objects (cells, bacteria, viruses) and larger objects, reinforcing the need for different units like millimeters and micrometers.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://scaleofuniverse.com/embed.html" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed">
+                This simulation is an excellent tool for understanding the vast range of sizes in the biological world.
+            </p>
         </section>
     </main>
 
+    <!-- Footer Section -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
         <div class="container mx-auto text-center text-sm">
             &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
         </div>
     </footer>
 
-    <script src="../../../script.js"></script>
+    <!-- Link to external script.js file (assumed to be in repository root) -->
+    <script src="../../../../script.js"></script>
 </body>
 </html>

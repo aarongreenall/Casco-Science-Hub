@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>B2.1 Cell structure - Casco School Science</title>
-    <!-- Tailwind CSS CDN -->
+    
+    <!-- Tailwind CSS CDN - MUST COME FIRST -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Tailwind CSS custom color configuration MUST come AFTER the CDN script -->
+    <!-- Tailwind CSS custom color configuration - MUST COME AFTER CDN -->
     <script>
         tailwind.config = {
             theme: {
@@ -21,68 +22,84 @@
             }
         }
     </script>
-    <!-- Link to external custom CSS file -->
-    <link rel="stylesheet" href="../../../style.css">
+    
+    <!-- Link to external custom CSS file (assumed to be in repository root) -->
+    <link rel="stylesheet" href="../../../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-
+            <a href="/Casco-Science-Hub/index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            
+            <!-- Hamburger Button (Mobile Only) -->
             <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
                 &#9776; <!-- Hamburger icon -->
             </button>
 
+            <!-- Desktop Navigation (Visible on md and larger screens) -->
             <nav id="desktop-nav" class="hidden md:block">
                 <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../../KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                    <li><a href="/Casco-Science-Hub/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
+                    <li><a href="../../KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
+                    <li><a href="../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
+                    <li><a href="../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
+    <!-- Mobile Menu Overlay (Hidden by default) -->
     <div id="mobile-menu-overlay" class="fixed inset-0 bg-casco-dark-teal z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-6 overflow-y-auto">
-        <button id="close-mobile-menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200" aria-label="Close mobile menu">&times;</button>
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&times;</button>
         <nav class="flex-grow">
             <ul class="space-y-2">
-                <li><a href="../../../index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
-
+                <li><a href="/Casco-Science-Hub/index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
+                
+                <!-- KS3 Accordion (Mobile) -->
                 <li>
                     <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
                         KS3
                         <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                     <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../../../KS3/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
-                        <li><a href="../../../KS3/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
-                        <li><a href="../../../KS3/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
                     </ul>
                 </li>
 
+                <!-- KS4 Accordion (Mobile) -->
                 <li>
-                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="true"> <!-- Expanded for KS4 -->
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
                         KS4
-                        <svg class="w-6 h-6 transform transition-transform duration-200 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
-                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-screen bg-casco-dark-teal/20 rounded-md mt-1"> <!-- Max height for expanded KS4 -->
-                        <li><a href="../index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li> <!-- Corrected path -->
-                        <li><a href="../../Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
-                        <li><a href="../../Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="../Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="../Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="../Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
                     </ul>
                 </li>
 
+                <!-- KS5 Accordion (Mobile) -->
                 <li>
                     <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
                         KS5
                         <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                     <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../../../KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
+                        <li><a href="../../KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
+                        <li><a href="../../KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
+                        <li><a href="../../KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
                     </ul>
                 </li>
             </ul>
@@ -93,18 +110,132 @@
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
             <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">B2.1 Cell structure</h2>
             <p class="text-lg leading-relaxed mb-6">
-                Content for B2.1 Cell structure will be added here.
+                Cells are the fundamental building blocks of all living organisms. They are the smallest units of life that can replicate independently, and they carry out all the necessary functions for life. Understanding cell structure is crucial for comprehending how organisms are organized and how biological processes occur.
             </p>
-            <!-- No grid for further links as this is a content page -->
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Learning Objectives:</h3>
+            <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-6">
+                <li>Describe and compare the structure of a plant cell with an animal cell, limited to: cell wall, cell membrane, nucleus, cytoplasm, chloroplasts, ribosomes, mitochondria, vacuoles.</li>
+                <li>Describe the structure of a bacterial cell, limited to: cell wall, cell membrane, cytoplasm, ribosomes, circular DNA, plasmids.</li>
+                <li>Identify the cell structures listed in 2.1.1 and 2.1.2 in diagrams and images of plant, animal and bacterial cells.</li>
+                <li>Describe the functions of the structures listed in 2.1.1 and 2.1.2 in plant, animal and bacterial cells.</li>
+                <li>State that new cells are produced by division of existing cells.</li>
+                <li>State that specialised cells have specific functions, limited to: ciliated cells – movement of mucus in the trachea and bronchi; root hair cells – absorption; palisade mesophyll cells – photosynthesis; neurones – conduction of electrical impulses; red blood cells – transport of oxygen; sperm and egg cells (gametes) – reproduction.</li>
+                <li>Describe the meaning of the terms: cell, tissue, organ, organ system and organism as illustrated by examples given in the syllabus.</li>
+            </ol>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Comparing Plant and Animal Cells:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                Both plant and animal cells are eukaryotic, meaning they have a true nucleus and membrane-bound organelles. However, they have distinct structural differences that reflect their different functions.
+            </p>
+            <div class="flex justify-center my-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Plant_and_animal_cell_comparison.svg/640px-Plant_and_animal_cell_comparison.svg.png" alt="Plant and Animal Cell Comparison" class="rounded-lg shadow-md max-w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Cells+Comparison';">
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                *Figure: A diagram comparing the key structures of a plant cell and an animal cell.*
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Cell Wall:** (Plant cells only) A rigid outer layer made of cellulose, providing support and protection.</li>
+                <li>**Cell Membrane:** (Both) A partially permeable barrier that controls what enters and leaves the cell.</li>
+                <li>**Nucleus:** (Both) Contains the cell's genetic material (DNA) and controls cell activities.</li>
+                <li>**Cytoplasm:** (Both) Jelly-like substance filling the cell, where most chemical reactions occur.</li>
+                <li>**Chloroplasts:** (Plant cells only) Contain chlorophyll and are the site of photosynthesis.</li>
+                <li>**Ribosomes:** (Both) Small organelles responsible for protein synthesis.</li>
+                <li>**Mitochondria:** (Both) Site of aerobic respiration, where energy (ATP) is released.</li>
+                <li>**Vacuoles:** (Both, but much larger in plant cells) Plant cells have a large, permanent central vacuole filled with cell sap, which helps maintain turgor pressure. Animal cells may have small, temporary vacuoles.</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Bacterial Cell Structure:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                Bacterial cells are prokaryotic, meaning they do not have a true nucleus or membrane-bound organelles. Their structure is simpler than eukaryotic cells.
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Cell Wall:** (Bacterial cells) Rigid outer layer, different in composition from plant cell walls.</li>
+                <li>**Cell Membrane:** (Bacterial cells) Controls what enters and leaves the cell.</li>
+                <li>**Cytoplasm:** (Bacterial cells) Jelly-like substance filling the cell.</li>
+                <li>**Ribosomes:** (Bacterial cells) Responsible for protein synthesis.</li>
+                <li>**Circular DNA:** (Bacterial cells) Genetic material is a single, circular chromosome, not enclosed in a nucleus.</li>
+                <li>**Plasmids:** (Bacterial cells) Small, circular pieces of extra DNA that carry additional genes (e.g., for antibiotic resistance).</li>
+            </ul>
+            <div class="flex justify-center my-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Bacterial_cell_diagram.svg/640px-Bacterial_cell_diagram.svg.png" alt="Bacterial Cell Diagram" class="rounded-lg shadow-md max-w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Bacterial+Cell';">
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                *Figure: A diagram of a bacterial cell, showing its key structures.*
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Specialised Cells and Levels of Organization:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                New cells are produced by the **division of existing cells** (e.g., through mitosis). In multicellular organisms, cells often become **specialised** to perform specific functions.
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Ciliated cells:** Have cilia (hair-like structures) to move mucus in the trachea and bronchi.</li>
+                <li>**Root hair cells:** Have a large surface area to absorb water and mineral ions from the soil.</li>
+                <li>**Palisade mesophyll cells:** Packed with chloroplasts for photosynthesis in leaves.</li>
+                <li>**Neurones (nerve cells):** Long and thin to conduct electrical impulses.</li>
+                <li>**Red blood cells:** Biconcave shape and no nucleus to maximize oxygen transport (contain haemoglobin).</li>
+                <li>**Sperm and egg cells (gametes):** Involved in reproduction. Sperm are motile, egg cells store energy.</li>
+            </ul>
+            <p class="text-base leading-relaxed mb-4">
+                Living organisms exhibit a hierarchy of organization:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Cell:** The basic unit of life.</li>
+                <li>**Tissue:** A group of similar cells working together to perform a specific function (e.g., muscle tissue).</li>
+                <li>**Organ:** A group of different tissues working together to perform a specific function (e.g., heart, stomach).</li>
+                <li>**Organ System:** A group of different organs working together to perform a major function (e.g., digestive system, circulatory system).</li>
+                <li>**Organism:** A complete living being made up of various organ systems.</li>
+            </ul>
+            <div class="flex justify-center my-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Biological_organization.svg/640px-Biological_organization.svg.png" alt="Levels of Biological Organization" class="rounded-lg shadow-md max-w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Organization';">
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                *Figure: The hierarchy of biological organization from cells to an organism.*
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Video: Plant and Animal Cells (Explanation):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This video from **MooMooMath and Science** (2:37 min) compares plant and animal cell structures.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/i5PtaCJJFjw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                Understanding these differences is fundamental to biology.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Video: Specialised Cells (Explanation):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This video from **Cognitoedu** (3:54 min) explains various specialised cells and their functions.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/kCJUzdCBOk0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                This video highlights how cell structure is adapted for function.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Interactive Simulation: Cell Explorer (Conceptual):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                While a direct PhET sim for cell structure comparison isn't available, the **PhET "Build a Molecule" simulation** can conceptually help visualize the molecular components that make up cells.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://phet.colorado.edu/sims/html/build-a-molecule/latest/build-a-molecule_en.html" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed">
+                This simulation is an excellent tool for understanding the molecular basis of life.
+            </p>
         </section>
     </main>
 
+    <!-- Footer Section -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
         <div class="container mx-auto text-center text-sm">
             &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
         </div>
     </footer>
 
-    <script src="../../../script.js"></script>
+    <!-- Link to external script.js file (assumed to be in repository root) -->
+    <script src="../../../../script.js"></script>
 </body>
 </html>

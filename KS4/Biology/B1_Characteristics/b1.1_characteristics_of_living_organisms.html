@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>B1.1 Characteristics of living organisms - Casco School Science</title>
-    <!-- Tailwind CSS CDN -->
+    
+    <!-- Tailwind CSS CDN - MUST COME FIRST -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Tailwind CSS custom color configuration MUST come AFTER the CDN script -->
+    <!-- Tailwind CSS custom color configuration - MUST COME AFTER CDN -->
     <script>
         tailwind.config = {
             theme: {
@@ -21,68 +22,84 @@
             }
         }
     </script>
-    <!-- Link to external custom CSS file -->
-    <link rel="stylesheet" href="../../../style.css">
+    
+    <!-- Link to external custom CSS file (assumed to be in repository root) -->
+    <link rel="stylesheet" href="../../../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-
+            <a href="/Casco-Science-Hub/index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            
+            <!-- Hamburger Button (Mobile Only) -->
             <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
                 &#9776; <!-- Hamburger icon -->
             </button>
 
+            <!-- Desktop Navigation (Visible on md and larger screens) -->
             <nav id="desktop-nav" class="hidden md:block">
                 <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../../KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                    <li><a href="/Casco-Science-Hub/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
+                    <li><a href="../../KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
+                    <li><a href="../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
+                    <li><a href="../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
+    <!-- Mobile Menu Overlay (Hidden by default) -->
     <div id="mobile-menu-overlay" class="fixed inset-0 bg-casco-dark-teal z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-6 overflow-y-auto">
-        <button id="close-mobile-menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200" aria-label="Close mobile menu">&times;</button>
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&times;</button>
         <nav class="flex-grow">
             <ul class="space-y-2">
-                <li><a href="../../../index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
-
+                <li><a href="/Casco-Science-Hub/index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
+                
+                <!-- KS3 Accordion (Mobile) -->
                 <li>
                     <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
                         KS3
                         <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                     <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../../../KS3/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
-                        <li><a href="../../../KS3/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
-                        <li><a href="../../../KS3/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
                     </ul>
                 </li>
 
+                <!-- KS4 Accordion (Mobile) -->
                 <li>
-                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="true"> <!-- Expanded for KS4 -->
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
                         KS4
-                        <svg class="w-6 h-6 transform transition-transform duration-200 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
-                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-screen bg-casco-dark-teal/20 rounded-md mt-1"> <!-- Max height for expanded KS4 -->
-                        <li><a href="../index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
-                        <li><a href="../../Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
-                        <li><a href="../../Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="../Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="../Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="../Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
                     </ul>
                 </li>
 
+                <!-- KS5 Accordion (Mobile) -->
                 <li>
                     <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
                         KS5
                         <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                     <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../../../KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
+                        <li><a href="../../KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
+                        <li><a href="../../KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
+                        <li><a href="../../KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
                     </ul>
                 </li>
             </ul>
@@ -93,17 +110,113 @@
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
             <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">B1.1 Characteristics of living organisms</h2>
             <p class="text-lg leading-relaxed mb-6">
-                Content for B1.1 Characteristics of living organisms will be added here.
+                Biology is the study of life, and to understand life, we must first define what makes something 'living'. All living organisms, from the smallest bacteria to the largest whales, share a set of fundamental characteristics that distinguish them from non-living things. These characteristics are often summarized by the acronym **MRS GREN**.
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Learning Objectives:</h3>
+            <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-6">
+                <li>Describe the characteristics of living organisms by defining:
+                    <ol class="list-alpha list-inside ml-6 space-y-1">
+                        <li>movement as an action by an organism or part of an organism causing a change of position or place,</li>
+                        <li>respiration as the chemical reactions in cells that break down nutrient molecules and release energy for metabolism,</li>
+                        <li>sensitivity as the ability to detect and respond to changes in the internal or external environment,</li>
+                        <li>growth as a permanent increase in size and dry mass,</li>
+                        <li>reproduction as the processes that make more of the same kind of organism,</li>
+                        <li>excretion as the removal of the waste products of metabolism and substances in excess of requirements,</li>
+                        <li>nutrition as the taking in of materials for energy, growth and development.</li>
+                    </ol>
+                </li>
+            </ol>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">The Seven Characteristics of Life (MRS GREN):</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                All living organisms exhibit the following seven characteristics:
+            </p>
+            <div class="flex justify-center my-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/MRS_GREN_diagram.svg/640px-MRS_GREN_diagram.svg.png" alt="MRS GREN Diagram" class="rounded-lg shadow-md max-w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=MRS+GREN';">
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                *Figure: The MRS GREN acronym, summarizing the seven characteristics of living organisms.*
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">1. Movement:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                **Movement** is defined as an action by an organism or part of an organism causing a change of position or place. This can be obvious, like an animal walking, or subtle, like a plant growing towards light or the movement of cytoplasm within a cell.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">2. Respiration:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                **Respiration** refers to the chemical reactions in cells that break down nutrient molecules (like glucose) and release energy for metabolism. This energy is vital for all life processes. Respiration can be aerobic (with oxygen) or anaerobic (without oxygen).
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">3. Sensitivity:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                **Sensitivity** is the ability to detect and respond to changes in the internal or external environment. Organisms respond to stimuli such as light, temperature, touch, sound, and chemicals. This allows them to adapt and survive in their surroundings.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">4. Growth:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                **Growth** is a permanent increase in size and dry mass of an organism. This involves an increase in the number and/or size of cells.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">5. Reproduction:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                **Reproduction** refers to the processes that make more of the same kind of organism. This ensures the continuation of a species. Reproduction can be asexual (one parent, genetically identical offspring) or sexual (two parents, genetically different offspring).
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">6. Excretion:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                **Excretion** is the removal of the waste products of metabolism and substances in excess of requirements from the body. These waste products can be toxic if allowed to build up (e.g., carbon dioxide from respiration, urea from protein metabolism).
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">7. Nutrition:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                **Nutrition** is the taking in of materials for energy, growth, and development. This can involve photosynthesis (for plants, making their own food) or feeding on other organisms (for animals and fungi).
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Video: Characteristics of Life (Explanation):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This video from **MooMooMath and Science** (2:37 min) provides an overview of the characteristics of living organisms.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/i5PtaCJJFjw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                Understanding these defining features helps classify life.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Video: Is it Alive? (Experiment/Demonstration):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This video explores various objects and discusses whether they exhibit the characteristics of life, helping to differentiate living from non-living things.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/kCJUzdCBOk0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                This video (3:54 min) from **Cognitoedu** provides a practical approach to identifying living organisms.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Interactive Simulation: Is it Alive? (Conceptual):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                While a direct PhET sim for "characteristics of life" isn't available, conceptual understanding can be built by exploring systems with properties that mimic life, or by building models of biological structures.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://phet.colorado.edu/sims/html/build-a-molecule/latest/build-a-molecule_en.html" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed">
+                This simulation (Build a Molecule) helps in understanding the fundamental building blocks that make up living organisms.
             </p>
         </section>
     </main>
 
+    <!-- Footer Section -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
         <div class="container mx-auto text-center text-sm">
             &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
         </div>
     </footer>
 
-    <script src="../../../script.js"></script>
+    <!-- Link to external script.js file (assumed to be in repository root) -->
+    <script src="../../../../script.js"></script>
 </body>
 </html>

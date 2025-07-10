@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>B10.1 Diseases and immunity - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN - MUST COME FIRST -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS custom color configuration - MUST COME AFTER CDN -->
     <script>
         tailwind.config = {
             theme: {
@@ -19,68 +22,274 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+    
+    <!-- Link to external custom CSS file (assumed to be in repository root) -->
+    <link rel="stylesheet" href="../../../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="/Casco-Science-Hub/index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            
+            <!-- Hamburger Button (Mobile Only) -->
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776; <!-- Hamburger icon -->
+            </button>
+
+            <!-- Desktop Navigation (Visible on md and larger screens) -->
             <nav id="desktop-nav" class="hidden md:block">
                 <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../../KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                    <li><a href="/Casco-Science-Hub/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
+                    <li><a href="../../KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
+                    <li><a href="../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
+                    <li><a href="../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+
+    <!-- Mobile Menu Overlay (Hidden by default) -->
     <div id="mobile-menu-overlay" class="fixed inset-0 bg-casco-dark-teal z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-6 overflow-y-auto">
-        <button id="close-mobile-menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200" aria-label="Close mobile menu">&times;</button>
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&times;</button>
         <nav class="flex-grow">
             <ul class="space-y-2">
-                <li><a href="../../../index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
+                <li><a href="/Casco-Science-Hub/index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
+                
+                <!-- KS3 Accordion (Mobile) -->
                 <li>
-                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">KS3 <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS3
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
                     <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../../../KS3/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
-                        <li><a href="../../../KS3/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
-                        <li><a href="../../../KS3/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
                     </ul>
                 </li>
+
+                <!-- KS4 Accordion (Mobile) -->
                 <li>
-                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="true">KS4 <svg class="w-6 h-6 transform transition-transform duration-200 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-screen bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
-                        <li><a href="../../Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
-                        <li><a href="../../Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS4
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="../Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="../Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="../Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
                     </ul>
                 </li>
+
+                <!-- KS5 Accordion (Mobile) -->
                 <li>
-                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">KS5 <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS5
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
                     <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../../../KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
+                        <li><a href="../../KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
+                        <li><a href="../../KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
+                        <li><a href="../../KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </div>
+
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
             <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">B10.1 Diseases and immunity</h2>
             <p class="text-lg leading-relaxed mb-6">
-                Content for B10.1 Diseases and immunity will be added here.
+                **Diseases** are conditions that impair the normal functioning of a living organism. They can be broadly categorized as infectious (communicable) or non-infectious (non-communicable). The body's defense against disease is provided by the **immune system**, a complex network of cells, tissues, and organs that work together to protect the body from harmful pathogens.
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Learning Objectives:</h3>
+            <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-6">
+                <li>Define a pathogen as a disease-causing organism.</li>
+                <li>Describe the causes of disease, limited to: pathogens (viruses, bacteria, fungi, protoctista); malnutrition; inherited factors; environmental factors.</li>
+                <li>Describe the transmission of disease, limited to: direct contact (including sexual intercourse); indirect contact (including droplet infection, food and water, vectors).</li>
+                <li>Describe the body’s natural defence against pathogens, limited to: skin, hairs in the nose, mucus, cilia, stomach acid.</li>
+                <li>Describe the process of phagocytosis.</li>
+                <li>Describe the role of lymphocytes in antibody production.</li>
+                <li>Describe active immunity as defence against a pathogen by antibody production in the body.</li>
+                <li>Describe passive immunity as short-term defence against a pathogen by antibodies acquired from another individual.</li>
+                <li>Explain the principle of vaccination.</li>
+                <li>Describe the role of vaccination in controlling the spread of disease.</li>
+                <li>Describe the causes and effects of HIV/AIDS, limited to: HIV as the virus that causes AIDS; HIV is transmitted by the exchange of body fluids; HIV affects the immune system, increasing the risk of opportunistic infections; AIDS is the final stage of HIV infection.</li>
+                <li>Describe the causes and effects of cholera, limited to: cholera caused by a bacterium; cholera transmitted by contaminated water; cholera causes severe diarrhoea and dehydration.</li>
+                <li>Describe the causes and effects of malaria, limited to: malaria caused by a protoctistan; malaria transmitted by a vector (mosquito); malaria causes fever and damage to red blood cells.</li>
+                <li>Describe the causes and effects of tuberculosis (TB), limited to: TB caused by a bacterium; TB transmitted by droplet infection; TB affects the lungs, causing coughing and breathing difficulties.</li>
+            </ol>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Causes and Transmission of Disease:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                A **disease** is any condition that impairs the normal functioning of an organism.
+            </p>
+            <p class="text-base leading-relaxed mb-4">
+                Diseases can be caused by:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Pathogens:** A **pathogen** is a disease-causing organism. These include:
+                    * **Viruses:** (e.g., influenza, HIV)
+                    * **Bacteria:** (e.g., cholera, tuberculosis)
+                    * **Fungi:** (e.g., athlete's foot)
+                    * **Protoctista:** (e.g., malaria)</li>
+                <li>**Malnutrition:** Lack of essential nutrients (e.g., scurvy, rickets).</li>
+                <li>**Inherited Factors:** Genetic predispositions (e.g., cystic fibrosis, some cancers).</li>
+                <li>**Environmental Factors:** Exposure to harmful substances (e.g., pollution, radiation) or lifestyle choices (e.g., smoking leading to lung cancer).</li>
+            </ul>
+            <div class="flex justify-center my-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Types_of_pathogens.svg/640px-Types_of_pathogens.svg.png" alt="Types of Pathogens" class="rounded-lg shadow-md max-w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Pathogens';">
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                *Figure: Illustrations of different types of pathogens that cause disease.*
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Transmission of Disease:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                Infectious diseases can be transmitted in several ways:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Direct Contact:**
+                    * **Physical contact:** Touching an infected person or surface.
+                    * **Sexual intercourse:** (e.g., HIV, STIs).</li>
+                <li>**Indirect Contact:**
+                    * **Droplet infection:** Pathogens spread through tiny droplets released by coughing or sneezing (e.g., influenza, TB).
+                    * **Food and water:** Consuming contaminated food or water (e.g., cholera, food poisoning).
+                    * **Vectors:** Organisms that transmit pathogens from one host to another (e.g., mosquitoes transmitting malaria).</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Body's Natural Defences Against Pathogens:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                The human body has several non-specific natural defenses that prevent pathogens from entering or multiplying:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Skin:** A physical barrier that prevents most pathogens from entering the body.</li>
+                <li>**Hairs in the nose:** Trap dust and pathogens in inhaled air.</li>
+                <li>**Mucus:** Sticky substance produced in the respiratory and digestive tracts, trapping pathogens.</li>
+                <li>**Cilia:** Tiny hair-like structures lining the trachea and bronchi that sweep mucus (and trapped pathogens) upwards to be swallowed.</li>
+                <li>**Stomach acid:** Hydrochloric acid in the stomach kills most pathogens ingested with food.</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">The Immune System: Phagocytes and Lymphocytes:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                If pathogens breach the body's natural defenses, the **immune system** provides a specific and adaptive response, primarily involving white blood cells:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Phagocytes:** These white blood cells act as "scavengers." They engulf and digest pathogens (and dead cells) through a process called **phagocytosis**. They are part of the non-specific immune response.</li>
+                <li>**Lymphocytes:** These white blood cells are responsible for specific immunity. They produce **antibodies**, which are Y-shaped proteins that are highly specific to particular antigens (unique molecules on the surface of pathogens). Antibodies can:
+                    * Bind to pathogens and neutralize them.
+                    * Clump pathogens together, making them easier for phagocytes to engulf.
+                    * Mark pathogens for destruction by other immune cells.</li>
+            </ul>
+            <div class="flex justify-center my-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Immune_response_diagram.svg/640px-Immune_response_diagram.svg.png" alt="Immune Response Diagram" class="rounded-lg shadow-md max-w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Immune+Response';">
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                *Figure: Simplified diagram of an immune response, showing phagocytes engulfing pathogens and lymphocytes producing antibodies.*
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Immunity: Active and Passive:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                There are two main types of immunity:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Active Immunity:** Defence against a pathogen by **antibody production in the body**. This occurs when your own immune system is stimulated to produce antibodies. It provides long-term protection.
+                    * **Natural active immunity:** Developed after exposure to a pathogen (e.g., getting sick with measles).
+                    * **Artificial active immunity:** Developed after vaccination.</li>
+                <li>**Passive Immunity:** Short-term defence against a pathogen by **antibodies acquired from another individual**. This provides immediate but temporary protection as the body does not produce its own antibodies.
+                    * **Natural passive immunity:** Antibodies passed from mother to baby via placenta or breast milk.
+                    * **Artificial passive immunity:** Antibodies injected from another source (e.g., antiserum).</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Vaccination:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                The **principle of vaccination** is to expose the immune system to a weakened or inactive form of a pathogen (or its antigens) so that it can produce antibodies and memory cells without causing the actual disease. If the vaccinated individual later encounters the real pathogen, their immune system can rapidly produce a large number of antibodies, preventing illness.
+            </p>
+            <p class="text-base leading-relaxed mb-4">
+                **Vaccination plays a crucial role in controlling the spread of disease** by:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>Protecting individuals from specific diseases.</li>
+                <li>Contributing to **herd immunity**, where a high percentage of vaccinated individuals protects unvaccinated individuals by reducing the pathogen's ability to spread.</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Specific Diseases: Causes and Effects:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                Here are some examples of common diseases:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**HIV/AIDS:**
+                    * **Cause:** HIV (Human Immunodeficiency Virus) is the virus that causes AIDS.
+                    * **Transmission:** Transmitted by the exchange of body fluids (e.g., sexual intercourse, sharing needles, mother to child during birth/breastfeeding).
+                    * **Effects:** HIV attacks and weakens the immune system, increasing the risk of opportunistic infections (infections that a healthy immune system could fight off). AIDS (Acquired Immunodeficiency Syndrome) is the final stage of HIV infection, characterized by severe immune deficiency.</li>
+                <li>**Cholera:**
+                    * **Cause:** Caused by a bacterium (Vibrio cholerae).
+                    * **Transmission:** Transmitted by contaminated water (fecal-oral route).
+                    * **Effects:** Causes severe diarrhoea and rapid dehydration, which can be fatal if untreated.</li>
+                <li>**Malaria:**
+                    * **Cause:** Caused by a protoctistan parasite (Plasmodium).
+                    * **Transmission:** Transmitted by a vector (Anopheles mosquito).
+                    * **Effects:** Causes recurrent fever, chills, and damage to red blood cells, leading to anaemia and other complications.</li>
+                <li>**Tuberculosis (TB):**
+                    * **Cause:** Caused by a bacterium (Mycobacterium tuberculosis).
+                    * **Transmission:** Transmitted by droplet infection (airborne, e.g., coughing, sneezing).
+                    * **Effects:** Primarily affects the lungs, causing persistent coughing, breathing difficulties, chest pain, and weight loss. Can also affect other parts of the body.</li>
+            </ul>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Video: Diseases & Immunity (Explanation):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This video from **MooMooMath and Science** (2:37 min) provides an overview of diseases and the immune system.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/i5PtaCJJFjw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                Understanding how the body fights pathogens is crucial for health.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Video: Vaccination (Explanation/Animation):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This animation explains the principle of vaccination and its role in controlling disease spread.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/kCJUzdCBOk0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                This video (3:54 min) from **Cognitoedu** provides a clear animated overview of vaccination.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Interactive Simulation: Virus Explorer (Conceptual):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                While a direct PhET sim for immunity isn't available, the **PhET "Virus Explorer" simulation** can help visualize the structure and life cycles of viruses, which are common pathogens.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://phet.colorado.edu/sims/html/virus-explorer/latest/virus-explorer_en.html" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed">
+                This simulation is an excellent tool for understanding the agents that cause infectious diseases.
             </p>
         </section>
     </main>
+
+    <!-- Footer Section -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
         <div class="container mx-auto text-center text-sm">
             &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
         </div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Link to external script.js file (assumed to be in repository root) -->
+    <script src="../../../../script.js"></script>
 </body>
 </html>

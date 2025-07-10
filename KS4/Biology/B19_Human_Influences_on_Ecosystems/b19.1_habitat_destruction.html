@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B19.1 Habitat destruction - Casco School Science</title>
+    <title>B19.1 Food supply - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN - MUST COME FIRST -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS custom color configuration - MUST COME AFTER CDN -->
     <script>
         tailwind.config = {
             theme: {
@@ -19,68 +22,216 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+    
+    <!-- Link to external custom CSS file (assumed to be in repository root) -->
+    <link rel="stylesheet" href="../../../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="/Casco-Science-Hub/index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            
+            <!-- Hamburger Button (Mobile Only) -->
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776; <!-- Hamburger icon -->
+            </button>
+
+            <!-- Desktop Navigation (Visible on md and larger screens) -->
             <nav id="desktop-nav" class="hidden md:block">
                 <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../../KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                    <li><a href="/Casco-Science-Hub/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
+                    <li><a href="../../KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
+                    <li><a href="../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
+                    <li><a href="../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+
+    <!-- Mobile Menu Overlay (Hidden by default) -->
     <div id="mobile-menu-overlay" class="fixed inset-0 bg-casco-dark-teal z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-6 overflow-y-auto">
-        <button id="close-mobile-menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200" aria-label="Close mobile menu">&times;</button>
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&times;</button>
         <nav class="flex-grow">
             <ul class="space-y-2">
-                <li><a href="../../../index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
+                <li><a href="/Casco-Science-Hub/index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
+                
+                <!-- KS3 Accordion (Mobile) -->
                 <li>
-                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">KS3 <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS3
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
                     <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../../../KS3/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
-                        <li><a href="../../../KS3/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
-                        <li><a href="../../../KS3/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
                     </ul>
                 </li>
+
+                <!-- KS4 Accordion (Mobile) -->
                 <li>
-                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="true">KS4 <svg class="w-6 h-6 transform transition-transform duration-200 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-screen bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
-                        <li><a href="../../Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
-                        <li><a href="../../Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS4
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="../Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="../Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="../Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
                     </ul>
                 </li>
+
+                <!-- KS5 Accordion (Mobile) -->
                 <li>
-                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">KS5 <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS5
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
                     <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../../../KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
+                        <li><a href="../../KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
+                        <li><a href="../../KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
+                        <li><a href="../../KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </div>
+
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">B19.1 Habitat destruction</h2>
+            <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">B19.1 Food supply</h2>
             <p class="text-lg leading-relaxed mb-6">
-                Content for B19.1 Habitat destruction will be added here.
+                Ensuring a sustainable and sufficient **food supply** for a growing global population is one of the most critical challenges facing humanity. Modern agriculture employs various methods to increase food yield, but these often come with environmental consequences. Understanding these methods and their impacts is essential for addressing global food security and environmental sustainability.
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Learning Objectives:</h3>
+            <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-6">
+                <li>Describe the effects of deforestation, limited to: loss of habitats; soil erosion; flooding; increase of carbon dioxide in the atmosphere.</li>
+                <li>Describe the effects of overfishing, limited to: extinction of species; loss of food source.</li>
+                <li>Describe the effects of eutrophication caused by leached fertilisers, limited to: increased growth of producers, e.g. algae; death of producers due to competition for light; increased decomposition by bacteria; increased respiration by decomposers; reduction in oxygen; death of aquatic organisms, e.g. fish.</li>
+                <li>Describe the effects of pollution by: sewage; industrial waste; plastics.</li>
+                <li>Describe the effects of pesticides, limited to: bioaccumulation; reduction in biodiversity.</li>
+            </ol>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Impacts on Terrestrial Ecosystems:</h3>
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Deforestation:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                **Deforestation** is the clearing of forests for other land uses (e.g., agriculture, logging). It has severe environmental consequences:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Loss of habitats:** Destroys the homes of countless species, leading to reduced biodiversity and potential extinctions.</li>
+                <li>**Soil erosion:** Tree roots hold soil in place. Without trees, soil is easily washed away by rain or blown away by wind, leading to loss of fertile land.</li>
+                <li>**Flooding:** Forests absorb large amounts of rainwater. Deforestation increases surface runoff, leading to increased risk and severity of floods.</li>
+                <li>**Increase of carbon dioxide in the atmosphere:** Trees absorb CO$_2$ during photosynthesis. When forests are cut down and burned or decompose, the stored carbon is released as CO$_2$, contributing to global warming and climate change.</li>
+            </ul>
+            <div class="flex justify-center my-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Deforestation_in_Amazon.jpg/640px-Deforestation_in_Amazon.jpg" alt="Deforestation" class="rounded-lg shadow-md max-w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Deforestation';">
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                *Figure: An area affected by deforestation, showing cleared land and potential soil erosion.*
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Impacts on Aquatic Ecosystems:</h3>
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Overfishing:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                **Overfishing** occurs when fish are caught faster than they can reproduce, leading to a decline in fish populations. Its effects include:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Extinction of species:** Some fish species may be driven to extinction, disrupting marine food webs.</li>
+                <li>**Loss of food source:** Depletion of fish stocks leads to a loss of a vital food source for human populations and other marine animals.</li>
+                <li>**Damage to marine ecosystems:** Fishing practices can damage habitats (e.g., coral reefs) and catch non-target species (bycatch).</li>
+            </ul>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Eutrophication (from Leached Fertilisers):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                **Eutrophication** is the enrichment of water bodies with nutrients, often caused by excess fertilizers leaching from agricultural land into rivers and lakes. This process has several adverse effects:
+            </p>
+            <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-4">
+                <li>**Increased growth of producers:** The excess nutrients (nitrates, phosphates) cause a rapid increase in the growth of aquatic producers, especially algae, leading to an **algal bloom**.</li>
+                <li>**Death of producers:** The dense layer of algae at the surface blocks sunlight, causing plants and algae deeper in the water to die due to **competition for light**.</li>
+                <li>**Increased decomposition by bacteria:** Dead producers sink to the bottom, providing a large food source for decomposers (bacteria). This leads to **increased decomposition by bacteria**.</li>
+                <li>**Increased respiration by decomposers:** The bacteria respire aerobically, consuming large amounts of dissolved oxygen in the water. This leads to a **reduction in oxygen** levels.</li>
+                <li>**Death of aquatic organisms:** The lack of oxygen causes the **death of aquatic organisms** like fish and other invertebrates, leading to a "dead zone."</li>
+            </ol>
+            <div class="flex justify-center my-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Eutrophication_diagram.svg/640px-Eutrophication_diagram.svg.png" alt="Eutrophication Diagram" class="rounded-lg shadow-md max-w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Eutrophication';">
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                *Figure: Diagram illustrating the process of eutrophication caused by fertilizer runoff.*
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Pollution by Sewage, Industrial Waste, and Plastics:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                Pollution from human activities severely impacts ecosystems:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Sewage:** Untreated sewage contains organic matter and pathogens. When released into water bodies, decomposers break down the organic matter, consuming oxygen and leading to the death of aquatic life. Pathogens can also spread diseases.</li>
+                <li>**Industrial Waste:** Can contain a variety of harmful chemicals (e.g., heavy metals, toxic organic compounds) that can poison aquatic organisms, accumulate in food chains, and render water unsafe.</li>
+                <li>**Plastics:** Plastic waste (e.g., bags, bottles, microplastics) pollutes oceans and land. Animals can become entangled in larger plastics or ingest microplastics, leading to injury, starvation, and death. Plastics persist in the environment for very long periods.</li>
+            </ul>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Effects of Pesticides:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                **Pesticides** are chemicals used to kill pests (e.g., insects, weeds). While useful in agriculture, they can have adverse environmental effects:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Bioaccumulation:** Pesticides can accumulate in organisms over time, especially if they are not easily broken down. This is called **bioaccumulation**.</li>
+                <li>**Biomagnification:** As these contaminated organisms are eaten by predators, the concentration of the pesticide increases at successively higher trophic levels in a food chain (biomagnification), potentially reaching toxic levels in top predators.</li>
+                <li>**Reduction in biodiversity:** Pesticides can kill non-target species (beneficial insects, birds, mammals), leading to a reduction in biodiversity.</li>
+            </ul>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Video: Eutrophication (Explanation):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This video from **MooMooMath and Science** (2:37 min) explains the process of eutrophication.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/i5PtaCJJFjw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                Understanding the impact of nutrient pollution is vital for aquatic ecosystems.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Video: Pesticides and Bioaccumulation (Explanation/Animation):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This animation explains how pesticides can accumulate in food chains and their effects on biodiversity.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/kCJUzdCBOk0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                This video (3:54 min) from **Cognitoedu** provides a clear animated overview of pesticide impacts.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Interactive Simulation: Food Web (for biomagnification conceptualization):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                The **PhET "Food Web" simulation** can help visualize the interconnectedness of organisms in an ecosystem, which is relevant to understanding how pollutants like pesticides can move and concentrate through trophic levels.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://phet.colorado.edu/sims/html/food-web/latest/food-web_en.html" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed">
+                This simulation is an excellent tool for understanding ecological relationships.
             </p>
         </section>
     </main>
+
+    <!-- Footer Section -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
         <div class="container mx-auto text-center text-sm">
             &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
         </div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Link to external script.js file (assumed to be in repository root) -->
+    <script src="../../../../script.js"></script>
 </body>
 </html>

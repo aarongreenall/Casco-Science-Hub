@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>B16.3 Monohybrid inheritance - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN - MUST COME FIRST -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS custom color configuration - MUST COME AFTER CDN -->
     <script>
         tailwind.config = {
             theme: {
@@ -19,68 +22,247 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+    
+    <!-- Link to external custom CSS file (assumed to be in repository root) -->
+    <link rel="stylesheet" href="../../../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="/Casco-Science-Hub/index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            
+            <!-- Hamburger Button (Mobile Only) -->
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776; <!-- Hamburger icon -->
+            </button>
+
+            <!-- Desktop Navigation (Visible on md and larger screens) -->
             <nav id="desktop-nav" class="hidden md:block">
                 <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../../KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                    <li><a href="/Casco-Science-Hub/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
+                    <li><a href="../../KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
+                    <li><a href="../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
+                    <li><a href="../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+
+    <!-- Mobile Menu Overlay (Hidden by default) -->
     <div id="mobile-menu-overlay" class="fixed inset-0 bg-casco-dark-teal z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-6 overflow-y-auto">
-        <button id="close-mobile-menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200" aria-label="Close mobile menu">&times;</button>
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&times;</button>
         <nav class="flex-grow">
             <ul class="space-y-2">
-                <li><a href="../../../index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
+                <li><a href="/Casco-Science-Hub/index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
+                
+                <!-- KS3 Accordion (Mobile) -->
                 <li>
-                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">KS3 <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS3
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
                     <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../../../KS3/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
-                        <li><a href="../../../KS3/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
-                        <li><a href="../../../KS3/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
                     </ul>
                 </li>
+
+                <!-- KS4 Accordion (Mobile) -->
                 <li>
-                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="true">KS4 <svg class="w-6 h-6 transform transition-transform duration-200 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-screen bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
-                        <li><a href="../../Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
-                        <li><a href="../../Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS4
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="../Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="../Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="../Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
                     </ul>
                 </li>
+
+                <!-- KS5 Accordion (Mobile) -->
                 <li>
-                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">KS5 <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS5
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
                     <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../../../KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
+                        <li><a href="../../KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
+                        <li><a href="../../KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
+                        <li><a href="../../KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </div>
+
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
             <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">B16.3 Monohybrid inheritance</h2>
             <p class="text-lg leading-relaxed mb-6">
-                Content for B16.3 Monohybrid inheritance will be added here.
+                **Monohybrid inheritance** is the study of how a single gene, with its different alleles, is passed from parents to offspring. It forms the basis of Mendelian genetics and helps explain patterns of inheritance for simple traits. Understanding monohybrid crosses involves using Punnett squares and interpreting genetic ratios.
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Learning Objectives:</h3>
+            <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-6">
+                <li>Predict the results of monohybrid crosses using: a Punnett square diagram; the ratios of genotypes and phenotypes.</li>
+                <li>Describe the inheritance of sex in humans as XX and XY chromosomes.</li>
+                <li>Describe the inheritance of the ABO blood groups as an example of codominance.</li>
+                <li>Describe the inheritance of sickle cell anaemia as an example of codominance.</li>
+                <li>Explain how a change in the nucleotide sequence of a gene can result in a different protein and so a different characteristic.</li>
+            </ol>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Predicting Monohybrid Crosses (Punnett Squares):</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                A **monohybrid cross** involves tracking the inheritance of a single gene with two alleles (one dominant, one recessive). **Punnett squares** are diagrams used to predict the possible genotypes and phenotypes of offspring from a genetic cross.
+            </p>
+            <p class="text-base leading-relaxed mb-4">
+                **Steps to use a Punnett square:**
+            </p>
+            <ol class="list-decimal list-inside space-y-1 text-gray-700 mb-4">
+                <li>Determine the genotypes of the parents.</li>
+                <li>Determine the possible gametes (alleles) that each parent can produce through meiosis.</li>
+                <li>Draw a Punnett square, placing the gametes from one parent along the top and the gametes from the other parent along the side.</li>
+                <li>Fill in the squares by combining the alleles from the top and side, representing the possible genotypes of the offspring.</li>
+                <li>Determine the ratios of the genotypes and phenotypes among the offspring.</li>
+            </ol>
+            <p class="text-base leading-relaxed mb-4">
+                For example, a cross between two heterozygous parents (Bb x Bb) for a trait where B is dominant (e.g., brown eyes) and b is recessive (blue eyes) would result in:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Genotypic ratio:** 1 BB : 2 Bb : 1 bb (or 1 homozygous dominant : 2 heterozygous : 1 homozygous recessive)</li>
+                <li>**Phenotypic ratio:** 3 Brown eyes : 1 Blue eyes (or 3 dominant phenotype : 1 recessive phenotype)</li>
+            </ul>
+            <div class="flex justify-center my-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Punnett_square_example.svg/640px-Punnett_square_example.svg.png" alt="Punnett Square Example" class="rounded-lg shadow-md max-w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Punnett+Square';">
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                *Figure: A Punnett square diagram illustrating a monohybrid cross.*
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Inheritance of Sex in Humans:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                In humans, sex is determined by the sex chromosomes:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Females:** Have two X chromosomes (XX).</li>
+                <li>**Males:** Have one X and one Y chromosome (XY).</li>
+            </ul>
+            <p class="text-base leading-relaxed mb-4">
+                During meiosis, egg cells always carry an X chromosome. Sperm cells can carry either an X chromosome or a Y chromosome.
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>If an egg is fertilized by an X-carrying sperm, the offspring will be female (XX).</li>
+                <li>If an egg is fertilized by a Y-carrying sperm, the offspring will be male (XY).</li>
+            </ul>
+            <p class="text-base leading-relaxed mb-4">
+                This results in a 50% chance of having a male or female offspring.
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Codominance: ABO Blood Groups and Sickle Cell Anaemia:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                **Codominance** is a pattern of inheritance where both alleles for a gene are fully expressed in the phenotype of a heterozygous individual. Neither allele is dominant or recessive over the other; instead, both contribute to the phenotype.
+            </p>
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">ABO Blood Groups:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                The **ABO blood groups** in humans are an example of codominance (as well as multiple alleles). The gene for blood type has three alleles: $I^A$, $I^B$, and $i$.
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>$I^A$ and $I^B$ are codominant. If both are present (genotype $I^A I^B$), both A and B antigens are expressed on red blood cells, resulting in blood type AB.</li>
+                <li>Allele $i$ is recessive to both $I^A$ and $I^B$.</li>
+            </ul>
+            <p class="text-base leading-relaxed mb-4">
+                This leads to four main blood phenotypes: A, B, AB, and O.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Sickle Cell Anaemia:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                **Sickle cell anaemia** is a genetic disorder that affects red blood cells. It is an example of codominance at the molecular level. The gene involved codes for haemoglobin.
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Allele $H^A$:** Codes for normal haemoglobin.</li>
+                <li>**Allele $H^S$:** Codes for abnormal haemoglobin (sickle haemoglobin).</li>
+            </ul>
+            <p class="text-base leading-relaxed mb-4">
+                Individuals with genotype $H^A H^A$ have normal red blood cells. Individuals with genotype $H^S H^S$ have sickle cell anaemia (severe symptoms, sickle-shaped red blood cells). Individuals who are **heterozygous ($H^A H^S$)** have both normal and sickle haemoglobin in their red blood cells. They usually have mild or no symptoms but are resistant to malaria, demonstrating codominance.
+            </p>
+            <div class="flex justify-center my-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Sickle_cell_anemia_red_blood_cells.jpg/640px-Sickle_cell_anemia_red_blood_cells.jpg" alt="Sickle Cell Anemia Red Blood Cells" class="rounded-lg shadow-md max-w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Sickle+Cells';">
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                *Figure: Comparison of normal red blood cells (round) and sickle-shaped red blood cells.*
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Gene Mutation and Characteristic Change:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                A **gene** is a sequence of nucleotides in DNA that codes for a specific protein. A **change in the nucleotide sequence of a gene** is called a **mutation**.
+            </p>
+            <p class="text-base leading-relaxed mb-4">
+                Such a change can result in:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>A different sequence of amino acids in the protein.</li>
+                <li>This can lead to a different three-dimensional shape of the protein.</li>
+                <li>A change in the protein's function or even a non-functional protein.</li>
+                <li>Ultimately, this can result in a **different characteristic** (phenotype) in the organism.</li>
+            </ul>
+            <p class="text-base leading-relaxed mb-4">
+                For example, in sickle cell anaemia, a single nucleotide change in the haemoglobin gene leads to a faulty haemoglobin protein, causing red blood cells to become sickle-shaped.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Video: Monohybrid Inheritance (Explanation):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This video from **MooMooMath and Science** (2:37 min) explains monohybrid crosses and Punnett squares.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/i5PtaCJJFjw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                Understanding how traits are passed down is fundamental to genetics.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Video: ABO Blood Groups & Sickle Cell Anaemia (Explanation/Animation):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This animation explains the inheritance of ABO blood groups and sickle cell anaemia as examples of codominance.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/kCJUzdCBOk0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                This video (3:54 min) from **Cognitoedu** provides a clear animated overview of these inheritance patterns.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Interactive Simulation: Gene Expression Essentials (for mutations):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                The **PhET "Gene Expression Essentials" simulation** can help visualize how changes in DNA (mutations) can lead to different proteins and thus different characteristics.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://phet.colorado.edu/sims/html/gene-expression-essentials/latest/gene-expression-essentials_en.html" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed">
+                This simulation is an excellent tool for understanding the molecular basis of genetic traits.
             </p>
         </section>
     </main>
+
+    <!-- Footer Section -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
         <div class="container mx-auto text-center text-sm">
             &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
         </div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Link to external script.js file (assumed to be in repository root) -->
+    <script src="../../../../script.js"></script>
 </body>
 </html>

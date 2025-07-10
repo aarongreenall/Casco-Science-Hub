@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>B5.1 Enzymes - Casco School Science</title>
-    <!-- Tailwind CSS CDN -->
+    
+    <!-- Tailwind CSS CDN - MUST COME FIRST -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Tailwind CSS custom color configuration MUST come AFTER the CDN script -->
+    <!-- Tailwind CSS custom color configuration - MUST COME AFTER CDN -->
     <script>
         tailwind.config = {
             theme: {
@@ -21,68 +22,84 @@
             }
         }
     </script>
-    <!-- Link to external custom CSS file -->
-    <link rel="stylesheet" href="../../../style.css">
+    
+    <!-- Link to external custom CSS file (assumed to be in repository root) -->
+    <link rel="stylesheet" href="../../../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-
+            <a href="/Casco-Science-Hub/index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            
+            <!-- Hamburger Button (Mobile Only) -->
             <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
                 &#9776; <!-- Hamburger icon -->
             </button>
 
+            <!-- Desktop Navigation (Visible on md and larger screens) -->
             <nav id="desktop-nav" class="hidden md:block">
                 <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../../KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                    <li><a href="/Casco-Science-Hub/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
+                    <li><a href="../../KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
+                    <li><a href="../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
+                    <li><a href="../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
+    <!-- Mobile Menu Overlay (Hidden by default) -->
     <div id="mobile-menu-overlay" class="fixed inset-0 bg-casco-dark-teal z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-6 overflow-y-auto">
-        <button id="close-mobile-menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200" aria-label="Close mobile menu">&times;</button>
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&times;</button>
         <nav class="flex-grow">
             <ul class="space-y-2">
-                <li><a href="../../../index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
-
+                <li><a href="/Casco-Science-Hub/index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
+                
+                <!-- KS3 Accordion (Mobile) -->
                 <li>
                     <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
                         KS3
                         <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                     <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../../../KS3/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
-                        <li><a href="../../../KS3/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
-                        <li><a href="../../../KS3/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
                     </ul>
                 </li>
 
+                <!-- KS4 Accordion (Mobile) -->
                 <li>
-                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="true"> <!-- Expanded for KS4 -->
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
                         KS4
-                        <svg class="w-6 h-6 transform transition-transform duration-200 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
-                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-screen bg-casco-dark-teal/20 rounded-md mt-1"> <!-- Max height for expanded KS4 -->
-                        <li><a href="../index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
-                        <li><a href="../../Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
-                        <li><a href="../../Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="../Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="../Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="../Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
                     </ul>
                 </li>
 
+                <!-- KS5 Accordion (Mobile) -->
                 <li>
                     <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
                         KS5
                         <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                     <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../../../KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
+                        <li><a href="../../KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
+                        <li><a href="../../KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
+                        <li><a href="../../KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
                     </ul>
                 </li>
             </ul>
@@ -93,17 +110,124 @@
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
             <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">B5.1 Enzymes</h2>
             <p class="text-lg leading-relaxed mb-6">
-                Content for B5.1 Enzymes will be added here.
+                **Enzymes** are biological catalysts that play an indispensable role in all metabolic reactions within living organisms. They speed up the rate of these reactions without being used up themselves. Understanding enzyme action, their specificity, and how environmental factors like temperature and pH affect their activity is fundamental to biochemistry.
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Learning Objectives:</h3>
+            <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-6">
+                <li>Describe enzymes as proteins that are involved in all metabolic reactions, where they function as biological catalysts.</li>
+                <li>Investigate and describe the effect of changes in temperature and pH on enzyme activity.</li>
+                <li>Describe and explain enzyme action with reference to: the active site, enzyme-substrate complex, substrate and product.</li>
+                <li>Describe and explain the specificity of enzymes in terms of the complementary shape and fit of the active site with the substrate.</li>
+                <li>Explain the effect of changes in temperature on enzyme activity in terms of kinetic energy, shape and fit, frequency of effective collisions and denaturation.</li>
+                <li>Explain the effect of changes in pH on enzyme activity in terms of shape and fit and denaturation.</li>
+            </ol>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Enzymes as Biological Catalysts:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                **Enzymes** are large protein molecules that act as **biological catalysts**. This means they:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Speed up the rate of metabolic reactions** (chemical reactions occurring in living cells).</li>
+                <li>Are **unchanged** at the end of the reaction, meaning they can be reused.</li>
+            </ul>
+            <p class="text-base leading-relaxed mb-4">
+                Enzymes are involved in virtually all metabolic processes, from digestion and respiration to protein synthesis and cell division.
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Enzyme Action and Specificity (Lock and Key Hypothesis):</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                Enzyme action is often explained by the **"lock and key" hypothesis**, which describes their high specificity:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>Every enzyme has a unique three-dimensional shape, with a specific region called the **active site**.</li>
+                <li>The **substrate** is the molecule upon which the enzyme acts. The shape of the substrate is **complementary** to the shape of the enzyme's active site, fitting together like a key in a lock.</li>
+                <li>When the substrate binds to the active site, an **enzyme-substrate complex** is formed.</li>
+                <li>Within this complex, the enzyme facilitates the chemical reaction, converting the substrate into **products**.</li>
+                <li>Once the products are formed, they are released from the active site, and the enzyme is free to catalyze another reaction.</li>
+            </ul>
+            <div class="flex justify-center my-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Enzyme-substrate_complex.svg/640px-Enzyme-substrate_complex.svg.png" alt="Enzyme-Substrate Complex" class="rounded-lg shadow-md max-w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Enzyme+Action';">
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                *Figure: Diagram illustrating the lock and key hypothesis of enzyme action.*
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Effect of Temperature on Enzyme Activity:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                Temperature has a significant effect on enzyme activity:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Increasing Temperature (up to optimum):** As temperature increases, particles (enzyme and substrate molecules) gain more **kinetic energy**. This leads to more frequent and energetic collisions, increasing the **frequency of effective collisions** between the enzyme's active site and the substrate. This increases the rate of reaction.</li>
+                <li>**Optimum Temperature:** Each enzyme has an **optimum temperature** at which it exhibits maximum activity. For most human enzymes, this is around 37°C.</li>
+                <li>**Decreasing Temperature:** Below the optimum, decreasing temperature reduces kinetic energy, leading to fewer collisions and a slower reaction rate. The enzyme is not denatured, but its activity is reduced.</li>
+                <li>**High Temperatures (above optimum):** Beyond the optimum temperature, the high kinetic energy causes the enzyme molecule to vibrate excessively. This breaks the weak bonds holding the enzyme's specific 3D shape, particularly the active site. The enzyme loses its specific shape and can no longer bind to the substrate. This irreversible change is called **denaturation**. A denatured enzyme loses its catalytic function.</li>
+            </ul>
+            <div class="flex justify-center my-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Enzyme_activity_vs_temperature.svg/640px-Enzyme_activity_vs_temperature.svg.png" alt="Enzyme Activity vs Temperature" class="rounded-lg shadow-md max-w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Enzyme+Temp';">
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                *Figure: Graph showing the effect of temperature on enzyme activity, illustrating optimum temperature and denaturation.*
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Effect of pH on Enzyme Activity:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                pH also has a significant effect on enzyme activity:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Optimum pH:** Each enzyme has an **optimum pH** at which its active site has the most complementary shape to the substrate, allowing for maximum activity. For example, pepsin (in the stomach) has an optimum pH of around 2 (acidic), while amylase (in the small intestine) has an optimum pH of around 7-8 (alkaline).</li>
+                <li>**Extreme pH (too acidic or too alkaline):** Changes in pH (either too high or too low from the optimum) alter the charges on the amino acids that make up the enzyme. This disrupts the enzyme's three-dimensional structure, particularly the shape of the active site. This irreversible change is also called **denaturation**. A denatured enzyme loses its catalytic function.</li>
+            </ul>
+            <div class="flex justify-center my-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Enzyme_activity_vs_pH.svg/640px-Enzyme_activity_vs_pH.svg.png" alt="Enzyme Activity vs pH" class="rounded-lg shadow-md max-w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Enzyme+pH';">
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                *Figure: Graph showing the effect of pH on enzyme activity, illustrating optimum pH and denaturation at extreme pH values.*
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Video: Enzymes (Explanation):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This video from **MooMooMath and Science** (2:37 min) provides an introduction to enzymes and their function.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/i5PtaCJJFjw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                Understanding how these biological catalysts work is fundamental.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Experiment Demonstration: Factors Affecting Enzyme Activity (Catalase):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This video demonstrates an experiment using catalase enzyme (e.g., from potato) and hydrogen peroxide to investigate the effect of temperature and pH on enzyme activity.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/kCJUzdCBOk0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                This video (3:54 min) from **Cognitoedu** provides a clear practical demonstration of enzyme behavior.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Interactive Simulation: Enzyme Kinetics:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                Explore how enzymes catalyze reactions and how factors like substrate concentration, temperature, and pH affect reaction rates with the **PhET "Enzyme Kinetics" simulation**. You can observe the formation of enzyme-substrate complexes and product release.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://phet.colorado.edu/sims/html/enzyme-kinetics/latest/enzyme-kinetics_en.html" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed">
+                This simulation is an excellent tool for visualizing enzyme action and factors affecting it.
             </p>
         </section>
     </main>
 
+    <!-- Footer Section -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
         <div class="container mx-auto text-center text-sm">
             &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
         </div>
     </footer>
 
-    <script src="../../../script.js"></script>
+    <!-- Link to external script.js file (assumed to be in repository root) -->
+    <script src="../../../../script.js"></script>
 </body>
 </html>

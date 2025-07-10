@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>B11.1 Human gas exchange - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN - MUST COME FIRST -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS custom color configuration - MUST COME AFTER CDN -->
     <script>
         tailwind.config = {
             theme: {
@@ -19,68 +22,232 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+    
+    <!-- Link to external custom CSS file (assumed to be in repository root) -->
+    <link rel="stylesheet" href="../../../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="/Casco-Science-Hub/index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            
+            <!-- Hamburger Button (Mobile Only) -->
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776; <!-- Hamburger icon -->
+            </button>
+
+            <!-- Desktop Navigation (Visible on md and larger screens) -->
             <nav id="desktop-nav" class="hidden md:block">
                 <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../../KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                    <li><a href="/Casco-Science-Hub/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
+                    <li><a href="../../KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
+                    <li><a href="../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
+                    <li><a href="../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+
+    <!-- Mobile Menu Overlay (Hidden by default) -->
     <div id="mobile-menu-overlay" class="fixed inset-0 bg-casco-dark-teal z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-6 overflow-y-auto">
-        <button id="close-mobile-menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200" aria-label="Close mobile menu">&times;</button>
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&times;</button>
         <nav class="flex-grow">
             <ul class="space-y-2">
-                <li><a href="../../../index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
+                <li><a href="/Casco-Science-Hub/index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
+                
+                <!-- KS3 Accordion (Mobile) -->
                 <li>
-                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">KS3 <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS3
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
                     <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../../../KS3/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
-                        <li><a href="../../../KS3/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
-                        <li><a href="../../../KS3/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
                     </ul>
                 </li>
+
+                <!-- KS4 Accordion (Mobile) -->
                 <li>
-                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="true">KS4 <svg class="w-6 h-6 transform transition-transform duration-200 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-screen bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
-                        <li><a href="../../Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
-                        <li><a href="../../Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS4
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="../Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="../Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="../Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
                     </ul>
                 </li>
+
+                <!-- KS5 Accordion (Mobile) -->
                 <li>
-                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">KS5 <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS5
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
                     <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../../../KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
+                        <li><a href="../../KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
+                        <li><a href="../../KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
+                        <li><a href="../../KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </div>
+
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
             <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">B11.1 Human gas exchange</h2>
             <p class="text-lg leading-relaxed mb-6">
-                Content for B11.1 Human gas exchange will be added here.
+                **Gas exchange** in humans is the vital process by which oxygen is taken into the body from the atmosphere and carbon dioxide is released from the body into the atmosphere. This occurs in the lungs, specifically in tiny air sacs called alveoli, which are highly adapted for efficient diffusion of gases.
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Learning Objectives:</h3>
+            <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-6">
+                <li>Identify in diagrams and images the main structures of the human gas exchange system, limited to: trachea, bronchi, bronchioles, lungs, alveoli, diaphragm, ribs, intercostal muscles.</li>
+                <li>Describe the functions of the structures listed in 11.1.1.</li>
+                <li>Describe the process of gas exchange in the alveoli in terms of diffusion of oxygen and carbon dioxide between the alveoli and the capillaries.</li>
+                <li>Explain the adaptations of the alveoli for efficient gas exchange, limited to: large total surface area; thin walls; rich blood supply; moist surfaces.</li>
+                <li>Describe the effect of physical activity on the rate and depth of breathing.</li>
+                <li>Explain the effect of physical activity on the rate and depth of breathing in terms of the body’s need for increased energy and the removal of carbon dioxide.</li>
+                <li>Describe the effects of smoking on the gas exchange system, limited to: tar – causes cancer and increased mucus production; nicotine – addictive and causes increased heart rate and blood pressure; carbon monoxide – reduces oxygen transport by red blood cells.</li>
+            </ol>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Structures of the Human Gas Exchange System:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                The human gas exchange system, also known as the respiratory system, includes:
+            </p>
+            <div class="flex justify-center my-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Respiratory_system_diagram.svg/640px-Respiratory_system_diagram.svg.png" alt="Respiratory System Diagram" class="rounded-lg shadow-md max-w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Respiratory+System';">
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                *Figure: A diagram illustrating the main structures of the human gas exchange system.*
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Trachea (windpipe):** A tube supported by rings of cartilage, carrying air from the nose/mouth to the bronchi.</li>
+                <li>**Bronchi (singular: bronchus):** Two tubes branching off the trachea, one leading to each lung.</li>
+                <li>**Bronchioles:** Smaller tubes branching off the bronchi, leading to the alveoli.</li>
+                <li>**Lungs:** Main organs of gas exchange, containing millions of alveoli.</li>
+                <li>**Alveoli (singular: alveolus):** Tiny air sacs in the lungs where gas exchange occurs.</li>
+                <li>**Diaphragm:** A large, dome-shaped muscle at the base of the lungs, crucial for breathing.</li>
+                <li>**Ribs:** Bones that form the rib cage, protecting the lungs and aiding breathing movements.</li>
+                <li>**Intercostal muscles:** Muscles between the ribs that help with breathing movements.</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Gas Exchange in the Alveoli:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                Gas exchange occurs by **diffusion** in the alveoli.
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Oxygen:** Diffuses from the air in the alveoli (high oxygen concentration) into the blood in the surrounding capillaries (low oxygen concentration).</li>
+                <li>**Carbon Dioxide:** Diffuses from the blood in the capillaries (high carbon dioxide concentration) into the air in the alveoli (low carbon dioxide concentration), to be exhaled.</li>
+            </ul>
+            <div class="flex justify-center my-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Alveoli_gas_exchange.svg/640px-Alveoli_gas_exchange.svg.png" alt="Alveoli Gas Exchange" class="rounded-lg shadow-md max-w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Alveoli+Exchange';">
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                *Figure: Diagram showing gas exchange between an alveolus and a capillary.*
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Adaptations of the Alveoli for Efficient Gas Exchange:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                The alveoli are highly adapted for maximum efficiency of gas exchange:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Large Total Surface Area:** Millions of alveoli provide a very large total surface area for diffusion (about the size of a tennis court).</li>
+                <li>**Thin Walls:** The walls of the alveoli and the capillaries are both only one cell thick, providing a very short diffusion distance for gases.</li>
+                <li>**Rich Blood Supply:** A dense network of capillaries surrounds each alveolus, maintaining a steep concentration gradient for both oxygen and carbon dioxide. Blood arriving at the lungs is deoxygenated, and blood leaving is oxygenated.</li>
+                <li>**Moist Surfaces:** The inner surfaces of the alveoli are covered in a thin layer of moisture, allowing gases to dissolve before diffusing across the membrane.</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Effect of Physical Activity on Breathing:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                During **physical activity**, muscles respire more rapidly to produce increased energy (ATP). This increased respiration requires more oxygen and produces more carbon dioxide.
+            </p>
+            <p class="text-base leading-relaxed mb-4">
+                To meet these demands, the **rate and depth of breathing increase**. This ensures:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>More oxygen is taken into the blood (to supply respiring muscles).</li>
+                <li>More carbon dioxide (a waste product of respiration) is removed from the blood.</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Effects of Smoking on the Gas Exchange System:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                Smoking has severe adverse effects on the gas exchange system:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Tar:** A sticky, black substance that:
+                    * Accumulates in the lungs, paralyzing and destroying cilia (leading to "smoker's cough").
+                    * Causes cancer (carcinogenic).
+                    * Increases mucus production, leading to blockages and infections.</li>
+                <li>**Nicotine:**
+                    * An addictive drug, making it hard to stop smoking.
+                    * Increases heart rate and blood pressure, putting strain on the cardiovascular system.</li>
+                <li>**Carbon Monoxide (CO):**
+                    * A toxic gas that reduces oxygen transport by red blood cells. Carbon monoxide binds irreversibly to haemoglobin (forming carboxyhaemoglobin) much more readily than oxygen, reducing the blood's oxygen-carrying capacity. This puts strain on the heart and can lead to oxygen deprivation in tissues.</li>
+            </ul>
+            <div class="flex justify-center my-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Smoker%27s_lung_vs_healthy_lung.jpg/640px-Smoker%27s_lung_vs_healthy_lung.jpg" alt="Smoker's Lung vs Healthy Lung" class="rounded-lg shadow-md max-w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Smoker+Lung';">
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                *Figure: Comparison of a healthy lung (left) and a smoker's lung (right), showing the damage caused by smoking.*
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Video: Gas Exchange (Explanation):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This video from **MooMooMath and Science** (2:37 min) explains the process of gas exchange in humans.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/i5PtaCJJFjw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                Understanding how oxygen enters and carbon dioxide leaves the body is crucial.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Video: Adaptations of the Alveoli (Explanation/Animation):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This animation explains the specific adaptations of the alveoli for efficient gas exchange.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/kCJUzdCBOk0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                This video (3:54 min) from **Cognitoedu** provides a clear animated overview of alveolar adaptations.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Interactive Simulation: Gas Exchange (Conceptual):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                The **PhET "Diffusion" simulation** can help visualize the movement of oxygen and carbon dioxide down their concentration gradients between the alveoli and capillaries, which is the basis of gas exchange.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://phet.colorado.edu/sims/html/diffusion/latest/diffusion_en.html" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed">
+                This simulation is an excellent tool for understanding the microscopic processes of gas exchange.
             </p>
         </section>
     </main>
+
+    <!-- Footer Section -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
         <div class="container mx-auto text-center text-sm">
             &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
         </div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Link to external script.js file (assumed to be in repository root) -->
+    <script src="../../../../script.js"></script>
 </body>
 </html>

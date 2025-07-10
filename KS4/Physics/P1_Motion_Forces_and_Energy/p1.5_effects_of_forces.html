@@ -2,12 +2,239 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>P1.5 Effects of forces</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P1.5 Effects of forces - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN - MUST COME FIRST -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS custom color configuration - MUST COME AFTER CDN -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Link to external custom CSS file (assumed to be in repository root) -->
     <link rel="stylesheet" href="../../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
-<body>
-    <header><h1>Casco School Science</h1></header>
-    <main><h1>P1.5 Effects of forces</h1><p>Content pending.</p></main>
-    <footer><p>&copy; 2025 Casco School</p></footer>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="/Casco-Science-Hub/index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            
+            <!-- Hamburger Button (Mobile Only) -->
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776; <!-- Hamburger icon -->
+            </button>
+
+            <!-- Desktop Navigation (Visible on md and larger screens) -->
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="/Casco-Science-Hub/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
+                    <li><a href="/Casco-Science-Hub/KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
+                    <li><a href="/Casco-Science-Hub/KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
+                    <li><a href="/Casco-Science-Hub/KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay (Hidden by default) -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-casco-dark-teal z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-6 overflow-y-auto">
+        <button id="close-mobile-menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200" aria-label="Close mobile menu">&times;</button>
+        <nav class="flex-grow">
+            <ul class="space-y-2">
+                <li><a href="/Casco-Science-Hub/index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
+                
+                <!-- KS3 Accordion (Mobile) -->
+                <li>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS3
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="/Casco-Science-Hub/KS3/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                    </ul>
+                </li>
+
+                <!-- KS4 Accordion (Mobile) -->
+                <li>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS4
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="/Casco-Science-Hub/KS4/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="/Casco-Science-Hub/KS4/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="/Casco-Science-Hub/KS4/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                    </ul>
+                </li>
+
+                <!-- KS5 Accordion (Mobile) -->
+                <li>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS5
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="/Casco-Science-Hub/KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
+                        <li><a href="/Casco-Science-Hub/KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
+                        <li><a href="/Casco-Science-Hub/KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">P1.5 Effects of forces</h2>
+            <p class="text-lg leading-relaxed mb-6">
+                Forces are fundamental to understanding how objects interact and move in the physical world. They can cause objects to start moving, stop moving, change direction, or even change shape. This section explores the various effects of forces, including how multiple forces combine and the concepts of friction and elasticity.
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Learning Objectives:</h3>
+            <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-6">
+                <li>Determine the resultant of two or more forces acting along the same straight line.</li>
+                <li>Know that an object either remains at rest or continues in a straight line at constant speed unless there is a resultant force on the object.</li>
+                <li>Recall and use the equation $F = ma$ and know that the resultant force and the acceleration are in the same direction.</li>
+                <li>Describe friction as the force between two surfaces that may impede relative motion and produce heating.</li>
+                <li>Know that friction (drag) acts on an object moving through a liquid.</li>
+                <li>Know that friction (drag) acts on an object moving through a gas (e.g. air resistance).</li>
+                <li>Know that forces may produce changes in the size, shape and motion of an object.</li>
+                <li>Sketch, plot and interpret load–extension graphs for an elastic solid and describe the associated experimental procedures.</li>
+                <li>Define the spring constant as force per unit extension; recall and use the equation $k = F/x$.</li>
+                <li>Define and use the term ‘limit of proportionality’ for a load–extension graph and identify this point on the graph (an understanding of the elastic limit is not required).</li>
+            </ol>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Understanding Forces and Their Effects:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                A **force** is a push or a pull that can change an object's motion or shape. Forces are vector quantities, meaning they have both magnitude (size) and direction. When multiple forces act on an object, their combined effect is called the **resultant force**. If forces act along the same straight line, the resultant force is found by adding forces in the same direction and subtracting forces in opposite directions.
+            </p>
+            <p class="text-base leading-relaxed mb-4">
+                **Newton's First Law of Motion** states that an object will remain at rest or continue to move at a constant velocity (constant speed in a straight line) unless acted upon by a resultant (unbalanced) force. This means that a change in an object's motion (speeding up, slowing down, or changing direction) is always due to a net force acting on it.
+            </p>
+            <p class="text-base leading-relaxed mb-4">
+                **Newton's Second Law of Motion** quantifies this relationship: the resultant force ($F$) acting on an object is directly proportional to its mass ($m$) and its acceleration ($a$). This is expressed by the equation:
+            </p>
+            <p class="text-center text-lg font-semibold my-4">
+                $F = m \times a$
+            </p>
+            <p class="text-base leading-relaxed mb-4">
+                The resultant force and the acceleration will always be in the same direction. This equation is central to understanding how forces cause changes in motion.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Video: Forces (Explanation):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This video from **MooMooMath and Science** (2:37 min) provides a clear introduction to forces, including balanced and unbalanced forces.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/i5PtaCJJFjw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                Understanding how forces interact is key to predicting motion.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Interactive Simulation: Forces and Motion: Basics:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                Explore the fundamentals of forces and their impact on motion with the **PhET "Forces and Motion: Basics" simulation**. Experiment with applying forces, observing friction, and seeing how these affect an object's speed and direction.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://phet.colorado.edu/sims/html/forces-and-motion-basics/latest/forces-and-motion-basics_en.html" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                This simulation is an excellent tool for developing an intuitive understanding of how forces influence motion.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Friction and Drag:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                **Friction** is a force that opposes relative motion between two surfaces in contact. It can occur between solid surfaces (e.g., a book sliding on a table), or between a solid object and a fluid (liquid or gas). When an object moves through a liquid or a gas, the resistive force is called **drag** (or air resistance when moving through air). Friction often produces heat, as seen when rubbing your hands together.
+            </p>
+            <p class="text-base leading-relaxed mb-4">
+                Friction is essential for many everyday activities, such as walking or braking a car, but it can also be a hindrance, causing energy loss in machinery.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/5AJVlt6o6Yc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                This video from **Physics Online** (4:09 min) provides a clear explanation of friction and drag.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Elasticity and Hooke's Law:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                Forces can also cause objects to change their size or shape. **Elasticity** is the property of a material that allows it to return to its original shape after a deforming force is removed. For many elastic materials, especially springs, the extension (or compression) is directly proportional to the applied force, provided the **limit of proportionality** is not exceeded. This relationship is known as **Hooke's Law**.
+            </p>
+            <p class="text-base leading-relaxed mb-4">
+                The equation for Hooke's Law is:
+            </p>
+            <p class="text-center text-lg font-semibold my-4">
+                $F = k \times x$
+            </p>
+            <p class="text-base leading-relaxed mb-4">
+                Where $F$ is the applied force, $x$ is the extension (or compression), and $k$ is the **spring constant**. The spring constant is a measure of the stiffness of the spring or elastic material, defined as the force per unit extension.
+            </p>
+            <p class="text-base leading-relaxed mb-4">
+                A **load-extension graph** can be plotted to visualize Hooke's Law. For an elastic material, this graph will be a straight line through the origin up to the limit of proportionality. Beyond this limit, the material may undergo permanent deformation.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/f3UE7Z8feYc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                This video from **Physics Tips For Cambridge Students** (3:56 min) explains Hooke's Law with a formula and example problem.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Experiment Demonstration: Hooke's Law Required Practical:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This video demonstrates the practical procedure for investigating Hooke's Law using a spring and masses. You'll learn how to collect data for a load-extension graph and determine the spring constant.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/FAHOI32oAns" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                This video (4:27 min) from **Make Science Easy** provides a clear demonstration of the Hooke's Law experiment.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Interactive Simulation: Masses and Springs:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                Investigate Hooke's Law and the behavior of springs with the **PhET "Masses and Springs" simulation**. You can attach different masses to springs, observe their extension, and calculate the spring constant.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://phet.colorado.edu/sims/html/masses-and-springs/latest/masses-and-springs_en.html" width="800" height="600" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed">
+                This simulation provides a hands-on way to explore the principles of elasticity.
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">
+            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
+        </div>
+    </footer>
+
+    <!-- Link to external script.js file (assumed to be in repository root) -->
+    <script src="/Casco-Science-Hub/script.js"></script>
 </body>
 </html>

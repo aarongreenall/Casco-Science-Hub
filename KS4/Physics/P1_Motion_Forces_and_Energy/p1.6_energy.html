@@ -2,12 +2,208 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>P1.6 Energy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P1.6 Energy - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN - MUST COME FIRST -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS custom color configuration - MUST COME AFTER CDN -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Link to external custom CSS file (assumed to be in repository root) -->
     <link rel="stylesheet" href="../../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
-<body>
-    <header><h1>Casco School Science</h1></header>
-    <main><h1>P1.6 Energy</h1><p>Content pending.</p></main>
-    <footer><p>&copy; 2025 Casco School</p></footer>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="/Casco-Science-Hub/index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            
+            <!-- Hamburger Button (Mobile Only) -->
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776; <!-- Hamburger icon -->
+            </button>
+
+            <!-- Desktop Navigation (Visible on md and larger screens) -->
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="/Casco-Science-Hub/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
+                    <li><a href="/Casco-Science-Hub/KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
+                    <li><a href="/Casco-Science-Hub/KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
+                    <li><a href="/Casco-Science-Hub/KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay (Hidden by default) -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-casco-dark-teal z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-6 overflow-y-auto">
+        <button id="close-mobile-menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200" aria-label="Close mobile menu">&times;</button>
+        <nav class="flex-grow">
+            <ul class="space-y-2">
+                <li><a href="/Casco-Science-Hub/index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
+                
+                <!-- KS3 Accordion (Mobile) -->
+                <li>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS3
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="/Casco-Science-Hub/KS3/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                    </ul>
+                </li>
+
+                <!-- KS4 Accordion (Mobile) -->
+                <li>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS4
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="/Casco-Science-Hub/KS4/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="/Casco-Science-Hub/KS4/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="/Casco-Science-Hub/KS4/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                    </ul>
+                </li>
+
+                <!-- KS5 Accordion (Mobile) -->
+                <li>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS5
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="/Casco-Science-Hub/KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
+                        <li><a href="/Casco-Science-Hub/KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
+                        <li><a href="/Casco-Science-Hub/KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">P1.6 Energy</h2>
+            <p class="text-lg leading-relaxed mb-6">
+                Energy is a fundamental concept in physics, representing the capacity to do work or cause change. It exists in various forms and can be converted from one form to another, but it is always conserved. Understanding energy is crucial for explaining everything from the movement of planets to the operation of everyday devices.
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Learning Objectives:</h3>
+            <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-6">
+                <li>Recall and use the principle of the conservation of energy.</li>
+                <li>State that energy is transferred from one form to another, and that no energy is lost.</li>
+                <li>Recall and use the equations for kinetic energy ($E_k = \frac{1}{2}mv^2$) and gravitational potential energy ($E_p = mgh$).</li>
+                <li>Describe how energy is converted from one form to another, including examples of common energy conversions.</li>
+                <li>Recall and use the equation for work done ($W = Fd$).</li>
+                <li>Define power as work done per unit time or energy transferred per unit time; recall and use the equation $P = W/t$ and $P = E/t$.</li>
+                <li>Recall and use the equation for efficiency ($Efficiency = \frac{Useful \ energy \ output}{Total \ energy \ input} \times 100\%$).</li>
+            </ol>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Forms of Energy and Conservation:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                Energy exists in many different forms, including:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Kinetic energy ($E_k$):** Energy due to motion.</li>
+                <li>**Gravitational potential energy ($E_p$):** Energy due to an object's position in a gravitational field.</li>
+                <li>**Elastic potential energy:** Energy stored in stretched or compressed elastic materials.</li>
+                <li>**Chemical energy:** Energy stored in the bonds of chemical compounds.</li>
+                <li>**Thermal (heat) energy:** Energy associated with the random motion of atoms and molecules.</li>
+                <li>**Electrical energy:** Energy associated with the flow of electric charge.</li>
+                <li>**Nuclear energy:** Energy stored in the nucleus of atoms.</li>
+                <li>**Light energy:** Energy carried by electromagnetic waves.</li>
+                <li>**Sound energy:** Energy carried by vibrations.</li>
+            </ul>
+            <p class="text-base leading-relaxed mb-4">
+                The **Principle of Conservation of Energy** is one of the most fundamental laws in physics. It states that energy cannot be created or destroyed, only transferred from one form to another. In any closed system, the total amount of energy remains constant. For example, when a ball is dropped, its gravitational potential energy is converted into kinetic energy as it falls. When it hits the ground, this kinetic energy is converted into sound and thermal energy.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/AOhQ4gj4Ng8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                This video (2:37 min) from **MooMooMath and Science** explains efficiency with clear examples.
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Work Done, Power, and Efficiency:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                **Work done ($W$)** is a measure of the energy transferred when a force causes an object to move a certain distance. It is calculated by the equation:
+            </p>
+            <p class="text-center text-lg font-semibold my-4">
+                $W = F \times d$
+            </p>
+            <p class="text-base leading-relaxed mb-4">
+                Where $F$ is the force applied and $d$ is the distance moved in the direction of the force. Work done is measured in Joules (J).
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/7hcv_mxcA-g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                This video from **Cognitoedu** (3:54 min) explains the concepts of work done.
+            </p>
+            <p class="text-base leading-relaxed mb-4">
+                **Power ($P$)** is the rate at which work is done or energy is transferred. It tells us how quickly energy is being used or converted. The equations for power are:
+            </p>
+            <p class="text-center text-lg font-semibold my-4">
+                $P = \frac{W}{t}$ or $P = \frac{E}{t}$
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/kCJUzdCBOk0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                This video from **Cognitoedu** (3:54 min) explains the concept of power in physics.
+            </p>
+            <p class="text-base leading-relaxed mb-4">
+                **Efficiency** is a measure of how effectively energy is converted from one form to another in a system or device. No energy conversion is 100% efficient; some energy is always "wasted," usually as thermal energy (heat). Efficiency is calculated as:
+            </p>
+            <p class="text-center text-lg font-semibold my-4">
+                $Efficiency = \frac{Useful \ energy \ output}{Total \ energy \ input} \times 100\%$
+            </p>
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Interactive Simulation: Energy Skate Park:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                Explore the concepts of kinetic and potential energy, and the conservation of energy, with the **PhET "Energy Skate Park" simulation**. You can build tracks and observe how a skater's energy changes as they move, visualizing energy conversions in real-time.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://phet.colorado.edu/sims/html/energy-skate-park/latest/energy-skate-park_en.html" width="800" height="600" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed">
+                This simulation is an excellent tool for understanding energy transformations and conservation.
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">
+            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
+        </div>
+    </footer>
+
+    <!-- Link to external script.js file (assumed to be in repository root) -->
+    <script src="/Casco-Science-Hub/script.js"></script>
 </body>
 </html>

@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>C11.5 Alkenes - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN - MUST COME FIRST -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS custom color configuration - MUST COME AFTER CDN -->
     <script>
         tailwind.config = {
             theme: {
@@ -19,68 +22,226 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+    
+    <!-- Link to external custom CSS file (assumed to be in repository root) -->
+    <link rel="stylesheet" href="../../../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="/Casco-Science-Hub/index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            
+            <!-- Hamburger Button (Mobile Only) -->
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776; <!-- Hamburger icon -->
+            </button>
+
+            <!-- Desktop Navigation (Visible on md and larger screens) -->
             <nav id="desktop-nav" class="hidden md:block">
                 <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../../KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                    <li><a href="/Casco-Science-Hub/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
+                    <li><a href="../../KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
+                    <li><a href="../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
+                    <li><a href="../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+
+    <!-- Mobile Menu Overlay (Hidden by default) -->
     <div id="mobile-menu-overlay" class="fixed inset-0 bg-casco-dark-teal z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-6 overflow-y-auto">
-        <button id="close-mobile-menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200" aria-label="Close mobile menu">&times;</button>
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&times;</button>
         <nav class="flex-grow">
             <ul class="space-y-2">
-                <li><a href="../../../index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
+                <li><a href="/Casco-Science-Hub/index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
+                
+                <!-- KS3 Accordion (Mobile) -->
                 <li>
-                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">KS3 <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS3
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
                     <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../../../KS3/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
-                        <li><a href="../../../KS3/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
-                        <li><a href="../../../KS3/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
                     </ul>
                 </li>
+
+                <!-- KS4 Accordion (Mobile) -->
                 <li>
-                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="true">KS4 <svg class="w-6 h-6 transform transition-transform duration-200 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-screen bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../../Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
-                        <li><a href="../index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
-                        <li><a href="../../Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS4
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="../Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="../Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="../Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
                     </ul>
                 </li>
+
+                <!-- KS5 Accordion (Mobile) -->
                 <li>
-                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">KS5 <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS5
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
                     <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../../../KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
+                        <li><a href="../../KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
+                        <li><a href="../../KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
+                        <li><a href="../../KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </div>
+
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
             <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">C11.5 Alkenes</h2>
             <p class="text-lg leading-relaxed mb-6">
-                Content for C11.5 Alkenes will be added here.
+                **Alkenes** are a homologous series of unsaturated hydrocarbons, characterized by the presence of at least one carbon-carbon double bond (C=C). This double bond makes them more reactive than alkanes and allows them to undergo addition reactions. Understanding alkenes is crucial for the production of polymers and other organic compounds.
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Learning Objectives:</h3>
+            <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-6">
+                <li>State that the bonding in alkenes includes a double carbon–carbon covalent bond and that alkenes are unsaturated hydrocarbons.</li>
+                <li>State that an unsaturated compound has molecules in which one or more carbon–carbon bonds are not single bonds.</li>
+                <li>Name and draw the displayed formulas of: ethene; propene; but-1-ene and but-2-ene (not cis/trans), containing up to four carbon atoms per molecule.</li>
+                <li>Describe the manufacture of alkenes and hydrogen by the cracking of larger alkane molecules using a high temperature and a catalyst.</li>
+                <li>Describe the test to distinguish between saturated and unsaturated hydrocarbons by their reaction with aqueous bromine.</li>
+                <li>Describe the properties of alkenes in terms of addition reactions with: bromine; hydrogen in the presence of a nickel catalyst; steam in the presence of an acid catalyst.</li>
+            </ol>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Structure and Naming of Alkenes:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                Alkenes are **unsaturated hydrocarbons** because they contain at least one **carbon-carbon double covalent bond (C=C)**. The presence of this double bond means the molecule is not "saturated" with hydrogen atoms, unlike alkanes.
+            </p>
+            <p class="text-base leading-relaxed mb-4">
+                Alkenes form a homologous series with the general formula **C$_n$H$_{2n}$**, where 'n' is the number of carbon atoms (n $\ge$ 2).
+            </p>
+            <p class="text-base leading-relaxed mb-4">
+                The names of unbranched alkenes containing up to four carbon atoms are:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Ethene (C$_2$H$_4$):** 2 carbon atoms, with a C=C double bond.</li>
+                <li>**Propene (C$_3$H$_6$):** 3 carbon atoms, with a C=C double bond.</li>
+                <li>**But-1-ene (C$_4$H$_8$):** 4 carbon atoms, with the C=C double bond between the first and second carbon atoms.</li>
+                <li>**But-2-ene (C$_4$H$_8$):** 4 carbon atoms, with the C=C double bond between the second and third carbon atoms. (You do not need to distinguish between cis/trans isomers).</li>
+            </ul>
+            <p class="text-base leading-relaxed mb-4">
+                You should be able to draw their **displayed formulas**, showing all atoms and all bonds.
+            </p>
+            <div class="flex justify-center my-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Alkenes_displayed_formulas.svg/640px-Alkenes_displayed_formulas.svg.png" alt="Alkenes Displayed Formulas" class="rounded-lg shadow-md max-w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Alkenes+Formulas';">
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                *Figure: Displayed formulas for ethene, propene, but-1-ene, and but-2-ene.*
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Manufacture by Cracking:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                Alkenes are primarily manufactured by the **cracking** of larger alkane molecules, typically obtained from the fractional distillation of petroleum. Cracking involves breaking down long-chain alkanes into smaller, more useful alkane molecules and alkenes. This process requires **high temperatures** (e.g., 400-700°C) and/or a **catalyst**.
+            </p>
+            <p class="text-base leading-relaxed mb-4">
+                Example of cracking: `C10H22 (decane) -> C8H18 (octane) + C2H4 (ethene)`
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Properties and Reactions of Alkenes:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                The presence of the C=C double bond makes alkenes much more reactive than alkanes. They readily undergo **addition reactions**, where atoms are added across the double bond, breaking it and forming a single bond.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">1. Test for Unsaturation (Reaction with Aqueous Bromine):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This is a key test to distinguish between saturated (alkanes) and unsaturated (alkenes) hydrocarbons.
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>When **aqueous bromine** (which is orange-brown) is added to an **alkene**, the bromine adds across the double bond, and the orange-brown color of the bromine water **decolorizes** (turns colorless).</li>
+                <li>When aqueous bromine is added to an **alkane**, no reaction occurs, and the orange-brown color persists.</li>
+            </ul>
+            <p class="text-center text-lg font-semibold my-4">
+                `C2H4(g) + Br2(aq) -> C2H4Br2(aq)`
+                <br> `(Ethene + Orange-brown bromine water -> 1,2-dibromoethane (colorless))`
+            </p>
+            <div class="flex justify-center my-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Bromine_water_test.svg/640px-Bromine_water_test.svg.png" alt="Bromine Water Test" class="rounded-lg shadow-md max-w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Bromine+Test';">
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                *Figure: The bromine water test. Bromine water (orange-brown) becomes colorless in the presence of an alkene.*
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">2. Reaction with Hydrogen (Hydrogenation):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                Alkenes react with hydrogen gas in the presence of a **nickel catalyst** (typically at 150°C) to form alkanes. This is an addition reaction where hydrogen atoms add across the double bond.
+            </p>
+            <p class="text-center text-lg font-semibold my-4">
+                `C2H4(g) + H2(g) --(Ni catalyst)--> C2H6(g)`
+                <br> `(Ethene + Hydrogen -> Ethane)`
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">3. Reaction with Steam (Hydration):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                Alkenes react with steam (water vapor) in the presence of an **acid catalyst** (e.g., concentrated phosphoric acid) at high temperature and pressure to form alcohols. This is also an addition reaction.
+            </p>
+            <p class="text-center text-lg font-semibold my-4">
+                `C2H4(g) + H2O(g) --(Acid catalyst)--> C2H5OH(g)`
+                <br> `(Ethene + Steam -> Ethanol)`
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Video: Alkenes (Explanation):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This video from **MooMooMath and Science** (2:37 min) explains the structure and properties of alkenes.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/i5PtaCJJFjw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                Understanding the double bond is key to alkene reactivity.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Experiment Demonstration: Test for Unsaturation (Bromine Water Test):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This video demonstrates the bromine water test, a simple and effective way to distinguish between saturated and unsaturated hydrocarbons.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/ZXcS3oY9wQo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                This video (0:56 min) from **FuseSchool - Global Education** provides a clear demonstration of the test.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Interactive Simulation: Build a Molecule:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                Use the **PhET "Build a Molecule" simulation** to construct various alkene molecules (ethene, propene, butene isomers) and visualize their double bonds and unsaturated nature.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://phet.colorado.edu/sims/html/build-a-molecule/latest/build-a-molecule_en.html" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed">
+                This simulation is an excellent tool for hands-on learning about alkene structures.
             </p>
         </section>
     </main>
+
+    <!-- Footer Section -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
         <div class="container mx-auto text-center text-sm">
             &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
         </div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Link to external script.js file (assumed to be in repository root) -->
+    <script src="../../../../script.js"></script>
 </body>
 </html>

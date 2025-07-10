@@ -2,12 +2,225 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>C6.3 Redox</title>
-    <link rel="stylesheet" href="../../../style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C6.3 Redox - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN - MUST COME FIRST -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS custom color configuration - MUST COME AFTER CDN -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Link to external custom CSS file (assumed to be in repository root) -->
+    <link rel="stylesheet" href="../../../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
-<body>
-    <header><h1>Casco School Science</h1></header>
-    <main><h1>C6.3 Redox</h1><p>Content pending.</p></main>
-    <footer><p>&copy; 2025 Casco School</p></footer>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="/Casco-Science-Hub/index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            
+            <!-- Hamburger Button (Mobile Only) -->
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776; <!-- Hamburger icon -->
+            </button>
+
+            <!-- Desktop Navigation (Visible on md and larger screens) -->
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="/Casco-Science-Hub/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
+                    <li><a href="../../KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
+                    <li><a href="../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
+                    <li><a href="../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay (Hidden by default) -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-casco-dark-teal z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-6 overflow-y-auto">
+        <button id="close-mobile-menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200" aria-label="Close mobile menu">&times;</button>
+        <nav class="flex-grow">
+            <ul class="space-y-2">
+                <li><a href="/Casco-Science-Hub/index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
+                
+                <!-- KS3 Accordion (Mobile) -->
+                <li>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS3
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="/Casco-Science-Hub/KS3/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                    </ul>
+                </li>
+
+                <!-- KS4 Accordion (Mobile) -->
+                <li>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS4
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="../Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="../Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="../Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                    </ul>
+                </li>
+
+                <!-- KS5 Accordion (Mobile) -->
+                <li>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS5
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="../../KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
+                        <li><a href="../../KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
+                        <li><a href="../../KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">C6.3 Redox</h2>
+            <p class="text-lg leading-relaxed mb-6">
+                **Redox reactions** are a fundamental class of chemical reactions that involve the transfer of electrons between chemical species. The term "redox" is a portmanteau of **reduction** and **oxidation**, processes that always occur simultaneously. Understanding redox reactions is crucial in various fields, from electrochemistry and corrosion to biological processes like respiration and photosynthesis.
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Learning Objectives:</h3>
+            <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-6">
+                <li>Define oxidation as gain of oxygen and reduction as loss of oxygen.</li>
+                <li>Identify redox reactions as involving simultaneous reduction and oxidation.</li>
+                <li>Define oxidation in terms of: loss of electrons; an increase in oxidation number.</li>
+                <li>Define reduction in terms of: gain of electrons; a decrease in oxidation number (determination of oxidation numbers is not required).</li>
+            </ol>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Oxidation and Reduction (Oxygen Transfer):</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                Historically, **oxidation** was defined as the **gain of oxygen**, and **reduction** as the **loss of oxygen**.
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Oxidation Example (Gain of Oxygen):**
+                    * When magnesium burns in oxygen: $2Mg(s) + O_2(g) \rightarrow 2MgO(s)$
+                    * Magnesium gains oxygen, so it is oxidized.</li>
+                <li>**Reduction Example (Loss of Oxygen):**
+                    * When copper(II) oxide reacts with carbon: $2CuO(s) + C(s) \rightarrow 2Cu(s) + CO_2(g)$
+                    * Copper(II) oxide loses oxygen, so it is reduced.</li>
+            </ul>
+            <p class="text-base leading-relaxed mb-4">
+                It's important to note that oxidation and reduction always occur **simultaneously** in a redox reaction. If one substance is oxidized, another must be reduced.
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Oxidation and Reduction (Electron Transfer):</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                A more comprehensive definition of oxidation and reduction involves the transfer of electrons:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Oxidation:** **Loss of electrons**. This is often remembered by the mnemonic **OIL** (Oxidation Is Loss).</li>
+                <li>**Reduction:** **Gain of electrons**. This is often remembered by the mnemonic **RIG** (Reduction Is Gain).</li>
+            </ul>
+            <p class="text-base leading-relaxed mb-4">
+                For example, in the reaction between zinc and copper(II) sulfate: $Zn(s) + CuSO_4(aq) \rightarrow ZnSO_4(aq) + Cu(s)$
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Zinc is oxidized:** $Zn(s) \rightarrow Zn^{2+}(aq) + 2e^-$ (Loss of electrons)</li>
+                <li>**Copper(II) ions are reduced:** $Cu^{2+}(aq) + 2e^- \rightarrow Cu(s)$ (Gain of electrons)</li>
+            </ul>
+            <div class="flex justify-center my-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Redox_reaction_electron_transfer.svg/640px-Redox_reaction_electron_transfer.svg.png" alt="Redox Electron Transfer" class="rounded-lg shadow-md max-w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Redox+Electrons';">
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                *Figure: Illustration of electron transfer in a redox reaction.*
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Oxidation and Reduction (Oxidation Number):</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                Another way to identify oxidation and reduction is through changes in **oxidation number**:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Oxidation:** An **increase in oxidation number**.</li>
+                <li>**Reduction:** A **decrease in oxidation number**.</li>
+            </ul>
+            <p class="text-base leading-relaxed mb-4">
+                For example, in the reaction involving iron(II) and iron(III) ions:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>$Fe^{2+} \rightarrow Fe^{3+}$ (Oxidation number increases from +2 to +3, so it's oxidation).</li>
+                <li>$MnO_4^- \rightarrow Mn^{2+}$ (Manganese's oxidation number decreases, so it's reduction).</li>
+            </ul>
+            <p class="text-base leading-relaxed mb-4">
+                (Note: Determination of oxidation numbers is not required at this level, but understanding the concept of increase/decrease is.)
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Video: Redox Reactions (Explanation):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This video from **MooMooMath and Science** (2:37 min) provides an introduction to redox reactions.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/i5PtaCJJFjw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                Understanding electron transfer is key to these reactions.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Experiment Demonstration: Displacement Reactions (Redox):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This video demonstrates various displacement reactions, which are a common type of redox reaction where a more reactive metal displaces a less reactive metal from its salt solution.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/kCJUzdCBOk0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                This video (3:54 min) from **Cognitoedu** provides practical examples of redox reactions.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Interactive Simulation: Salts & Solubility (for ion behavior):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                While not a direct redox sim, the **PhET "Salts & Solubility" simulation** can help visualize ions in solution, which are crucial for understanding electron transfer in aqueous redox reactions.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://phet.colorado.edu/sims/html/salts-and-solubility/latest/salts-and-solubility_en.html" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed">
+                This simulation helps in understanding the behavior of ions in solution.
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">
+            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
+        </div>
+    </footer>
+
+    <!-- Link to external script.js file (assumed to be in repository root) -->
+    <script src="../../../../script.js"></script>
 </body>
 </html>

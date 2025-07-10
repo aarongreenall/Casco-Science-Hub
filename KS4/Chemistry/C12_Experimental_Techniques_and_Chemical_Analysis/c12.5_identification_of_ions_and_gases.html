@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>C12.5 Identification of ions and gases - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN - MUST COME FIRST -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS custom color configuration - MUST COME AFTER CDN -->
     <script>
         tailwind.config = {
             theme: {
@@ -19,68 +22,267 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+    
+    <!-- Link to external custom CSS file (assumed to be in repository root) -->
+    <link rel="stylesheet" href="../../../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="/Casco-Science-Hub/index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            
+            <!-- Hamburger Button (Mobile Only) -->
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776; <!-- Hamburger icon -->
+            </button>
+
+            <!-- Desktop Navigation (Visible on md and larger screens) -->
             <nav id="desktop-nav" class="hidden md:block">
                 <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../../KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                    <li><a href="/Casco-Science-Hub/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
+                    <li><a href="../../KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
+                    <li><a href="../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
+                    <li><a href="../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+
+    <!-- Mobile Menu Overlay (Hidden by default) -->
     <div id="mobile-menu-overlay" class="fixed inset-0 bg-casco-dark-teal z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-6 overflow-y-auto">
-        <button id="close-mobile-menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200" aria-label="Close mobile menu">&times;</button>
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&times;</button>
         <nav class="flex-grow">
             <ul class="space-y-2">
-                <li><a href="../../../index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
+                <li><a href="/Casco-Science-Hub/index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
+                
+                <!-- KS3 Accordion (Mobile) -->
                 <li>
-                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">KS3 <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS3
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
                     <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../../../KS3/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
-                        <li><a href="../../../KS3/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
-                        <li><a href="../../../KS3/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
                     </ul>
                 </li>
+
+                <!-- KS4 Accordion (Mobile) -->
                 <li>
-                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="true">KS4 <svg class="w-6 h-6 transform transition-transform duration-200 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-screen bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../../Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
-                        <li><a href="../index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
-                        <li><a href="../../Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS4
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="../Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="../Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="../Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
                     </ul>
                 </li>
+
+                <!-- KS5 Accordion (Mobile) -->
                 <li>
-                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">KS5 <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS5
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
                     <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../../../KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
+                        <li><a href="../../KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
+                        <li><a href="../../KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
+                        <li><a href="../../KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </div>
+
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
             <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">C12.5 Identification of ions and gases</h2>
             <p class="text-lg leading-relaxed mb-6">
-                Content for C12.5 Identification of ions and gases will be added here.
+                In chemistry, identifying unknown substances is a crucial skill. This often involves performing qualitative tests to detect the presence of specific ions (cations and anions) and gases. These tests rely on characteristic observable changes, such as precipitate formation, color changes, or gas properties.
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Learning Objectives:</h3>
+            <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-6">
+                <li>Describe tests to identify the anions: carbonate, CO$_3^{2-}$, by reaction with dilute acid and then testing for carbon dioxide gas; chloride, Cl$^-$, bromide, Br$^-$, and iodide, I$^-$, by acidifying with dilute nitric acid then adding aqueous silver nitrate; nitrate, NO$_3^-$, by reduction with aluminium foil and aqueous sodium hydroxide and then testing for ammonia gas; sulfate, SO$_4^{2-}$, by acidifying with dilute nitric acid then adding aqueous barium nitrate.</li>
+                <li>Describe the use of a flame test to identify the cations: lithium, Li$^+$; sodium, Na$^+$; potassium, K$^+$; copper(II), Cu$^{2+}$.</li>
+                <li>Describe tests using aqueous sodium hydroxide and aqueous ammonia to identify the aqueous cations: ammonium, NH$_4^+$; calcium, Ca$^{2+}$; copper(II), Cu$^{2+}$; iron(II), Fe$^{2+}$; iron(III), Fe$^{3+}$; zinc, Zn$^{2+}$ (formulas of complex ions are not required).</li>
+                <li>Describe tests to identify the gases: ammonia, NH$_3$, using damp red litmus paper; carbon dioxide, CO$_2$, using limewater; chlorine, Cl$_2$, using damp litmus paper; hydrogen, H$_2$, using a lighted splint; oxygen, O$_2$, using a glowing splint.</li>
+                <li>Describe chemical tests for the presence of water using anhydrous cobalt(II) chloride and anhydrous copper(II) sulfate.</li>
+            </ol>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Tests for Anions (Negative Ions):</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                Anions are identified using specific chemical tests that often involve forming a precipitate or a gas.
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Carbonate (CO$_3^{2-}$):**
+                    * **Test:** Add dilute acid (e.g., dilute hydrochloric acid).
+                    * **Observation:** Effervescence (fizzing) of a gas. Test the gas with limewater (calcium hydroxide solution); it turns cloudy/milky, confirming carbon dioxide.
+                    * `CO3^{2-}(aq) + 2H^+(aq) -> H2O(l) + CO2(g)`</li>
+                <li>**Chloride (Cl$^-$), Bromide (Br$^-$), Iodide (I$^-$):**
+                    * **Test:** Acidify with dilute nitric acid (to remove any carbonate ions that would interfere), then add aqueous silver nitrate solution.
+                    * **Observation:**
+                        * Cl$^-$: White precipitate of silver chloride (AgCl).
+                        * Br$^-$: Cream precipitate of silver bromide (AgBr).
+                        * I$^-$: Yellow precipitate of silver iodide (AgI).
+                    * `Ag^+(aq) + Cl^-(aq) -> AgCl(s)`</li>
+                <li>**Nitrate (NO$_3^-$):**
+                    * **Test:** Add aluminium foil and aqueous sodium hydroxide, then warm gently. Test any gas produced with damp red litmus paper.
+                    * **Observation:** Damp red litmus paper turns blue, indicating ammonia gas (NH$_3$).
+                    * `8Al(s) + 3NO3^-(aq) + 5OH^-(aq) + 2H2O(l) -> 8AlO2^-(aq) + 3NH3(g)`</li>
+                <li>**Sulfate (SO$_4^{2-}$):**
+                    * **Test:** Acidify with dilute nitric acid, then add aqueous barium nitrate solution.
+                    * **Observation:** White precipitate of barium sulfate (BaSO$_4$).
+                    * `Ba^{2+}(aq) + SO4^{2-}(aq) -> BaSO4(s)`</li>
+            </ul>
+            <div class="flex justify-center my-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Anion_tests.svg/640px-Anion_tests.svg.png" alt="Anion Tests Flowchart" class="rounded-lg shadow-md max-w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Anion+Tests';">
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                *Figure: A flowchart summarizing common anion tests and their expected observations.*
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Tests for Cations (Positive Ions):</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                Cations are identified using flame tests or by adding aqueous sodium hydroxide and aqueous ammonia.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">1. Flame Tests:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                Flame tests are used to identify certain metal ions based on the characteristic color they produce when heated in a hot Bunsen flame.
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Lithium (Li$^+$):** Crimson red flame.</li>
+                <li>**Sodium (Na$^+$):** Orange-yellow flame.</li>
+                <li>**Potassium (K$^+$):** Lilac (purple) flame.</li>
+                <li>**Copper(II) (Cu$^{2+}$):** Blue-green flame.</li>
+            </ul>
+            <div class="flex justify-center my-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Flame_tests.jpg/640px-Flame_tests.jpg" alt="Flame Tests" class="rounded-lg shadow-md max-w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Flame+Tests';">
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                *Figure: Various metal ions producing characteristic colors in a flame test.*
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">2. Tests with Aqueous Sodium Hydroxide and Aqueous Ammonia:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                These reagents are used to identify various aqueous cations based on the color and solubility of the precipitates formed.
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Ammonium (NH$_4^+$):**
+                    * **Test:** Warm with aqueous sodium hydroxide.
+                    * **Observation:** Ammonia gas produced (damp red litmus turns blue).</li>
+                <li>**Calcium (Ca$^{2+}$):**
+                    * **Test:** Add aqueous sodium hydroxide.
+                    * **Observation:** White precipitate, insoluble in excess NaOH.</li>
+                <li>**Copper(II) (Cu$^{2+}$):**
+                    * **Test:** Add aqueous sodium hydroxide.
+                    * **Observation:** Light blue precipitate, insoluble in excess NaOH.
+                    * **Test:** Add aqueous ammonia.
+                    * **Observation:** Light blue precipitate, soluble in excess ammonia to form a deep blue solution.</li>
+                <li>**Iron(II) (Fe$^{2+}$):**
+                    * **Test:** Add aqueous sodium hydroxide.
+                    * **Observation:** Green precipitate, insoluble in excess NaOH.</li>
+                <li>**Iron(III) (Fe$^{3+}$):**
+                    * **Test:** Add aqueous sodium hydroxide.
+                    * **Observation:** Red-brown precipitate, insoluble in excess NaOH.</li>
+                <li>**Zinc (Zn$^{2+}$):**
+                    * **Test:** Add aqueous sodium hydroxide.
+                    * **Observation:** White precipitate, soluble in excess NaOH (forms a colorless solution).
+                    * **Test:** Add aqueous ammonia.
+                    * **Observation:** White precipitate, soluble in excess ammonia (forms a colorless solution).</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Tests for Gases:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                Gases produced in reactions can be identified by their characteristic properties or reactions with specific test reagents.
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Ammonia (NH$_3$):**
+                    * **Test:** Damp red litmus paper.
+                    * **Observation:** Turns blue (alkaline gas).</li>
+                <li>**Carbon Dioxide (CO$_2$):**
+                    * **Test:** Bubble through limewater (calcium hydroxide solution).
+                    * **Observation:** Turns limewater cloudy/milky.</li>
+                <li>**Chlorine (Cl$_2$):**
+                    * **Test:** Damp litmus paper.
+                    * **Observation:** Bleaches litmus paper (turns it white).</li>
+                <li>**Hydrogen (H$_2$):**
+                    * **Test:** Lighted splint.
+                    * **Observation:** Produces a 'pop' sound.</li>
+                <li>**Oxygen (O$_2$):**
+                    * **Test:** Glowing splint.
+                    * **Observation:** Relights the glowing splint.</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Tests for Water:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                The presence of water can be confirmed using anhydrous compounds:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Anhydrous Cobalt(II) Chloride:**
+                    * **Test:** White anhydrous cobalt(II) chloride paper.
+                    * **Observation:** Turns blue in the presence of water.</li>
+                <li>**Anhydrous Copper(II) Sulfate:**
+                    * **Test:** White anhydrous copper(II) sulfate powder.
+                    * **Observation:** Turns blue in the presence of water.</li>
+            </ul>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Video: Tests for Ions (Explanation):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This video from **MooMooMath and Science** (2:37 min) explains common tests for identifying various ions.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/i5PtaCJJFjw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                Understanding these tests is crucial for qualitative analysis.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Video: Tests for Gases (Demonstration):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This video demonstrates the characteristic tests for common gases, such as hydrogen, oxygen, and carbon dioxide.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/kCJUzdCBOk0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                This video (3:54 min) from **Cognitoedu** provides practical examples of gas tests.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Interactive Simulation: Salts & Solubility (for precipitate formation):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                The **PhET "Salts & Solubility" simulation** can help visualize the formation of precipitates when different ions are mixed, which is relevant to many anion and cation tests.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://phet.colorado.edu/sims/html/salts-and-solubility/latest/salts-and-solubility_en.html" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed">
+                This simulation is an excellent tool for understanding ion reactions leading to precipitates.
             </p>
         </section>
     </main>
+
+    <!-- Footer Section -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
         <div class="container mx-auto text-center text-sm">
             &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
         </div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Link to external script.js file (assumed to be in repository root) -->
+    <script src="../../../../script.js"></script>
 </body>
 </html>

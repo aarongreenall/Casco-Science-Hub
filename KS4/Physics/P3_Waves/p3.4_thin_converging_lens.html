@@ -2,12 +2,206 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>P3.4 Thin converging lens</title>
-    <link rel="stylesheet" href="../../../style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P3.4 Thin converging lens - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN - MUST COME FIRST -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS custom color configuration - MUST COME AFTER CDN -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Link to external custom CSS file (assumed to be in repository root) -->
+    <link rel="stylesheet" href="../../../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
-<body>
-    <header><h1>Casco School Science</h1></header>
-    <main><h1>P3.4 Thin converging lens</h1><p>Content pending.</p></main>
-    <footer><p>&copy; 2025 Casco School</p></footer>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="/Casco-Science-Hub/index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            
+            <!-- Hamburger Button (Mobile Only) -->
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776; <!-- Hamburger icon -->
+            </button>
+
+            <!-- Desktop Navigation (Visible on md and larger screens) -->
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="/Casco-Science-Hub/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
+                    <li><a href="../../KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
+                    <li><a href="../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
+                    <li><a href="../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay (Hidden by default) -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-casco-dark-teal z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-6 overflow-y-auto">
+        <button id="close-mobile-menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200" aria-label="Close mobile menu">&times;</button>
+        <nav class="flex-grow">
+            <ul class="space-y-2">
+                <li><a href="/Casco-Science-Hub/index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
+                
+                <!-- KS3 Accordion (Mobile) -->
+                <li>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS3
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="/Casco-Science-Hub/KS3/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                    </ul>
+                </li>
+
+                <!-- KS4 Accordion (Mobile) -->
+                <li>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS4
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="../Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="../Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="../Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                    </ul>
+                </li>
+
+                <!-- KS5 Accordion (Mobile) -->
+                <li>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS5
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="../../KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
+                        <li><a href="../../KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
+                        <li><a href="../../KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">P3.4 Thin converging lens</h2>
+            <p class="text-lg leading-relaxed mb-6">
+                Lenses are fundamental optical components that manipulate light rays to form images. A **thin converging lens**, also known as a convex lens, is thicker in the middle than at the edges and causes parallel light rays to converge to a single point. Understanding how these lenses work is crucial for explaining the operation of magnifying glasses, cameras, projectors, and the human eye itself.
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Learning Objectives:</h3>
+            <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-6">
+                <li>Describe the action of a thin converging lens on a parallel beam of light and know that rays of light from an object at distance can be assumed to be parallel.</li>
+                <li>Define and use the terms principal axis, principal focus (focal point) and focal length.</li>
+                <li>Draw and use ray diagrams for the formation of an image by a thin converging lens, limited to real images.</li>
+                <li>Describe the characteristics of an image using the terms enlarged / same size / diminished and upright / inverted.</li>
+                <li>Draw and use ray diagrams for the formation of a virtual image by a thin converging lens.</li>
+                <li>Describe the characteristics of an image using the terms real / virtual.</li>
+                <li>Describe the use of a single lens as a magnifying glass.</li>
+            </ol>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Lens Terminology and Ray Diagrams:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                To understand how lenses form images, we use specific terminology and ray diagrams:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Principal Axis:** An imaginary straight line passing through the optical center of the lens and perpendicular to its surfaces.</li>
+                <li>**Principal Focus (Focal Point, $F$):** For a converging lens, this is the point on the principal axis where parallel rays of light converge after passing through the lens. A converging lens has two principal foci, one on each side.</li>
+                <li>**Focal Length ($f$):** The distance between the optical center of the lens and its principal focus.</li>
+            </ul>
+            <p class="text-base leading-relaxed mb-4">
+                When an object is placed at a very large distance from a lens (effectively at infinity), the light rays coming from it can be assumed to be parallel. A converging lens brings these parallel rays to a focus at its principal focus.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Image Formation (Real and Virtual Images):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                Converging lenses can form two types of images:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Real Images:** Formed when actual light rays converge at a point. Real images can be projected onto a screen, are always inverted, and can be enlarged, diminished, or same size depending on the object's distance from the lens.</li>
+                <li>**Virtual Images:** Formed when light rays only *appear* to diverge from a point. Virtual images cannot be projected onto a screen, are always upright, and are typically enlarged when formed by a converging lens used as a magnifying glass.</li>
+            </ul>
+            <p class="text-base leading-relaxed mb-4">
+                **Ray diagrams** are essential tools to determine the position, size, orientation (upright or inverted), and nature (real or virtual) of the image formed by a lens. For a converging lens, three principal rays are typically used:
+            </p>
+            <ol class="list-decimal list-inside space-y-1 text-gray-700 mb-4">
+                <li>A ray parallel to the principal axis passes through the principal focus after refraction.</li>
+                <li>A ray passing through the optical center of the lens continues undeviated.</li>
+                <li>A ray passing through the principal focus emerges parallel to the principal axis after refraction.</li>
+            </ol>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Use as a Magnifying Glass:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                When an object is placed within the focal length of a converging lens, it acts as a **magnifying glass**, producing an enlarged, upright, and virtual image. The light rays from the object appear to diverge from a point further away, making the object appear larger.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Video: Converging Lenses (Explanation):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This video from **MooMooMath and Science** (3:00 min) explains the basics of converging lenses and how they form images.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/s-YV-P-g_0g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                Understanding ray diagrams is key to predicting image formation.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Experiment Demonstration: Image Formation with a Converging Lens:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This video demonstrates how to form real and virtual images using a converging lens, showing practical setups and observations.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/1Xps9ddd18U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                This video (4:18 min) from **GCSE Physics Ninja** provides a practical demonstration of lens behavior.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Interactive Simulation: Geometric Optics:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                Explore image formation with lenses using the **PhET "Geometric Optics" simulation**. You can manipulate lenses, objects, and light rays to observe how different types of images (real/virtual, inverted/upright, enlarged/diminished) are formed.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://phet.colorado.edu/sims/html/geometric-optics/latest/geometric-optics_en.html" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed">
+                This simulation is an excellent tool for visualizing ray diagrams and image characteristics.
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">
+            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
+        </div>
+    </footer>
+
+    <!-- Link to external script.js file (assumed to be in repository root) -->
+    <script src="../../../../script.js"></script>
 </body>
 </html>

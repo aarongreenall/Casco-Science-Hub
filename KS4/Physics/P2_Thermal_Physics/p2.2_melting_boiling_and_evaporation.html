@@ -2,12 +2,219 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>P2.2 Melting, boiling and evaporation</title>
-    <link rel="stylesheet" href="../../../style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P2.2 Melting, boiling and evaporation - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN - MUST COME FIRST -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS custom color configuration - MUST COME AFTER CDN -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Link to external custom CSS file (assumed to be in repository root) -->
+    <link rel="stylesheet" href="../../../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
-<body>
-    <header><h1>Casco School Science</h1></header>
-    <main><h1>P2.2 Melting, boiling and evaporation</h1><p>Content pending.</p></main>
-    <footer><p>&copy; 2025 Casco School</p></footer>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="/Casco-Science-Hub/index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            
+            <!-- Hamburger Button (Mobile Only) -->
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776; <!-- Hamburger icon -->
+            </button>
+
+            <!-- Desktop Navigation (Visible on md and larger screens) -->
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="/Casco-Science-Hub/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
+                    <li><a href="../../KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
+                    <li><a href="../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
+                    <li><a href="../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay (Hidden by default) -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-casco-dark-teal z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-6 overflow-y-auto">
+        <button id="close-mobile-menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200" aria-label="Close mobile menu">&times;</button>
+        <nav class="flex-grow">
+            <ul class="space-y-2">
+                <li><a href="/Casco-Science-Hub/index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
+                
+                <!-- KS3 Accordion (Mobile) -->
+                <li>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS3
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="/Casco-Science-Hub/KS3/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="/Casco-Science-Hub/KS3/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                    </ul>
+                </li>
+
+                <!-- KS4 Accordion (Mobile) -->
+                <li>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS4
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="/Casco-Science-Hub/KS4/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="/Casco-Science-Hub/KS4/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="/Casco-Science-Hub/KS4/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
+                    </ul>
+                </li>
+
+                <!-- KS5 Accordion (Mobile) -->
+                <li>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS5
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="/Casco-Science-Hub/KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
+                        <li><a href="/Casco-Science-Hub/KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
+                        <li><a href="/Casco-Science-Hub/KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">P2.2 Melting, boiling and evaporation</h2>
+            <p class="text-lg leading-relaxed mb-6">
+                Changes of state are fundamental processes in thermal physics, where substances transition between solid, liquid, and gaseous forms. These changes involve energy transfer and can be explained by the kinetic particle model of matter. Understanding these processes helps us comprehend phenomena from ice melting to water boiling and clothes drying.
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Learning Objectives:</h3>
+            <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-6">
+                <li>Know the melting and boiling temperatures for water at standard atmospheric pressure (limited to Celsius only).</li>
+                <li>Describe condensation and solidification (freezing) in terms of particles.</li>
+                <li>Describe evaporation in terms of the escape of the more energetic particles from the surface of a liquid.</li>
+                <li>Know that evaporation causes cooling of a liquid.</li>
+                <li>Describe melting and boiling in terms of energy input without a change in temperature.</li>
+                <li>Describe the differences between boiling and evaporation.</li>
+                <li>Describe how temperature, surface area and air movement over a surface affect evaporation.</li>
+            </ol>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Changes of State and Particle Behavior:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                Matter can transition between states:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Melting:** Solid to liquid.</li>
+                <li>**Boiling:** Liquid to gas (occurs throughout the liquid at a specific temperature).</li>
+                <li>**Evaporation:** Liquid to gas (occurs only at the surface, at any temperature).</li>
+                <li>**Condensation:** Gas to liquid.</li>
+                <li>**Solidification (Freezing):** Liquid to solid.</li>
+            </ul>
+            <p class="text-base leading-relaxed mb-4">
+                These changes involve energy input or output but occur without a change in temperature during the phase transition itself. For water at standard atmospheric pressure, the melting point is 0°C and the boiling point is 100°C.
+            </p>
+
+            <div class="flex justify-center my-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Heating_curve_of_water.svg/1280px-Heating_curve_of_water.svg.png" alt="Heating Curve of Water" class="rounded-lg shadow-md max-w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Phase+Change+Graph';">
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                *Figure: A typical heating curve (phase change graph) showing temperature versus time as a substance absorbs heat. The flat sections indicate phase changes (melting and boiling) where energy is absorbed without a temperature increase.*
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Particle Explanation of Changes of State:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                According to the kinetic particle model:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Melting/Boiling:** When a substance is heated, its particles gain kinetic energy and vibrate more vigorously. At the melting point, particles gain enough energy to overcome the strong forces holding them in fixed positions, allowing them to move past each other (liquid state). At the boiling point, particles gain enough energy to completely overcome the forces of attraction, escaping as a gas.</li>
+                <li>**Condensation/Solidification:** When a gas cools, its particles lose kinetic energy and move slower. At the condensation point, particles lose enough energy to come closer together and form a liquid. At the freezing point, particles lose enough energy to settle into fixed positions, forming a solid.</li>
+                <li>**Evaporation:** This is a surface phenomenon. Even below the boiling point, some particles at the surface of a liquid have enough kinetic energy to escape into the gaseous state. When these more energetic particles leave, the average kinetic energy of the remaining liquid particles decreases, leading to a cooling effect. This is why sweating cools your body.</li>
+            </ul>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Differences between Boiling and Evaporation:</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Boiling:** Occurs at a specific boiling point, throughout the entire liquid, and involves the formation of bubbles.</li>
+                <li>**Evaporation:** Occurs at any temperature below the boiling point, only at the surface of the liquid, and does not involve bubbling.</li>
+            </ul>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Factors Affecting Evaporation Rate:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                The rate of evaporation is influenced by:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Temperature:** Higher temperature means more particles have enough energy to escape, increasing evaporation rate.</li>
+                <li>**Surface Area:** A larger surface area exposes more particles to the air, increasing evaporation rate.</li>
+                <li>**Air Movement (Wind):** Wind blows away evaporated particles, reducing the concentration of vapor above the liquid and allowing more liquid particles to escape, increasing evaporation rate.</li>
+            </ul>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Video: States of Matter (Explanation):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This video from **FreeScienceLessons** (3:00 min) provides a clear overview of the states of matter and their particle arrangements.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/s-YV-P-g_0g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                Visualizing the particle behavior helps in understanding macroscopic properties.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Video: Boiling Water on Mount Everest (Experiment/Demonstration):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This video demonstrates how boiling point changes with atmospheric pressure, illustrating a real-world consequence of pressure on phase changes.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/8lyqFkFsH28" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                This video (3:00 min) from **BBC Earth Lab** shows how water boils at a lower temperature on Mount Everest.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Interactive Simulation: States of Matter: Basics:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                Explore the arrangement and motion of particles in different states of matter with the **PhET "States of Matter: Basics" simulation**. You can change temperature and observe how particles behave in solids, liquids, and gases, and visualize phase transitions.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://phet.colorado.edu/sims/html/states-of-matter-basics/latest/states-of-matter-basics_en.html" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed">
+                This simulation is an excellent tool for visualizing the particle model and changes of state.
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">
+            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
+        </div>
+    </footer>
+
+    <!-- Link to external script.js file (assumed to be in repository root) -->
+    <script src="../../../../script.js"></script>
 </body>
 </html>

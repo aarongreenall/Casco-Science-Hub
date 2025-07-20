@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KS3 Science - Casco School</title>
+    <title>KS3 Years - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN - MUST COME FIRST -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS custom color configuration - MUST COME AFTER CDN -->
     <script>
         tailwind.config = {
             theme: {
@@ -19,7 +22,11 @@
             }
         }
     </script>
+
+    <!-- Link to external custom CSS file (assumed to be in repository root) -->
     <link rel="stylesheet" href="../style.css">
+
+    <!-- MathJax for rendering equations -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         MathJax = {
@@ -31,12 +38,18 @@
 <body class="font-sans bg-gray-100 text-gray-800">
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="/Casco-Science-Hub/index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+
+            <!-- Hamburger Button (Mobile Only) -->
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776; <!-- Hamburger icon -->
+            </button>
+
+            <!-- Desktop Navigation (Visible on md and larger screens) -->
             <nav id="desktop-nav" class="hidden md:block">
                 <ul class="flex space-x-6">
-                    <li><a href="../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md bg-casco-main-teal">KS3</a></li>
+                    <li><a href="/Casco-Science-Hub/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
+                    <li><a href="index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
                     <li><a href="../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
                     <li><a href="../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
                 </ul>
@@ -44,33 +57,49 @@
         </div>
     </header>
 
-    <div id="mobile-menu-overlay">
-        <button id="close-mobile-menu" aria-label="Close mobile menu">&times;</button>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Home</a></li>
+    <!-- Mobile Menu Overlay (Hidden by default) -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-casco-dark-teal z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-6 overflow-y-auto">
+        <button id="close-mobile-menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200" aria-label="Close mobile menu">&times;</button>
+        <nav class="flex-grow">
+            <ul class="space-y-2">
+                <li><a href="/Casco-Science-Hub/index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
+
+                <!-- KS3 Accordion (Mobile) -->
                 <li>
-                    <button class="mobile-accordion-btn">KS3</button>
-                    <ul class="mobile-accordion-content is-open" style="max-height: 500px;"> {/* Expanded by default */}
-                        <li><a href="Year7/index.html">Year 7</a></li>
-                        <li><a href="Year8/index.html">Year 8</a></li>
-                        <li><a href="Year9/index.html">Year 9</a></li>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS3
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="Year7/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Year 7</a></li>
+                        <li><a href="Year8/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Year 8</a></li>
+                        <li><a href="Year9/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Year 9</a></li>
                     </ul>
                 </li>
+
+                <!-- KS4 Accordion (Mobile) -->
                 <li>
-                    <button class="mobile-accordion-btn">KS4</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../KS4/Biology/index.html">Biology</a></li>
-                        <li><a href="../KS4/Chemistry/index.html">Chemistry</a></li>
-                        <li><a href="../KS4/Physics/index.html">Physics</a></li>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS4
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="../KS4/Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
+                        <li><a href="../KS4/Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
+                        <li><a href="../KS4/Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
                     </ul>
                 </li>
+
+                <!-- KS5 Accordion (Mobile) -->
                 <li>
-                    <button class="mobile-accordion-btn">KS5</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../KS5/ib_biology/index.html">IB Biology</a></li>
-                        <li><a href="../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
-                        <li><a href="../KS5/ib_physics/index.html">IB Physics</a></li>
+                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
+                        KS5
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
+                        <li><a href="../KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
+                        <li><a href="../KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
+                        <li><a href="../KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
                     </ul>
                 </li>
             </ul>
@@ -79,34 +108,26 @@
 
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <nav class="text-sm mb-4" aria-label="Breadcrumb">
-                <ol class="list-none p-0 inline-flex">
-                    <li class="flex items-center">
-                        <a href="../index.html" class="text-casco-main-teal hover:underline">Home</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="text-gray-500">KS3</li>
-                </ol>
-            </nav>
-            <h1 class="text-3xl font-bold text-casco-main-teal mb-6">Key Stage 3 Science</h1>
+            <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">Key Stage 3 Science</h2>
             <p class="text-lg leading-relaxed mb-6">
-                Welcome to Key Stage 3 Science! This stage builds the foundation for your scientific understanding. Explore topics across Biology, Chemistry, and Physics for Years 7, 8, and 9. Select a year group below to begin.
+                Welcome to the Key Stage 3 Science section! Here you can explore topics relevant to Year 7, Year 8, and Year 9. Select a year below to begin your learning journey.
             </p>
+
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <a href="Year7/index.html" class="content-button">
-                    <svg class="w-full h-full text-white" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="color: white; width: 80px; height: 80px; object-fit: contain; margin-bottom: 0.5rem; border-radius: 0.5rem; background-color: rgba(255,255,255,0.2); padding: 5px;">
+                <a href="Year7/index.html" class="content-button bg-gradient-to-r from-casco-main-teal to-casco-dark-teal">
+                    <svg class="w-full h-full text-white" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                         <text x="50%" y="50%" font-size="60" font-weight="bold" text-anchor="middle" dominant-baseline="central" fill="currentColor">7</text>
                     </svg>
                     <span>Year 7</span>
                 </a>
-                <a href="Year8/index.html" class="content-button">
-                    <svg class="w-full h-full text-white" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="color: white; width: 80px; height: 80px; object-fit: contain; margin-bottom: 0.5rem; border-radius: 0.5rem; background-color: rgba(255,255,255,0.2); padding: 5px;">
+                <a href="Year8/index.html" class="content-button bg-gradient-to-r from-casco-main-teal to-casco-dark-teal">
+                    <svg class="w-full h-full text-white" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                         <text x="50%" y="50%" font-size="60" font-weight="bold" text-anchor="middle" dominant-baseline="central" fill="currentColor">8</text>
                     </svg>
                     <span>Year 8</span>
                 </a>
-                <a href="Year9/index.html" class="content-button">
-                    <svg class="w-full h-full text-white" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="color: white; width: 80px; height: 80px; object-fit: contain; margin-bottom: 0.5rem; border-radius: 0.5rem; background-color: rgba(255,255,255,0.2); padding: 5px;">
+                <a href="Year9/index.html" class="content-button bg-gradient-to-r from-casco-main-teal to-casco-dark-teal">
+                    <svg class="w-full h-full text-white" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                         <text x="50%" y="50%" font-size="60" font-weight="bold" text-anchor="middle" dominant-baseline="central" fill="currentColor">9</text>
                     </svg>
                     <span>Year 9</span>
@@ -115,11 +136,14 @@
         </section>
     </main>
 
+    <!-- Footer Section -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
         <div class="container mx-auto text-center text-sm">
             &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
         </div>
     </footer>
+
+    <!-- Link to external script.js file (assumed to be in repository root) -->
     <script src="../script.js"></script>
 </body>
 </html>

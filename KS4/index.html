@@ -1,384 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KS4 Science - Casco School Science</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Tailwind CSS custom color configuration MUST come AFTER the CDN script -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'casco-main-teal': '#00BFBF',
-                        'casco-dark-teal': '#009999',
-                        'casco-light-teal': '#33EBEB',
-                        'casco-light-bg': '#E0F2F1',
-                    }
-                }
-            }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KS4 Science - Casco School Science</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'casco-main-teal': '#00BFBF',
+            'casco-dark-teal': '#009999',
+            'casco-light-teal': '#33EBEB',
+            'casco-light-bg': '#E0F2F1'
+          }
         }
-    </script>
-    <!-- Custom CSS embedded directly -->
-    <style>
-        /* Basic body font fallback */
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-
-        /* Ensure YouTube embeds are responsive (if added to sub-pages) */
-        .aspect-w-16 {
-          position: relative;
-          width: 100%;
-          padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-        }
-
-        .aspect-w-16 iframe {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          top: 0;
-          left: 0;
-        }
-
-        /* General styling for sections to ensure consistent padding and margins */
-        section {
-            margin-bottom: 2rem;
-        }
-
-        /* Styling for the fact generator button */
-        #generateFactBtn {
-            transition: background-color 0.3s ease-in-out, transform 0.1s ease-in-out;
-        }
-
-        #generateFactBtn:active {
-            transform: scale(0.98);
-        }
-
-        /* --- Navigation Specific Styles (copied from main index.html for consistency) --- */
-
-        /* Mobile Menu Overlay */
-        #mobile-menu-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--color-casco-dark-teal); z-index: 50; transform: translateX(100%); transition: transform 0.3s ease-in-out; display: flex; flex-direction: column; padding: 1.5rem; overflow-y: auto;
-        }
-        #mobile-menu-overlay.is-open { transform: translateX(0); }
-        #mobile-menu-overlay ul { list-style: none; padding: 0; margin: 0; }
-        #mobile-menu-overlay li { margin-bottom: 0.5rem; position: relative; }
-        #mobile-menu-overlay a, #mobile-menu-overlay button {
-            display: block; width: 100%; padding: 0.75rem 1rem; color: white; text-align: left; font-size: 1.125rem; border-radius: 0.375rem; transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-        }
-        #mobile-menu-overlay a:hover, #mobile-menu-overlay button:hover { background-color: var(--color-casco-main-teal); }
-        #mobile-menu-overlay .mobile-accordion-content {
-            max-height: 0; overflow: hidden; transition: max-height 0.3s ease-in-out; background-color: rgba(0, 0, 0, 0.2); border-radius: 0.375rem; margin-top: 0.25rem; padding-left: 1rem;
-        }
-        #mobile-menu-overlay .mobile-accordion-content.is-open { max-height: 500px; }
-        #mobile-menu-overlay .mobile-accordion-content a, #mobile-menu-overlay .mobile-accordion-content button { font-size: 1rem; padding: 0.5rem 1rem; }
-        #hamburger-button {
-            display: block; background: none; border: none; color: white; font-size: 2rem; cursor: pointer; z-index: 60; position: absolute; right: 1.5rem; top: 1.5rem;
-        }
-        #close-mobile-menu {
-            align-self: flex-end; background: none; border: none; color: white; font-size: 2rem; cursor: pointer; margin-bottom: 1rem;
-        }
-        #desktop-nav { display: none; }
-        @media (min-width: 768px) {
-            #hamburger-button { display: none; }
-            #desktop-nav { display: block; }
-            #desktop-nav ul { display: flex; gap: 1.5rem; }
-            #desktop-nav li { margin-bottom: 0; }
-            #desktop-nav a { padding: 0.5rem 1rem; text-align: center; }
-        }
-        /* --- Content Button Styles (copied from main index.html for consistency) --- */
-        .content-button {
-            display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1rem; background-color: var(--color-casco-main-teal); color: white; border-radius: 0.75rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out; text-align: center; text-decoration: none; min-height: 150px;
-        }
-        .content-button:hover {
-            background-color: var(--color-casco-dark-teal); transform: translateY(-2px); box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-        }
-        .content-button svg {
-            width: 80px; height: 80px; object-fit: contain; margin-bottom: 0.5rem; border-radius: 0.5rem; background-color: rgba(255,255,255,0.2); padding: 5px; color: white;
-        }
-        .content-button span {
-            font-weight: 600; font-size: 1.125rem; line-height: 1.25; color: black;
-        }
-        #main-buttons {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem;
-        }
-    </style>
+      }
+    }
+  </script>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
-    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            
-            <!-- Hamburger Button (Mobile Only) -->
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
-                &#9776; <!-- Hamburger icon -->
-            </button>
-
-            <!-- Desktop Navigation (Visible on md and larger screens) -->
-            <nav id="desktop-nav" class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Mobile Menu Overlay (Hidden by default) -->
-    <div id="mobile-menu-overlay" class="fixed inset-0 bg-casco-dark-teal z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-6 overflow-y-auto">
-        <button id="close-mobile-menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200" aria-label="Close mobile menu">&times;</button>
-        <nav class="flex-grow">
-            <ul class="space-y-2">
-                <li><a href="../index.html" class="block p-3 text-white text-xl rounded-md hover:bg-casco-main-teal">Home</a></li>
-                
-                <!-- KS3 Accordion (Mobile) -->
-                <li>
-                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
-                        KS3
-                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../KS3/Year7/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Year 7</a></li>
-                        <li><a href="../KS3/Year8/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Year 8</a></li>
-                        <li><a href="../KS3/Year9/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Year 9</a></li>
-                    </ul>
-                </li>
-
-                <!-- KS4 Accordion (Mobile) -->
-                <li>
-                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
-                        KS4
-                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="Biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Biology</a></li>
-                        <li><a href="Chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Chemistry</a></li>
-                        <li><a href="Physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">Physics</a></li>
-                    </ul>
-                </li>
-
-                <!-- KS5 Accordion (Mobile) -->
-                <li>
-                    <button class="mobile-accordion-btn flex items-center justify-between w-full p-3 text-white text-xl rounded-md hover:bg-casco-main-teal" aria-expanded="false">
-                        KS5
-                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <ul class="mobile-accordion-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-casco-dark-teal/20 rounded-md mt-1">
-                        <li><a href="../KS5/ib_biology/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Biology</a></li>
-                        <li><a href="../KS5/ib_chemistry/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Chemistry</a></li>
-                        <li><a href="../KS5/ib_physics/index.html" class="block p-3 text-white text-lg hover:bg-casco-main-teal">IB Physics</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+      <button id="hamburger-button" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+      <nav id="desktop-nav" class="hidden md:block">
+        <ul class="flex space-x-6">
+          <li><a href="../index.html" class="hover:text-casco-light-teal text-lg p-2 rounded-md">Home</a></li>
+          <li><a href="../KS3/index.html" class="hover:text-casco-light-teal text-lg p-2 rounded-md">KS3</a></li>
+          <li><a href="../KS4/index.html" class="bg-casco-main-teal text-white text-lg p-2 rounded-md">KS4</a></li>
+          <li><a href="../KS5/index.html" class="hover:text-casco-light-teal text-lg p-2 rounded-md">KS5</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
 
-    <main class="container mx-auto p-4 md:p-8">
-        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">KS4 Science Overview</h2>
-            <p class="text-lg leading-relaxed mb-6">
-                Select a subject below to explore the Cambridge IGCSE Co-ordinated Sciences (Double Award) 0654 curriculum topics.
-            </p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <a href="Biology/index.html" class="content-button">
-                    <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="color: white;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.017 12.017 0 002.944 12c0 2.87.973 5.591 2.706 7.783A11.955 11.955 0 0112 21.056c2.87 0 5.591-.973 7.783-2.706A12.017 12.017 0 0021.056 12c0-2.87-.973-5.591-2.706-7.783z"></path></svg>
-                    <span>Biology</span>
-                </a>
-                <a href="Chemistry/index.html" class="content-button">
-                    <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="color: white;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18.75V21m0-2.25c-2.781 0-5.433-.608-7.812-1.722A9.75 9.75 0 0112 3.75c2.781 0 5.433.608 7.812 1.722A9.75 9.75 0 0112 18.75z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18.75V21m0-2.25c-2.781 0-5.433-.608-7.812-1.722A9.75 9.75 0 0112 3.75c2.781 0 5.433.608 7.812 1.722A9.75 9.75 0 0112 18.75z"></path></svg>
-                    <span>Chemistry</span>
-                </a>
-                <a href="Physics/index.html" class="content-button">
-                    <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="color: white;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
-                    <span>Physics</span>
-                </a>
-            </div>
-        </section>
-    </main>
+  <!-- Mobile Menu -->
+  <div id="mobile-menu-overlay" class="fixed inset-0 bg-casco-dark-teal z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-6 overflow-y-auto">
+    <button id="close-mobile-menu" class="self-end text-white text-4xl">&times;</button>
+    <nav class="flex-grow">
+      <ul class="space-y-4">
+        <li><a href="../index.html" class="text-white text-xl">Home</a></li>
+        <li><a href="../KS3/index.html" class="text-white text-xl">KS3</a></li>
+        <li><a href="../KS4/index.html" class="text-white text-xl">KS4</a></li>
+        <li><a href="../KS5/index.html" class="text-white text-xl">KS5</a></li>
+      </ul>
+    </nav>
+  </div>
 
-    <!-- Footer Section -->
-    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
-        <div class="container mx-auto text-center text-sm">
-            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
-        </div>
-    </footer>
+  <!-- Main Content -->
+  <main class="container mx-auto p-6">
+    <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+      <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">KS4 Science Overview</h2>
+      <p class="text-lg mb-6">Select a subject below to explore the Cambridge IGCSE Co-ordinated Sciences (Double Award) 0654 curriculum topics.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <a href="Biology/index.html" class="flex flex-col items-center justify-center p-6 rounded-xl shadow-md text-white bg-casco-main-teal hover:bg-casco-dark-teal transition">
+          <svg class="w-20 h-20 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4" /></svg>
+          <span class="text-lg font-semibold">Biology</span>
+        </a>
+        <a href="Chemistry/index.html" class="flex flex-col items-center justify-center p-6 rounded-xl shadow-md text-white bg-casco-main-teal hover:bg-casco-dark-teal transition">
+          <svg class="w-20 h-20 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg>
+          <span class="text-lg font-semibold">Chemistry</span>
+        </a>
+        <a href="Physics/index.html" class="flex flex-col items-center justify-center p-6 rounded-xl shadow-md text-white bg-casco-main-teal hover:bg-casco-dark-teal transition">
+          <svg class="w-20 h-20 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg>
+          <span class="text-lg font-semibold">Physics</span>
+        </a>
+        <a href="https://classroom.google.com/" target="_blank" class="flex flex-col items-center justify-center p-6 rounded-xl shadow-md text-white bg-casco-main-teal hover:bg-casco-dark-teal transition">
+          <svg class="w-20 h-20 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M3 4a1 1 0 011-1h16a1 1 0 011 1v16a1 1 0 01-1 1H4a1 1 0 01-1-1V4z" /></svg>
+          <span class="text-lg font-semibold">Google Classroom</span>
+        </a>
+        <a href="https://notebook.lamapads.org/" target="_blank" class="flex flex-col items-center justify-center p-6 rounded-xl shadow-md text-white bg-casco-main-teal hover:bg-casco-dark-teal transition">
+          <svg class="w-20 h-20 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 4v16h14V4H5z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="text-lg font-semibold">Notebook LM</span>
+        </a>
+      </div>
+    </section>
+  </main>
 
-    <!-- JavaScript embedded directly for reliable deployment -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // --- Mobile Menu / Hamburger Logic ---
-            const hamburgerButton = document.getElementById('hamburger-button');
-            const closeMobileMenuButton = document.getElementById('close-mobile-menu');
-            const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+  <!-- Footer -->
+  <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+    <div class="container mx-auto text-center text-sm">
+      &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
+    </div>
+  </footer>
 
-            if (hamburgerButton && mobileMenuOverlay) {
-                hamburgerButton.addEventListener('click', () => {
-                    mobileMenuOverlay.classList.add('is-open');
-                });
-            }
-
-            if (closeMobileMenuButton && mobileMenuOverlay) {
-                closeMobileMenuButton.addEventListener('click', () => {
-                    mobileMenuOverlay.classList.remove('is-open');
-                    // Close any open accordions when closing the main mobile menu
-                    document.querySelectorAll('#mobile-menu-overlay .mobile-accordion-content.is-open').forEach(content => {
-                        content.classList.remove('is-open');
-                        content.style.maxHeight = '0';
-                        const btn = content.previousElementSibling;
-                        if (btn) btn.setAttribute('aria-expanded', 'false');
-                    });
-                });
-            }
-
-            // --- Accordion Logic (for mobile menu) ---
-            const mobileAccordionButtons = document.querySelectorAll('.mobile-accordion-btn');
-
-            mobileAccordionButtons.forEach(button => {
-                button.addEventListener('click', function(event) {
-                    event.stopPropagation(); // Prevent click from bubbling up
-                    const content = this.nextElementSibling; // The <ul> that is the accordion content
-
-                    if (content && content.classList.contains('mobile-accordion-content')) {
-                        
-                        // Close other open accordions at the same level
-                        const parentUl = this.closest('ul'); // Get the parent <ul> (either main or nested)
-                        if (parentUl) {
-                            // Find all accordion contents within this parentUl
-                            parentUl.querySelectorAll('.mobile-accordion-content.is-open').forEach(openContent => {
-                                // Only close if it's currently open and not the one just clicked
-                                if (openContent !== content) {
-                                    openContent.classList.remove('is-open');
-                                    openContent.style.maxHeight = '0';
-                                    const btn = openContent.previousElementSibling;
-                                    if (btn) btn.setAttribute('aria-expanded', 'false');
-                                }
-                            });
-                        }
-                        
-                        // Toggle this accordion
-                        content.classList.toggle('is-open');
-                        if (content.classList.contains('is-open')) {
-                            content.style.maxHeight = content.scrollHeight + 'px'; // Set height dynamically
-                            button.setAttribute('aria-expanded', 'true');
-                        } else {
-                            content.style.maxHeight = '0';
-                            button.setAttribute('aria-expanded', 'false');
-                        }
-                    }
-                });
-            });
-
-            // --- Desktop Hover Logic (for desktop navigation) ---
-            const desktopNavGroups = document.querySelectorAll('#desktop-nav .group');
-
-            desktopNavGroups.forEach(groupLi => {
-                const desktopMenu = groupLi.querySelector('.desktop-dropdown-menu');
-                const desktopButton = groupLi.querySelector('.desktop-dropdown-btn');
-
-                if (desktopMenu && desktopButton) {
-                    // Open on mouseenter
-                    groupLi.addEventListener('mouseenter', () => {
-                        // Close any other open top-level desktop menus
-                        document.querySelectorAll('#desktop-nav > ul > li.group').forEach(openGroup => {
-                            if (openGroup !== groupLi) {
-                                const menu = openGroup.querySelector('.desktop-dropdown-menu');
-                                const btn = openGroup.querySelector('.desktop-dropdown-btn');
-                                if (menu && menu.style.display === 'block') {
-                                    menu.style.display = 'none';
-                                    if (btn) btn.setAttribute('aria-expanded', 'false');
-                                }
-                            }
-                        });
-                        
-                        // Open current menu
-                        desktopMenu.style.display = 'block';
-                        desktopButton.setAttribute('aria-expanded', 'true');
-                        groupLi.classList.add('is-open'); // For arrow rotation
-                    });
-
-                    // Close on mouseleave (with a slight delay to allow moving to sub-menu)
-                    groupLi.addEventListener('mouseleave', (e) => {
-                        // Check if the mouse is truly outside the entire group (li and its children)
-                        // Use a setTimeout to allow mouse to enter the submenu before closing
-                        setTimeout(() => {
-                            if (!groupLi.matches(':hover')) { // Check if mouse is truly outside
-                                desktopMenu.style.display = 'none';
-                                desktopButton.setAttribute('aria-expanded', 'false');
-                                groupLi.classList.remove('is-open'); // For arrow rotation
-                            }
-                        }, 150); // Increased delay
-                    });
-
-                    // For nested desktop menus (e.g., Biology/Chemistry/Physics), ensure they open/close on hover
-                    desktopMenu.querySelectorAll('li.group').forEach(nestedGroupLi => {
-                        const nestedMenu = nestedGroupLi.querySelector('.desktop-dropdown-menu');
-                        const nestedButton = nestedGroupLi.querySelector('.desktop-dropdown-btn');
-                        if (nestedMenu && nestedButton) {
-                            nestedGroupLi.addEventListener('mouseenter', (e) => {
-                                e.stopPropagation(); // Prevent parent menu from closing
-                                nestedMenu.style.display = 'block';
-                                nestedButton.setAttribute('aria-expanded', 'true');
-                                nestedGroupLi.classList.add('is-open'); // For arrow rotation
-                            });
-                            nestedGroupLi.addEventListener('mouseleave', (e) => {
-                                setTimeout(() => {
-                                    if (!nestedGroupLi.matches(':hover')) {
-                                        nestedMenu.style.display = 'none';
-                                        nestedButton.setAttribute('aria-expanded', 'false');
-                                        nestedGroupLi.classList.remove('is-open'); // For arrow rotation
-                                    }
-                                }, 150); // Increased delay
-                            });
-                        }
-                    });
-                }
-            });
-
-            // Close all desktop dropdowns when clicking anywhere outside the nav (excluding mobile overlay)
-            document.addEventListener('click', function(event) {
-                // Only run this if on desktop view (or if mobile overlay is not open)
-                if (window.innerWidth >= 768 && !event.target.closest('#desktop-nav') && !mobileMenuOverlay.classList.contains('is-open')) {
-                    document.querySelectorAll('#desktop-nav .desktop-dropdown-menu').forEach(menu => {
-                        menu.style.display = 'none';
-                        const btn = menu.previousElementSibling;
-                        if (btn) btn.setAttribute('aria-expanded', 'false');
-                    });
-                    document.querySelectorAll('#desktop-nav .group.is-open').forEach(group => {
-                        group.classList.remove('is-open'); // For arrow rotation
-                    });
-                }
-            });
-
-
-            // Interactive Content: Science Fact Generator
-            const scienceFacts = [
-                "The human brain weighs about 3 pounds but uses 20% of the body's oxygen and calories.",
-                "A bolt of lightning is five times hotter than the surface of the Sun.",
-                "Honey never spoils. Archaeologists have found pots of honey in ancient Egyptian tombs that are over 3,000 years old and still edible.",
-                "There are more stars in the universe than grains of sand on all the beaches on Earth.",
-                "The Earth's core is as hot as the surface of the Sun.",
-                "A group of owls is called a parliament.",
-                "The fastest land animal is the cheetah, which can reach speeds of up to 70 mph (112 km/h).",
-                "The total weight of all ants on Earth is roughly equal to the total weight of all humans.",
-                "Sound travels about 4.3 times faster in water than in air.",
-                "The shortest war in history was between Britain and Zanzibar on August 27, 1896. It lasted only 38 minutes."
-            ];
-
-            const generateFactBtn = document.getElementById('generateFactBtn');
-            const scienceFactDisplay = document.getElementById('scienceFact');
-
-            if (generateFactBtn && scienceFactDisplay) {
-                generateFactBtn.addEventListener('click', () => {
-                    const randomIndex = Math.floor(Math.random() * scienceFacts.length);
-                    scienceFactDisplay.textContent = scienceFacts[randomIndex];
-                });
-            }
-        });
-    </script>
+  <script>
+    document.getElementById('hamburger-button').addEventListener('click', () => {
+      document.getElementById('mobile-menu-overlay').classList.remove('translate-x-full');
+    });
+    document.getElementById('close-mobile-menu').addEventListener('click', () => {
+      document.getElementById('mobile-menu-overlay').classList.add('translate-x-full');
+    });
+  </script>
 </body>
 </html>

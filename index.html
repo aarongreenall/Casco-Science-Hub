@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KS5 Science - Casco School Science</title>
+  <title>Casco School Science</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -13,91 +13,215 @@
             'casco-main-teal': '#00BFBF',
             'casco-dark-teal': '#009999',
             'casco-light-teal': '#33EBEB',
-            'casco-light-bg': '#E0F2F1'
+            'casco-light-bg': '#E0F2F1',
           }
         }
       }
     }
   </script>
+  <style>
+    #mobile-menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #009999;
+      z-index: 50;
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem;
+      overflow-y: auto;
+    }
+    #mobile-menu-overlay.is-open {
+      transform: translateX(0);
+    }
+    #mobile-menu-overlay ul {
+      list-style: none;
+      padding: 0;
+    }
+    #mobile-menu-overlay li {
+      margin-bottom: 0.5rem;
+    }
+    #mobile-menu-overlay a, #mobile-menu-overlay button {
+      display: block;
+      width: 100%;
+      padding: 0.75rem 1rem;
+      color: white;
+      text-align: left;
+      font-size: 1.125rem;
+      border-radius: 0.375rem;
+      transition: background-color 0.2s ease-in-out;
+    }
+    #mobile-menu-overlay a:hover, #mobile-menu-overlay button:hover {
+      background-color: #00BFBF;
+    }
+    .mobile-accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-in-out;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 0.375rem;
+      margin-top: 0.25rem;
+      padding-left: 1rem;
+    }
+    .mobile-accordion-content.is-open {
+      max-height: 500px;
+    }
+  </style>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
   <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
     <div class="container mx-auto flex justify-between items-center">
-      <a href="../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-      <button id="hamburger-button" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+      <a href="index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+
+      <!-- Hamburger for mobile -->
+      <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+
+      <!-- Desktop Nav -->
       <nav id="desktop-nav" class="hidden md:block">
         <ul class="flex space-x-6">
-          <li><a href="../index.html" class="hover:text-casco-light-teal text-lg p-2 rounded-md">Home</a></li>
-          <li><a href="../KS3/index.html" class="hover:text-casco-light-teal text-lg p-2 rounded-md">KS3</a></li>
-          <li><a href="../KS4/index.html" class="hover:text-casco-light-teal text-lg p-2 rounded-md">KS4</a></li>
-          <li><a href="../KS5/index.html" class="bg-casco-main-teal text-white text-lg p-2 rounded-md">KS5</a></li>
+          <li><a href="index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md bg-casco-main-teal">Home</a></li>
+          <li><a href="KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
+          <li><a href="KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
+          <li><a href="KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <div id="mobile-menu-overlay" class="fixed inset-0 bg-casco-dark-teal z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-6 overflow-y-auto">
-    <button id="close-mobile-menu" class="self-end text-white text-4xl">&times;</button>
-    <nav class="flex-grow">
-      <ul class="space-y-4">
-        <li><a href="../index.html" class="text-white text-xl">Home</a></li>
-        <li><a href="../KS3/index.html" class="text-white text-xl">KS3</a></li>
-        <li><a href="../KS4/index.html" class="text-white text-xl">KS4</a></li>
-        <li><a href="../KS5/index.html" class="text-white text-xl">KS5</a></li>
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu-overlay">
+    <button id="close-mobile-menu" aria-label="Close mobile menu" class="self-end text-white text-4xl leading-none p-2 rounded-md hover:bg-casco-main-teal transition">×</button>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li>
+          <button class="mobile-accordion-btn">KS3</button>
+          <ul class="mobile-accordion-content">
+            <li><a href="KS3/Year7/index.html">Year 7</a></li>
+            <li><a href="KS3/Year8/index.html">Year 8</a></li>
+            <li><a href="KS3/Year9/index.html">Year 9</a></li>
+          </ul>
+        </li>
+        <li>
+          <button class="mobile-accordion-btn">KS4</button>
+          <ul class="mobile-accordion-content">
+            <li><a href="KS4/Biology/index.html">Biology</a></li>
+            <li><a href="KS4/Chemistry/index.html">Chemistry</a></li>
+            <li><a href="KS4/Physics/index.html">Physics</a></li>
+          </ul>
+        </li>
+        <li>
+          <button class="mobile-accordion-btn">KS5</button>
+          <ul class="mobile-accordion-content">
+            <li><a href="KS5/ib_biology/index.html">IB Biology</a></li>
+            <li><a href="KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+            <li><a href="KS5/ib_physics/index.html">IB Physics</a></li>
+          </ul>
+        </li>
       </ul>
     </nav>
   </div>
+<main class="container mx-auto p-6">
+  <section class="mb-10">
+    <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">Explore Your Key Stage</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-  <main class="container mx-auto p-6">
-    <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-      <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">KS5 Science Overview</h2>
-      <p class="text-lg mb-6">Select a subject below to explore the available science curriculum for IB and A-Level programmes.</p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <a href="ib_biology/index.html" class="flex flex-col items-center justify-center p-6 rounded-xl shadow-md text-white bg-casco-main-teal hover:bg-casco-dark-teal transition">
-          <svg class="w-20 h-20 mb-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4" /></svg>
-          <span class="text-lg font-semibold text-white">IB Biology</span>
-        </a>
-        <a href="ib_chemistry/index.html" class="flex flex-col items-center justify-center p-6 rounded-xl shadow-md text-white bg-casco-main-teal hover:bg-casco-dark-teal transition">
-          <svg class="w-20 h-20 mb-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg>
-          <span class="text-lg font-semibold text-white">IB Chemistry</span>
-        </a>
-        <a href="ib_physics/index.html" class="flex flex-col items-center justify-center p-6 rounded-xl shadow-md text-white bg-casco-main-teal hover:bg-casco-dark-teal transition">
-          <svg class="w-20 h-20 mb-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg>
-          <span class="text-lg font-semibold text-white">IB Physics</span>
-        </a>
-        <a href="a_level_biology/index.html" class="flex flex-col items-center justify-center p-6 rounded-xl shadow-md text-white bg-casco-main-teal hover:bg-casco-dark-teal transition">
-          <svg class="w-20 h-20 mb-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z" stroke-width="1.5"/></svg>
-          <span class="text-lg font-semibold text-white">A-Level Biology</span>
-        </a>
-        <a href="a_level_chemistry/index.html" class="flex flex-col items-center justify-center p-6 rounded-xl shadow-md text-white bg-casco-main-teal hover:bg-casco-dark-teal transition">
-          <svg class="w-20 h-20 mb-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 3h18v18H3z" stroke-width="1.5"/></svg>
-          <span class="text-lg font-semibold text-white">A-Level Chemistry</span>
-        </a>
-        <a href="a_level_physics/index.html" class="flex flex-col items-center justify-center p-6 rounded-xl shadow-md text-white bg-casco-main-teal hover:bg-casco-dark-teal transition">
-          <svg class="w-20 h-20 mb-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20" stroke-width="1.5"/></svg>
-          <span class="text-lg font-semibold text-white">A-Level Physics</span>
-        </a>
-        <a href="a_level_em/index.html" class="flex flex-col items-center justify-center p-6 rounded-xl shadow-md text-white bg-casco-main-teal hover:bg-casco-dark-teal transition">
-          <svg class="w-20 h-20 mb-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12h18M3 6h18M3 18h18" /></svg>
-          <span class="text-lg font-semibold text-white">A-Level Environmental Management</span>
-        </a>
-      </div>
-    </section>
-  </main>
+      <!-- KS3 -->
+      <a href="KS3/index.html" class="flex flex-col items-center justify-center p-6 rounded-xl shadow-md text-white bg-gradient-to-r from-casco-dark-teal to-casco-main-teal hover:brightness-110 transition">
+        <svg class="w-20 h-20 mb-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h8m-8 4h8m-8-8h8M5 4h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z"/>
+        </svg>
+        <span class="text-lg font-semibold">Key Stage 3</span>
+      </a>
 
-  <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
-    <div class="container mx-auto text-center text-sm">
-      &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
+      <!-- KS4 -->
+      <a href="KS4/index.html" class="flex flex-col items-center justify-center p-6 rounded-xl shadow-md text-white bg-gradient-to-r from-casco-dark-teal to-casco-main-teal hover:brightness-110 transition">
+        <svg class="w-20 h-20 mb-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
+        </svg>
+        <span class="text-lg font-semibold">Key Stage 4</span>
+      </a>
+
+      <!-- KS5 -->
+      <a href="KS5/index.html" class="flex flex-col items-center justify-center p-6 rounded-xl shadow-md text-white bg-gradient-to-r from-casco-dark-teal to-casco-main-teal hover:brightness-110 transition">
+        <svg class="w-20 h-20 mb-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 5h18M9 3v2m6-2v2M4 11h16M4 17h16"/>
+        </svg>
+        <span class="text-lg font-semibold">Key Stage 5 (IB)</span>
+      </a>
+
+      <!-- Google Classroom -->
+      <a href="https://classroom.google.com" target="_blank" class="flex flex-col items-center justify-center p-6 rounded-xl shadow-md text-white bg-gradient-to-r from-casco-dark-teal to-casco-main-teal hover:brightness-110 transition">
+        <svg class="w-20 h-20 mb-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+        </svg>
+        <span class="text-lg font-semibold">Google Classroom</span>
+      </a>
+
+      <!-- Notebook LM -->
+      <a href="https://notebooklm.google.com" target="_blank" class="flex flex-col items-center justify-center p-6 rounded-xl shadow-md text-white bg-gradient-to-r from-casco-dark-teal to-casco-main-teal hover:brightness-110 transition">
+        <svg class="w-20 h-20 mb-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+        </svg>
+        <span class="text-lg font-semibold">Notebook LM</span>
+      </a>
+
     </div>
-  </footer>
+  </section>
+</main>
+<!-- Footer -->
+<footer class="bg-casco-dark-teal text-white p-6 mt-12 rounded-t-xl">
+  <div class="container mx-auto text-center text-sm">
+    &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
+  </div>
+</footer>
 
-  <script>
-    document.getElementById('hamburger-button').addEventListener('click', () => {
-      document.getElementById('mobile-menu-overlay').classList.remove('translate-x-full');
+<!-- Mobile Menu Script -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburgerButton = document.getElementById('hamburger-button');
+    const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+    if (hamburgerButton && mobileMenuOverlay) {
+      hamburgerButton.addEventListener('click', () => {
+        mobileMenuOverlay.classList.add('is-open');
+      });
+    }
+
+    if (closeMobileMenuButton && mobileMenuOverlay) {
+      closeMobileMenuButton.addEventListener('click', () => {
+        mobileMenuOverlay.classList.remove('is-open');
+        document.querySelectorAll('.mobile-accordion-content').forEach(content => {
+          content.classList.remove('is-open');
+          content.style.maxHeight = '0';
+        });
+      });
+    }
+
+    const accordionButtons = document.querySelectorAll('.mobile-accordion-btn');
+    accordionButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        if (content.classList.contains('is-open')) {
+          content.style.maxHeight = '0';
+          content.classList.remove('is-open');
+        } else {
+          document.querySelectorAll('.mobile-accordion-content').forEach(el => {
+            el.classList.remove('is-open');
+            el.style.maxHeight = '0';
+          });
+          content.classList.add('is-open');
+          content.style.maxHeight = content.scrollHeight + 'px';
+        }
+      });
     });
-    document.getElementById('close-mobile-menu').addEventListener('click', () => {
-      document.getElementById('mobile-menu-overlay').classList.add('translate-x-full');
-    });
-  </script>
+  });
+</script>
+
 </body>
 </html>

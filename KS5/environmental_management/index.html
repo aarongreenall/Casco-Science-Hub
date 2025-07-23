@@ -1,15 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Environmental Management - KS5 Science</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Environmental Management - KS5 Science</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'casco-main-teal': '#00BFBF',
+            'casco-dark-teal': '#009999',
+            'casco-light-teal': '#33EBEB',
+            'casco-light-bg': '#E0F2F1'
+          }
+        }
+      }
+    }
+  </script>
 </head>
-<body class="bg-gray-100">
-    <div class="container mx-auto p-8">
-        <h1 class="text-3xl font-bold text-green-800">Environmental Management</h1>
-        <p class="mt-4 text-lg">Content for Environmental Management will be added here.</p>
+<body class="font-sans bg-gray-100 text-gray-800">
+  <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+      <button id="hamburger-button" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+      <nav id="desktop-nav" class="hidden md:block">
+        <ul class="flex space-x-6">
+          <li><a href="../../index.html" class="hover:text-casco-light-teal text-lg p-2 rounded-md">Home</a></li>
+          <li><a href="../../KS3/index.html" class="hover:text-casco-light-teal text-lg p-2 rounded-md">KS3</a></li>
+          <li><a href="../../KS4/index.html" class="hover:text-casco-light-teal text-lg p-2 rounded-md">KS4</a></li>
+          <li><a href="../index.html" class="bg-casco-main-teal text-white text-lg p-2 rounded-md">KS5</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
+
+  <div id="mobile-menu-overlay" class="fixed inset-0 bg-casco-dark-teal z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-6 overflow-y-auto">
+    <button id="close-mobile-menu" class="self-end text-white text-4xl">&times;</button>
+    <nav class="flex-grow">
+      <ul class="space-y-4">
+        <li><a href="../../index.html" class="text-white text-xl">Home</a></li>
+        <li><a href="../../KS3/index.html" class="text-white text-xl">KS3</a></li>
+        <li><a href="../../KS4/index.html" class="text-white text-xl">KS4</a></li>
+        <li><a href="../index.html" class="text-white text-xl">KS5</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main class="container mx-auto p-6">
+    <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+      <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">A-Level Environmental Management</h2>
+      <p class="text-lg mb-6">The A-Level Environmental Management course provides a scientific approach to contemporary environmental issues. Students will explore the causes and consequences of human impacts on the environment and develop an understanding of sustainable management strategies. The curriculum is designed to foster critical thinking and practical skills for a wide range of environmental careers.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <a href="1_Introduction_to_Environmental_Management/index.html" class="flex flex-col items-center justify-center p-6 rounded-xl shadow-md text-white bg-casco-main-teal hover:bg-casco-dark-teal transition">
+          <span class="text-lg font-semibold text-white">1. Introduction to Environmental Management</span>
+        </a>
+        <a href="2_Ecosystems_and_Biodiversity/index.html" class="flex flex-col items-center justify-center p-6 rounded-xl shadow-md text-white bg-casco-main-teal hover:bg-casco-dark-teal transition">
+          <span class="text-lg font-semibold text-white">2. Ecosystems and Biodiversity</span>
+        </a>
+        <a href="3_Atmosphere_and_Climate_Change/index.html" class="flex flex-col items-center justify-center p-6 rounded-xl shadow-md text-white bg-casco-main-teal hover:bg-casco-dark-teal transition">
+          <span class="text-lg font-semibold text-white">3. Atmosphere and Climate Change</span>
+        </a>
+        <a href="4_Water_Resources_and_Pollution/index.html" class="flex flex-col items-center justify-center p-6 rounded-xl shadow-md text-white bg-casco-main-teal hover:bg-casco-dark-teal transition">
+          <span class="text-lg font-semibold text-white">4. Water Resources and Pollution</span>
+        </a>
+        <a href="5_Land_Resources_and_Agriculture/index.html" class="flex flex-col items-center justify-center p-6 rounded-xl shadow-md text-white bg-casco-main-teal hover:bg-casco-dark-teal transition">
+          <span class="text-lg font-semibold text-white">5. Land Resources and Agriculture</span>
+        </a>
+        <a href="6_Energy_Resources_and_Sustainability/index.html" class="flex flex-col items-center justify-center p-6 rounded-xl shadow-md text-white bg-casco-main-teal hover:bg-casco-dark-teal transition">
+          <span class="text-lg font-semibold text-white">6. Energy Resources and Sustainability</span>
+        </a>
+        <a href="7_Waste_Management_and_Pollution_Control/index.html" class="flex flex-col items-center justify-center p-6 rounded-xl shadow-md text-white bg-casco-main-teal hover:bg-casco-dark-teal transition">
+          <span class="text-lg font-semibold text-white">7. Waste Management and Pollution Control</span>
+        </a>
+        <a href="8_Environmental_Law_and_Policy/index.html" class="flex flex-col items-center justify-center p-6 rounded-xl shadow-md text-white bg-casco-main-teal hover:bg-casco-dark-teal transition">
+          <span class="text-lg font-semibold text-white">8. Environmental Law and Policy</span>
+        </a>
+        <a href="9_Environmental_Impact_Assessment/index.html" class="flex flex-col items-center justify-center p-6 rounded-xl shadow-md text-white bg-casco-main-teal hover:bg-casco-dark-teal transition">
+          <span class="text-lg font-semibold text-white">9. Environmental Impact Assessment</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+    <div class="container mx-auto text-center text-sm">
+      &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('hamburger-button').addEventListener('click', () => {
+      document.getElementById('mobile-menu-overlay').classList.remove('translate-x-full');
+    });
+    document.getElementById('close-mobile-menu').addEventListener('click', () => {
+      document.getElementById('mobile-menu-overlay').classList.add('translate-x-full');
+    });
+  </script>
 </body>
 </html>

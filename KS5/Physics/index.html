@@ -13,11 +13,11 @@
             'casco-main-teal': '#00BFBF',
             'casco-dark-teal': '#009999',
             'casco-light-teal': '#33EBEB',
-            'casco-light-bg': '#E0F2F1'
-          }
-        }
-      }
-    }
+            'casco-light-bg': '#E0F2F1',
+          },
+        },
+      },
+    };
   </script>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
@@ -36,7 +36,6 @@
     </div>
   </header>
 
-  <!-- Mobile Menu Overlay -->
   <div id="mobile-menu-overlay" class="fixed inset-0 bg-casco-dark-teal z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-6 overflow-y-auto">
     <button id="close-mobile-menu" class="self-end text-white text-4xl">&times;</button>
     <nav class="flex-grow">
@@ -54,22 +53,138 @@
       <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">KS5 Physics Overview</h2>
       <p class="text-lg mb-6">Select a topic below to explore the A-Level Physics curriculum.</p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <a href="1_Measurement/index.html" class="flex flex-col items-center justify-center p-6 rounded-xl shadow-md text-white bg-casco-main-teal hover:bg-casco-dark-teal transition">
-          <svg class="w-20 h-20 mb-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg>
-          <span class="text-lg font-semibold text-white">Measurement</span>
+        <a href="1_Measurement/index.html" class="content-button">
+          <svg class="w-16 h-16 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M3 10h18M3 14h18" />
+          </svg>
+          <span>1. Measurement</span>
         </a>
-        <a href="2_Kinematics/index.html" class="flex flex-col items-center justify-center p-6 rounded-xl shadow-md text-white bg-casco-main-teal hover:bg-casco-dark-teal transition">
-          <svg class="w-20 h-20 mb-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg>
-          <span class="text-lg font-semibold text-white">Kinematics</span>
+        <a href="2_Motion/index.html" class="content-button">
+          <svg class="w-16 h-16 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M4 4v16l16-8-16-8z" />
+          </svg>
+          <span>2. Motion</span>
         </a>
-        <a href="3_Dynamics/index.html" class="flex flex-col items-center justify-center p-6 rounded-xl shadow-md text-white bg-casco-main-teal hover:bg-casco-dark-teal transition">
-          <svg class="w-20 h-20 mb-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg>
-          <span class="text-lg font-semibold text-white">Dynamics</span>
+        <a href="3_Forces/index.html" class="content-button">
+          <svg class="w-16 h-16 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 6v6l4 2" />
+          </svg>
+          <span>3. Forces</span>
         </a>
-        <a href="4_Force/index.html" class="flex flex-col items-center justify-center p-6 rounded-xl shadow-md text-white bg-casco-main-teal hover:bg-casco-dark-teal transition">
-          <svg class="w-20 h-20 mb-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg>
-          <span class="text-lg font-semibold text-white">Force</span>
+        <a href="4_Energy/index.html" class="content-button">
+          <svg class="w-16 h-16 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M13 2L3 14h9v8l10-12h-9z" />
+          </svg>
+          <span>4. Energy</span>
         </a>
+        <a href="5_Materials/index.html" class="content-button">
+          <svg class="w-16 h-16 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M4 4h16v16H4z" />
+          </svg>
+          <span>5. Materials</span>
+        </a>
+        <a href="6_Waves/index.html" class="content-button">
+          <svg class="w-16 h-16 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M3 12s3-4 6-4 6 4 6 4 3-4 6-4" />
+          </svg>
+          <span>6. Waves</span>
+        </a>
+<a href="7_Electricity/index.html" class="content-button">
+  <svg class="w-16 h-16 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path d="M13 2L3 14h9v8l10-12h-9z" />
+  </svg>
+  <span>7. Electricity</span>
+</a>
+<a href="8_Circuits/index.html" class="content-button">
+  <svg class="w-16 h-16 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="10" />
+    <path d="M12 8v4l3 3" />
+  </svg>
+  <span>8. Circuits</span>
+</a>
+<a href="9_Fields/index.html" class="content-button">
+  <svg class="w-16 h-16 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path d="M12 2l4 8H8l4-8zM4 22h16" />
+  </svg>
+  <span>9. Fields</span>
+</a>
+<a href="10_Thermal/index.html" class="content-button">
+  <svg class="w-16 h-16 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path d="M12 2a10 10 0 1 0 0 20" />
+  </svg>
+  <span>10. Thermal</span>
+</a>
+<a href="11_Quantum/index.html" class="content-button">
+  <svg class="w-16 h-16 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path d="M12 6v6h6" />
+  </svg>
+  <span>11. Quantum</span>
+</a>
+<a href="12_Nuclear/index.html" class="content-button">
+  <svg class="w-16 h-16 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="10" />
+    <path d="M12 2v20M2 12h20" />
+  </svg>
+  <span>12. Nuclear</span>
+</a>
+<a href="7_Electricity/index.html" class="content-button">
+  <svg class="w-16 h-16 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path d="M13 2L3 14h9v8l10-12h-9z" />
+  </svg>
+  <span>7. Electricity</span>
+</a>
+<a href="8_Circuits/index.html" class="content-button">
+  <svg class="w-16 h-16 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="10" />
+    <path d="M12 8v4l3 3" />
+  </svg>
+  <span>8. Circuits</span>
+</a>
+<a href="9_Fields/index.html" class="content-button">
+  <svg class="w-16 h-16 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path d="M12 2l4 8H8l4-8zM4 22h16" />
+  </svg>
+  <span>9. Fields</span>
+</a>
+<a href="10_Thermal/index.html" class="content-button">
+  <svg class="w-16 h-16 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path d="M12 2a10 10 0 1 0 0 20" />
+  </svg>
+  <span>10. Thermal</span>
+</a>
+<a href="11_Quantum/index.html" class="content-button">
+  <svg class="w-16 h-16 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path d="M12 6v6h6" />
+  </svg>
+  <span>11. Quantum</span>
+</a>
+<a href="12_Nuclear/index.html" class="content-button">
+  <svg class="w-16 h-16 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="10" />
+    <path d="M12 2v20M2 12h20" />
+  </svg>
+  <span>12. Nuclear</span>
+</a>
+<a href="13_Magnetism/index.html" class="content-button">
+  <svg class="w-16 h-16 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path d="M6 3v12a6 6 0 0 0 12 0V3" />
+  </svg>
+  <span>13. Magnetism</span>
+</a>
+<a href="14_ModernPhysics/index.html" class="content-button">
+  <svg class="w-16 h-16 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path d="M4 12a8 8 0 0 1 16 0" />
+    <path d="M12 4a8 8 0 0 1 0 16" />
+  </svg>
+  <span>14. Modern Physics</span>
+</a>
+<a href="15_Astrophysics/index.html" class="content-button">
+  <svg class="w-16 h-16 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path d="M12 2l1.09 3.41L16 6l-2.91 2.09L14 12l-2-1.5L10 12l.91-3.91L8 6l2.91-.59z" />
+  </svg>
+  <span>15. Astrophysics</span>
+</a>
       </div>
     </section>
   </main>

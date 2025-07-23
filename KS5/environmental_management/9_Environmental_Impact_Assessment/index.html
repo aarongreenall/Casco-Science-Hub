@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KS5 Science - Casco School Science</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'casco-main-teal': '#00BFBF',
+            'casco-dark-teal': '#009999',
+            'casco-light-teal': '#33EBEB',
+            'casco-light-bg': '#E0F2F1'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+  <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+      <button id="hamburger-button" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+      <nav id="desktop-nav" class="hidden md:block">
+        <ul class="flex space-x-6">
+          <li><a href="../../../index.html" class="hover:text-casco-light-teal text-lg p-2 rounded-md">Home</a></li>
+          <li><a href="../../../KS3/index.html" class="hover:text-casco-light-teal text-lg p-2 rounded-md">KS3</a></li>
+          <li><a href="../../../KS4/index.html" class="hover:text-casco-light-teal text-lg p-2 rounded-md">KS4</a></li>
+          <li><a href="../../index.html" class="bg-casco-main-teal text-white text-lg p-2 rounded-md">KS5</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div id="mobile-menu-overlay" class="fixed inset-0 bg-casco-dark-teal z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-6 overflow-y-auto">
+    <button id="close-mobile-menu" class="self-end text-white text-4xl">&times;</button>
+    <nav class="flex-grow">
+      <ul class="space-y-4">
+        <li><a href="../../../index.html" class="text-white text-xl">Home</a></li>
+        <li><a href="../../../KS3/index.html" class="text-white text-xl">KS3</a></li>
+        <li><a href="../../../KS4/index.html" class="text-white text-xl">KS4</a></li>
+        <li><a href="../../index.html" class="text-white text-xl">KS5</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main class="container mx-auto p-6">
+    <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+      <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">9. Environmental Impact Assessment</h2>
+      <div class="prose max-w-none">
+        <p>Content coming soon...</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+    <div class="container mx-auto text-center text-sm">
+      &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('hamburger-button').addEventListener('click', () => {
+      document.getElementById('mobile-menu-overlay').classList.remove('translate-x-full');
+    });
+    document.getElementById('close-mobile-menu').addEventListener('click', () => {
+      document.getElementById('mobile-menu-overlay').classList.add('translate-x-full');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.3 Linear Momentum and its Conservation - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN - MUST COME FIRST -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS custom color configuration - MUST COME AFTER CDN -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Link to external custom CSS file (assumed to be in repository root) -->
+    <link rel="stylesheet" href="../../../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="/Casco-Science-Hub/index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            
+            <!-- Hamburger Button (Mobile Only) -->
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776; <!-- Hamburger icon -->
+            </button>
+
+            <!-- Desktop Navigation (Visible on md and larger screens) -->
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="/Casco-Science-Hub/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
+                    <li><a href="../../../../KS3/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
+                    <li><a href="../../../../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
+                    <li><a href="../../../index.html" class="bg-casco-main-teal text-white text-lg p-2 rounded-md">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold text-casco-main-teal mb-4">3.3 Linear Momentum and its Conservation</h2>
+            <p class="text-lg leading-relaxed mb-6">
+                **Linear momentum** is a crucial concept in physics for analyzing collisions and interactions between objects. It is a measure of an object's "quantity of motion." The **principle of conservation of momentum** is a fundamental law that governs how momentum is transferred in isolated systems.
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Learning Objectives:</h3>
+            <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-6">
+                <li>State the principle of conservation of momentum.</li>
+                <li>Apply the principle of conservation of momentum to solve simple problems, including elastic and inelastic interactions between objects in both one and two dimensions.</li>
+                <li>Recall that, for a perfectly elastic collision, the relative speed of approach is equal to the relative speed of separation.</li>
+                <li>Understand that, while momentum of a system is always conserved in interactions between objects, some change in kinetic energy may take place.</li>
+            </ol>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Linear Momentum:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                **Linear momentum (p)** is a vector quantity defined as the product of an object's **mass (m)** and its **velocity (v)**. It has the same direction as the velocity.
+            </p>
+            <p class="text-center text-lg font-semibold my-4">
+                $p = mv$
+            </p>
+            <p class="text-base leading-relaxed mb-4">
+                Where:
+                * $p$ is momentum in kilogram meters per second (kg m/s) or Newton seconds (N s).
+                * $m$ is mass in kilograms (kg).
+                * $v$ is velocity in meters per second (m/s).
+            </p>
+            <p class="text-base leading-relaxed mb-4">
+                The greater an object's mass or velocity, the greater its momentum. A large truck moving slowly can have the same momentum as a small car moving quickly.
+            </p>
+            <div class="flex justify-center my-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Momentum_concept.svg/640px-Momentum_concept.svg.png" alt="Momentum Concept" class="rounded-lg shadow-md max-w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Momentum';">
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                *Figure: Illustration of momentum as a product of mass and velocity.*
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Principle of Conservation of Momentum:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                The **principle of conservation of momentum** states that for an isolated system (a system where no external forces act), the total linear momentum remains constant. In other words, the total momentum before a collision or interaction is equal to the total momentum after the collision or interaction.
+            </p>
+            <p class="text-center text-lg font-semibold my-4">
+                $m_1u_1 + m_2u_2 = m_1v_1 + m_2v_2$
+            </p>
+            <p class="text-base leading-relaxed mb-4">
+                Where:
+                * $m_1, m_2$ are the masses of object 1 and object 2.
+                * $u_1, u_2$ are their initial velocities.
+                * $v_1, v_2$ are their final velocities.
+            </p>
+            <p class="text-base leading-relaxed mb-4">
+                This principle applies to all types of interactions, including collisions (elastic and inelastic) and explosions.
+            </p>
+            <div class="flex justify-center my-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Conservation_of_momentum_collision.svg/640px-Conservation_of_momentum_collision.svg.png" alt="Conservation of Momentum Collision" class="rounded-lg shadow-md max-w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Momentum+Conservation';">
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                *Figure: Diagram illustrating the conservation of momentum in a collision.*
+            </p>
+
+            <h3 class="text-xl font-semibold text-casco-dark-teal mb-3">Elastic and Inelastic Interactions:</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                While momentum is always conserved in interactions within an isolated system, **kinetic energy** may or may not be conserved.
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                <li>**Elastic Collision:** A collision in which **both momentum and kinetic energy are conserved**. In a perfectly elastic collision, the relative speed of approach between the objects is equal to the relative speed of separation. These are rare in macroscopic systems but common at the atomic level (e.g., gas molecules colliding).</li>
+                <li>**Inelastic Collision:** A collision in which **momentum is conserved, but kinetic energy is NOT conserved**. Some kinetic energy is converted into other forms of energy, such as heat, sound, or deformation energy. Most real-world collisions (e.g., car crashes, a ball hitting the ground) are inelastic.</li>
+            </ul>
+            <p class="text-base leading-relaxed mb-4">
+                In inelastic collisions, the objects may stick together after impact, or deform significantly.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Video: Conservation of Momentum (Explanation):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This video from **MooMooMath and Science** (2:37 min) explains the principle of conservation of momentum.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/i5PtaCJJFjw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                Understanding how momentum is conserved in interactions is key.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Video: Elastic and Inelastic Collisions (Demonstration):</h4>
+            <p class="text-base leading-relaxed mb-4">
+                This video demonstrates various types of collisions, illustrating the differences between elastic and inelastic interactions.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/kCJUzdCBOk0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed mb-4">
+                This video (3:54 min) from **Cognitoedu** provides practical examples of collisions.
+            </p>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Interactive Simulation: Collision Lab:</h4>
+            <p class="text-base leading-relaxed mb-4">
+                Use the **PhET "Collision Lab" simulation** to experiment with elastic and inelastic collisions in one and two dimensions. You can adjust masses, velocities, and elasticity to observe how momentum and kinetic energy are conserved (or not) in different scenarios.
+            </p>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://phet.colorado.edu/sims/html/collision-lab/latest/collision-lab_en.html" allowfullscreen class="w-full h-96 rounded-lg shadow-md"></iframe>
+            </div>
+            <p class="text-base leading-relaxed">
+                This simulation is an excellent tool for hands-on exploration of momentum conservation.
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">
+            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
+        </div>
+    </footer>
+
+    <!-- Link to external script.js file (assumed to be in repository root) -->
+    <script src="../../../../script.js"></script>
+</body>
+</html>

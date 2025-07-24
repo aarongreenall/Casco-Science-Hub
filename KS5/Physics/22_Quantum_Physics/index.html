@@ -1,1 +1,93 @@
-<!-- Placeholder index.html for 22_Quantum_Physics -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic 22: Quantum Physics - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <!-- Hamburger Button (Mobile Only) -->
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                ☰
+            </button>
+            <!-- Desktop Navigation -->
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="../../KS3/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <span class="font-semibold">Quantum Physics</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-1">Topic 22: Quantum Physics</h2>
+            <p class="text-gray-600 mb-6">This topic explores the foundational ideas of quantum theory, including the particulate nature of light (photons), the photoelectric effect, wave-particle duality, and discrete energy levels in atoms.</p>
+            
+            <!-- Subtopics Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <a href="22.1_Energy_and_Momentum_of_a_Photon.html" class="p-6 bg-gradient-to-br from-casco-main-teal to-casco-dark-teal rounded-lg text-white flex flex-col items-center justify-center text-center shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
+                    <svg class="w-20 h-20 text-white mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    <span class="font-semibold text-lg">22.1 Energy & Momentum of a Photon</span>
+                </a>
+                <a href="22.2_Photoelectric_Effect.html" class="p-6 bg-gradient-to-br from-casco-main-teal to-casco-dark-teal rounded-lg text-white flex flex-col items-center justify-center text-center shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
+                     <svg class="w-20 h-20 text-white mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l-4 4-4-4 4-4"></path></svg>
+                    <span class="font-semibold text-lg">22.2 Photoelectric Effect</span>
+                </a>
+                <a href="22.3_Wave-Particle_Duality.html" class="p-6 bg-gradient-to-br from-casco-main-teal to-casco-dark-teal rounded-lg text-white flex flex-col items-center justify-center text-center shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
+                    <svg class="w-20 h-20 text-white mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v.01M12 6v-1m0-1V4m0 2.01V5M12 20v-1m0 1v.01M12 18v-1m0-1v-1m0-1v-1m0-1v-1m0-1v-1"></path></svg>
+                    <span class="font-semibold text-lg">22.3 Wave-Particle Duality</span>
+                </a>
+                <a href="22.4_Energy_Levels_and_Line_Spectra.html" class="p-6 bg-gradient-to-br from-casco-main-teal to-casco-dark-teal rounded-lg text-white flex flex-col items-center justify-center text-center shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
+                    <svg class="w-20 h-20 text-white mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>
+                    <span class="font-semibold text-lg">22.4 Energy Levels & Line Spectra</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">
+            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
+        </div>
+    </footer>
+
+    <!-- Main script file for shared functionality like mobile menu -->
+    <script src="../../script.js"></script>
+</body>
+</html>

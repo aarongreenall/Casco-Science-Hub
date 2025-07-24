@@ -1,1 +1,85 @@
-<!-- Placeholder index.html for 21_Alternating_Currents -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic 21: Alternating Currents - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <!-- Hamburger Button (Mobile Only) -->
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                ☰
+            </button>
+            <!-- Desktop Navigation -->
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="../../KS3/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <span class="font-semibold">Alternating Currents</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-1">Topic 21: Alternating Currents</h2>
+            <p class="text-gray-600 mb-6">This topic introduces the characteristics of alternating currents (a.c.), including root-mean-square values, and the processes of rectification and smoothing to convert a.c. to d.c.</p>
+            
+            <!-- Subtopics Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <a href="21.1_Characteristics_of_AC.html" class="p-6 bg-gradient-to-br from-casco-main-teal to-casco-dark-teal rounded-lg text-white flex flex-col items-center justify-center text-center shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
+                    <svg class="w-20 h-20 text-white mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 15s4.5-6 9-6s9 6 9 6"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9s4.5 6 9 6s9-6 9-6"></path></svg>
+                    <span class="font-semibold text-lg">21.1 Characteristics of A.C.</span>
+                </a>
+                <a href="21.2_Rectification_and_Smoothing.html" class="p-6 bg-gradient-to-br from-casco-main-teal to-casco-dark-teal rounded-lg text-white flex flex-col items-center justify-center text-center shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
+                     <svg class="w-20 h-20 text-white mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 4v2m6-2v2m-6 4v2m6-2v2m-6 4v2m6-2v2M4 6h16M4 12h16M4 18h16"></path></svg>
+                    <span class="font-semibold text-lg">21.2 Rectification and Smoothing</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">
+            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
+        </div>
+    </footer>
+
+    <!-- Main script file for shared functionality like mobile menu -->
+    <script src="../../script.js"></script>
+</body>
+</html>

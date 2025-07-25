@@ -1,1 +1,240 @@
-<!-- Placeholder for 2.1_Equations_of_Motion.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.1 Equations of Motion - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <!-- GeoGebra Integration -->
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Kinematics</a> &gt;
+                <span class="font-semibold">2.1 Equations of Motion</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">2.1 Equations of Motion</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Define and use distance, displacement, speed, velocity and acceleration.</li>
+                    <li>Use graphical methods to represent motion, including the determination of displacement from velocity-time graphs and velocity/acceleration from displacement-time/velocity-time graphs.</li>
+                    <li>Derive and use the equations for uniformly accelerated motion in a straight line.</li>
+                    <li>Describe an experiment to determine the acceleration of free fall, $g$.</li>
+                    <li>Describe and explain motion with uniform velocity in one direction and uniform acceleration in a perpendicular direction.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: Defining Motion Quantities</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">Kinematics is built on a precise set of definitions. It is crucial to distinguish between scalar quantities (magnitude only) and vector quantities (magnitude and direction).</p>
+                <div class="overflow-x-auto my-4">
+                    <table class="min-w-full bg-white border border-gray-300 rounded-lg shadow-md">
+                        <thead class="bg-casco-light-bg text-casco-dark-teal">
+                            <tr><th class="py-2 px-4 border-b">Quantity</th><th class="py-2 px-4 border-b">Definition</th><th class="py-2 px-4 border-b">Type</th><th class="py-2 px-4 border-b">Formula</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="py-2 px-4 border-b font-semibold">Distance</td><td class="py-2 px-4 border-b">The total path length covered.</td><td class="py-2 px-4 border-b">Scalar</td><td class="py-2 px-4 border-b">-</td></tr>
+                            <tr><td class="py-2 px-4 border-b font-semibold">Displacement ($s$)</td><td class="py-2 px-4 border-b">The change in position in a specific direction.</td><td class="py-2 px-4 border-b">Vector</td><td class="py-2 px-4 border-b">-</td></tr>
+                            <tr><td class="py-2 px-4 border-b font-semibold">Speed</td><td class="py-2 px-4 border-b">The rate of change of distance.</td><td class="py-2 px-4 border-b">Scalar</td><td class="py-2 px-4 border-b">$\text{speed} = \frac{\text{distance}}{\text{time}}$</td></tr>
+                            <tr><td class="py-2 px-4 border-b font-semibold">Velocity ($v$)</td><td class="py-2 px-4 border-b">The rate of change of displacement.</td><td class="py-2 px-4 border-b">Vector</td><td class="py-2 px-4 border-b">$v = \frac{\Delta s}{\Delta t}$</td></tr>
+                            <tr><td class="py-2 px-4 border-b font-semibold">Acceleration ($a$)</td><td class="py-2 px-4 border-b">The rate of change of velocity.</td><td class="py-2 px-4 border-b">Vector</td><td class="py-2 px-4 border-b">$a = \frac{\Delta v}{\Delta t}$</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Section for LO2 -->
+            <div id="LO2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2: Graphical Representation of Motion</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">Motion graphs are powerful tools for visualizing and analyzing motion. For a curve on a displacement-time graph, the gradient of the tangent at any point gives the instantaneous velocity. For a velocity-time graph, the gradient gives acceleration, and the area under the graph gives displacement.</p>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Graph: Displacement, Velocity & Acceleration</h4>
+                    <p class="text-base leading-relaxed mb-4">Use this GeoGebra applet to see the relationship between the s-t, v-t, and a-t graphs. Drag the points on the top graph to change the motion and observe how the other graphs change in response.</p>
+                    <div id="geogebra-container1" class="w-full h-[600px] border-2 border-casco-dark-teal rounded-lg shadow-md"></div>
+                </div>
+            </div>
+
+            <!-- Section for LO3 -->
+            <div id="LO3" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO3: The SUVAT Equations</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">For motion in a straight line with constant acceleration, we can derive and use a set of four key equations. These are known as the SUVAT equations.</p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Detailed Derivations of the SUVAT Equations</h4>
+                    <div class="text-lg space-y-6">
+                        <div>
+                            <p><strong>1. Deriving $v = u + at$:</strong></p>
+                            <p>We start from the definition of constant acceleration:</p>
+                            <p>$$ a = \frac{\text{change in velocity}}{\text{time}} = \frac{v-u}{t} $$</p>
+                            <p>Multiply both sides by $t$:</p>
+                            <p>$$ at = v - u $$</p>
+                            <p>Add $u$ to both sides to make $v$ the subject:</p>
+                            <p class="font-semibold">$$ v = u + at \quad \cdots(1) $$</p>
+                        </div>
+                        <div>
+                            <p><strong>2. Deriving $s = \frac{1}{2}(u+v)t$:</strong></p>
+                            <p>For an object moving with constant acceleration, its velocity changes linearly with time. Therefore, the average velocity, $\bar{v}$, is the arithmetic mean of the initial and final velocities.</p>
+                            <p>$$ \bar{v} = \frac{u+v}{2} $$</p>
+                            <p>The definition of average velocity is the total displacement divided by the total time:</p>
+                            <p>$$ \bar{v} = \frac{s}{t} $$</p>
+                            <p>By equating these two expressions for average velocity, we get:</p>
+                            <p>$$ \frac{s}{t} = \frac{u+v}{2} $$</p>
+                            <p>Multiplying both sides by $t$ gives the equation:</p>
+                            <p class="font-semibold">$$ s = \frac{1}{2}(u+v)t \quad \cdots(2) $$</p>
+                        </div>
+                        <div>
+                            <p><strong>3. Deriving $s = ut + \frac{1}{2}at^2$:</strong></p>
+                            <p>This equation is derived by eliminating the final velocity, $v$, from our first two equations. We substitute the expression for $v$ from equation (1) into equation (2):</p>
+                            <p>$$ s = \frac{1}{2}(u + (u+at))t $$</p>
+                            <p>Combine the terms inside the bracket:</p>
+                            <p>$$ s = \frac{1}{2}(2u + at)t $$</p>
+                            <p>Expand the bracket by multiplying by $t$:</p>
+                            <p class="font-semibold">$$ s = ut + \frac{1}{2}at^2 $$</p>
+                        </div>
+                        <div>
+                            <p><strong>4. Deriving $v^2 = u^2 + 2as$:</strong></p>
+                            <p>This equation is derived by eliminating time, $t$. We rearrange equation (1) to make $t$ the subject:</p>
+                            <p>$$ t = \frac{v-u}{a} $$</p>
+                            <p>Now substitute this expression for $t$ into equation (2):</p>
+                            <p>$$ s = \frac{1}{2}(u+v) \left( \frac{v-u}{a} \right) $$</p>
+                            <p>Combine the terms in the numerator (this is a difference of two squares):</p>
+                            <p>$$ s = \frac{(v+u)(v-u)}{2a} = \frac{v^2 - u^2}{2a} $$</p>
+                            <p>Multiply both sides by $2a$ and rearrange to make $v^2$ the subject:</p>
+                            <p class="font-semibold">$$ v^2 = u^2 + 2as $$</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation & Examples: SUVAT Equations</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/C2pSonTr4i0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO4 -->
+            <div id="LO4" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO4: Experiment to Determine 'g'</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">A common method to determine the acceleration of free fall, $g$, involves dropping an object and measuring the time it takes to fall a known distance. Using $s = ut + \frac{1}{2}at^2$ with $u=0$ and $a=g$, we get $s = \frac{1}{2}gt^2$. By measuring $s$ and $t$, we can calculate $g$. To improve accuracy, a graph of $s$ against $t^2$ is plotted. The gradient will be $\frac{1}{2}g$, allowing for a more reliable value of $g$ to be determined.</p>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Demonstration: Experiment to find 'g'</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/g6-p_H_225A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO5 -->
+            <div id="LO5" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO5: Projectile Motion</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">Projectile motion is a key example of two-dimensional motion where the horizontal and vertical components are independent. The horizontal motion has constant velocity ($a_x=0$), while the vertical motion has constant downward acceleration ($a_y=-g$).</p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Projectile Motion</h4>
+                    <p class="text-lg leading-relaxed mb-4">A projectile is fired with an initial velocity of 50 m s⁻¹ at an angle of 30° to the horizontal. Find the time of flight and the horizontal range.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Resolve initial velocity:</strong></p>
+                        <p>$u_x = u \cos\theta = 50 \cos(30^\circ) = 43.3$ m s⁻¹</p>
+                        <p>$u_y = u \sin\theta = 50 \sin(30^\circ) = 25.0$ m s⁻¹</p>
+                        <p><strong>2. Analyse vertical motion to find time of flight ($t$):</strong></p>
+                        <p>The projectile lands when its displacement $s_y = 0$. Using $s_y = u_y t + \frac{1}{2}a_y t^2$:</p>
+                        <p>$0 = 25t + \frac{1}{2}(-9.81)t^2 = t(25 - 4.905t)$.</p>
+                        <p>This gives $t=0$ (start) or $25 - 4.905t = 0 \implies t = \frac{25}{4.905} = 5.10$ s.</p>
+                        <p><strong>3. Analyse horizontal motion to find range ($s_x$):</strong></p>
+                        <p>$s_x = u_x t = 43.3 \times 5.10 = 221$ m.</p>
+                    </div>
+                </div>
+                 <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Projectile Motion</h4>
+                    <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">Enter Fullscreen</button>
+                    <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                        <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/projectile-motion/latest/projectile-motion_en.html" allowfullscreen class="w-full h-full"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        var ggbApplet1 = new GGBApplet({
+            "appName": "classic", 
+            "width": 800, 
+            "height": 600, 
+            "showToolBar": false, 
+            "showAlgebraInput": false, 
+            "showMenuBar": false, 
+            "material_id": "j9w2z55u"
+        }, true);
+        window.addEventListener("load", function() { 
+            ggbApplet1.inject('geogebra-container1');
+        });
+
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

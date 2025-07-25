@@ -1,1 +1,233 @@
-<!-- Placeholder for 3.3_Linear_Momentum_and_Conservation.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.3 Linear Momentum and its Conservation - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Dynamics</a> &gt;
+                <span class="font-semibold">3.3 Linear Momentum and its Conservation</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">3.3 Linear Momentum and its Conservation</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>State the principle of conservation of momentum.</li>
+                    <li>Apply the principle of conservation of momentum to solve simple problems, including elastic and inelastic interactions between objects in both one and two dimensions.</li>
+                    <li>Recall that for an elastic collision, total kinetic energy is conserved and the relative speed of approach is equal to the relative speed of separation.</li>
+                    <li>Understand that while momentum of a system is always conserved in interactions between objects, some change in kinetic energy may take place.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: The Principle of Conservation of Momentum</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The principle of conservation of momentum is one of the most fundamental laws in physics. It applies universally, from subatomic particles to galactic collisions.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    The total momentum of an isolated system remains constant.
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    An **isolated system** is one on which no external resultant force acts. This means that for any interaction (like a collision or an explosion) between objects within that system, the total momentum of all the objects *before* the interaction is equal to the total momentum of all the objects *after* the interaction.
+                </p>
+            </div>
+
+            <!-- Section for LO4 -->
+            <div id="LO4" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO4: Conservation of Momentum vs. Kinetic Energy</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    While the total momentum of an isolated system is **always** conserved in any interaction, the total kinetic energy is **not** always conserved. This distinction allows us to classify collisions.
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li><strong>Elastic Collision:</strong> A collision in which both momentum AND kinetic energy are conserved.</li>
+                    <li><strong>Inelastic Collision:</strong> A collision in which momentum is conserved, but kinetic energy is not. Some kinetic energy is transformed into other forms, such as heat, sound, or potential energy in deformation. A **perfectly inelastic** collision is one where the objects stick together after impact, resulting in the maximum possible loss of kinetic energy.</li>
+                </ul>
+            </div>
+            
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Conservation of Momentum</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/1-s8c6n9-d4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+            <!-- Section for LO2 & LO3 -->
+            <div id="LO2_3" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2 & LO3: Applying the Principle</h3>
+                
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    For any collision between two objects (mass $m_1$ and $m_2$) in an isolated system, the principle of conservation of momentum can be stated mathematically. Let $u_1$ and $u_2$ be their initial velocities, and $v_1$ and $v_2$ be their final velocities.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="text-center font-semibold">Total Momentum Before = Total Momentum After</p>
+                    <p class="text-center font-semibold">$$ m_1u_1 + m_2u_2 = m_1v_1 + m_2v_2 $$</p>
+                </blockquote>
+                
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">One-Dimensional Elastic Collisions</h4>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Derivation of the Relative Speeds Relationship</h4>
+                    <p class="text-lg leading-relaxed mb-4">For a 1D elastic collision, both momentum and kinetic energy are conserved. By combining the equations for these two principles, we can derive a very useful relationship.</p>
+                    <div class="text-lg space-y-2">
+                        <p>1. **Conservation of Momentum:** Rearrange the equation to group terms by mass.</p>
+                        <p>$$ m_1u_1 - m_1v_1 = m_2v_2 - m_2u_2 $$</p>
+                        <p>$$ m_1(u_1 - v_1) = m_2(v_2 - u_2) \quad \cdots(A) $$</p>
+                        <p>2. **Conservation of Kinetic Energy:**</p>
+                        <p>$$ \frac{1}{2}m_1u_1^2 + \frac{1}{2}m_2u_2^2 = \frac{1}{2}m_1v_1^2 + \frac{1}{2}m_2v_2^2 $$</p>
+                        <p>Cancel the $\frac{1}{2}$ terms and group by mass:</p>
+                        <p>$$ m_1(u_1^2 - v_1^2) = m_2(v_2^2 - u_2^2) $$</p>
+                        <p>3. **Factorise using the difference of two squares ($a^2-b^2 = (a-b)(a+b)$):**</p>
+                        <p>$$ m_1(u_1 - v_1)(u_1 + v_1) = m_2(v_2 - u_2)(v_2 + u_2) \quad \cdots(B) $$</p>
+                        <p>4. **Divide equation (B) by equation (A):**</p>
+                        <p>$$ \frac{m_1(u_1 - v_1)(u_1 + v_1)}{m_1(u_1 - v_1)} = \frac{m_2(v_2 - u_2)(v_2 + u_2)}{m_2(v_2 - u_2)} $$</p>
+                        <p>This cancels out the mass terms and the bracketed terms, leaving:</p>
+                        <p>$$ u_1 + v_1 = v_2 + u_2 $$</p>
+                        <p>5. **Rearrange to find the relationship:**</p>
+                        <p>$$ u_1 - u_2 = v_2 - v_1 $$</p>
+                        <p>This shows that the **relative speed of approach ($u_1 - u_2$) equals the relative speed of separation ($v_2 - v_1$)** for any 1D elastic collision.</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example 1: Elastic Collision (1D)</h4>
+                    <p class="text-lg leading-relaxed mb-4">A 0.1 kg ball moving at 4 m s⁻¹ makes an elastic head-on collision with a stationary 0.2 kg ball. Find the velocities of both balls after the collision.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Apply conservation of momentum:</strong></p>
+                        <p>$$ (0.1)(4) + (0.2)(0) = (0.1)v_1 + (0.2)v_2 \implies 0.4 = 0.1v_1 + 0.2v_2 \quad \cdots(A)$$</p>
+                        <p><strong>2. Apply conservation of relative speeds:</strong></p>
+                        <p>$$ 4 - 0 = v_2 - v_1 \implies v_2 = 4 + v_1 \quad \cdots(B)$$</p>
+                        <p><strong>3. Solve the simultaneous equations. Substitute (B) into (A):</strong></p>
+                        <p>$$ 0.4 = 0.1v_1 + 0.2(4 + v_1) \implies 0.4 = 0.1v_1 + 0.8 + 0.2v_1 $$</p>
+                        <p>$$ -0.4 = 0.3v_1 \implies v_1 = -1.33 \text{ m s}^{-1} $$</p>
+                        <p><strong>4. Substitute $v_1$ back into (B) to find $v_2$:</strong></p>
+                        <p>$$ v_2 = 4 + (-1.33) = 2.67 \text{ m s}^{-1} $$</p>
+                    </div>
+                </div>
+
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">One-Dimensional Inelastic Collisions</h4>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example 2: Inelastic Collision (1D) & Energy Change</h4>
+                    <p class="text-lg leading-relaxed mb-4">A 2 kg trolley moving at 3 m s⁻¹ collides with a stationary 1 kg trolley. They stick together and move off. Calculate their common velocity and the kinetic energy lost during the collision.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Apply conservation of momentum for a perfectly inelastic collision:</strong></p>
+                        <p>$$ m_1u_1 + m_2u_2 = (m_1+m_2)v $$</p>
+                        <p>$$ (2)(3) + (1)(0) = (2+1)v \implies 6 = 3v \implies v = 2 \text{ m s}^{-1} $$</p>
+                        <p><strong>2. Calculate the total kinetic energy before the collision:</strong></p>
+                        <p>$$ KE_{initial} = \frac{1}{2}m_1u_1^2 + \frac{1}{2}m_2u_2^2 = \frac{1}{2}(2)(3)^2 + 0 = 9 \text{ J} $$</p>
+                        <p><strong>3. Calculate the total kinetic energy after the collision:</strong></p>
+                        <p>$$ KE_{final} = \frac{1}{2}(m_1+m_2)v^2 = \frac{1}{2}(3)(2)^2 = 6 \text{ J} $$</p>
+                        <p><strong>4. Calculate the energy lost:</strong></p>
+                        <p>$$ \Delta KE = KE_{final} - KE_{initial} = 6 - 9 = -3 \text{ J} $$</p>
+                        <p>3 J of kinetic energy was lost during the inelastic collision.</p>
+                    </div>
+                </div>
+
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Two-Dimensional Collisions</h4>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example 3: Inelastic Collision (2D)</h4>
+                    <p class="text-lg leading-relaxed mb-4">A 4 kg ball moving at 5 m s⁻¹ along the x-axis collides with a stationary 2 kg ball. After the collision, the 4 kg ball moves at 3 m s⁻¹ at an angle of 37° to the x-axis. Find the velocity of the 2 kg ball.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Conserve momentum in the x-direction:</strong></p>
+                        <p>$$ m_1u_{1x} + m_2u_{2x} = m_1v_{1x} + m_2v_{2x} $$</p>
+                        <p>$$ (4)(5) + (2)(0) = (4)(3 \cos 37^\circ) + (2)v_{2x} $$</p>
+                        <p>$$ 20 = 9.58 + 2v_{2x} \implies 2v_{2x} = 10.42 \implies v_{2x} = 5.21 \text{ m s}^{-1} $$</p>
+                        <p><strong>2. Conserve momentum in the y-direction:</strong></p>
+                        <p>$$ m_1u_{1y} + m_2u_{2y} = m_1v_{1y} + m_2v_{2y} $$</p>
+                        <p>$$ (4)(0) + (2)(0) = (4)(3 \sin 37^\circ) + (2)v_{2y} $$</p>
+                        <p>$$ 0 = 7.22 + 2v_{2y} \implies 2v_{2y} = -7.22 \implies v_{2y} = -3.61 \text{ m s}^{-1} $$</p>
+                        <p><strong>3. Find the resultant velocity of the 2 kg ball using Pythagoras and trigonometry:</strong></p>
+                        <p>$$ v_2 = \sqrt{v_{2x}^2 + v_{2y}^2} = \sqrt{5.21^2 + (-3.61)^2} = 6.34 \text{ m s}^{-1} $$</p>
+                        <p>$$ \theta = \tan^{-1}\left(\frac{|v_{2y}|}{v_{2x}}\right) = \tan^{-1}\left(\frac{3.61}{5.21}\right) = 34.7^\circ $$</p>
+                        <p>The 2 kg ball moves off at 6.34 m s⁻¹ at an angle of 34.7° below the original direction.</p>
+                    </div>
+                </div>
+
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Collision Lab</h4>
+                    <p class="text-base leading-relaxed mb-2">
+                        This PhET simulation is essential for understanding momentum. Explore 1D and 2D collisions, change the elasticity, and verify the conservation of momentum and energy.
+                    </p>
+                    <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                        Enter Fullscreen
+                    </button>
+                    <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                        <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/collision-lab/latest/collision-lab_en.html" allowfullscreen class="w-full h-full"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

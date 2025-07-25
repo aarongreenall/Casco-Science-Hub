@@ -1,1 +1,191 @@
-<!-- Placeholder for 3.2_Non-uniform_Motion.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.2 Non-uniform motion - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <!-- GeoGebra Integration -->
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Dynamics</a> &gt;
+                <span class="font-semibold">3.2 Non-uniform motion</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">3.2 Non-uniform motion</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Show a qualitative understanding of frictional forces and viscous/drag forces including air resistance.</li>
+                    <li>Describe and explain qualitatively the motion of objects in a uniform gravitational field with air resistance.</li>
+                    <li>Understand that objects moving against a resistive force may reach a terminal (constant) velocity.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: Frictional and Viscous/Drag Forces</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    In real-world scenarios, motion is almost always opposed by resistive forces. These forces act to slow down moving objects. The two main types are frictional forces and viscous/drag forces.
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li><strong>Frictional Forces:</strong> Occur when two solid surfaces slide, or attempt to slide, across one another. Friction always acts parallel to the surfaces and opposes the direction of motion or intended motion.</li>
+                    <li><strong>Viscous/Drag Forces:</strong> These are resistive forces that an object experiences when it moves through a fluid (a liquid or a gas). Air resistance is the most common example of a drag force.</li>
+                </ul>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    A key characteristic of drag forces is that their magnitude is **not constant**. It depends on several factors, but most importantly for A-Level Physics:
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    The magnitude of the drag force increases as the speed of the object increases.
+                </blockquote>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Frictional Forces</h4>
+                    <p class="text-base leading-relaxed mb-2">
+                        Use the "Friction" tab in this PhET simulation to explore how frictional forces work. Apply a force to the box and observe how the friction force responds.
+                    </p>
+                    <button id="fullscreen-btn-friction" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                        Enter Fullscreen
+                    </button>
+                    <div id="simulation-container-friction" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                        <iframe id="simulation-iframe-friction" src="https://phet.colorado.edu/sims/html/forces-and-motion-basics/latest/forces-and-motion-basics_en.html" allowfullscreen class="w-full h-full"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO2 & LO3 -->
+            <div id="LO2_3" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2 & LO3: Motion with Air Resistance & Terminal Velocity</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    When an object falls through the air, it is subject to two main forces: its weight (acting downwards) and air resistance (acting upwards). Unlike the idealised model of free fall, the acceleration is not constant. This leads to the concept of **terminal velocity**.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Let's analyse the motion of a skydiver qualitatively, step-by-step:
+                </p>
+                <div class="space-y-4">
+                    <p><strong>1. Instant of Release ($t=0$):</strong> The skydiver's initial velocity is zero. As drag increases with speed, the air resistance is zero. The only force acting is weight ($W$). The resultant force is $F_{net} = W$, so the initial acceleration is $a = g$.</p>
+                    <p><strong>2. Accelerating Phase:</strong> As the skydiver's speed increases, the upward force of air resistance ($D$) also increases. The resultant downward force is now $F_{net} = W - D$. Since $F_{net}$ is decreasing, the acceleration ($a = F_{net}/m$) also decreases. The skydiver is still speeding up, but at a slower rate.</p>
+                    <p><strong>3. Reaching Terminal Velocity:</strong> The skydiver continues to accelerate until their speed is high enough that the force of air resistance becomes equal in magnitude to their weight ($D = W$). At this point, the resultant force on the skydiver is zero ($F_{net} = W - D = 0$). According to Newton's First Law, with zero resultant force, the acceleration is zero. The skydiver stops accelerating and falls at a constant, maximum velocity. This is called **terminal velocity**. </p>
+                </div>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/h7W1gV8/terminal-velocity-stages.png" alt="Diagram showing the forces on a skydiver at different stages of fall" class="rounded-lg shadow-md max-w-3xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/900x300/00BFBF/FFFFFF?text=Stages+of+Terminal+Velocity';">
+                </div>
+                
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Graphical Analysis</h4>
+                <p class="text-lg leading-relaxed mb-4">The velocity-time graph for an object reaching terminal velocity is a characteristic curve. The gradient, which represents acceleration, starts at a maximum value ($g$) and gradually decreases to zero as the velocity becomes constant.</p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L8dY0sJ/terminal-velocity-graph.png" alt="Velocity-time graph for an object reaching terminal velocity" class="rounded-lg shadow-md max-w-xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/009999/FFFFFF?text=Terminal+Velocity+v-t+Graph';">
+                </div>
+
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Forces at Terminal Velocity</h4>
+                    <p class="text-lg leading-relaxed mb-4">A raindrop of mass $5.0 \times 10^{-5}$ kg falls at its terminal velocity. What is the magnitude of the drag force acting on it? (Take $g = 9.81$ m s⁻²).</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Identify the condition for terminal velocity:</strong> At terminal velocity, the net force is zero, which means the upward drag force ($D$) must be equal in magnitude to the downward weight ($W$).</p>
+                        <p>$$ D = W $$</p>
+                        <p><strong>2. Calculate the weight of the raindrop:</strong></p>
+                        <p>$$ W = mg = (5.0 \times 10^{-5} \text{ kg}) \times (9.81 \text{ m s}^{-2}) $$</p>
+                        <p>$$ W = 4.905 \times 10^{-4} \text{ N} $$</p>
+                        <p><strong>3. State the drag force:</strong></p>
+                        <p>Since $D=W$, the drag force is $4.9 \times 10^{-4}$ N (to 2 s.f.).</p>
+                    </div>
+                </div>
+
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Terminal Velocity</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/ur40O6nQHsw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+                 <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Freefall with Air Resistance</h4>
+                    <p class="text-base leading-relaxed mb-4">This GeoGebra applet models the forces on a falling object. Adjust the mass and drag parameters to see how they affect the time taken to reach terminal velocity and the value of the terminal velocity itself.</p>
+                    <div id="geogebra-container-drag" class="w-full h-[600px] border-2 border-casco-dark-teal rounded-lg shadow-md"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        var ggbApplet1 = new GGBApplet({
+            "appName": "classic", 
+            "width": 800, 
+            "height": 600, 
+            "showToolBar": false, 
+            "showAlgebraInput": false, 
+            "showMenuBar": false, 
+            "material_id": "v8z4z7pu"
+        }, true);
+        window.addEventListener("load", function() { 
+            ggbApplet1.inject('geogebra-container-drag');
+        });
+
+        const fullscreenBtnFriction = document.getElementById('fullscreen-btn-friction');
+        const simIframeFriction = document.getElementById('simulation-iframe-friction');
+        fullscreenBtnFriction.addEventListener('click', () => {
+            if (simIframeFriction.requestFullscreen) simIframeFriction.requestFullscreen();
+            else if (simIframeFriction.mozRequestFullScreen) simIframeFriction.mozRequestFullScreen();
+            else if (simIframeFriction.webkitRequestFullscreen) simIframeFriction.webkitRequestFullscreen();
+            else if (simIframeFriction.msRequestFullscreen) simIframeFriction.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

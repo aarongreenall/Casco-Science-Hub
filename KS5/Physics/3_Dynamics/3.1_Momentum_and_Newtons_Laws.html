@@ -1,1 +1,228 @@
-<!-- Placeholder for 3.1_Momentum_and_Newtons_Laws.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.1 Momentum & Newton's Laws - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Dynamics</a> &gt;
+                <span class="font-semibold">3.1 Momentum & Newton's Laws</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">3.1 Momentum & Newton's Laws of Motion</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Understand that mass is the property of an object that resists change in motion (inertia).</li>
+                    <li>Recall $F=ma$ and solve problems using it, understanding that acceleration and resultant force are always in the same direction.</li>
+                    <li>Define and use linear momentum as the product of mass and velocity.</li>
+                    <li>Define and use force as rate of change of momentum.</li>
+                    <li>State and apply each of Newton's laws of motion.</li>
+                    <li>Describe and use the concept of weight as the effect of a gravitational field on a mass and recall that the weight of an object is equal to the product of its mass and the acceleration of free fall.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 & LO5 (Newton's First Law) -->
+            <div id="LO1_5a" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1 & LO5: Mass, Inertia, and Newton's First Law</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    <strong>Mass ($m$)</strong> is the amount of matter in an object, a scalar quantity measured in kilograms (kg). Fundamentally, mass is a measure of an object's **inertia**—its inherent resistance to a change in its state of motion. An object with a large mass has a large inertia, meaning a large force is required to change its velocity.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    This concept is formalised in **Newton's First Law of Motion**:
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    An object will remain at rest or continue to move with a constant velocity unless acted upon by a resultant external force.
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">This means that if the net force on an object is zero ($\Sigma F = 0$), its acceleration must also be zero ($a=0$). The object is said to be in a state of **translational equilibrium**.</p>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Newton's First Law</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/9prp_i_cE_I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO2, LO3, LO4, LO5 (Newton's Second Law) -->
+            <div id="LO2_3_4_5b" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2, LO3, LO4 & LO5: Force, Momentum, and Newton's Second Law</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    <strong>Linear momentum ($p$)</strong> is a vector quantity defined as the product of an object's mass and its velocity. It is a measure of the "quantity of motion" an object has. Its unit is kg m s⁻¹.
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ p = mv $$</p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    **Newton's Second Law of Motion** provides the link between force and momentum. It states:
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    The resultant force acting on an object is directly proportional to the rate of change of its momentum, and this change occurs in the direction of the force.
+                </blockquote>
+                <p class="text-center text-lg font-semibold my-4">$$ F_{net} = \frac{\Delta p}{\Delta t} $$</p>
+                
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Detailed Derivation of $F=ma$</h4>
+                    <p class="text-lg leading-relaxed mb-4">
+                        For an object of constant mass, we can derive the more familiar form of Newton's Second Law.
+                    </p>
+                    <div class="text-lg space-y-2">
+                        <p>1. Start with the definition of force as the rate of change of momentum:</p>
+                        <p>$$ F = \frac{\Delta p}{\Delta t} $$</p>
+                        <p>2. The change in momentum, $\Delta p$, is the final momentum minus the initial momentum:</p>
+                        <p>$$ \Delta p = p_{final} - p_{initial} = mv - mu $$</p>
+                        <p>3. Substitute this into the force equation:</p>
+                        <p>$$ F = \frac{mv - mu}{t} $$</p>
+                        <p>4. Since the mass $m$ is constant, we can factor it out:</p>
+                        <p>$$ F = \frac{m(v-u)}{t} $$</p>
+                        <p>5. We recognise that the term $\frac{v-u}{t}$ is the definition of acceleration, $a$:</p>
+                        <p>$$ a = \frac{v-u}{t} $$</p>
+                        <p>6. Substituting $a$ into the equation gives the final form:</p>
+                        <p class="font-semibold">$$ F = ma $$</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example 1: Using $F=\frac{\Delta p}{\Delta t}$</h4>
+                    <p class="text-lg leading-relaxed mb-4">A 0.50 kg ball travelling at 10 m s⁻¹ hits a wall and rebounds at 8.0 m s⁻¹. If the ball is in contact with the wall for 0.10 s, what is the average force exerted by the wall on the ball?</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Define a positive direction.</strong> Let's take the initial direction of the ball as positive. Therefore, $u = +10$ m s⁻¹ and $v = -8.0$ m s⁻¹.</p>
+                        <p><strong>2. Calculate the change in momentum ($\Delta p$):</strong></p>
+                        <p>$$ \Delta p = mv - mu = m(v-u) $$</p>
+                        <p>$$ \Delta p = 0.50 \times (-8.0 - 10) = 0.50 \times (-18) = -9.0 \text{ kg m s}^{-1} $$</p>
+                        <p><strong>3. Calculate the force ($F$):</strong></p>
+                        <p>$$ F = \frac{\Delta p}{\Delta t} = \frac{-9.0}{0.10} = -90 \text{ N} $$</p>
+                        <p>The negative sign indicates the force is in the opposite direction to the ball's initial motion (i.e., away from the wall), which is correct.</p>
+                    </div>
+                </div>
+
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Newton's Second Law</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/k3Qa_2s9-kI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Section for LO5 (Newton's Third Law) -->
+            <div id="LO5c" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO5: Newton's Third Law</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    **Newton's Third Law of Motion** describes the nature of forces as interactions between objects.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    If object A exerts a force on object B, then object B exerts an equal and opposite force on object A.
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    These two forces are known as an **action-reaction pair**. It is crucial to remember that they act on **different objects**, are of the **same type** (e.g., both gravitational or both contact forces), and are **equal in magnitude and opposite in direction**.
+                </p>
+                 <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Newton's Third Law</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/Nke_A2-G3B4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO6 -->
+            <div id="LO6" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO6: Weight</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    **Weight ($W$)** is the gravitational force exerted on an object with mass by a celestial body (like the Earth). It is a vector quantity, measured in newtons (N). It can be calculated using Newton's Second Law, where the acceleration is the acceleration of free fall, $g$.
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ W = mg $$</p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    An object's mass is constant everywhere, but its weight depends on the gravitational field strength at its location.
+                </p>
+                 <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example 2: Mass and Weight</h4>
+                    <p class="text-lg leading-relaxed mb-4">An astronaut has a mass of 80 kg. The gravitational field strength on the Moon is 1.6 N kg⁻¹. Calculate the astronaut's weight on Earth and on the Moon.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Weight on Earth:</strong> (g ≈ 9.81 N kg⁻¹)</p>
+                        <p>$$ W_{Earth} = mg = 80 \text{ kg} \times 9.81 \text{ N kg}^{-1} = 784.8 \approx 780 \text{ N} $$</p>
+                        <p><strong>2. Weight on the Moon:</strong></p>
+                        <p>$$ W_{Moon} = mg_{Moon} = 80 \text{ kg} \times 1.6 \text{ N kg}^{-1} = 128 \approx 130 \text{ N} $$</p>
+                        <p>Note that the astronaut's mass (80 kg) remains the same in both locations.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Forces and Motion</h4>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">Enter Fullscreen</button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/forces-and-motion-basics/latest/forces-and-motion-basics_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

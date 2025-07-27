@@ -1,1 +1,198 @@
-<!-- Placeholder for 4.2_Equilibrium_of_Forces.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.2 Equilibrium of Forces - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Forces, Density and Pressure</a> &gt;
+                <span class="font-semibold">4.2 Equilibrium of Forces</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">4.2 Equilibrium of Forces</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>State and apply the principle of moments.</li>
+                    <li>Understand that, when there is no resultant force and no resultant torque, a system is in equilibrium.</li>
+                    <li>Use a vector triangle to represent coplanar forces in equilibrium.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO2 -->
+            <div id="LO2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2: The Two Conditions for Equilibrium</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    For an object to be in a state of **static equilibrium**, it must not be moving linearly and it must not be rotating. This requires two conditions to be met simultaneously:
+                </p>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-4">
+                        <div class="bg-gray-100 p-4 rounded-lg border-l-4 border-casco-dark-teal">
+                            <h4 class="text-xl font-semibold text-gray-800">1. No Resultant Force</h4>
+                            <p class="text-lg mt-2">The vector sum of all forces acting on the object must be zero. This ensures there is no linear acceleration (it is in **translational equilibrium**).</p>
+                            <p class="text-center text-lg font-semibold mt-2">$$ \sum F = 0 $$</p>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg border-l-4 border-casco-dark-teal">
+                            <h4 class="text-xl font-semibold text-gray-800">2. No Resultant Torque (Moment)</h4>
+                            <p class="text-lg mt-2">The sum of all moments about any pivot point must be zero. This ensures there is no angular acceleration (it is in **rotational equilibrium**).</p>
+                            <p class="text-center text-lg font-semibold mt-2">$$ \sum \tau = 0 $$</p>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="https://i.ibb.co/L6V2y6q/equilibrium-conditions.png" alt="Diagram showing a balanced beam with forces, illustrating equilibrium" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/500x350/00BFBF/FFFFFF?text=Equilibrium';">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: The Principle of Moments</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The second condition for equilibrium leads directly to the **Principle of Moments**. If the sum of all moments about a pivot is zero, it means that the turning effects in one direction must be perfectly balanced by the turning effects in the opposite direction.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    For an object to be in rotational equilibrium, the sum of the clockwise moments about any point must be equal to the sum of the anticlockwise moments about the same point.
+                </blockquote>
+                <p class="text-center text-lg font-semibold my-4">$$ \sum (\text{Clockwise Moments}) = \sum (\text{Anticlockwise Moments}) $$</p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: A Non-Uniform Beam</h4>
+                    <p class="text-lg leading-relaxed mb-4">A non-uniform beam of length 1.2 m and weight 80 N rests horizontally on two supports, A and B, placed 0.1 m from each end. The centre of gravity of the beam is 0.7 m from end A. Calculate the upward support forces, $R_A$ and $R_B$.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Apply the First Condition of Equilibrium (Translational):</strong></p>
+                        <p>The sum of upward forces must equal the sum of downward forces.</p>
+                        <p>$$ R_A + R_B = 80 \text{ N} \quad \cdots(1) $$</p>
+                        <p><strong>2. Apply the Second Condition of Equilibrium (Rotational):</strong> Take moments about a convenient point to eliminate one unknown. Let's take moments about support A.</p>
+                        <p>$$ \text{Sum of Clockwise Moments} = \text{Sum of Anticlockwise Moments} $$</p>
+                        <p>The weight (80 N) acts at a distance of $(0.7 - 0.1) = 0.6$ m from A, creating a clockwise moment. The support force $R_B$ acts at a distance of $(1.2 - 0.1 - 0.1) = 1.0$ m from A, creating an anticlockwise moment.</p>
+                        <p>$$ (80 \text{ N} \times 0.6 \text{ m}) = (R_B \times 1.0 \text{ m}) $$</p>
+                        <p>$$ 48 \text{ N m} = R_B \times 1.0 \text{ m} \implies R_B = 48 \text{ N} $$</p>
+                        <p><strong>3. Solve for the remaining force:</strong> Substitute the value of $R_B$ back into equation (1).</p>
+                        <p>$$ R_A + 48 = 80 \implies R_A = 32 \text{ N} $$</p>
+                    </div>
+                </div>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Principle of Moments</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/g6-p_H_225A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO3 -->
+            <div id="LO3" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO3: The Vector Triangle of Forces</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The first condition for equilibrium ($\sum F = 0$) has a useful graphical consequence. If an object is in equilibrium under the action of **three coplanar forces**, then the vectors representing these forces can be drawn head-to-tail to form a **closed triangle**. This is known as a vector triangle of forces.
+                </p>
+                <div class="flex flex-col md:flex-row items-center justify-center my-6 gap-8">
+                    <img src="https://i.ibb.co/yQZg3Jc/vector-triangle-forces.png" alt="Diagram showing three forces in equilibrium and their corresponding vector triangle" class="rounded-lg shadow-md max-w-sm w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00BFBF/FFFFFF?text=Vector+Triangle';">
+                    <p class="text-lg leading-relaxed md:w-1/2">
+                        In the diagram, a weight $W$ is held in equilibrium by two tensions, $T_1$ and $T_2$. Because the system is in equilibrium, the vector sum is zero ($T_1 + T_2 + W = 0$). If we draw the vectors head-to-tail, the head of the last vector ($W$) must meet the tail of the first vector ($T_1$), forming a closed loop. We can then use trigonometry (Sine Rule or Cosine Rule) or scale drawing to solve for unknown forces or angles.
+                    </p>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Suspended Weight</h4>
+                    <p class="text-lg leading-relaxed mb-4">A traffic light of weight 120 N is suspended by two cables as shown. Calculate the tension in each cable.</p>
+                    <img src="https://i.ibb.co/fH7YgY5/traffic-light-problem.png" alt="Diagram for the traffic light problem" class="rounded-lg shadow-md max-w-md w-full h-auto mx-auto my-4" onerror="this.onerror=null;this.src='https://placehold.co/500x300/009999/FFFFFF?text=Problem+Diagram';">
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Draw the vector triangle:</strong> The three forces ($T_1$, $T_2$, and $W$) form a closed triangle. We can find the internal angles using geometry.</p>
+                        <p>The angle between $T_1$ and the vertical is $90^\circ - 30^\circ = 60^\circ$.</p>
+                        <p>The angle between $T_2$ and the vertical is $90^\circ - 50^\circ = 40^\circ$.</p>
+                        <p>The angle between $T_1$ and $T_2$ is $30^\circ + 50^\circ = 80^\circ$.</p>
+                        <p><strong>2. Apply the Sine Rule to the vector triangle:</strong></p>
+                        <p>$$ \frac{T_1}{\sin 40^\circ} = \frac{T_2}{\sin 60^\circ} = \frac{120}{\sin 80^\circ} $$</p>
+                        <p><strong>3. Solve for $T_1$:</strong></p>
+                        <p>$$ T_1 = \frac{120 \times \sin 40^\circ}{\sin 80^\circ} = \frac{120 \times 0.643}{0.985} = 78.3 \text{ N} $$</p>
+                        <p><strong>4. Solve for $T_2$:</strong></p>
+                        <p>$$ T_2 = \frac{120 \times \sin 60^\circ}{\sin 80^\circ} = \frac{120 \times 0.866}{0.985} = 105.5 \text{ N} $$</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Balancing Act</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    Explore the principles of moments and rotational equilibrium with this PhET simulation. Place masses on the beam and try to make it balance.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/balancing-act/latest/balancing-act_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

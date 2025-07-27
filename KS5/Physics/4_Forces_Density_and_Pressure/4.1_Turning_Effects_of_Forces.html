@@ -1,1 +1,196 @@
-<!-- Placeholder for 4.1_Turning_Effects_of_Forces.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.1 Turning Effects of Forces - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Forces, Density and Pressure</a> &gt;
+                <span class="font-semibold">4.1 Turning Effects of Forces</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">4.1 Turning Effects of Forces</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Understand that the weight of an object may be taken as acting at a single point known as its centre of gravity.</li>
+                    <li>Define and apply the moment of a force.</li>
+                    <li>Understand that a couple is a pair of forces that acts to produce rotation only.</li>
+                    <li>Define and apply the torque of a couple.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: Centre of Gravity</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The **centre of gravity (CoG)** is the single imaginary point through which the entire weight of the object can be considered to act. This allows us to simplify problems by treating the distributed weight of an object as a single force acting at one point.
+                </p>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Experiment: Finding the Centre of Gravity of an Irregular Lamina</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/j-e-1I-2g9w" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO2 -->
+            <div id="LO2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2: Moment of a Force</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    A **moment** is the turning effect of a force about a specific point, known as the **pivot** or **fulcrum**.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="font-semibold">The moment of a force is defined as the product of the force and the perpendicular distance from the pivot to the line of action of the force.</p>
+                    <p class="text-center font-semibold mt-2">$$ \text{Moment} = F \times d_{\perp} $$</p>
+                </blockquote>
+                
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example 1: Balancing a See-saw</h4>
+                    <p class="text-lg leading-relaxed mb-4">A child of mass 30 kg sits 2.0 m from the pivot of a see-saw. Where must a child of mass 40 kg sit to balance the see-saw? (Take $g = 9.81$ N kg⁻¹).</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. State the Principle of Moments:</strong> For equilibrium, Clockwise Moments = Anticlockwise Moments.</p>
+                        <p><strong>2. Calculate the anticlockwise moment:</strong> The 30 kg child creates an anticlockwise moment.</p>
+                        <p>$$ M_{ACW} = F_1 \times d_1 = (m_1g) \times d_1 = (30 \times 9.81) \times 2.0 = 588.6 \text{ N m} $$</p>
+                        <p><strong>3. Set up the clockwise moment equation:</strong> The 40 kg child must create an equal clockwise moment at distance $d_2$.</p>
+                        <p>$$ M_{CW} = F_2 \times d_2 = (m_2g) \times d_2 = (40 \times 9.81) \times d_2 = 392.4 \times d_2 $$</p>
+                        <p><strong>4. Equate the moments and solve for $d_2$:</strong></p>
+                        <p>$$ 588.6 = 392.4 \times d_2 \implies d_2 = \frac{588.6}{392.4} = 1.5 \text{ m} $$</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example 2: Forces on the Same Side (Balancing)</h4>
+                    <p class="text-lg leading-relaxed mb-4">A light rod is pivoted at its left end. A downward weight of 40 N acts at a distance of 0.80 m from the pivot. What upward vertical force, F, must be applied at a distance of 0.50 m from the pivot to keep the rod in rotational equilibrium?</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Identify the moments about the pivot:</strong></p>
+                        <p>The 40 N weight creates a clockwise moment: $M_{CW} = 40 \text{ N} \times 0.80 \text{ m} = 32 \text{ N m}$.</p>
+                        <p>The upward force F creates an anticlockwise moment: $M_{ACW} = F \times 0.50 \text{ m}$.</p>
+                        <p><strong>2. Apply the Principle of Moments for equilibrium:</strong></p>
+                        <p>$$ M_{ACW} = M_{CW} $$</p>
+                        <p>$$ F \times 0.50 = 32 $$</p>
+                        <p><strong>3. Solve for F:</strong></p>
+                        <p>$$ F = \frac{32}{0.50} = 64 \text{ N} $$</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO3 & LO4 -->
+            <div id="LO3_4" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO3 & LO4: Couples and Torque</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    A **couple** is a pair of forces that are equal in magnitude, parallel, but opposite in direction. A couple produces a **pure turning effect** without causing any linear acceleration because the resultant force is zero. The turning effect of a couple is called its **torque ($\tau$)**.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="font-semibold">The torque of a couple is the product of one of the forces and the perpendicular distance between the lines of action of the two forces.</p>
+                    <p class="text-center font-semibold mt-2">$$ \tau = F \times d $$</p>
+                </blockquote>
+                 <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/k30XyCq/Couple-force-diagram.png" alt="Diagram showing a couple" class="rounded-lg shadow-md max-w-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/500x300/009999/FFFFFF?text=Couple';">
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example 3: Torque of a Couple</h4>
+                    <p class="text-lg leading-relaxed mb-4">A driver turns a steering wheel of diameter 40 cm by applying equal and opposite forces of 15 N at the rim. Calculate the torque applied to the wheel.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Identify the variables:</strong></p>
+                        <p>The force, $F = 15$ N. The perpendicular distance between the forces, $d$, is the diameter of the wheel.</p>
+                        <p><strong>2. Convert to SI units:</strong> $d = 40 \text{ cm} = 0.40 \text{ m}$</p>
+                        <p><strong>3. State the formula and solve:</strong></p>
+                        <p>$$ \tau = F \times d = 15 \text{ N} \times 0.40 \text{ m} = 6.0 \text{ N m} $$</p>
+                    </div>
+                </div>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Torque of a Couple</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/_LbeGj68atU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Balancing Act</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    Explore the principles of moments and rotational equilibrium with this PhET simulation. Place masses on the beam and try to make it balance.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/balancing-act/latest/balancing-act_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

@@ -1,1 +1,222 @@
-<!-- Placeholder for 9.1_Electric_Current.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9.1 Electric Current - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Electricity</a> &gt;
+                <span class="font-semibold">9.1 Electric Current</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">9.1 Electric Current</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Understand that an electric current is a flow of charge carriers.</li>
+                    <li>Understand that the charge on charge carriers is quantised.</li>
+                    <li>Recall and use $Q=It$.</li>
+                    <li>Use, for a current-carrying conductor, the expression $I=Anvq$.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: Current as a Flow of Charge Carriers</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    An **electric current** is defined as the rate of flow of electric charge. For a current to flow, there must be a complete circuit and a source of potential difference (like a battery), which creates an electric field in the conductor. This electric field exerts a force on charged particles, causing them to move. These moving charged particles are called **charge carriers**.
+                </p>
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Charge Carriers in Metals</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    In solid metal conductors, the atoms are arranged in a fixed crystal lattice. The outer electrons of these atoms are not tightly bound to any single atom; they are **delocalised** and form a "sea" of free electrons that can move throughout the lattice. When a potential difference is applied across the metal, the electric field created exerts a force on these free electrons, causing them to drift in a net direction, thus creating an electric current. The positive metal ions in the lattice are fixed and do not move.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/k2v780h/sea-of-electrons.png" alt="Diagram showing the sea of delocalised electrons in a metal lattice" class="rounded-lg shadow-md max-w-lg w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x300/00BFBF/FFFFFF?text=Charge+Carriers+in+Metals';">
+                </div>
+
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Conventional Current vs. Electron Flow</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    By a historical convention established before the discovery of the electron, the direction of **conventional current** is defined as the direction that positive charge would flow. This means conventional current flows from the positive terminal to the negative terminal of a power source.
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    However, in metal wires, the actual charge carriers are negatively charged electrons. These electrons are repelled from the negative terminal and attracted to the positive terminal. Therefore, the **electron flow** is from negative to positive. In A-Level Physics, unless stated otherwise, "current" always refers to conventional current.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L58mJ4Z/conventional-current.png" alt="Diagram showing electron flow vs conventional current in a simple circuit" class="rounded-lg shadow-md max-w-xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/700x300/009999/FFFFFF?text=Conventional+Current';">
+                </div>
+            </div>
+
+            <!-- Section for LO2 & LO3 -->
+            <div id="LO2_3" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2 & LO3: Quantisation of Charge and $Q=It$</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The fundamental principle of **quantisation of charge** states that electric charge can only exist in discrete packets. The smallest possible unit of charge is the **elementary charge, $e$**, which is the magnitude of the charge on a single proton or electron.
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ e = 1.60 \times 10^{-19} \text{ C} $$</p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Any charge, $Q$, must be an integer multiple ($N$) of this elementary charge: $Q = Ne$.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Derivation of $Q=It$</h4>
+                    <div class="text-lg space-y-2">
+                        <p>1. The definition of electric current ($I$) is the rate of flow of electric charge ($Q$) past a point.</p>
+                        <p>$$ \text{Current} = \frac{\text{Charge that has flowed}}{\text{Time taken}} $$</p>
+                        <p>2. Writing this in symbols for a steady current:</p>
+                        <p>$$ I = \frac{Q}{t} $$</p>
+                        <p>3. To find the total charge that has flowed, we rearrange this equation to make $Q$ the subject. We multiply both sides by $t$:</p>
+                        <p>$$ I \times t = \frac{Q}{t} \times t $$</p>
+                        <p>4. This gives the final relationship:</p>
+                        <p class="font-semibold">$$ Q = It $$</p>
+                    </div>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Calculating Charge and Number of Electrons</h4>
+                    <p class="text-lg leading-relaxed mb-4">A current of 2.5 A flows through a lamp for 5.0 minutes. Calculate (a) the total charge that passes through the lamp, and (b) the number of electrons that pass through the lamp in this time.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>Part (a): Calculate the total charge ($Q$)</strong></p>
+                        <p>1. Convert time to SI units: $t = 5.0 \text{ minutes} = 5.0 \times 60 = 300 \text{ s}$.</p>
+                        <p>2. State the formula:</p>
+                        <p>$$ Q = It $$</p>
+                        <p>3. Substitute values and solve:</p>
+                        <p>$$ Q = (2.5 \text{ A}) \times (300 \text{ s}) = 750 \text{ C} $$</p>
+                        <p><strong>Part (b): Calculate the number of electrons ($N$)</strong></p>
+                        <p>1. State the formula for quantised charge: $Q = Ne$.</p>
+                        <p>2. Rearrange for $N$:</p>
+                        <p>$$ N = \frac{Q}{e} $$</p>
+                        <p>3. Substitute values and solve:</p>
+                        <p>$$ N = \frac{750 \text{ C}}{1.60 \times 10^{-19} \text{ C}} = 4.6875 \times 10^{21} $$</p>
+                        <p>$$ N \approx 4.7 \times 10^{21} \text{ electrons} $$</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO4 -->
+            <div id="LO4" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO4: The Microscopic Model of Current</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    While electrons in a conductor move randomly at high speeds, when a potential difference is applied, they gain a slow, net velocity in one direction, superimposed on their random motion. This net velocity is called the **mean drift velocity ($v$)**. It is surprisingly slow, often only a few mm per second.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The current in a conductor can be related to this microscopic motion through the drift velocity equation.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/6rW8G1p/drift-velocity-derivation-diagram.png" alt="Diagram showing a volume of charge carriers moving through a wire" class="rounded-lg shadow-md max-w-xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/700x300/00BFBF/FFFFFF?text=Drift+Velocity+Derivation';">
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Detailed Derivation of $I = Anvq$</h4>
+                    <div class="text-lg space-y-2">
+                        <p>1. Consider the charge carriers in a segment of wire of length $L$ and cross-sectional area $A$. The time, $\Delta t$, for all carriers to exit this segment is the time it takes for a carrier at the start to travel the full length $L$ at the mean drift velocity $v$.</p>
+                        <p>$$ \Delta t = \frac{L}{v} $$</p>
+                        <p>2. The volume of this segment is: $\text{Volume} = A \times L$.</p>
+                        <p>3. Let $n$ be the **number density** of charge carriers (the number of charge carriers per unit volume, in m⁻³). The total number of charge carriers, $N$, in this volume is:</p>
+                        <p>$$ N = n \times \text{Volume} = nAL $$</p>
+                        <p>4. Let $q$ be the charge on each individual carrier. The total charge $\Delta Q$ in this volume is:</p>
+                        <p>$$ \Delta Q = Nq = (nAL)q $$</p>
+                        <p>5. Current $I$ is defined as the rate of flow of charge, $I = \frac{\Delta Q}{\Delta t}$. Substitute the expressions for $\Delta Q$ and $\Delta t$:</p>
+                        <p>$$ I = \frac{(nAL)q}{L/v} $$</p>
+                        <p>6. The length $L$ cancels out, giving the final equation:</p>
+                        <p class="font-semibold">$$ I = Anvq $$</p>
+                    </div>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Calculating Drift Velocity</h4>
+                    <p class="text-lg leading-relaxed mb-4">A copper wire has a cross-sectional area of $1.0 \times 10^{-6}$ m² and carries a current of 3.0 A. The number density of free electrons in copper is $8.5 \times 10^{28}$ m⁻³. Calculate the mean drift velocity of the electrons.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. State the drift velocity equation:</strong> $I = Anvq$.</p>
+                        <p><strong>2. Rearrange for drift velocity, $v$:</strong></p>
+                        <p>$$ v = \frac{I}{Anq} $$</p>
+                        <p><strong>3. Identify the variables:</strong></p>
+                        <p>$I = 3.0$ A; $A = 1.0 \times 10^{-6}$ m²; $n = 8.5 \times 10^{28}$ m⁻³; $q = e = 1.60 \times 10^{-19}$ C.</p>
+                        <p><strong>4. Substitute values and solve:</strong></p>
+                        <p>$$ v = \frac{3.0}{(1.0 \times 10^{-6}) \times (8.5 \times 10^{28}) \times (1.60 \times 10^{-19})} $$</p>
+                        <p>$$ v = \frac{3.0}{13600} = 2.2 \times 10^{-4} \text{ m s}^{-1} \text{ (or 0.22 mm s}^{-1}\text{)} $$</p>
+                    </div>
+                </div>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Circuit Construction Kit</h4>
+                    <p class="text-base leading-relaxed mb-2">
+                        This PhET simulation allows you to build simple circuits. Crucially, you can switch to a microscopic view to see the individual electrons (charge carriers) moving through the wires. Observe their random motion and the slow net drift when the circuit is complete.
+                    </p>
+                    <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                        Enter Fullscreen
+                    </button>
+                    <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                        <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/circuit-construction-kit-dc/latest/circuit-construction-kit-dc_en.html" allowfullscreen class="w-full h-full"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

@@ -1,1 +1,174 @@
-<!-- Placeholder for 6.2_Elastic_and_Plastic_Behaviour.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.2 Elastic and Plastic Behaviour - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Deformation of Solids</a> &gt;
+                <span class="font-semibold">6.2 Elastic and Plastic Behaviour</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">6.2 Elastic and Plastic Behaviour</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Understand and use the terms elastic deformation, plastic deformation and elastic limit.</li>
+                    <li>Understand that the area under the force-extension graph represents the work done.</li>
+                    <li>Determine the elastic potential energy of a material deformed within its limit of proportionality from the area under the force-extension graph.</li>
+                    <li>Recall and use $E_{P}=\frac{1}{2}Fx=\frac{1}{2}kx^{2}$ for a material deformed within its limit of proportionality.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: Elastic and Plastic Deformation</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    When a material is stretched or compressed, its response can be categorized into two types of deformation:
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li><strong>Elastic Deformation:</strong> This is a temporary change in shape. The material returns to its original dimensions once the deforming force (load) is removed. In this region, the atomic bonds are stretched but not broken.</li>
+                    <li><strong>Plastic Deformation:</strong> This is a permanent change in shape. The material does not return to its original dimensions after the load is removed. This occurs when the atoms in the material move past each other to new positions.</li>
+                </ul>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The **elastic limit** is the maximum force (or stress) that can be applied to an object without causing permanent (plastic) deformation. If you stretch a material beyond its elastic limit, it will be permanently deformed.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/bL0GZ5Y/stress-strain-graph.png" alt="Stress-strain graph showing elastic and plastic regions" class="rounded-lg shadow-md max-w-xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/700x500/00BFBF/FFFFFF?text=Stress-Strain+Curve';">
+                </div>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Elasticity and Plasticity</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/g-aP-4a_y-A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO2, LO3, LO4 -->
+            <div id="LO2_3_4" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2, LO3 & LO4: Work Done and Energy Stored</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    When you stretch a material, you are doing work on it. This work is stored within the material as **elastic potential energy ($E_p$)**.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    The work done in stretching a material is equal to the area under its force-extension graph.
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    For a material that obeys Hooke's Law (i.e., it is deformed within its limit of proportionality), the force-extension graph is a straight line through the origin, forming a right-angled triangle.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Derivation of Elastic Potential Energy Formula</h4>
+                    <div class="text-lg space-y-2">
+                        <p>1. The work done, $W$, is the area under the F-x graph. For a linear relationship, this area is a triangle.</p>
+                        <p>$$ W = \text{Area of triangle} = \frac{1}{2} \times \text{base} \times \text{height} $$</p>
+                        <p>2. The base of the triangle is the extension, $x$, and the height is the final force, $F$.</p>
+                        <p>$$ W = \frac{1}{2}Fx $$</p>
+                        <p>3. The work done is stored as elastic potential energy, $E_p$.</p>
+                        <p class="font-semibold">$$ E_p = \frac{1}{2}Fx $$</p>
+                        <p>4. We can also substitute Hooke's Law, $F=kx$, into this equation:</p>
+                        <p>$$ E_p = \frac{1}{2}(kx)x $$</p>
+                        <p class="font-semibold">$$ E_p = \frac{1}{2}kx^2 $$</p>
+                    </div>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Energy Stored in a Stretched Wire</h4>
+                    <p class="text-lg leading-relaxed mb-4">A steel wire is stretched elastically by 2.0 mm when a force of 150 N is applied. Calculate the work done in stretching the wire.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Identify variables and convert to SI units:</strong></p>
+                        <p>$$ F = 150 \text{ N} $$</p>
+                        <p>$$ x = 2.0 \text{ mm} = 2.0 \times 10^{-3} \text{ m} $$</p>
+                        <p><strong>2. State the formula for work done (elastic potential energy):</strong></p>
+                        <p>Since the deformation is elastic, we can assume it's within the limit of proportionality.</p>
+                        <p>$$ E_p = \frac{1}{2}Fx $$</p>
+                        <p><strong>3. Substitute values and solve:</strong></p>
+                        <p>$$ E_p = \frac{1}{2} \times (150 \text{ N}) \times (2.0 \times 10^{-3} \text{ m}) = 0.15 \text{ J} $$</p>
+                    </div>
+                </div>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Hooke's Law and Energy</h4>
+                    <p class="text-base leading-relaxed mb-2">
+                        Use the "Energy" tab in this PhET simulation. As you stretch the spring, observe the force-extension graph being plotted and see how the area under it corresponds to the potential energy stored.
+                    </p>
+                    <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                        Enter Fullscreen
+                    </button>
+                    <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                        <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/hookes-law/latest/hookes-law_en.html" allowfullscreen class="w-full h-full"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

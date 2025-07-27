@@ -1,1 +1,215 @@
-<!-- Placeholder for 10.3_Potential_Dividers.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10.3 Potential dividers - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">D.C. Circuits</a> &gt;
+                <span class="font-semibold">10.3 Potential dividers</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">10.3 Potential dividers</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Understand the principle of a potential divider circuit.</li>
+                    <li>Derive and use the potential divider formula.</li>
+                    <li>Understand the use of a potential divider circuit with a sensor (thermistor or LDR).</li>
+                    <li>Understand the use of a potentiometer as a variable potential divider.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: The Principle of a Potential Divider</h3>
+                
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Why Use a Potential Divider? Use Cases</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    In simple terms, a potential divider is a basic electronic circuit that takes a larger voltage and splits it into a smaller one. Imagine you have a power source with a certain voltage, but a part of your circuit needs a lower voltage to work correctly. A potential divider allows you to tap off a fraction of the total voltage.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Potential dividers are incredibly common and have a wide range of applications in electronics. Here are a few examples:
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li><strong>Providing a Reference Voltage:</strong> Many electronic circuits, such as comparators and analog-to-digital converters, need a stable reference voltage to function correctly. A potential divider is a simple way to create this.</li>
+                    <li><strong>Sensor Circuits:</strong> Many sensors are essentially variable resistors, meaning their resistance changes in response to a physical quantity like light (LDRs) or temperature (thermistors). By using such a sensor as one of the resistors in a potential divider, you can convert the change in resistance into a change in voltage, which is easier for a microcontroller to measure.</li>
+                    <li><strong>Volume Controls:</strong> In audio equipment, a potentiometer (a type of variable resistor) is often used as a potential divider to adjust the amplitude of the audio signal, which we perceive as a change in volume.</li>
+                </ul>
+
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Circuit Principle and Structure</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The most basic potential divider is made by connecting two resistors, $R_1$ and $R_2$, in series. The input voltage ($V_{in}$) is applied across the pair of resistors, and the output voltage ($V_{out}$) is taken from the point between them (in parallel with the second resistor, $R_2$).
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L8dY0sJ/potential-divider-circuit.png" alt="Circuit diagram of a potential divider" class="rounded-lg shadow-md max-w-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/500x400/00BFBF/FFFFFF?text=Potential+Divider';">
+                </div>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The principle is based on the rules of series circuits: the input voltage is shared between the resistors ($R_1$ and $R_2$) in proportion to their resistance. The resistor with the larger resistance will have a larger share of the potential difference across it. By choosing the ratio of the resistances, we can precisely control the output voltage.
+                </p>
+            </div>
+
+            <!-- Section for LO2 -->
+            <div id="LO2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2: The Potential Divider Formula</h3>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Detailed Derivation of the Formula</h4>
+                    <div class="text-lg space-y-2">
+                        <p>1. Apply Kirchhoff's Second Law to the closed loop. The sum of p.d.s across the resistors must equal the e.m.f. of the source (assuming an ideal source, $V_{in} = \mathcal{E}$).</p>
+                        <p>$$ V_{in} = V_1 + V_2 $$</p>
+                        <p>2. Apply Ohm's Law ($V=IR$) to each resistor in the series branch. The current $I$ is the same for both.</p>
+                        <p>$$ V_{in} = (I R_1) + (I R_2) $$</p>
+                        <p>3. Factor out the common current, $I$:</p>
+                        <p>$$ V_{in} = I (R_1 + R_2) $$</p>
+                        <p>4. Rearrange to find an expression for the current flowing through the series branch:</p>
+                        <p>$$ I = \frac{V_{in}}{R_1 + R_2} $$</p>
+                        <p>5. The output voltage, $V_{out}$, is the potential difference across resistor $R_2$ only. Applying Ohm's Law to $R_2$:</p>
+                        <p>$$ V_{out} = I \times R_2 $$</p>
+                        <p>6. Substitute the expression for the current $I$ from step 4 into the equation from step 5:</p>
+                        <p>$$ V_{out} = \left( \frac{V_{in}}{R_1 + R_2} \right) \times R_2 $$</p>
+                        <p>7. Rearranging gives the final potential divider formula:</p>
+                        <p class="font-semibold">$$ V_{out} = V_{in} \left( \frac{R_2}{R_1 + R_2} \right) $$</p>
+                    </div>
+                </div>
+                
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">The Loading Effect: A Detailed Explanation</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The simple formula above is only valid when **no current is drawn** from the output. This is called an **unloaded** divider. In practice, when you connect a component (a "load", with resistance $R_L$) across $R_2$ to use the output voltage, you create a parallel branch.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/yV1f4V7/loaded-potential-divider.png" alt="Circuit diagram of a loaded potential divider" class="rounded-lg shadow-md max-w-lg w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/009999/FFFFFF?text=Loaded+Divider';">
+                </div>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    This **loading effect** changes the circuit dynamics, causing the output voltage to drop. Here is why:
+                </p>
+                <ol class="list-decimal list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li><strong>Parallel Resistance Decreases:</strong> When you connect the load $R_L$ in parallel with $R_2$, you create a new combined resistance for the lower branch, $R_p$. The formula for parallel resistors is $\frac{1}{R_p} = \frac{1}{R_2} + \frac{1}{R_L}$. A key consequence is that the combined resistance of a parallel branch is **always less** than the smallest individual resistance in that branch. Therefore, $R_p < R_2$.</li>
+                    <li><strong>Ratio of Resistances Changes:</strong> The potential divider now splits the input voltage between $R_1$ and the new, smaller resistance $R_p$. The ratio of the lower resistance to the total resistance, $\frac{R_p}{R_1 + R_p}$, is now smaller than the original ratio, $\frac{R_2}{R_1 + R_2}$.</li>
+                    <li><strong>Output Voltage Drops:</strong> Since the output voltage is this new, smaller fraction of the input voltage, the value of $V_{out}$ decreases when the load is connected.</li>
+                </ol>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: The Loading Effect</h4>
+                    <p class="text-lg leading-relaxed mb-4">A potential divider is made from a 12 V supply connected to a 4 k$\Omega$ and a 2 k$\Omega$ resistor in series. Calculate (a) the unloaded output voltage across the 2 k$\Omega$ resistor, and (b) the output voltage when a voltmeter with a resistance of 10 k$\Omega$ is connected across the 2 k$\Omega$ resistor.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>(a) Unloaded Output Voltage:</strong></p>
+                        <p>Here, $R_1 = 4$ k$\Omega$ and $R_2 = 2$ k$\Omega$.</p>
+                        <p>$$ V_{out} = V_{in} \left( \frac{R_2}{R_1 + R_2} \right) = 12 \left( \frac{2}{4 + 2} \right) = 12 \left( \frac{2}{6} \right) = 4.0 \text{ V} $$</p>
+                        <p><strong>(b) Loaded Output Voltage:</strong></p>
+                        <p>1. First, calculate the combined resistance, $R_p$, of the parallel branch containing $R_2$ and the voltmeter ($R_L = 10$ k$\Omega$).</p>
+                        <p>$$ \frac{1}{R_p} = \frac{1}{R_2} + \frac{1}{R_L} = \frac{1}{2} + \frac{1}{10} = \frac{5+1}{10} = \frac{6}{10} $$</p>
+                        <p>$$ R_p = \frac{10}{6} = 1.67 \text{ k}\Omega $$</p>
+                        <p>2. Now, use the potential divider formula with this new combined resistance in place of $R_2$.</p>
+                        <p>$$ V_{out} = V_{in} \left( \frac{R_p}{R_1 + R_p} \right) = 12 \left( \frac{1.67}{4 + 1.67} \right) = 12 \left( \frac{1.67}{5.67} \right) = 3.53 \text{ V} $$</p>
+                        <p>As predicted, connecting the load caused the output voltage to drop from 4.0 V to 3.5 V.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO3 -->
+            <div id="LO3" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO3: Sensor Circuits</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Potential dividers are extremely useful in sensor circuits. By replacing one of the fixed resistors with a sensor whose resistance changes with physical conditions (like a thermistor or an LDR), the output voltage will change in response to the environment.
+                </p>
+            </div>
+
+            <!-- Section for LO4 -->
+<div id="LO4" class="py-4">
+    <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO4: The Potentiometer</h4>
+    <p class="text-lg leading-relaxed mt-4 mb-4">
+        A **potentiometer** is a variable resistor with three terminals that is specifically designed to be used as a continuously variable potential divider. It is a fundamental component for applications where a user needs to adjust a voltage, such as in a volume control or a dimmer switch.
+    </p>
+    <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Construction and Principle</h4>
+    <p class="text-lg leading-relaxed mt-4 mb-4">
+        A potentiometer consists of a fixed resistive track (e.g., a strip of carbon or a coil of wire) with a terminal at each end (A and B). A third terminal (C) is connected to a sliding contact (or "wiper") that can be moved along the entire length of the track.
+    </p>
+    <div class="flex justify-center my-6">
+        <img src="https://i.ibb.co/L53m25p/potentiometer-circuit.png" alt="Circuit diagram of a potentiometer" class="rounded-lg shadow-md max-w-lg w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x350/00BFBF/FFFFFF?text=Potentiometer';">
+    </div>
+    <p class="text-lg leading-relaxed mt-4 mb-4">
+        In the circuit diagram, the resistive track is the total resistance, $R_{total}$. The slider splits this track into two resistances, $R_{AC}$ and $R_{CB}$. The total resistance of the track is constant ($R_{total} = R_{AC} + R_{CB}$).
+    </p>
+    <p class="text-lg leading-relaxed mt-4 mb-4">
+        The slider C "taps off" the voltage across the portion of the track between C and B. Therefore, the resistance $R_{CB}$ acts as $R_2$ in our potential divider formula, and the resistance $R_{AC}$ acts as $R_1$.
+    </p>
+    <p class="text-lg leading-relaxed mt-4 mb-4">
+        By moving the slider, the ratio of $R_{AC}$ to $R_{CB}$ is changed. This, in turn, changes the output voltage, $V_{out}$, which can be varied smoothly from:
+    </p>
+    <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+        <li><strong>0 V</strong> (when the slider is at terminal B, making the resistance of $R_{CB}$ zero).</li>
+        <li><strong>The full input voltage, $V_{in}$</strong> (when the slider is at terminal A, making the resistance of $R_{CB}$ equal to the total resistance).</li>
+    </ul>
+
+    <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+        <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Potentiometer Output</h4>
+        <p class="text-lg leading-relaxed mb-4">
+            A 12 V supply is connected across a 10 k$\Omega$ potentiometer. What is the output voltage when the slider is set to one quarter of the way up from the bottom (terminal B)?
+        </p>
+        <div class="text-lg space-y-2">
+            <p><strong>1. Determine the resistances $R_1$ and $R_2$:</strong></p>
+            <p>The total resistance is 10 k$\Omega$. The slider is 1/4 of the way up from B, so the resistance of the lower part ($R_2 = R_{CB}$) is 1/4 of the total.</p>
+            <p>$$R_2 = \frac{1}{4} \times 10 \text{ k}\Omega = 2.5 \text{ k}\Omega$$</p>
+            <p>The resistance of the upper part ($R_1 = R_{AC}$) is the remainder:</p>
+            <p>$$R_1 = 10 \text{ k}\Omega - 2.5 \text{ k}\Omega = 7.5 \text{ k}\Omega$$</p>
+            <p><strong>2. Apply the potential divider formula:</strong></p>
+            <p>$$V_{out} = V_{in} \left( \frac{R_2}{R_1 + R_2} \right) = V_{in} \left( \frac{R_2}{R_{total}} \right)$$</p>
+            <p>$$V_{out} = 12 \left( \frac{2.5}{10} \right)$$</p>
+            <p>$$V_{out} = 12 \times 0.25 = 3.0 \text{ V}$$</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

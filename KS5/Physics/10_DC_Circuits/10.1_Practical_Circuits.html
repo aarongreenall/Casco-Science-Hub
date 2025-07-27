@@ -1,1 +1,202 @@
-<!-- Placeholder for 10.1_Practical_Circuits.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10.1 Practical circuits - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">D.C. Circuits</a> &gt;
+                <span class="font-semibold">10.1 Practical circuits</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">10.1 Practical circuits</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Understand the effects of the internal resistance of a source of e.m.f. on the terminal potential difference and output power.</li>
+                    <li>Recall and use the concept of electromotive force (e.m.f.).</li>
+                    <li>Recall and use the formula e.m.f. = $I(R+r)$.</li>
+                    <li>Draw and interpret circuit diagrams containing sources, switches, resistors, ammeters, voltmeters, and/or any other type of component referred to in the syllabus.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO2 -->
+            <div id="LO2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2: Electromotive Force (e.m.f.) and Potential Difference (p.d.)</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    While both e.m.f. and p.d. are measured in volts, they describe different processes of energy transfer in a circuit.
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-4 text-lg">
+                    <li><strong>Electromotive Force ($\mathcal{E}$ or e.m.f.):</strong> The work done per unit charge by a source (like a battery) in converting other forms of energy (e.g., chemical) into electrical energy. It is the energy **supplied to** each coulomb of charge.</li>
+                    <li><strong>Potential Difference (V):</strong> The work done per unit charge by the charge carriers in converting electrical energy into other forms (e.g., heat and light in a bulb). It is the energy **transferred by** each coulomb of charge to a component.</li>
+                </ul>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">The Shopping Mall Analogy</h4>
+                    <p class="text-lg leading-relaxed">Imagine a shopping mall where the shoppers are charge carriers (current). The **e.m.f.** of the battery is like an ATM at the entrance that gives each shopper a fixed amount of money (e.g., £12) to spend. This is the energy supplied. The **potential difference** across a shop is the amount of money each shopper spends in that specific shop (e.g., £5 spent in the first shop, £7 in the second). This is the energy transferred.</p>
+                </div>
+            </div>
+
+            <!-- Section for LO1 & LO3 -->
+            <div id="LO1_3" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1 & LO3: Internal Resistance</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    All real power sources have some **internal resistance ($r$)**. As current flows through the source, work must be done to overcome this resistance, which is converted into thermal energy. The energy transferred per unit charge due to this process results in a potential difference across the internal resistor, often called **"lost volts"**.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Detailed Derivation of e.m.f. = $I(R+r)$</h4>
+                    <div class="text-lg space-y-2">
+                        <p>1. By the principle of conservation of energy, the total energy supplied by the source per unit charge (e.m.f.) must equal the total energy transferred in the circuit per unit charge.</p>
+                        <p>$$ \mathcal{E} = (\text{p.d. across external circuit}) + (\text{p.d. across internal resistance}) $$</p>
+                        <p>2. The p.d. across the external circuit (with total external resistance $R$) is the terminal p.d., $V = IR$.</p>
+                        <p>3. The p.d. across the internal resistance $r$ (the "lost volts") is given by $V_{lost} = Ir$.</p>
+                        <p>4. Substituting these into the energy conservation statement:</p>
+                        <p>$$ \mathcal{E} = IR + Ir $$</p>
+                        <p>5. Factoring out the current, $I$, gives the final relationship:</p>
+                        <p class="font-semibold">$$ \mathcal{E} = I(R+r) $$</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO4 -->
+            <div id="LO4" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO4: Circuit Diagrams and Rules</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Understanding how current, voltage, and resistance behave in series and parallel combinations is fundamental.
+                </p>
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Series Circuits</h4>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-2 text-lg">
+                        <p>Components are connected end-to-end, providing only one path for the current.</p>
+                        <ul class="list-disc list-inside ml-4 my-2">
+                            <li><strong>Current:</strong> Is the same through all components. $I_T = I_1 = I_2 = \dots$</li>
+                            <li><strong>Voltage:</strong> The total e.m.f. from the source is shared between the components. $V_T = V_1 + V_2 + \dots$</li>
+                            <li><strong>Resistance:</strong> The total resistance is the sum of the individual resistances. $R_T = R_1 + R_2 + \dots$</li>
+                        </ul>
+                    </div>
+                    <img src="https://i.ibb.co/3kXy0tW/series-circuit.png" alt="A series circuit with two resistors" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/500x300/00BFBF/FFFFFF?text=Series+Circuit';">
+                </div>
+                 <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Derivation of Series Resistance Rule</h4>
+                    <div class="text-lg space-y-2">
+                        <p>1. Start with the rule for voltage in series: $V_T = V_1 + V_2 + \dots$</p>
+                        <p>2. Apply Ohm's Law ($V=IR$) to each term. The total resistance is $R_T$.</p>
+                        <p>$$ I_T R_T = I_1 R_1 + I_2 R_2 + \dots $$</p>
+                        <p>3. The current is the same everywhere in a series circuit ($I_T = I_1 = I_2 = I$).</p>
+                        <p>$$ I R_T = I R_1 + I R_2 + \dots $$</p>
+                        <p>4. Divide the entire equation by the common current, $I$:</p>
+                        <p class="font-semibold">$$ R_T = R_1 + R_2 + \dots $$</p>
+                    </div>
+                </div>
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Parallel Circuits</h4>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-2 text-lg">
+                        <p>Components are connected across the same two points, providing multiple paths for the current.</p>
+                        <ul class="list-disc list-inside ml-4 my-2">
+                            <li><strong>Current:</strong> The total current from the source splits between the branches. $I_T = I_1 + I_2 + \dots$</li>
+                            <li><strong>Voltage:</strong> Is the same across all components in parallel. $V_T = V_1 = V_2 = \dots$</li>
+                            <li><strong>Resistance:</strong> The reciprocal of the total resistance is the sum of the reciprocals of the individual resistances. $\frac{1}{R_T} = \frac{1}{R_1} + \frac{1}{R_2} + \dots$</li>
+                        </ul>
+                    </div>
+                    <img src="https://i.ibb.co/wYfN3h0/parallel-circuit.png" alt="A parallel circuit with two resistors" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/500x300/009999/FFFFFF?text=Parallel+Circuit';">
+                </div>
+                 <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Derivation of Parallel Resistance Rule</h4>
+                    <div class="text-lg space-y-2">
+                        <p>1. Start with the rule for current in parallel: $I_T = I_1 + I_2 + \dots$</p>
+                        <p>2. Apply Ohm's Law rearranged for current ($I=V/R$) to each term.</p>
+                        <p>$$ \frac{V_T}{R_T} = \frac{V_1}{R_1} + \frac{V_2}{R_2} + \dots $$</p>
+                        <p>3. The voltage is the same across all branches in a parallel circuit ($V_T = V_1 = V_2 = V$).</p>
+                        <p>$$ \frac{V}{R_T} = \frac{V}{R_1} + \frac{V}{R_2} + \dots $$</p>
+                        <p>4. Divide the entire equation by the common voltage, $V$:</p>
+                        <p class="font-semibold">$$ \frac{1}{R_T} = \frac{1}{R_1} + \frac{1}{R_2} + \dots $$</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Circuit Construction Kit</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    Use this PhET simulation to build series and parallel circuits. Use the virtual voltmeter and ammeter to verify the rules for voltage and current in each type of circuit.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/circuit-construction-kit-dc/latest/circuit-construction-kit-dc_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

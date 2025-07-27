@@ -1,1 +1,237 @@
-<!-- Placeholder for 6.1_Stress_and_Strain.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.1 Stress and Strain - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <!-- GeoGebra Integration -->
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Deformation of Solids</a> &gt;
+                <span class="font-semibold">6.1 Stress and Strain</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">6.1 Stress and Strain</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Understand that deformation is caused by tensile or compressive forces.</li>
+                    <li>Understand and use the terms load, extension, compression and limit of proportionality.</li>
+                    <li>Recall and use Hooke's law.</li>
+                    <li>Recall and use the formula for the spring constant $k=F/x$.</li>
+                    <li>Define and use the terms stress, strain and the Young modulus.</li>
+                    <li>Describe an experiment to determine the Young modulus of a metal in the form of a wire.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 & LO2 -->
+            <div id="LO1_2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1 & LO2: Forces and Deformation</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    When forces are applied to a solid object, they can cause its shape or size to change. This change is called **deformation**. The applied force is often referred to as the **load**.
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li><strong>Tensile forces</strong> are forces that act to stretch an object, causing an increase in its length called an **extension ($x$ or $\Delta L$)**.</li>
+                    <li><strong>Compressive forces</strong> are forces that act to squash an object, causing a decrease in its length called a **compression**.</li>
+                </ul>
+            </div>
+
+            <!-- Section for LO3 & LO4 -->
+            <div id="LO3_4" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO3 & LO4: Hooke's Law</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    For many materials, if the deformation is not too large, there is a simple relationship between the applied force and the resulting extension or compression. This is described by **Hooke's Law**.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    The force needed to stretch or compress a spring by some distance is directly proportional to that distance, provided the elastic limit is not exceeded.
+                </blockquote>
+                <p class="text-center text-lg font-semibold my-4">$$ F \propto x \implies F = kx $$</p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The constant of proportionality, the **spring constant ($k$)**, is a measure of the stiffness of the object. A stiffer spring has a larger value of $k$. Its SI unit is newtons per metre (N m⁻¹). The point beyond which this proportionality ceases is called the **limit of proportionality**.
+                </p>
+                
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Graphical Analysis of Force vs. Extension</h4>
+                <p class="text-lg leading-relaxed mb-4">A graph of force (y-axis) against extension (x-axis) for a material obeying Hooke's Law is a straight line through the origin. This graph provides two important pieces of information:</p>
+                <div class="flex flex-col md:flex-row items-center justify-center my-6 gap-8">
+                    <img src="https://i.ibb.co/k8W2H8p/force-extension-graph.png" alt="Force-extension graph showing gradient and area" class="rounded-lg shadow-md max-w-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/500x400/00BFBF/FFFFFF?text=F-x+Graph';">
+                    <div class="space-y-4">
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <p class="text-lg"><strong>1. The Gradient:</strong> The gradient of the F-x graph is $\frac{\Delta F}{\Delta x}$. Since $F=kx$, the gradient is equal to the spring constant, $k$.</p>
+                            <p class="text-center font-semibold text-lg mt-2">$$ \text{Gradient} = k $$</p>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <p class="text-lg"><strong>2. The Area Under the Graph:</strong> The area under the F-x graph represents the **work done** in stretching the material. This work is stored as **elastic potential energy ($E_p$)**. The area of the triangle is $\frac{1}{2} \times \text{base} \times \text{height}$.</p>
+                            <p class="text-center font-semibold text-lg mt-2">$$ E_p = \text{Area} = \frac{1}{2}Fx $$</p>
+                            <p class="text-lg mt-2">Since $F=kx$, we can substitute this in to get another useful form:</p>
+                            <p class="text-center font-semibold text-lg mt-2">$$ E_p = \frac{1}{2}(kx)x = \frac{1}{2}kx^2 $$</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Hooke's Law and Energy Stored</h4>
+                    <p class="text-lg leading-relaxed mb-4">A spring with a spring constant of 200 N m⁻¹ is stretched from its natural length by 10 cm. Calculate (a) the force required, and (b) the elastic potential energy stored in the spring.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Convert extension to SI units:</strong> $x = 10 \text{ cm} = 0.10 \text{ m}$.</p>
+                        <p><strong>2. Calculate the force (a):</strong></p>
+                        <p>$$ F = kx = (200 \text{ N m}^{-1}) \times (0.10 \text{ m}) = 20 \text{ N} $$</p>
+                        <p><strong>3. Calculate the energy stored (b):</strong></p>
+                        <p>$$ E_p = \frac{1}{2}Fx = \frac{1}{2}(20 \text{ N})(0.10 \text{ m}) = 1.0 \text{ J} $$</p>
+                        <p>Alternatively, using the other formula:</p>
+                        <p>$$ E_p = \frac{1}{2}kx^2 = \frac{1}{2}(200 \text{ N m}^{-1})(0.10 \text{ m})^2 = 100 \times 0.01 = 1.0 \text{ J} $$</p>
+                    </div>
+                </div>
+
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Graph: Hooke's Law</h4>
+                    <p class="text-base leading-relaxed mb-4">Use this GeoGebra applet to plot your own F-x graph. Add points using the sliders, find the line of best fit, and see how the gradient relates to the spring constant and the area relates to the work done.</p>
+                    <div id="geogebra-container-hooke" class="w-full h-[600px] border-2 border-casco-dark-teal rounded-lg shadow-md"></div>
+                </div>
+            </div>
+
+            <!-- Section for LO5 -->
+            <div id="LO5" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO5: Stress, Strain, and the Young Modulus</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    To compare the mechanical properties of materials independent of their size and shape, we use the concepts of stress and strain.
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-4 text-lg">
+                    <li><strong>Tensile Stress ($\sigma$):</strong> The force applied per unit of cross-sectional area of the material.
+                        <p class="text-center font-semibold my-2">$$ \sigma = \frac{F}{A} $$</p>
+                    </li>
+                    <li><strong>Tensile Strain ($\epsilon$):</strong> The fractional change in the original length of the material.
+                        <p class="text-center font-semibold my-2">$$ \epsilon = \frac{x}{L_0} $$</p>
+                    </li>
+                </ul>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The **Young Modulus ($E$)** is a measure of a material's stiffness. It is defined as the ratio of tensile stress to tensile strain (within the limit of proportionality).
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="font-semibold">$$ E = \frac{\text{Tensile Stress}}{\text{Tensile Strain}} = \frac{\sigma}{\epsilon} = \frac{FL_0}{Ax} $$</p>
+                </blockquote>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Young Modulus</h4>
+                    <p class="text-lg leading-relaxed mb-4">A metal wire of length 2.50 m and diameter 0.80 mm is stretched by a force of 150 N. It extends by 1.2 mm. Calculate the Young modulus of the metal.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. List variables and convert to SI units:</strong></p>
+                        <p>$L_0 = 2.50$ m; $d = 0.80 \text{ mm} = 0.80 \times 10^{-3}$ m; $F = 150$ N; $x = 1.2 \text{ mm} = 1.2 \times 10^{-3}$ m.</p>
+                        <p><strong>2. Calculate the cross-sectional area (A):</strong></p>
+                        <p>Radius $r = d/2 = 0.40 \times 10^{-3}$ m.</p>
+                        <p>$$ A = \pi r^2 = \pi (0.40 \times 10^{-3})^2 = 5.027 \times 10^{-7} \text{ m}^2 $$</p>
+                        <p><strong>3. Calculate the Young Modulus (E) using the full formula:</strong></p>
+                        <p>$$ E = \frac{FL_0}{Ax} = \frac{(150)(2.50)}{(5.027 \times 10^{-7})(1.2 \times 10^{-3})} = 6.217 \times 10^{11} \text{ Pa} $$</p>
+                        <p>To 2 s.f., $E = 6.2 \times 10^{11}$ Pa.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO6 -->
+            <div id="LO6" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO6: Experiment to Determine the Young Modulus</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The Young Modulus of a metal can be determined by stretching a long, thin wire. A graph of stress ($\sigma$) against strain ($\epsilon$) is plotted. According to the formula $E = \frac{\sigma}{\epsilon}$, the gradient of the stress-strain graph is equal to the Young Modulus.
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ E = \text{Gradient of Stress-Strain Graph} $$</p>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Demonstration: Young Modulus Experiment</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/z38hD6t2a_M" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Graph: Stress vs. Strain</h4>
+                    <p class="text-base leading-relaxed mb-4">This GeoGebra applet allows you to plot stress vs. strain data for a material. Use the sliders to add data points and observe the straight-line relationship. The gradient of this line is the Young Modulus.</p>
+                    <div id="geogebra-container-young" class="w-full h-[600px] border-2 border-casco-dark-teal rounded-lg shadow-md"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        var ggbApplet1 = new GGBApplet({
+            "appName": "classic", 
+            "width": 800, 
+            "height": 600, 
+            "showToolBar": true, 
+            "showAlgebraInput": true, 
+            "showMenuBar": false, 
+            "material_id": "abjwbj7j"
+        }, true);
+
+        var ggbApplet2 = new GGBApplet({
+            "appName": "classic", 
+            "width": 800, 
+            "height": 600, 
+            "showToolBar": true, 
+            "showAlgebraInput": true, 
+            "showMenuBar": false, 
+            "material_id": "t6a9a9z7"
+        }, true);
+
+        window.addEventListener("load", function() { 
+            ggbApplet1.inject('geogebra-container-hooke');
+            ggbApplet2.inject('geogebra-container-young');
+        });
+    </script>
+</body>
+</html>

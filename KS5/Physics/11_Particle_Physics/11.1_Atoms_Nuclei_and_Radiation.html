@@ -1,1 +1,242 @@
-<!-- Placeholder for 11.1_Atoms_Nuclei_and_Radiation.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11.1 Atoms, nuclei and radiation - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Particle Physics</a> &gt;
+                <span class="font-semibold">11.1 Atoms, nuclei and radiation</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">11.1 Atoms, nuclei and radiation</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Infer from the results of the $\alpha$-particle scattering experiment the existence and small size of the nucleus.</li>
+                    <li>Describe a simple model for the nuclear atom that includes protons, neutrons and electrons.</li>
+                    <li>Understand the terms nucleon number (mass number) $A$, proton number (atomic number) $Z$ and nuclide.</li>
+                    <li>Use the nuclide notation $^{A}_{Z}X$.</li>
+                    <li>Understand the term isotope.</li>
+                    <li>Understand that nucleon number and proton number are conserved in nuclear processes.</li>
+                    <li>Describe the composition, mass and charge of $\alpha$-particles, $\beta$-particles and $\gamma$-rays.</li>
+                    <li>Represent $\alpha$- and $\beta$-decay by nuclear equations of the form $^{A}_{Z}X \rightarrow {^{A-4}_{Z-2}Y} + {^{4}_{2}\alpha}$ and $^{A}_{Z}X \rightarrow {^{A}_{Z+1}Y} + {^{0}_{-1}\beta} + \bar{\nu}$.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: The $\alpha$-particle Scattering Experiment</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    In the early 20th century, the accepted model of the atom was J.J. Thomson's "plum pudding" model. This model envisioned the atom as a sphere of uniformly distributed positive charge (the "pudding"), with negatively charged electrons (the "plums") interspersed on the surface to make the atom electrically neutral.
+                </p>
+                
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Expectations from the Plum Pudding Model</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    Under the supervision of Ernest Rutherford, physicists Hans Geiger and Ernest Marsden set out to test this model. They used gold as a target because it is extremely malleable and can be hammered into a foil only a few atoms thick. They then fired a beam of fast-moving, positively charged alpha ($\alpha$) particles at this foil.
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    Based on the plum pudding model, they expected the alpha particles to push through with only minor deflections, like a **bullet firing through a sheet of tissue paper**. This was because:
+                </p>
+                <ol class="list-decimal list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li>They believed that the gold foil was mostly empty space *between* the atoms. Therefore, they expected the vast majority of alpha particles to fly straight through these gaps without hitting anything at all.</li>
+                    <li>For the few particles that did happen to hit an atom, they predicted only minor deflections. This was because the positive charge of the "pudding" was thought to be too spread out and weak to significantly repel the heavy, fast-moving alpha particle. Furthermore, the negative electrons on the surface would effectively neutralise the atom's charge, further reducing any potential deviation.</li>
+                </ol>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L5hH42T/plum-pudding-scattering.png" alt="Diagram showing the expected result of alpha scattering from a plum pudding atom" class="rounded-lg shadow-md max-w-xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/700x300/00BFBF/FFFFFF?text=Expected+Result';">
+                </div>
+
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Experimental Observations and Inferences</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    The results of the Geiger-Marsden experiment were completely unexpected and revolutionary. Rutherford famously remarked, "It was almost as incredible as if you fired a 15-inch shell at a piece of tissue paper and it came back and hit you."
+                </p>
+                <ol class="list-decimal list-inside ml-4 my-2 space-y-4 text-lg">
+                    <li><strong>Observation:</strong> The vast majority of $\alpha$-particles passed straight through the thin gold foil with little or no deflection.
+                        <br><strong>Inference:</strong> The atom is mostly empty space.</li>
+                    <li><strong>Observation:</strong> A small number of $\alpha$-particles were deflected through large angles.
+                        <br><strong>Inference:</strong> There must be a region of concentrated positive charge within the atom, which repelled the positive $\alpha$-particles. This region was named the **nucleus**.</li>
+                    <li><strong>Observation:</strong> A very small number of $\alpha$-particles (about 1 in 8000) were deflected by more than 90°, effectively bouncing back.
+                        <br><strong>Inference:</strong> The nucleus must be very small, dense, and contain most of the atom's mass. A head-on collision with this tiny, massive nucleus is rare but results in a very large electrostatic repulsion.</li>
+                </ol>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: The Gold Foil Experiment</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/XBqHkraf8iE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Rutherford Scattering</h4>
+                    <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">Enter Fullscreen</button>
+                    <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                        <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/rutherford-scattering/latest/rutherford-scattering_en.html" allowfullscreen class="w-full h-full"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO2, LO3, LO4, LO5 -->
+            <div id="LO2_3_4_5" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2, LO3, LO4 & LO5: The Nuclear Model and Isotopes</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The results of the scattering experiment led to the nuclear model of the atom: a small, dense, positively charged nucleus containing protons and neutrons, surrounded by orbiting electrons.
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li><strong>Proton Number (Z):</strong> The number of protons in the nucleus. It defines the element. Also known as the atomic number.</li>
+                    <li><strong>Nucleon Number (A):</strong> The total number of protons and neutrons in the nucleus. Also known as the mass number.</li>
+                    <li><strong>Nuclide:</strong> A specific type of nucleus, defined by its particular values of Z and A.</li>
+                </ul>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    We represent a specific nuclide using the notation:
+                </p>
+                <p class="text-center text-3xl font-semibold my-4">$$ ^{A}_{Z}X $$</p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Where X is the chemical symbol for the element.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    **Isotopes** are nuclides of the same element that have the same number of protons (same Z) but different numbers of neutrons (different A). For example, Carbon-12 ($^{12}_{6}C$) and Carbon-14 ($^{14}_{6}C$) are isotopes of carbon.
+                </p>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Isotopes</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/EboWeWpd9qs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO6, LO7, LO8 -->
+            <div id="LO6_7_8" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO6, LO7 & LO8: Nuclear Processes and Radiation</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    In all nuclear processes, such as radioactive decay, both the total nucleon number (A) and the total proton number (Z) are conserved. Unstable nuclei decay by emitting radiation to become more stable.
+                </p>
+                <div class="overflow-x-auto my-4">
+                    <table class="min-w-full bg-white border border-gray-300 rounded-lg shadow-md">
+                        <thead class="bg-casco-light-bg text-casco-dark-teal">
+                            <tr><th class="py-2 px-4 border-b">Radiation</th><th class="py-2 px-4 border-b">Composition</th><th class="py-2 px-4 border-b">Relative Mass</th><th class="py-2 px-4 border-b">Relative Charge</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="py-2 px-4 border-b font-semibold">Alpha ($\alpha$)</td><td class="py-2 px-4 border-b">2 protons, 2 neutrons (Helium nucleus)</td><td class="py-2 px-4 border-b">4</td><td class="py-2 px-4 border-b">+2</td></tr>
+                            <tr><td class="py-2 px-4 border-b font-semibold">Beta ($\beta$)</td><td class="py-2 px-4 border-b">High-energy electron</td><td class="py-2 px-4 border-b">1/1840</td><td class="py-2 px-4 border-b">-1</td></tr>
+                            <tr><td class="py-2 px-4 border-b font-semibold">Gamma ($\gamma$)</td><td class="py-2 px-4 border-b">High-energy electromagnetic wave</td><td class="py-2 px-4 border-b">0</td><td class="py-2 px-4 border-b">0</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Alpha, Beta, and Gamma Decay</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/I7WTQD2xYtQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Nuclear Equations</h4>
+                    <p class="text-lg leading-relaxed mb-4">Write the nuclear equations for (a) the alpha decay of Uranium-238 ($^{238}_{92}U$) and (b) the beta decay of Carbon-14 ($^{14}_{6}C$).</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>(a) Alpha Decay:</strong> An $\alpha$-particle ($^{4}_{2}\alpha$) is emitted. A decreases by 4, Z decreases by 2.</p>
+                        <p>$$ ^{238}_{92}U \rightarrow {^{238-4}_{92-2}Y} + {^{4}_{2}\alpha} $$</p>
+                        <p>The new element has Z = 90, which is Thorium (Th).</p>
+                        <p class="font-semibold">$$ ^{238}_{92}U \rightarrow {^{234}_{90}Th} + {^{4}_{2}\alpha} $$</p>
+                        <p><strong>(b) Beta Decay:</strong> A $\beta$-particle ($^{0}_{-1}\beta$, an electron) and an antineutrino ($\bar{\nu}$) are emitted. A is unchanged, Z increases by 1 (as a neutron turns into a proton).</p>
+                        <p>$$ ^{14}_{6}C \rightarrow {^{14}_{6+1}Y} + {^{0}_{-1}\beta} + \bar{\nu} $$</p>
+                        <p>The new element has Z = 7, which is Nitrogen (N).</p>
+                        <p class="font-semibold">$$ ^{14}_{6}C \rightarrow {^{14}_{7}N} + {^{0}_{-1}\beta} + \bar{\nu} $$</p>
+                    </div>
+                </div>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Build an Atom</h4>
+                    <p class="text-base leading-relaxed mb-2">
+                        This PhET simulation allows you to build different nuclides by adding protons and neutrons to the nucleus. Use it to create isotopes and understand the meaning of Z and A.
+                    </p>
+                    <button id="fullscreen-btn-atom" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                        Enter Fullscreen
+                    </button>
+                    <div id="simulation-container-atom" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                        <iframe id="simulation-iframe-atom" src="https://phet.colorado.edu/sims/html/build-an-atom/latest/build-an-atom_en.html" allowfullscreen class="w-full h-full"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+
+        const fullscreenBtnAtom = document.getElementById('fullscreen-btn-atom');
+        const simIframeAtom = document.getElementById('simulation-iframe-atom');
+        fullscreenBtnAtom.addEventListener('click', () => {
+            if (simIframeAtom.requestFullscreen) simIframeAtom.requestFullscreen();
+            else if (simIframeAtom.mozRequestFullScreen) simIframeAtom.mozRequestFullScreen();
+            else if (simIframeAtom.webkitRequestFullscreen) simIframeAtom.webkitRequestFullscreen();
+            else if (simIframeAtom.msRequestFullscreen) simIframeAtom.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

@@ -1,1 +1,205 @@
-<!-- Placeholder for 4.3_Density_and_Pressure.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.3 Density and Pressure - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Forces, Density and Pressure</a> &gt;
+                <span class="font-semibold">4.3 Density and Pressure</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">4.3 Density and Pressure</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Define and use density.</li>
+                    <li>Define and use pressure.</li>
+                    <li>Derive, from the definitions of pressure and density, the equation for hydrostatic pressure $\Delta p=\rho g\Delta h$.</li>
+                    <li>Use the equation $\Delta p=\rho g\Delta h$.</li>
+                    <li>Understand that the upthrust acting on an object in a fluid is due to a difference in hydrostatic pressure.</li>
+                    <li>Calculate the upthrust acting on an object in a fluid using the equation $F=\rho gV$ (Archimedes' principle).</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: Density</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    <strong>Density ($\rho$)</strong> is an intrinsic property of a substance that describes how much mass is packed into a given volume. It is defined as the mass per unit volume.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="text-center font-semibold">$$ \rho = \frac{m}{V} $$</p>
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The SI unit for density is kilograms per cubic metre (kg m⁻³). It is a scalar quantity.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Calculating Density</h4>
+                    <p class="text-lg leading-relaxed mb-4">A solid cube of aluminium has a side length of 5.0 cm and a mass of 337.5 g. Calculate the density of aluminium in SI units.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Convert all measurements to SI units:</strong></p>
+                        <p>$$ m = 337.5 \text{ g} = 0.3375 \text{ kg} $$</p>
+                        <p>$$ L = 5.0 \text{ cm} = 0.050 \text{ m} $$</p>
+                        <p><strong>2. Calculate the volume of the cube:</strong></p>
+                        <p>$$ V = L^3 = (0.050 \text{ m})^3 = 0.000125 \text{ m}^3 $$</p>
+                        <p><strong>3. Use the density formula:</strong></p>
+                        <p>$$ \rho = \frac{m}{V} = \frac{0.3375 \text{ kg}}{0.000125 \text{ m}^3} = 2700 \text{ kg m}^{-3} $$</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO2 -->
+            <div id="LO2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2: Pressure</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    <strong>Pressure ($p$)</strong> is defined as the normal (perpendicular) force exerted per unit area.
+                </p>
+                 <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="text-center font-semibold">$$ p = \frac{F}{A} $$</p>
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The SI unit for pressure is the **pascal (Pa)**, where 1 Pa = 1 N m⁻². Pressure is a scalar quantity.
+                </p>
+            </div>
+
+            <!-- Section for LO3 & LO4 -->
+            <div id="LO3_4" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO3 & LO4: Hydrostatic Pressure</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Within a fluid (a liquid or gas), pressure increases with depth. This is because the deeper you go, the greater the weight of the fluid column above you. This pressure exerted by a fluid at rest is known as **hydrostatic pressure**.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Derivation of $\Delta p = \rho g \Delta h$</h4>
+                    <div class="text-lg space-y-2">
+                        <p>1. Consider a cylindrical column of fluid of height $\Delta h$ and cross-sectional area $A$.</p>
+                        <p>2. The volume of this column is $V = A \times \Delta h$.</p>
+                        <p>3. The mass of the fluid in this column is $m = \rho V = \rho A \Delta h$.</p>
+                        <p>4. The weight of this fluid column is the force it exerts on the area $A$ at the bottom: $F = W = mg = (\rho A \Delta h)g$.</p>
+                        <p>5. The pressure difference, $\Delta p$, due to this column of fluid is this force divided by the area:</p>
+                        <p>$$ \Delta p = \frac{F}{A} = \frac{\rho A g \Delta h}{A} $$</p>
+                        <p>6. Cancelling the area $A$ from the numerator and denominator gives the final equation:</p>
+                        <p class="font-semibold">$$ \Delta p = \rho g \Delta h $$</p>
+                    </div>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Pressure in the Ocean</h4>
+                    <p class="text-lg leading-relaxed mb-4">Calculate the pressure due to the seawater at a depth of 1.5 km in the ocean. The density of seawater is 1030 kg m⁻³.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Identify variables and convert to SI units:</strong></p>
+                        <p>$$ \rho = 1030 \text{ kg m}^{-3}, \quad g = 9.81 \text{ m s}^{-2}, \quad \Delta h = 1.5 \text{ km} = 1500 \text{ m} $$</p>
+                        <p><strong>2. Apply the hydrostatic pressure formula:</strong></p>
+                        <p>$$ \Delta p = \rho g \Delta h = 1030 \times 9.81 \times 1500 $$</p>
+                        <p>$$ \Delta p = 15,156,450 \text{ Pa} \approx 1.5 \times 10^7 \text{ Pa} \text{ (or 15 MPa)} $$</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO5 & LO6 -->
+            <div id="LO5_6" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO5 & LO6: Upthrust and Archimedes' Principle</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    When an object is submerged in a fluid, the pressure on its bottom surface is greater than the pressure on its top surface. This pressure difference results in a net upward force on the object, known as **upthrust**.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    This is formally stated by **Archimedes' Principle**:
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    The upthrust exerted on a body immersed in a fluid, whether fully or partially, is equal to the weight of the fluid that the body displaces.
+                </blockquote>
+                <p class="text-center text-lg font-semibold my-4">$$ F_{upthrust} = \rho_{fluid} g V_{displaced} $$</p>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Archimedes' Principle</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/eQsc85T6vSg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Density & Buoyancy</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    Explore the relationship between density, mass, volume, and buoyancy with this PhET simulation. See why objects float or sink.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/density/latest/density_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

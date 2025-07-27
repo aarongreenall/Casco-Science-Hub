@@ -1,1 +1,160 @@
-<!-- Placeholder for 8.2_Diffraction.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8.2 Diffraction - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Superposition</a> &gt;
+                <span class="font-semibold">8.2 Diffraction</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">8.2 Diffraction</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Explain the meaning of the term diffraction.</li>
+                    <li>Show an understanding of experiments that demonstrate diffraction including the qualitative effect of the gap width relative to the wavelength of the wave.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: The Meaning of Diffraction</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    **Diffraction** is the phenomenon where waves spread out as they pass through an aperture (a gap or slit) or as they pass around an obstacle. It is a characteristic property of all types of waves, including sound, light, and water waves.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    This spreading out is a direct consequence of Huygens' principle, which states that every point on a wavefront can be considered as a source of secondary spherical wavelets. When a wavefront passes through a gap, only the points within the gap can act as sources. The superposition of these secondary wavelets causes the wave to spread into the region that would otherwise be a geometric shadow.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L8D10yW/diffraction-definition.png" alt="Diagram showing plane waves diffracting as they pass through a narrow gap" class="rounded-lg shadow-md max-w-lg w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Diffraction+of+Waves';">
+                </div>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    A real-world example is being able to hear someone talking from around a corner. The sound waves diffract around the edge of the corner, allowing them to travel to your ear even though there is no direct line of sight to the person speaking.
+                </p>
+            </div>
+
+            <!-- Section for LO2 -->
+            <div id="LO2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2: Demonstrating Diffraction and the Effect of Gap Width</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The extent to which a wave diffracts depends critically on the relationship between the wavelength of the wave ($\lambda$) and the size of the gap or obstacle.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    The most significant diffraction occurs when the wavelength of the wave is approximately equal to the size of the gap.
+                </blockquote>
+                <div class="flex flex-col md:flex-row items-center justify-center my-6 gap-8">
+                    <div class="md:w-1/3 text-center">
+                        <img src="https://i.ibb.co/L5kZ8n0/diffraction-gap-large.png" alt="Little diffraction through a wide gap" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/300x300/009999/FFFFFF?text=Wide+Gap';">
+                        <p class="mt-2 text-lg">When gap width $&gt;&gt; \lambda$, diffraction is unnoticeable.</p>
+                    </div>
+                    <div class="md:w-1/3 text-center">
+                        <img src="https://i.ibb.co/3hG6Y4s/diffraction-gap-similar.png" alt="Maximum diffraction through a similar sized gap" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/300x300/00BFBF/FFFFFF?text=Similar+Gap';">
+                        <p class="mt-2 text-lg">When gap width $\approx \lambda$, diffraction is most significant.</p>
+                    </div>
+                    <div class="md:w-1/3 text-center">
+                        <img src="https://i.ibb.co/L8D10yW/diffraction-definition.png" alt="Wave spreading through a narrow gap" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/300x300/33EBEB/FFFFFF?text=Narrow+Gap';">
+                        <p class="mt-2 text-lg">When gap width $&lt; \lambda$, the wave spreads out significantly, but most of the energy is reflected.</p>
+                    </div>
+                </div>
+                
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Demonstration with a Ripple Tank</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    A ripple tank is an excellent tool for demonstrating diffraction. A vibrating bar creates plane water waves of a specific wavelength. These waves are directed towards a barrier with a gap of adjustable width. By changing the gap width and the wave frequency (which changes the wavelength), the relationship between them can be clearly observed.
+                </p>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Demonstration: Diffraction in a Ripple Tank</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/c31g2-t_d4M" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Diffraction</h4>
+                    <p class="text-base leading-relaxed mb-2">
+                        Use the "Diffraction" tab in this PhET simulation. You can control the wavelength (by changing the frequency/colour) and the slit width. Observe how the pattern of the diffracted wave changes as you make the slit width closer to the wavelength.
+                    </p>
+                    <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                        Enter Fullscreen
+                    </button>
+                    <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                        <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/wave-interference/latest/wave-interference_en.html" allowfullscreen class="w-full h-full"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

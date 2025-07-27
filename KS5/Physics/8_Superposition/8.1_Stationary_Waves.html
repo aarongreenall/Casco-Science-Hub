@@ -1,1 +1,203 @@
-<!-- Placeholder for 8.1_Stationary_Waves.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8.1 Stationary Waves - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <!-- GeoGebra Integration -->
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Superposition</a> &gt;
+                <span class="font-semibold">8.1 Stationary Waves</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">8.1 Stationary Waves</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Explain and use the principle of superposition.</li>
+                    <li>Show an understanding of experiments that demonstrate stationary waves using microwaves, stretched strings and air columns.</li>
+                    <li>Explain the formation of a stationary wave using a graphical method, and identify nodes and antinodes.</li>
+                    <li>Understand how wavelength may be determined from the positions of nodes or antinodes of a stationary wave.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: The Principle of Superposition</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The **Principle of Superposition** states that when two or more waves of the same type meet at a point, the resultant displacement at that point is the vector sum of the individual displacements of the waves. This leads to constructive interference (displacements add up) and destructive interference (displacements cancel out).
+                </p>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Wave Interference</h4>
+                    <button id="fullscreen-btn-interference" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                        Enter Fullscreen
+                    </button>
+                    <div id="simulation-container-interference" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                        <iframe id="simulation-iframe-interference" src="https://phet.colorado.edu/sims/html/wave-interference/latest/wave-interference_en.html" allowfullscreen class="w-full h-full"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO3 -->
+            <div id="LO3" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO3: Formation of Stationary Waves - A Graphical Method</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    A **stationary (or standing) wave** is formed from the superposition of two progressive waves of the same frequency, wavelength, and amplitude, travelling in opposite directions. Unlike a progressive wave, a stationary wave does not transfer energy. It has points of zero amplitude, called **nodes (N)**, and points of maximum amplitude, called **antinodes (A)**.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    We can understand how this pattern forms by graphically adding the two waves at different moments in time. Let's consider a blue wave moving right and a red wave moving left. The purple wave is their resultant.
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li><strong>At time t=0:</strong> The waves are perfectly in phase. Crest meets crest, and trough meets trough. This creates antinodes with maximum positive and negative displacement.</li>
+                    <li><strong>At time t=T/4:</strong> Each wave has travelled a quarter of a wavelength. A crest from one wave now meets a trough from the other. They completely cancel out, resulting in zero displacement everywhere.</li>
+                    <li><strong>At time t=T/2:</strong> The waves are in phase again, but inverted compared to t=0. Trough meets trough and crest meets crest, creating antinodes with maximum negative and positive displacement.</li>
+                    <li><strong>At time t=3T/4:</strong> The waves again cancel out completely, resulting in zero displacement everywhere.</li>
+                </ul>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/hL5fC0g/stationary-wave-formation-graphical.png" alt="Diagram showing the graphical superposition of two waves at different time intervals to form a stationary wave" class="rounded-lg shadow-md max-w-2xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/800x500/00BFBF/FFFFFF?text=Graphical+Formation+of+a+Stationary+Wave';">
+                </div>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Notice that the points marked 'N' (nodes) never move, while the points marked 'A' (antinodes) oscillate between the maximum positive and negative amplitudes.
+                </p>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Visualization: Forming a Stationary Wave</h4>
+                    <p class="text-base leading-relaxed mb-4">This GeoGebra applet shows two progressive waves (red and blue) travelling in opposite directions. The black wave is the resultant stationary wave formed by their superposition. Use the slider to step through time and observe how the interference creates nodes and antinodes.</p>
+                    <div id="geogebra-container-stationary" class="w-full h-[600px] border-2 border-casco-dark-teal rounded-lg shadow-md"></div>
+                </div>
+            </div>
+
+            <!-- Section for LO2 & LO4 -->
+            <div id="LO2_4" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2 & LO4: Demonstrating and Measuring Stationary Waves</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Stationary waves can be demonstrated in various systems. A key measurement is the distance between adjacent nodes (or antinodes), which is always equal to half a wavelength.
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ \text{Distance between adjacent nodes} = \frac{\lambda}{2} $$</p>
+                
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Stretched Strings, Microwaves, and Air Columns</h4>
+                <p class="text-lg leading-relaxed mb-4">Stationary waves are formed in stretched strings (musical instruments), with microwaves reflecting off a metal plate, and in air columns (wind instruments) where sound waves reflect from an end. In each case, a wave superposes with its reflection.</p>
+
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Wavelength from Nodes</h4>
+                    <p class="text-lg leading-relaxed mb-4">In a microwave experiment, a detector is moved along the path of a stationary wave. It registers a minimum signal (a node) at a position of 12.5 cm and the next minimum at 15.3 cm. What is the wavelength of the microwaves?</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Identify the relationship:</strong> The distance between two adjacent nodes is equal to half a wavelength.</p>
+                        <p>$$ \text{Distance between nodes} = \frac{\lambda}{2} $$</p>
+                        <p><strong>2. Calculate the distance:</strong></p>
+                        <p>$$ \text{Distance} = 15.3 \text{ cm} - 12.5 \text{ cm} = 2.8 \text{ cm} $$</p>
+                        <p><strong>3. Solve for the wavelength ($\lambda$):</strong></p>
+                        <p>$$ \frac{\lambda}{2} = 2.8 \text{ cm} $$</p>
+                        <p>$$ \lambda = 2 \times 2.8 \text{ cm} = 5.6 \text{ cm} $$</p>
+                    </div>
+                </div>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Wave on a String</h4>
+                    <p class="text-base leading-relaxed mb-2">
+                        This PhET simulation is perfect for visualizing stationary waves. Set the end to "Fixed End" and turn on "Damping" to near zero. Use the "Oscillate" setting and adjust the frequency to find the different harmonics (standing wave patterns). Use the rulers to measure the distance between nodes.
+                    </p>
+                    <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                        Enter Fullscreen
+                    </button>
+                    <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                        <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/wave-on-a-string/latest/wave-on-a-string_en.html" allowfullscreen class="w-full h-full"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        var ggbApplet1 = new GGBApplet({
+            "appName": "classic", 
+            "width": 800, 
+            "height": 600, 
+            "showToolBar": false, 
+            "showAlgebraInput": false, 
+            "showMenuBar": false, 
+            "material_id": "y9zaj4ms"
+        }, true);
+        window.addEventListener("load", function() { 
+            ggbApplet1.inject('geogebra-container-stationary');
+        });
+
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+
+        const fullscreenBtnInterference = document.getElementById('fullscreen-btn-interference');
+        const simIframeInterference = document.getElementById('simulation-iframe-interference');
+        fullscreenBtnInterference.addEventListener('click', () => {
+            if (simIframeInterference.requestFullscreen) simIframeInterference.requestFullscreen();
+            else if (simIframeInterference.mozRequestFullScreen) simIframeInterference.mozRequestFullScreen();
+            else if (simIframeInterference.webkitRequestFullscreen) simIframeInterference.webkitRequestFullscreen();
+            else if (simIframeInterference.msRequestFullscreen) simIframeInterference.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

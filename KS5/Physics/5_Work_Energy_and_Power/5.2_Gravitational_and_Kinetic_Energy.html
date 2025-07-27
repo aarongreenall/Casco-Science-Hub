@@ -1,1 +1,201 @@
-<!-- Placeholder for 5.2_Gravitational_and_Kinetic_Energy.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.2 Gravitational Potential Energy and Kinetic Energy - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Work, Energy and Power</a> &gt;
+                <span class="font-semibold">5.2 Gravitational Potential & Kinetic Energy</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">5.2 Gravitational Potential Energy and Kinetic Energy</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Derive, using $W=Fs$, the formula $\Delta E_{p}=mg\Delta h$ for gravitational potential energy changes in a uniform gravitational field.</li>
+                    <li>Recall and use the formula $\Delta E_{P}=mg\Delta h$ for gravitational potential energy changes in a uniform gravitational field.</li>
+                    <li>Derive, using the equations of motion, the formula for kinetic energy $E_{K}=\frac{1}{2}mv^{2}$.</li>
+                    <li>Recall and use $E_{K}=\frac{1}{2}mv^{2}$.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 & LO2 -->
+            <div id="LO1_2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1 & LO2: Gravitational Potential Energy ($E_p$)</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    **Gravitational Potential Energy (GPE)** is the energy an object possesses due to its position in a gravitational field. When an object is lifted against a gravitational field, work is done on the object, and this work is stored as GPE. We are concerned with the *change* in GPE, $\Delta E_p$, when an object's height changes.
+                </p>
+                
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Detailed Derivation of $\Delta E_p = mg\Delta h$</h4>
+                    <p class="text-lg leading-relaxed mb-4">
+                        This formula applies in a uniform gravitational field (where $g$ is constant), such as near the Earth's surface.
+                    </p>
+                    <div class="text-lg space-y-2">
+                        <p>1. By definition, the work done ($W$) on an object is the energy transferred to it. The change in GPE is equal to the work done to lift the object vertically at a constant velocity.</p>
+                        <p>$$ \Delta E_p = W $$</p>
+                        <p>2. The formula for work done is $W = Fs$, where $F$ is the force applied and $s$ is the displacement in the direction of the force.</p>
+                        <p>3. To lift an object of mass $m$ at a constant velocity, the upward lifting force $F$ must be equal in magnitude to the object's weight, $W_{weight}$.</p>
+                        <p>$$ F = W_{weight} = mg $$</p>
+                        <p>4. The vertical displacement is the change in height, $\Delta h$. So, $s = \Delta h$.</p>
+                        <p>5. Substituting these into the work done equation:</p>
+                        <p>$$ W = (mg) \times (\Delta h) $$</p>
+                        <p>6. Since $\Delta E_p = W$, we arrive at the final equation:</p>
+                        <p class="font-semibold">$$ \Delta E_p = mg\Delta h $$</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO3 & LO4 -->
+            <div id="LO3_4" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO3 & LO4: Kinetic Energy ($E_k$)</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    **Kinetic Energy (KE)** is the energy an object possesses due to its motion. Work must be done on an object to increase its speed, and this work is transferred into kinetic energy.
+                </p>
+                
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Detailed Derivation of $E_k = \frac{1}{2}mv^2$</h4>
+                    <p class="text-lg leading-relaxed mb-4">
+                        We can derive this formula by considering the work done to accelerate an object from rest.
+                    </p>
+                    <div class="text-lg space-y-2">
+                        <p>1. The kinetic energy gained by the object is equal to the work done on it by a resultant force, $F$. Assume the object starts from rest ($u=0$) and reaches a final velocity $v$ over a displacement $s$.</p>
+                        <p>$$ E_k = W = Fs $$</p>
+                        <p>2. From Newton's Second Law, we know that $F = ma$.</p>
+                        <p>$$ E_k = (ma)s = mas $$</p>
+                        <p>3. We need to eliminate $s$ and $a$. We can use the SUVAT equation that links $u, v, a,$ and $s$:</p>
+                        <p>$$ v^2 = u^2 + 2as $$</p>
+                        <p>4. Since the object starts from rest, $u=0$:</p>
+                        <p>$$ v^2 = 2as $$</p>
+                        <p>5. Rearrange this equation to make the term '$as$' the subject:</p>
+                        <p>$$ as = \frac{v^2}{2} $$</p>
+                        <p>6. Substitute this expression for '$as$' back into our equation for kinetic energy ($E_k = mas$):</p>
+                        <p>$$ E_k = m \left( \frac{v^2}{2} \right) $$</p>
+                        <p>7. This gives the final, familiar formula for kinetic energy:</p>
+                        <p class="font-semibold">$$ E_k = \frac{1}{2}mv^2 $$</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: GPE and KE</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/O-rxB4KA3_U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+            <!-- Section for Application -->
+            <div id="Application" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Application: Conservation of Mechanical Energy</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    In a system where no work is done by resistive forces (like friction or air resistance), the total mechanical energy (the sum of GPE and KE) is conserved. This means that GPE can be converted into KE, and vice versa.
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ \text{Loss in } E_p = \text{Gain in } E_k $$</p>
+                <p class="text-center text-lg font-semibold my-4">$$ mg\Delta h = \frac{1}{2}mv_f^2 - \frac{1}{2}mv_i^2 $$</p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: A Falling Ball</h4>
+                    <p class="text-lg leading-relaxed mb-4">A 2.0 kg ball is dropped from a height of 10 m. Assuming air resistance is negligible, calculate its speed just before it hits the ground.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. State the principle of energy conservation:</strong></p>
+                        <p>The GPE lost by the ball as it falls is converted into KE.</p>
+                        <p>$$ \text{GPE lost} = \text{KE gained} $$</p>
+                        <p><strong>2. Write the equation:</strong></p>
+                        <p>$$ mg\Delta h = \frac{1}{2}mv^2 $$</p>
+                        <p>Note that the initial KE is zero since it was dropped from rest.</p>
+                        <p><strong>3. Solve for v:</strong> Notice that mass ($m$) appears on both sides, so it can be cancelled.</p>
+                        <p>$$ g\Delta h = \frac{1}{2}v^2 $$</p>
+                        <p>$$ v^2 = 2g\Delta h $$</p>
+                        <p>$$ v = \sqrt{2g\Delta h} $$</p>
+                        <p><strong>4. Substitute values:</strong></p>
+                        <p>$$ v = \sqrt{2 \times 9.81 \times 10} = \sqrt{196.2} = 14.0 \text{ m s}^{-1} $$</p>
+                    </div>
+                </div>
+                 <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Energy Skate Park</h4>
+                    <p class="text-base leading-relaxed mb-2">
+                        This classic PhET simulation is an excellent tool for visualizing the conservation of energy. Observe the transformation between kinetic and potential energy. Turn on friction to see how thermal energy is generated and total mechanical energy is no longer conserved.
+                    </p>
+                    <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                        Enter Fullscreen
+                    </button>
+                    <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                        <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/energy-skate-park-basics/latest/energy-skate-park-basics_en.html" allowfullscreen class="w-full h-full"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

@@ -1,1 +1,215 @@
-<!-- Placeholder for 5.1_Energy_Conservation.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.1 Energy Conservation - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Work, Energy and Power</a> &gt;
+                <span class="font-semibold">5.1 Energy Conservation</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">5.1 Energy Conservation, Work, and Power</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Understand the concept of work, and recall and use work done = force × displacement in the direction of the force.</li>
+                    <li>Recall and apply the principle of conservation of energy.</li>
+                    <li>Recall and understand that the efficiency of a system is the ratio of useful energy output from the system to the total energy input.</li>
+                    <li>Use the concept of efficiency to solve problems.</li>
+                    <li>Define power as work done per unit time.</li>
+                    <li>Solve problems using $P=W/t$.</li>
+                    <li>Derive $P=Fv$ and use it to solve problems.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: Work Done by a Force</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    In physics, **work** has a very specific definition. Work is done on an object when a force causes a displacement of the object. It is a measure of energy transfer.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="font-semibold">Work done is the product of the magnitude of the force and the displacement of the object in the direction of the force.</p>
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    If a force $F$ acts on an object and the object moves a displacement $s$ in the same direction as the force, the work done $W$ is simply $W = Fs$. However, if the force acts at an angle $\theta$ to the direction of displacement, we must use the component of the force that is in the direction of the displacement.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/3mH3F3c/work-done-angle.png" alt="Diagram showing a force F at an angle theta to the displacement s" class="rounded-lg shadow-md max-w-lg w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x300/00BFBF/FFFFFF?text=Work+Done+at+an+Angle';">
+                </div>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The component of the force in the direction of displacement is $F \cos\theta$. Therefore, the general equation for work done is:
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ W = (F \cos\theta) \times s $$</p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Work Done at an Angle</h4>
+                    <p class="text-lg leading-relaxed mb-4">A person pulls a crate along a horizontal floor with a rope that makes an angle of 30° with the horizontal. The tension in the rope is 150 N. Calculate the work done by the person in pulling the crate a distance of 10 m.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Identify the variables:</strong> $F = 150$ N, $s = 10$ m, $\theta = 30^\circ$.</p>
+                        <p><strong>2. State the formula for work done:</strong></p>
+                        <p>$$ W = Fs \cos\theta $$</p>
+                        <p><strong>3. Substitute the values and solve:</strong></p>
+                        <p>$$ W = (150)(10) \cos(30^\circ) = 1500 \times 0.866 = 1299 \text{ J} $$</p>
+                        <p>To 2 significant figures, the work done is 1300 J.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO2, LO3, LO4 -->
+            <div id="LO2_3_4" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2, LO3 & LO4: Conservation of Energy and Efficiency</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The **Principle of Conservation of Energy** is one of the most fundamental concepts in science.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    Energy cannot be created or destroyed, only transformed from one form to another.
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    In any real-world process, some energy is inevitably converted into non-useful forms, typically heat due to friction or air resistance. **Efficiency ($\eta$)** is a measure of how well a system converts the total energy input into useful energy output.
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ \eta = \frac{\text{Useful Energy Output}}{\text{Total Energy Input}} \quad \text{or} \quad \eta = \frac{\text{Useful Power Output}}{\text{Total Power Input}} $$</p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">Efficiency is a dimensionless ratio, often expressed as a percentage by multiplying by 100.</p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Motor Efficiency</h4>
+                    <p class="text-lg leading-relaxed mb-4">An electric motor with a power input of 200 W is used to lift a 10 kg mass vertically through a height of 5.0 m. The process takes 4.0 s. Calculate the efficiency of the motor.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Calculate the useful energy output:</strong> This is the gain in gravitational potential energy ($E_p = mgh$).</p>
+                        <p>$$ E_{p} = (10 \text{ kg})(9.81 \text{ m s}^{-2})(5.0 \text{ m}) = 490.5 \text{ J} $$</p>
+                        <p><strong>2. Calculate the total energy input:</strong> This is the electrical energy supplied to the motor ($E = P \times t$).</p>
+                        <p>$$ E_{in} = 200 \text{ W} \times 4.0 \text{ s} = 800 \text{ J} $$</p>
+                        <p><strong>3. Calculate the efficiency:</strong></p>
+                        <p>$$ \eta = \frac{\text{Useful Energy Output}}{\text{Total Energy Input}} = \frac{490.5}{800} = 0.613 $$</p>
+                        <p>As a percentage, the efficiency is $0.613 \times 100\% = 61.3\%$.</p>
+                    </div>
+                </div>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Energy Skate Park</h4>
+                    <p class="text-base leading-relaxed mb-2">
+                        This classic PhET simulation is an excellent tool for visualizing the conservation of energy. Observe the transformation between kinetic and potential energy. Turn on friction to see how thermal energy is generated and total mechanical energy is no longer conserved.
+                    </p>
+                    <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                        Enter Fullscreen
+                    </button>
+                    <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                        <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/energy-skate-park-basics/latest/energy-skate-park-basics_en.html" allowfullscreen class="w-full h-full"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO5, LO6, LO7 -->
+            <div id="LO5_6_7" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO5, LO6 & LO7: Power</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    <strong>Power ($P$)</strong> is defined as the rate at which work is done, or the rate at which energy is transferred.
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ P = \frac{W}{t} $$</p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">The SI unit of power is the **watt (W)**, where 1 W = 1 joule per second (J s⁻¹).</p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Derivation of $P=Fv$</h4>
+                    <p class="text-lg leading-relaxed mb-4">For an object moving at a constant velocity $v$ against a constant resistive force $F$, we can derive a useful expression for the power required.</p>
+                    <div class="text-lg space-y-2">
+                        <p>1. Start with the definition of power:</p>
+                        <p>$$ P = \frac{W}{t} $$</p>
+                        <p>2. Substitute the expression for work done, $W = Fs$ (since force and displacement are in the same direction):</p>
+                        <p>$$ P = \frac{Fs}{t} $$</p>
+                        <p>3. Rearrange the terms:</p>
+                        <p>$$ P = F \times \left(\frac{s}{t}\right) $$</p>
+                        <p>4. Recognise that displacement divided by time ($\frac{s}{t}$) is velocity, $v$:</p>
+                        <p class="font-semibold">$$ P = Fv $$</p>
+                    </div>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Power of a Car</h4>
+                    <p class="text-lg leading-relaxed mb-4">A car of mass 1500 kg travels at a constant speed of 30 m s⁻¹ along a straight, level road. The total resistive forces are 800 N. Calculate the power output of the car's engine.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Analyse the forces:</strong> Since the car is moving at a constant speed, its acceleration is zero. Therefore, the resultant force is zero. This means the forward driving force from the engine, $F_{drive}$, must be equal in magnitude to the total resistive forces, $F_{resist}$.</p>
+                        <p>$$ F_{drive} = F_{resist} = 800 \text{ N} $$</p>
+                        <p><strong>2. Apply the formula for power:</strong></p>
+                        <p>$$ P = Fv $$</p>
+                        <p>Here, $F$ is the driving force that the engine is providing.</p>
+                        <p>$$ P = 800 \text{ N} \times 30 \text{ m s}^{-1} = 24000 \text{ W} = 24 \text{ kW} $$</p>
+                    </div>
+                </div>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Work, Energy, and Power</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/k8-gZA58q-E" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

@@ -1,1 +1,207 @@
-<!-- Placeholder for 11.2_Fundamental_Particles.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11.2 Fundamental particles - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Particle Physics</a> &gt;
+                <span class="font-semibold">11.2 Fundamental particles</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">11.2 Fundamental particles</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Understand that a proton and a neutron are not fundamental particles.</li>
+                    <li>Describe the simple quark model of the proton (up, up, down) and the neutron (up, down, down).</li>
+                    <li>Describe how the quark model can be used to explain the charges of the proton and the neutron.</li>
+                    <li>Understand that a beta ($\beta$) particle is either an electron or a positron.</li>
+                    <li>State that electrons and positrons are leptons.</li>
+                    <li>Describe $\beta^−$ and $\beta^+$ decay in terms of a simple quark model.</li>
+                    <li>Understand that neutrinos and antineutrinos are also leptons.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1, LO2, LO3 -->
+            <div id="LO1_2_3" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1, LO2 & LO3: The Quark Model</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    A **fundamental particle** is a particle that is not made up of any smaller components. For a long time, protons and neutrons were thought to be fundamental. However, experiments in the mid-20th century showed that they have an internal structure. Protons and neutrons are **not** fundamental; they are composite particles called **hadrons**.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Hadrons are made of fundamental particles called **quarks**. In the Standard Model of particle physics, there are six "flavours" of quarks, which are grouped into three generations of increasing mass:
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li>**First generation:** up (u), down (d)</li>
+                    <li>**Second generation:** charm (c), strange (s)</li>
+                    <li>**Third generation:** top (t), bottom (b)</li>
+                </ul>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    All everyday matter is made from the first-generation quarks. For the A-Level syllabus, we are concerned with the **up quark** and the **down quark**, which have fractional electric charges.
+                </p>
+                <div class="overflow-x-auto my-4">
+                    <table class="min-w-full bg-white border border-gray-300 rounded-lg shadow-md">
+                        <thead class="bg-casco-light-bg text-casco-dark-teal">
+                            <tr><th class="py-2 px-4 border-b">Quark Flavour</th><th class="py-2 px-4 border-b">Symbol</th><th class="py-2 px-4 border-b">Charge</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="py-2 px-4 border-b font-semibold">Up</td><td class="py-2 px-4 border-b">u</td><td class="py-2 px-4 border-b">$+\frac{2}{3}e$</td></tr>
+                            <tr><td class="py-2 px-4 border-b font-semibold">Down</td><td class="py-2 px-4 border-b">d</td><td class="py-2 px-4 border-b">$-\frac{1}{3}e$</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="flex flex-col md:flex-row items-center justify-center my-6 gap-8">
+                    <div class="md:w-1/2 text-center">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Proton (uud)</h4>
+                        <img src="https://i.ibb.co/L5hH42T/proton-quarks.png" alt="Quark structure of a proton" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/300x300/00BFBF/FFFFFF?text=Proton';">
+                    </div>
+                    <div class="md:w-1/2 text-center">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Neutron (udd)</h4>
+                        <img src="https://i.ibb.co/gZ7Q02C/neutron-quarks.png" alt="Quark structure of a neutron" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/300x300/009999/FFFFFF?text=Neutron';">
+                    </div>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Verifying Proton and Neutron Charge</h4>
+                    <p class="text-lg leading-relaxed mb-4">Use the quark model to show that the charge of a proton is $+e$ and the charge of a neutron is 0.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>(a) Proton (uud):</strong></p>
+                        <p>$$ \text{Charge} = (\text{charge of u}) + (\text{charge of u}) + (\text{charge of d}) $$</p>
+                        <p>$$ = \left(+\frac{2}{3}e\right) + \left(+\frac{2}{3}e\right) + \left(-\frac{1}{3}e\right) $$</p>
+                        <p>$$ = \frac{2+2-1}{3}e = \frac{3}{3}e = +e $$</p>
+                        <p><strong>(b) Neutron (udd):</strong></p>
+                        <p>$$ \text{Charge} = (\text{charge of u}) + (\text{charge of d}) + (\text{charge of d}) $$</p>
+                        <p>$$ = \left(+\frac{2}{3}e\right) + \left(-\frac{1}{3}e\right) + \left(-\frac{1}{3}e\right) $$</p>
+                        <p>$$ = \frac{2-1-1}{3}e = \frac{0}{3}e = 0 $$</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO4, LO5, LO7 -->
+            <div id="LO4_5_7" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO4, LO5 & LO7: Leptons</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    **Leptons** are the second family of fundamental particles. Unlike quarks, they do not experience the strong nuclear force. The most familiar lepton is the **electron ($e^-$)**.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Beta ($\beta$) particles are electrons or their antimatter equivalent, **positrons ($e^+$)**. A positron has the same mass as an electron but an opposite charge (+e).
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Also in the lepton family are **neutrinos ($\nu$)** and their antimatter counterparts, **antineutrinos ($\bar{\nu}$)**. These are neutral particles with a very small mass that are produced during beta decay.
+                </p>
+            </div>
+
+            <!-- Section for LO6 -->
+            <div id="LO6" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO6: Beta Decay in the Quark Model</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Beta decay is a nuclear process that involves a change in the quark composition of a nucleon.
+                </p>
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Beta-minus ($\beta^−$) decay</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    In $\beta^−$ decay, a neutron in the nucleus turns into a proton. This happens when a **down quark** within the neutron transforms into an **up quark**. To conserve charge, an electron ($e^−$) is emitted. An antineutrino ($\bar{\nu}_e$) is also emitted to conserve other quantum numbers.
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ d \rightarrow u + e^- + \bar{\nu}_e $$</p>
+
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Beta-plus ($\beta^+$) decay</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    In $\beta^+$ decay (which occurs in proton-rich nuclei), a proton in the nucleus turns into a neutron. This happens when an **up quark** within the proton transforms into a **down quark**. To conserve charge, a positron ($e^+$) is emitted. A neutrino ($\nu_e$) is also emitted.
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ u \rightarrow d + e^+ + \nu_e $$</p>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Beta Decay and the Weak Force</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/Yv3EMq2_g_E" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Beta Decay</h4>
+                    <p class="text-base leading-relaxed mb-2">
+                        This PhET simulation allows you to observe beta decay for individual nuclei. You can see the neutron-proton ratio change and observe the emitted beta particle.
+                    </p>
+                    <button id="fullscreen-btn-beta" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                        Enter Fullscreen
+                    </button>
+                    <div id="simulation-container-beta" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                        <iframe id="simulation-iframe-beta" src="https://phet.colorado.edu/sims/html/beta-decay/latest/beta-decay_en.html" allowfullscreen class="w-full h-full"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtnBeta = document.getElementById('fullscreen-btn-beta');
+        const simIframeBeta = document.getElementById('simulation-iframe-beta');
+        fullscreenBtnBeta.addEventListener('click', () => {
+            if (simIframeBeta.requestFullscreen) simIframeBeta.requestFullscreen();
+            else if (simIframeBeta.mozRequestFullScreen) simIframeBeta.mozRequestFullScreen();
+            else if (simIframeBeta.webkitRequestFullscreen) simIframeBeta.webkitRequestFullscreen();
+            else if (simIframeBeta.msRequestFullscreen) simIframeBeta.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

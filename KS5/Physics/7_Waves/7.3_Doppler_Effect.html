@@ -1,1 +1,201 @@
-<!-- Placeholder for 7.3_Doppler_Effect.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7.3 Doppler effect for sound waves - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <!-- GeoGebra Integration -->
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Waves</a> &gt;
+                <span class="font-semibold">7.3 Doppler effect for sound waves</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">7.3 Doppler effect for sound waves</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Understand that when a source of sound waves moves relative to a stationary observer, the observed frequency is different from the source frequency.</li>
+                    <li>Use the expression $f_{o}=f_{s}v/(v\pm v_{s})$ for the observed frequency when a source of sound waves moves relative to a stationary observer.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: Qualitative Understanding of the Doppler Effect</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The **Doppler effect** is the apparent change in the frequency (and wavelength) of a wave in relation to an observer who is moving relative to the wave source. For A-Level Physics, we focus on the case of a moving source and a stationary observer.
+                </p>
+                
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Source Moving Towards Observer</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    When a sound source moves towards a stationary observer, each successive wavefront is emitted from a position closer to the observer than the previous one. This causes the wavefronts to "bunch up" in front of the source.
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li>The distance between wavefronts (the **wavelength**) decreases.</li>
+                    <li>Since the speed of sound in the medium remains constant, and $v=f\lambda$, a decrease in wavelength must result in an **increase in the observed frequency**.</li>
+                    <li>The observer hears a sound with a **higher pitch**.</li>
+                </ul>
+
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Source Moving Away From Observer</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    Conversely, when the sound source moves away from the observer, each successive wavefront is emitted from a position further away. This causes the wavefronts to "spread out" behind the source.
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li>The distance between wavefronts (the **wavelength**) increases.</li>
+                    <li>Since the speed of sound is constant, an increase in wavelength must result in a **decrease in the observed frequency**.</li>
+                    <li>The observer hears a sound with a **lower pitch**.</li>
+                </ul>
+                
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Conceptual Explanation: The Doppler Effect</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/h4OnBYrbCjY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Real-World Demonstration: Train Horn</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/a3RfULw7aAY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO2 -->
+            <div id="LO2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2: The Doppler Effect Equation</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The relationship between the source frequency and the observed frequency can be described by the following equation:
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="text-center font-semibold">$$ f_o = f_s \left( \frac{v}{v \pm v_s} \right) $$</p>
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">Where:</p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li>$f_o$ is the observed frequency.</li>
+                    <li>$f_s$ is the source frequency (the frequency emitted by the source).</li>
+                    <li>$v$ is the speed of the sound waves in the medium.</li>
+                    <li>$v_s$ is the speed of the source.</li>
+                </ul>
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Sign Convention</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    The choice of plus or minus in the denominator is crucial and depends on the direction of the source's motion relative to the observer.
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li>Use the **minus sign (-)** when the source is moving **towards** the observer. This makes the denominator smaller, resulting in a higher observed frequency ($f_o > f_s$).</li>
+                    <li>Use the **plus sign (+)** when the source is moving **away** from the observer. This makes the denominator larger, resulting in a lower observed frequency ($f_o < f_s$).</li>
+                </ul>
+
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example 1: Source Moving Towards</h4>
+                    <p class="text-lg leading-relaxed mb-4">A police car with a 500 Hz siren moves at 30 m s⁻¹ towards a stationary observer. The speed of sound in air is 340 m s⁻¹. Calculate the frequency heard by the observer.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Identify the variables:</strong> $f_s = 500$ Hz, $v_s = 30$ m s⁻¹, $v = 340$ m s⁻¹.</p>
+                        <p><strong>2. Choose the correct sign:</strong> The source is moving towards the observer, so we use the minus sign.</p>
+                        <p>$$ f_o = f_s \left( \frac{v}{v - v_s} \right) $$</p>
+                        <p><strong>3. Substitute values and solve:</strong></p>
+                        <p>$$ f_o = 500 \left( \frac{340}{340 - 30} \right) $$</p>
+                        <p>$$ f_o = 500 \left( \frac{340}{310} \right) $$</p>
+                        <p>$$ f_o = 548.38... \approx 550 \text{ Hz} $$</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example 2: Source Moving Away</h4>
+                    <p class="text-lg leading-relaxed mb-4">The same police car now passes the observer and moves away at 30 m s⁻¹. Calculate the new frequency heard by the observer.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Identify the variables:</strong> $f_s = 500$ Hz, $v_s = 30$ m s⁻¹, $v = 340$ m s⁻¹.</p>
+                        <p><strong>2. Choose the correct sign:</strong> The source is moving away from the observer, so we use the plus sign.</p>
+                        <p>$$ f_o = f_s \left( \frac{v}{v + v_s} \right) $$</p>
+                        <p><strong>3. Substitute values and solve:</strong></p>
+                        <p>$$ f_o = 500 \left( \frac{340}{340 + 30} \right) $$</p>
+                        <p>$$ f_o = 500 \left( \frac{340}{370} \right) $$</p>
+                        <p>$$ f_o = 459.45... \approx 460 \text{ Hz} $$</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Doppler Effect</h4>
+                <p class="text-base leading-relaxed mb-4">This GeoGebra applet provides a powerful visualization of the Doppler effect. You can control the speed of the source and see how the wavefronts bunch up or spread out, and observe the corresponding change in the frequency graph.</p>
+                <div id="geogebra-container-doppler" class="w-full h-[600px] border-2 border-casco-dark-teal rounded-lg shadow-md"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        var ggbApplet1 = new GGBApplet({
+            "appName": "classic", 
+            "width": 800, 
+            "height": 600, 
+            "showToolBar": false, 
+            "showAlgebraInput": false, 
+            "showMenuBar": false, 
+            "material_id": "vxz4ybu9"
+        }, true);
+        window.addEventListener("load", function() { 
+            ggbApplet1.inject('geogebra-container-doppler');
+        });
+    </script>
+</body>
+</html>

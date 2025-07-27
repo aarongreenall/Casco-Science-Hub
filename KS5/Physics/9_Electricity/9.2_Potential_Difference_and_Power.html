@@ -1,1 +1,197 @@
-<!-- Placeholder for 9.2_Potential_Difference_and_Power.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9.2 Potential Difference and Power - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Electricity</a> &gt;
+                <span class="font-semibold">9.2 Potential Difference and Power</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">9.2 Potential Difference and Power</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Define potential difference and the volt.</li>
+                    <li>Recall and use $V = W/Q$.</li>
+                    <li>Recall and use $P = VI$ and $P = I^2R$.</li>
+                    <li>Derive, using $V = W/Q$ and $I = Q/t$, the formula $P = VI$.</li>
+                    <li>Derive the formula $P = I^2R$ and $P=V^2/R$ using $V=IR$.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 & LO2 -->
+            <div id="LO1_2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1 & LO2: Potential Difference</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    **Potential difference (p.d.)**, often called voltage, is the work done per unit charge in moving a charge between two points in a circuit. It is a measure of the energy transferred *from* the charge carriers to a component in the circuit.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    <p class="font-semibold">$$ V = \frac{W}{Q} $$</p>
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The SI unit of potential difference is the **volt (V)**.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    One volt is the potential difference between two points when one joule of work is done in moving one coulomb of charge from one point to the other ($1 \text{ V} = 1 \text{ J C}^{-1}$).
+                </blockquote>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Work Done by a Component</h4>
+                    <p class="text-lg leading-relaxed mb-4">A lamp has a potential difference of 12 V across it. In a certain time, a total charge of 150 C flows through it. Calculate the energy transferred by the lamp.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. State the formula for potential difference:</strong></p>
+                        <p>$$ V = \frac{W}{Q} $$</p>
+                        <p><strong>2. Rearrange the formula to make work done ($W$) the subject:</strong></p>
+                        <p>$$ W = V \times Q $$</p>
+                        <p><strong>3. Substitute the values and solve:</strong></p>
+                        <p>$$ W = 12 \text{ V} \times 150 \text{ C} $$</p>
+                        <p>$$ W = 1800 \text{ J} \text{ (or 1.8 kJ)} $$</p>
+                    </div>
+                </div>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Potential Difference</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/w82aSjLuD_8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO3, LO4, LO5 -->
+            <div id="LO3_4_5" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO3, LO4 & LO5: Electric Power</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    **Electric power ($P$)** is the rate at which electrical energy is transferred by a component. Its SI unit is the watt (W).
+                </p>
+                
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Detailed Derivations of Power Formulae</h4>
+                    <div class="text-lg space-y-6">
+                        <div>
+                            <p><strong>1. Deriving $P = VI$:</strong></p>
+                            <p>We start with the general definition of power as the rate of energy transfer (work done):</p>
+                            <p>$$ P = \frac{W}{t} $$</p>
+                            <p>From the definition of potential difference, we know $W = VQ$. Substitute this into the power equation:</p>
+                            <p>$$ P = \frac{VQ}{t} $$</p>
+                            <p>We also know that current is the rate of flow of charge, $I = \frac{Q}{t}$. We can see this term in our equation:</p>
+                            <p>$$ P = V \left( \frac{Q}{t} \right) = VI $$</p>
+                            <p class="font-semibold">$$ P = VI $$</p>
+                        </div>
+                        <div>
+                            <p><strong>2. Deriving $P = I^2R$:</strong></p>
+                            <p>This formula is useful when we know the current and resistance. We start with $P=VI$ and use Ohm's Law, $V=IR$.</p>
+                            <p>$$ P = VI $$</p>
+                            <p>Substitute $V=IR$ into the equation:</p>
+                            <p>$$ P = (IR)I $$</p>
+                            <p class="font-semibold">$$ P = I^2R $$</p>
+                        </div>
+                         <div>
+                            <p><strong>3. Deriving $P = \frac{V^2}{R}$:</strong></p>
+                            <p>This formula is useful when we know the potential difference and resistance. We start with $P=VI$ and use Ohm's Law, $V=IR$, rearranged for I.</p>
+                            <p>$$ I = \frac{V}{R} $$</p>
+                            <p>Substitute this expression for $I$ into $P=VI$:</p>
+                            <p>$$ P = V \left( \frac{V}{R} \right) $$</p>
+                            <p class="font-semibold">$$ P = \frac{V^2}{R} $$</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Power of a Resistor</h4>
+                    <p class="text-lg leading-relaxed mb-4">A potential difference of 12 V is applied across a 48 $\Omega$ resistor. Calculate the power dissipated.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Identify the known variables:</strong> $V = 12$ V, $R = 48 \, \Omega$.</p>
+                        <p><strong>2. Choose the appropriate formula:</strong> We know V and R, so $P=V^2/R$ is the most direct formula.</p>
+                        <p>$$ P = \frac{V^2}{R} $$</p>
+                        <p><strong>3. Substitute values and solve:</strong></p>
+                        <p>$$ P = \frac{(12)^2}{48} $$</p>
+                        <p>$$ P = \frac{144}{48} = 3.0 \text{ W} $$</p>
+                    </div>
+                </div>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Circuit Construction Kit</h4>
+                    <p class="text-base leading-relaxed mb-2">
+                        Use this PhET simulation to build circuits. Use the voltmeter to measure potential difference and the ammeter to measure current. Observe how the brightness of a bulb (representing power) changes when you alter the voltage or resistance.
+                    </p>
+                    <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                        Enter Fullscreen
+                    </button>
+                    <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                        <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/circuit-construction-kit-dc/latest/circuit-construction-kit-dc_en.html" allowfullscreen class="w-full h-full"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

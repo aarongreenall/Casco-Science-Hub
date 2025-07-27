@@ -1,1 +1,206 @@
-<!-- Placeholder for 9.3_Resistance_and_Resistivity.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9.3 Resistance and Resistivity - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <!-- GeoGebra Integration -->
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Electricity</a> &gt;
+                <span class="font-semibold">9.3 Resistance and Resistivity</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">9.3 Resistance and Resistivity</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Define resistance and the ohm.</li>
+                    <li>Recall and use $V=IR$.</li>
+                    <li>Sketch and explain the I–V characteristics of a metallic conductor at constant temperature, a semiconductor diode and a filament lamp.</li>
+                    <li>Recall and use the formula for the resistance of a uniform conductor $R = \frac{\rho L}{A}$.</li>
+                    <li>Describe an experiment to determine the resistivity of a metal.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 & LO2 -->
+            <div id="LO1_2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1 & LO2: Resistance and Ohm's Law</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    **Resistance ($R$)** is a measure of the opposition to the flow of electric current. It is defined as the ratio of the potential difference across a component to the current flowing through it.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="font-semibold">$$ R = \frac{V}{I} $$</p>
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The SI unit of resistance is the **ohm ($\Omega$)**. One ohm is the resistance of a component when a potential difference of one volt drives a current of one ampere through it ($1 \, \Omega = 1 \text{ V A}^{-1}$).
+                </p>
+            </div>
+
+            <!-- Section for LO3 -->
+            <div id="LO3" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO3: I-V Characteristics</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    An **I-V characteristic** is a graph that shows how the current ($I$) through a component varies as the potential difference ($V$) across it is changed. The shape of this graph reveals whether the component's resistance is constant.
+                </p>
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Metallic Conductor (Ohmic)</h4>
+                        <img src="https://i.ibb.co/L5hH42T/iv-graph-ohmic.png" alt="I-V graph for a metallic conductor" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/300x300/00BFBF/FFFFFF?text=Ohmic+Graph';">
+                        <p class="mt-2 text-lg">A straight line through the origin. The resistance ($R=V/I$) is constant. The gradient is $1/R$.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Filament Lamp (Non-ohmic)</h4>
+                        <img src="https://i.ibb.co/gZ7Q02C/iv-graph-lamp.png" alt="I-V graph for a filament lamp" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/300x300/009999/FFFFFF?text=Lamp+Graph';">
+                        <p class="mt-2 text-lg">A curve with a decreasing gradient. As voltage increases, the filament heats up, its resistance increases, and less current flows for each additional volt.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Semiconductor Diode (Non-ohmic)</h4>
+                        <img src="https://i.ibb.co/yqg6K1Q/iv-graph-diode.png" alt="I-V graph for a semiconductor diode" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/300x300/33EBEB/FFFFFF?text=Diode+Graph';">
+                        <p class="mt-2 text-lg">Allows current to flow easily in one direction (forward bias) after a threshold voltage (~0.6V), but has a very high resistance in the opposite direction (reverse bias).</p>
+                    </div>
+                </div>
+                 <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: I-V Characteristics</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/b-2PAvQc3cI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO4 & LO5 -->
+            <div id="LO4_5" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO4 & LO5: Resistivity</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The resistance of a conductor depends on its physical dimensions and the material it is made from.
+                </p>
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Dependence on Length and Area</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong>1. Resistance is directly proportional to length ($R \propto L$):</strong>
+                    From a microscopic view, resistance is caused by collisions between the charge carriers (electrons) and the fixed positive ions in the metal lattice. If you double the length of a wire, an electron must travel twice as far to get from one end to the other. On average, it will therefore undergo twice as many collisions, experiencing twice the opposition to its flow.
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong>2. Resistance is inversely proportional to cross-sectional area ($R \propto 1/A$):</strong>
+                    The cross-sectional area of a wire determines how many charge carriers can move through a section of the wire at any one time. If you double the cross-sectional area, you are essentially providing twice as many parallel paths for the electrons to flow. For the same applied potential difference, this allows twice the number of electrons to pass a point per second, effectively doubling the current. According to Ohm's Law ($R=V/I$), if the current doubles for the same voltage, the resistance must have halved.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/yV1f4V7/resistance-length-area.png" alt="Diagram showing how resistance changes with length and cross-sectional area" class="rounded-lg shadow-md max-w-2xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/800x300/00BFBF/FFFFFF?text=Resistance+Factors';">
+                </div>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Combining these proportionalities ($R \propto L$ and $R \propto 1/A$) gives $R \propto \frac{L}{A}$. To turn this into an equation, we introduce a constant of proportionality, **resistivity ($\rho$)**.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="font-semibold">$$ R = \frac{\rho L}{A} $$</p>
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">Resistivity is an intrinsic property of a material that quantifies how strongly it resists current flow. The SI unit of resistivity is the ohm-metre ($\Omega$ m).</p>
+                
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Experiment to Determine Resistivity</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    To find the resistivity of a metal, you need to measure the resistance, length, and cross-sectional area of a sample (usually a wire). By plotting a graph of resistance $R$ against length $L$, a straight line through the origin is obtained. Since $R = (\frac{\rho}{A})L$, the gradient of this graph is equal to $\frac{\rho}{A}$. Resistivity can then be found using $\rho = \text{gradient} \times A$.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/Y057S0Z/resistivity-experiment.png" alt="Experimental setup for determining resistivity of a wire" class="rounded-lg shadow-md max-w-2xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/800x400/00BFBF/FFFFFF?text=Resistivity+Experiment';">
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Calculating Resistivity</h4>
+                    <p class="text-lg leading-relaxed mb-4">A wire of length 1.50 m has a diameter of 0.40 mm. A potential difference of 1.2 V across the wire causes a current of 0.25 A to flow. Calculate the resistivity of the material.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Calculate the resistance ($R$):</strong></p>
+                        <p>$$ R = \frac{V}{I} = \frac{1.2}{0.25} = 4.8 \, \Omega $$</p>
+                        <p><strong>2. Calculate the cross-sectional area ($A$):</strong></p>
+                        <p>Radius $r = d/2 = 0.20 \text{ mm} = 0.20 \times 10^{-3}$ m.</p>
+                        <p>$$ A = \pi r^2 = \pi (0.20 \times 10^{-3})^2 = 1.257 \times 10^{-7} \text{ m}^2 $$</p>
+                        <p><strong>3. Rearrange the resistivity formula and solve for $\rho$:</strong></p>
+                        <p>$$ R = \frac{\rho L}{A} \implies \rho = \frac{RA}{L} $$</p>
+                        <p>$$ \rho = \frac{(4.8) \times (1.257 \times 10^{-7})}{1.50} $$</p>
+                        <p>$$ \rho = 4.02 \times 10^{-7} \, \Omega \text{m} $$</p>
+                    </div>
+                </div>
+                 <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Resistance in a Wire</h4>
+                    <p class="text-base leading-relaxed mb-2">
+                        This PhET simulation allows you to investigate the factors affecting resistance. Change the resistivity, length, and area of a wire and observe the direct effect on its resistance.
+                    </p>
+                    <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                        Enter Fullscreen
+                    </button>
+                    <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                        <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/resistance-in-a-wire/latest/resistance-in-a-wire_en.html" allowfullscreen class="w-full h-full"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

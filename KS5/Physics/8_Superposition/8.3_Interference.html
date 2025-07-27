@@ -1,1 +1,198 @@
-<!-- Placeholder for 8.3_Interference.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8.3 Interference - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Superposition</a> &gt;
+                <span class="font-semibold">8.3 Interference</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">8.3 Interference</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Understand the terms interference and coherence.</li>
+                    <li>Show an understanding of experiments that demonstrate two-source interference using water waves in a ripple tank, sound, light and microwaves.</li>
+                    <li>Understand the conditions required if two-source interference fringes are to be observed.</li>
+                    <li>Recall and use $\lambda=ax/D$ for double-slit interference using light.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: Interference and Coherence</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    **Interference** is the phenomenon that occurs when two or more waves superpose to form a resultant wave of greater, lower, or the same amplitude. This effect is a direct consequence of the principle of superposition.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    For a stable and observable interference pattern to be formed, the wave sources must be **coherent**.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    Two sources are **coherent** if they emit waves with a **constant phase difference** between them.
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    This also implies that the sources must have the same frequency. If the phase difference between the sources were to change randomly, the positions of maximum and minimum intensity would also change randomly, and a stable interference pattern would not be seen.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/V3RpW0H/interference-pattern.png" alt="Diagram showing interference from two coherent sources" class="rounded-lg shadow-md max-w-xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/700x400/00BFBF/FFFFFF?text=Interference+Pattern';">
+                </div>
+            </div>
+
+            <!-- Section for LO2 & LO3 -->
+            <div id="LO2_3" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2 & LO3: Demonstrating Two-Source Interference</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Two-source interference can be demonstrated with various types of waves. The key is to create two coherent sources. This is often achieved by splitting a single wave source into two.
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li><strong>Water Waves:</strong> In a ripple tank, a single vibrating dipper can be replaced by a double dipper to create two coherent circular wave sources.</li>
+                    <li><strong>Sound Waves:</strong> Two loudspeakers connected to the same signal generator will act as two coherent sources.</li>
+                    <li><strong>Light Waves (Young's Double-Slit Experiment):</strong> Light from a single source (like a laser) is passed through two very narrow, closely spaced slits. Diffraction at the slits causes the light to spread out, and the two slits act as two coherent point sources.</li>
+                </ul>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/8Y4j7m4/youngs-double-slit.png" alt="Diagram of Young's double-slit experiment" class="rounded-lg shadow-md max-w-2xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/800x400/00BFBF/FFFFFF?text=Young\'s+Double-Slit+Experiment';">
+                </div>
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Conditions for Observable Interference</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    To observe a clear, stable two-source interference pattern (e.g., bright and dark fringes for light), the following conditions are required:
+                </p>
+                <ol class="list-decimal list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li>The sources must be **coherent** (constant phase difference).</li>
+                    <li>The waves must have approximately the **same amplitude** for the destructive interference to be effective (to produce points of minimum intensity).</li>
+                    <li>For transverse waves like light, the waves must be polarised in the **same plane**.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO4 -->
+            <div id="LO4" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO4: The Double-Slit Formula</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    For Young's double-slit experiment, we can derive an equation that relates the wavelength of light to the geometry of the setup.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Derivation of $\lambda = \frac{ax}{D}$</h4>
+                    <p class="text-lg leading-relaxed mb-4">
+                        Consider two slits, S₁ and S₂, separated by a distance $a$. A screen is placed at a large distance $D$ from the slits. For a bright fringe (constructive interference) to form at a point P, the path difference between the waves from S₁ and S₂ must be a whole number of wavelengths ($n\lambda$).
+                    </p>
+                    <div class="flex flex-col md:flex-row items-center justify-center my-6 gap-8">
+                        <img src="https://i.ibb.co/tZJ5rJc/double-slit-derivation.png" alt="Diagram for the derivation of the double-slit formula" class="rounded-lg shadow-md max-w-sm w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/400x450/009999/FFFFFF?text=Derivation+Diagram';">
+                        <div class="text-lg space-y-2 md:w-1/2">
+                            <p>1. From the diagram, the path difference is the extra distance travelled by the wave from S₂, which is $a \sin\theta$. For a bright fringe: $a \sin\theta = n\lambda$.</p>
+                            <p>2. The distance $D$ is much larger than $a$ ($D \gg a$), so the angle $\theta$ is very small. For small angles measured in radians, we can use the approximation:</p>
+                            <p>$$ \sin\theta \approx \tan\theta $$</p>
+                            <p>3. From the large triangle in the diagram, we can see that:</p>
+                            <p>$$ \tan\theta = \frac{x}{D} $$</p>
+                            <p>where $x$ is the distance from the central maximum to the bright fringe at P.</p>
+                            <p>4. Combining these gives: $a \frac{x}{D} \approx n\lambda$.</p>
+                            <p>5. The distance between adjacent bright fringes (the fringe spacing) occurs when the change in $n$ is 1. If we let $x$ be this fringe spacing, then $n=1$.</p>
+                            <p class="font-semibold">$$ a \frac{x}{D} = \lambda \implies \lambda = \frac{ax}{D} $$</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Double-Slit Experiment</h4>
+                    <p class="text-lg leading-relaxed mb-4">In a Young's double-slit experiment, light passes through two slits separated by 0.50 mm. An interference pattern is observed on a screen 2.0 m away. The distance between 10 consecutive bright fringes is measured to be 24 mm. Calculate the wavelength of the light.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Identify variables and convert to SI units:</strong></p>
+                        <p>$$ a = 0.50 \text{ mm} = 0.50 \times 10^{-3} \text{ m} $$</p>
+                        <p>$$ D = 2.0 \text{ m} $$</p>
+                        <p><strong>2. Calculate the fringe spacing ($x$):</strong></p>
+                        <p>The distance for 10 fringes is 24 mm, which is 9 fringe spacings.</p>
+                        <p>$$ 9x = 24 \text{ mm} \implies x = \frac{24}{9} = 2.67 \text{ mm} = 2.67 \times 10^{-3} \text{ m} $$</p>
+                        <p><strong>3. Apply the double-slit formula:</strong></p>
+                        <p>$$ \lambda = \frac{ax}{D} $$</p>
+                        <p>$$ \lambda = \frac{(0.50 \times 10^{-3}) \times (2.67 \times 10^{-3})}{2.0} $$</p>
+                        <p>$$ \lambda = 6.675 \times 10^{-7} \text{ m} = 668 \text{ nm} $$</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Wave Interference</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    Use the "Slits" tab in this PhET simulation to replicate Young's experiment. You can control the wavelength, slit separation, and see the resulting interference pattern and intensity graph.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/wave-interference/latest/wave-interference_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

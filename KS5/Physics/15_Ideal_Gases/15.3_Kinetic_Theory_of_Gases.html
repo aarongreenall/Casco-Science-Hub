@@ -1,1 +1,243 @@
-<!-- Placeholder for 15.3_Kinetic_Theory_of_Gases.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15.3 Kinetic theory of gases - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Ideal Gases</a> &gt;
+                <span class="font-semibold">15.3 Kinetic theory of gases</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">15.3 Kinetic theory of gases</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>State the basic assumptions of the kinetic theory of gases.</li>
+                    <li>Explain how molecular movement causes the pressure exerted by a gas and derive and use the relationship $pV = \frac{1}{3}Nm\langle c^2 \rangle$, where $\langle c^2 \rangle$ is the mean-square speed.</li>
+                    <li>Understand that the root-mean-square speed $c_{r.m.s.}$ is given by $\sqrt{\langle c^2 \rangle}$.</li>
+                    <li>Compare $pV = \frac{1}{3}Nm\langle c^2 \rangle$ with $pV = NkT$ to deduce that the average translational kinetic energy of a molecule is $\frac{3}{2}kT$, and recall and use this expression.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: Assumptions of the Kinetic Theory</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The kinetic theory of gases is a model that explains the macroscopic properties of an ideal gas (pressure, volume, temperature) in terms of the microscopic motion of its atoms or molecules. The model is based on a set of simplifying assumptions:
+                </p>
+                <ol class="list-decimal list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li>A gas consists of a very large number of identical molecules that are in continuous, random motion.</li>
+                    <li>The volume of the molecules themselves is negligible compared to the volume occupied by the gas.</li>
+                    <li>There are no intermolecular forces between the molecules, except during collisions.</li>
+                    <li>The time taken for a collision is negligible compared to the time between collisions.</li>
+                    <li>All collisions, both between molecules and between molecules and the walls of the container, are perfectly elastic (i.e., no kinetic energy is lost).</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO2 -->
+            <div id="LO2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2: Deriving the Pressure Equation</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The pressure exerted by a gas is caused by the collisions of its molecules with the walls of the container. Each collision exerts a small force on the wall. The average of these forces over the entire area of the container walls results in the gas pressure.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Detailed Derivation of $pV = \frac{1}{3}Nm\langle c^2 \rangle$</h4>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Consider one molecule in a 1D box:</strong> Imagine a single molecule of mass $m$ moving with velocity $c_x$ in a cubic box of side length $L$. It collides elastically with one wall (area $A=L^2$).</p>
+                        <p>$$ \text{Initial momentum} = mc_x \quad \text{Final momentum} = -mc_x $$</p>
+                        <p>$$ \text{Change in momentum, } \Delta p = -mc_x - mc_x = -2mc_x $$</p>
+                        <p>By Newton's third law, the change in momentum of the wall is $+2mc_x$.</p>
+                        <p><strong>2. Time between collisions:</strong> The molecule travels a distance of $2L$ (to the opposite wall and back) between successive collisions with the same wall. The time taken is $\Delta t = \frac{2L}{c_x}$.</p>
+                        <p><strong>3. Force exerted by one molecule:</strong> By Newton's second law, the average force on the wall is the rate of change of momentum.</p>
+                        <p>$$ F_1 = \frac{\Delta p}{\Delta t} = \frac{2mc_x}{2L/c_x} = \frac{mc_x^2}{L} $$</p>
+                        <p><strong>4. Pressure exerted by N molecules in 1D:</strong> For $N$ molecules, the total force is the sum of the individual forces. We must use the mean-square speed in the x-direction, $\langle c_x^2 \rangle$, as molecules have different speeds.</p>
+                        <p>$$ F_{total} = \frac{Nm\langle c_x^2 \rangle}{L} \quad \implies \quad p = \frac{F_{total}}{A} = \frac{Nm\langle c_x^2 \rangle}{LA} = \frac{Nm\langle c_x^2 \rangle}{V} $$</p>
+                        <p><strong>5. Extend to 3D:</strong> Molecules move randomly in three dimensions. The total speed squared, $c^2$, is related to its components by Pythagoras: $c^2 = c_x^2 + c_y^2 + c_z^2$. For a large number of molecules, the average motion is the same in all directions, so $\langle c_x^2 \rangle = \langle c_y^2 \rangle = \langle c_z^2 \rangle$.</p>
+                        <p>$$ \langle c^2 \rangle = \langle c_x^2 \rangle + \langle c_y^2 \rangle + \langle c_z^2 \rangle = 3\langle c_x^2 \rangle \implies \langle c_x^2 \rangle = \frac{1}{3}\langle c^2 \rangle $$</p>
+                        <p><strong>6. Final Equation:</strong> Substitute this 3D relationship back into the pressure equation:</p>
+                        <p>$$ pV = Nm \left( \frac{1}{3}\langle c^2 \rangle \right) \implies pV = \frac{1}{3}Nm\langle c^2 \rangle $$</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO3 -->
+            <div id="LO3" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO3: Mean-Square and Root-Mean-Square Speed</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The molecules in a gas move at a wide range of speeds. The **mean-square speed, $\langle c^2 \rangle$**, is the average of the squared speeds of all the molecules. It is important because the kinetic energy of the gas is related to this value, not the mean speed.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    To get a value for a typical speed, we take the square root of the mean-square speed. This is called the **root-mean-square speed ($c_{r.m.s.}$) **.
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ c_{r.m.s.} = \sqrt{\langle c^2 \rangle} $$</p>
+            </div>
+
+            <!-- Section for LO4 -->
+            <div id="LO4" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO4: Kinetic Energy of a Molecule</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    We can now link the microscopic kinetic energy of gas molecules to the macroscopic property of temperature.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Detailed Derivation of Average KE = $\frac{3}{2}kT$</h4>
+                    <div class="text-lg space-y-2">
+                        <p>1. We have two equations for $pV$:</p>
+                        <p>$$ pV = \frac{1}{3}Nm\langle c^2 \rangle \quad \text{(from kinetic theory)} $$</p>
+                        <p>$$ pV = NkT \quad \text{(from the ideal gas equation)} $$</p>
+                        <p>2. Equate these two expressions:</p>
+                        <p>$$ \frac{1}{3}Nm\langle c^2 \rangle = NkT $$</p>
+                        <p>3. Cancel the number of molecules, $N$, from both sides:</p>
+                        <p>$$ \frac{1}{3}m\langle c^2 \rangle = kT $$</p>
+                        <p>4. The average translational kinetic energy of a molecule is given by $E_k = \frac{1}{2}m\langle c^2 \rangle$. We can see this term in our equation if we manipulate it. Multiply both sides by 3 and divide by 2:</p>
+                        <p>$$ \frac{3}{2} \times \frac{1}{3}m\langle c^2 \rangle = \frac{3}{2}kT $$</p>
+                        <p>5. This simplifies to the final, important result:</p>
+                        <p class="font-semibold">$$ \frac{1}{2}m\langle c^2 \rangle = \frac{3}{2}kT $$</p>
+                        <p>This shows that the **thermodynamic temperature of an ideal gas is directly proportional to the average translational kinetic energy of its molecules.**</p>
+                    </div>
+                </div>
+                 <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: r.m.s. Speed of Helium Atoms</h4>
+                    <p class="text-lg leading-relaxed mb-4">Calculate the r.m.s. speed of helium atoms at a temperature of 20 °C. (Mass of a helium atom = $6.6 \times 10^{-27}$ kg).</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Convert temperature to Kelvin:</strong></p>
+                        <p>$$ T = 20 + 273.15 = 293.15 \text{ K} $$</p>
+                        <p><strong>2. Start with the kinetic energy formula:</strong></p>
+                        <p>$$ \frac{1}{2}m\langle c^2 \rangle = \frac{3}{2}kT $$</p>
+                        <p><strong>3. Rearrange for mean-square speed, $\langle c^2 \rangle$:</strong></p>
+                        <p>$$ \langle c^2 \rangle = \frac{3kT}{m} $$</p>
+                        <p><strong>4. Substitute values:</strong></p>
+                        <p>$$ \langle c^2 \rangle = \frac{3 \times (1.38 \times 10^{-23}) \times (293.15)}{6.6 \times 10^{-27}} = 1.835 \times 10^6 \text{ m}^2\text{s}^{-2} $$</p>
+                        <p><strong>5. Find the r.m.s. speed by taking the square root:</strong></p>
+                        <p>$$ c_{r.m.s.} = \sqrt{\langle c^2 \rangle} = \sqrt{1.835 \times 10^6} = 1355 \text{ m s}^{-1} $$</p>
+                        <p>$$ c_{r.m.s.} \approx 1400 \text{ m s}^{-1} $$</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Section: The Thermodynamic Temperature Scale -->
+<div id="TempAndKE" class="py-4">
+    <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Temperature and Average Kinetic Energy</h3>
+    
+    <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">The Problem with the Celsius Scale</h4>
+    <p class="text-lg leading-relaxed mt-4 mb-4">
+        We know that the temperature of a substance is a measure of the average random kinetic energy of its particles. The Celsius scale, which sets the freezing point of water as its zero point (0 °C), creates a logical problem. It implies that at 0 °C, particles have zero kinetic energy, and at negative temperatures, they would have negative kinetic energy. This is physically impossible, as kinetic energy ($E_k = \frac{1}{2}mv^2$) can never be negative. We know many substances are liquids or gases well below 0 °C, meaning their particles are still moving and have kinetic energy. This shows that the Celsius scale's zero point is arbitrary and not a true zero of energy.
+    </p>
+
+    <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Discovering Absolute Zero</h4>
+    <p class="text-lg leading-relaxed mb-4">
+        In the 19th century, scientists investigated the relationship between the temperature of a gas and its pressure or volume. When they plotted graphs of pressure or volume against temperature in degrees Celsius, they found a straight-line relationship. When they extrapolated these graphs backward, they all intersected the temperature axis at the same point: **-273.15 °C**.
+    </p>
+    <div class="flex justify-center my-6">
+        <img src="https://i.ibb.co/L5hH42T/absolute-zero-graph.png" alt="Graph of gas pressure vs temperature in Celsius, extrapolating back to -273.15 C" class="rounded-lg shadow-md max-w-xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/700x400/00BFBF/FFFFFF?text=Extrapolating+to+Absolute+Zero';">
+    </div>
+    <p class="text-lg leading-relaxed mt-4 mb-4">
+        This suggested that -273.15 °C was a fundamental, absolute minimum temperature, where the gas would theoretically have zero volume or pressure, and its particles would have zero kinetic energy. This point is called **absolute zero**.
+    </p>
+    
+    <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">The Kelvin Scale</h4>
+    <p class="text-lg leading-relaxed mb-4">
+        To create a temperature scale that directly reflects the kinetic energy of particles, the **thermodynamic (or Kelvin) scale** was created. This scale simply shifts the zero point of the Celsius scale to absolute zero.
+    </p>
+    <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+        <li>The zero point (0 K) is absolute zero.</li>
+        <li>The size of one kelvin (1 K) is the same as the size of one degree Celsius (1 °C).</li>
+    </ul>
+    <p class="text-lg leading-relaxed mt-4 mb-4">
+        On this scale, the average kinetic energy of particles is directly proportional to the thermodynamic temperature.
+    </p>
+    <div class="flex justify-center my-6">
+        <img src="https://i.ibb.co/gZ7Q02C/kelvin-scale-graph.png" alt="Graph of gas pressure vs temperature in Kelvin, showing a straight line through the origin" class="rounded-lg shadow-md max-w-xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/700x400/009999/FFFFFF?text=The+Kelvin+Scale';">
+    </div>
+</div>
+
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Gas Properties</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    Use the "Energy" tab in this PhET simulation to explore the link between temperature and particle kinetic energy. Add heat to the container and observe how the speed (and kinetic energy) of the gas particles increases, which corresponds to a rise in temperature.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/gas-properties/latest/gas-properties_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

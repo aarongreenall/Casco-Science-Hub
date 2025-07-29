@@ -1,1 +1,172 @@
-<!-- Placeholder for 15.1_The_Mole.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15.1 The mole - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Ideal Gases</a> &gt;
+                <span class="font-semibold">15.1 The mole</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">15.1 The mole</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Understand that amount of substance is an SI base quantity with the base unit mol.</li>
+                    <li>Use molar quantities where one mole of any substance is the amount containing a number of particles of that substance equal to the Avogadro constant $N_A$.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: Amount of Substance and the Mole</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    In physics and chemistry, it is often necessary to count the number of particles (atoms, molecules, ions, etc.) in a substance. Since these numbers are astronomically large, it is impractical to count them individually. Instead, we use a specific SI base quantity called the **amount of substance**.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    The **amount of substance ($n$)** is the seventh SI base quantity. Its base unit is the **mole (mol)**.
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The mole is simply a unit for a specific, very large number, in the same way that a "dozen" is a unit for the number 12. It provides a convenient way to connect the microscopic world of atoms and molecules to the macroscopic world of grams and litres that we can measure in a lab.
+                </p>
+            </div>
+
+            <!-- Section for LO2 -->
+            <div id="LO2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2: The Avogadro Constant and Molar Quantities</h3>
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">The Definition of the Mole</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The specific number of particles in one mole is given by the **Avogadro constant ($N_A$)**. Historically, this number was defined based on a tangible, measurable substance.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    One mole is the amount of substance that contains as many elementary entities as there are atoms in exactly 0.012 kilograms (or 12 grams) of the isotope carbon-12.
+                </blockquote>
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Why Carbon-12? The Problem with Hydrogen</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Logically, it might seem that the simplest atom, hydrogen, would be the best standard. However, a scale based on hydrogen was found to be inaccurate. This is due to **nuclear binding energy**. When protons and neutrons fuse to form a nucleus, a tiny amount of their mass is converted into the energy that holds the nucleus together ($E=mc^2$). This "missing mass" is called the **mass defect**.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The mass defect is different for every element. This means the mass of a Carbon-12 nucleus is slightly *less* than the mass of 6 protons and 6 neutrons combined. As you move to heavier elements, this deviation becomes more significant, making a scale based on hydrogen increasingly inaccurate. Carbon-12 was chosen as a practical and stable standard that provided better consistency across the periodic table.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The number of atoms in 12 g of carbon-12 was experimentally determined to be:
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ N_A = 6.02 \times 10^{23} \text{ mol}^{-1} $$</p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    This leads to the fundamental relationship between the total number of particles ($N$) in a sample and the amount of substance in moles ($n$):
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ N = n \times N_A $$</p>
+                
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example 1: Particles to Moles</h4>
+                    <p class="text-lg leading-relaxed mb-4">A sample of water contains $3.01 \times 10^{24}$ molecules. How many moles of water are in the sample?</p>
+                    <div class="text-lg space-y-2">
+                        <p>$$ n = \frac{N}{N_A} = \frac{3.01 \times 10^{24}}{6.02 \times 10^{23} \text{ mol}^{-1}} = 5.0 \text{ mol} $$</p>
+                    </div>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example 2: Moles to Particles</h4>
+                    <p class="text-lg leading-relaxed mb-4">A balloon contains 0.25 moles of helium gas. How many helium atoms are in the balloon?</p>
+                    <div class="text-lg space-y-2">
+                        <p>$$ N = n N_A = (0.25 \text{ mol}) \times (6.02 \times 10^{23} \text{ mol}^{-1}) = 1.5 \times 10^{23} \text{ atoms} $$</p>
+                    </div>
+                </div>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: The Mole and Avogadro's Number</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/MfuAW_o124M" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Build a Molecule</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    This PhET simulation helps to visualize the concept of building substances from individual atoms. While it doesn't count in moles, it reinforces the idea that macroscopic substances are made of a vast number of discrete particles.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/build-a-molecule/latest/build-a-molecule_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

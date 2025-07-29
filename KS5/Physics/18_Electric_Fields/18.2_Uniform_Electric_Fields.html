@@ -1,1 +1,183 @@
-<!-- Placeholder for 18.2_Uniform_Electric_Fields.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18.2 Uniform electric fields - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Electric Fields</a> &gt;
+                <span class="font-semibold">18.2 Uniform electric fields</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">18.2 Uniform electric fields</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Recall and use $E = \Delta V / \Delta d$ to calculate the field strength of the uniform field between charged parallel plates.</li>
+                    <li>Describe the effect of a uniform electric field on the motion of charged particles.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: Field Strength in a Uniform Field</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    A **uniform electric field** is a field in which the electric field strength is the same at all points in magnitude and direction. Such a field is created in the region between two large, parallel metal plates that are oppositely charged. The field lines are parallel, equally spaced, and point from the positive plate to the negative plate.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Detailed Derivation of $E = \frac{\Delta V}{\Delta d}$</h4>
+                    <div class="text-lg space-y-2">
+                        <p>1. Consider a positive charge $q$ being moved by an external agent from the negative plate to the positive plate, against the electric field. The distance between the plates is $d$.</p>
+                        <p>2. The electric field exerts a force $F$ on the charge, given by $F=qE$. To move the charge at a constant velocity, the external agent must apply an equal and opposite force.</p>
+                        <p>3. The work done ($W$) by the external agent in moving the charge a distance $d$ against the field is:</p>
+                        <p>$$ W = \text{Force} \times \text{distance} = Fd = (qE)d $$</p>
+                        <p>4. From the definition of potential difference, the work done in moving a charge $q$ through a p.d. of $\Delta V$ is $W = q\Delta V$.</p>
+                        <p>5. By equating these two expressions for the work done, we get:</p>
+                        <p>$$ q\Delta V = (qE)d $$</p>
+                        <p>6. The charge $q$ cancels from both sides, leaving the relationship between field strength, potential difference, and distance:</p>
+                        <p class="font-semibold">$$ \Delta V = Ed \quad \implies \quad E = \frac{\Delta V}{d} $$</p>
+                        <p>This shows that the unit for electric field strength, N C⁻¹, is equivalent to the volt per metre (V m⁻¹).</p>
+                    </div>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Field Between Plates</h4>
+                    <p class="text-lg leading-relaxed mb-4">Two parallel metal plates are separated by a distance of 5.0 cm and have a potential difference of 3.0 kV between them. Calculate the electric field strength in the region between the plates.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Identify variables and convert to SI units:</strong></p>
+                        <p>$$ \Delta V = 3.0 \text{ kV} = 3000 \text{ V} $$</p>
+                        <p>$$ d = 5.0 \text{ cm} = 0.050 \text{ m} $$</p>
+                        <p><strong>2. State the formula and solve:</strong></p>
+                        <p>$$ E = \frac{\Delta V}{d} = \frac{3000}{0.050} = 60000 \text{ V m}^{-1} $$</p>
+                        <p>$$ E = 6.0 \times 10^4 \text{ N C}^{-1} $$</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO2 -->
+            <div id="LO2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2: Motion of Charged Particles in a Uniform Field</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Since the electric field $E$ between two parallel plates is uniform, the force on a charge $q$ within that field ($F=qE$) is also **constant**. According to Newton's Second Law, if the force is constant, the acceleration of the charge ($a=F/m = qE/m$) is also **constant**.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    This is directly analogous to the motion of a mass in the uniform gravitational field near the Earth's surface, where the acceleration is always $g$. Because the acceleration is constant, we can use the **SUVAT equations of motion** to analyse the particle's trajectory.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L5hH42T/projectile-electric-field.png" alt="Diagram showing the parabolic path of an electron fired into a uniform electric field" class="rounded-lg shadow-md max-w-xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/700x400/00BFBF/FFFFFF?text=Projectile+Motion+in+E-Field';">
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Deflection of an Electron Beam</h4>
+                    <p class="text-lg leading-relaxed mb-4">An electron enters a uniform electric field midway between two plates with an initial horizontal velocity of $2.0 \times 10^7$ m s⁻¹. The field has a strength of 1500 N C⁻¹ and is directed downwards. The plates are 8.0 cm long. Calculate the vertical deflection of the electron as it leaves the plates. (Mass of electron = $9.11 \times 10^{-31}$ kg; Charge of electron = $-1.60 \times 10^{-19}$ C).</p>
+                    <div class="text-lg space-y-2 overflow-x-auto">
+                        <p><strong>1. Analyse the horizontal motion to find the time spent in the field:</strong></p>
+                        <p>There is no horizontal force, so the horizontal velocity is constant.</p>
+                        <p>$$ t = \frac{\text{distance}}{\text{speed}} = \frac{L}{v_x} = \frac{0.080 \text{ m}}{2.0 \times 10^7 \text{ m s}^{-1}} = 4.0 \times 10^{-9} \text{ s} $$</p>
+                        <p><strong>2. Analyse the vertical motion to find the acceleration:</strong></p>
+                        <p>The field is downwards, but the electron is negative, so the force on it is upwards.</p>
+                        <p>$$ F_y = qE = (1.60 \times 10^{-19})(1500) = 2.4 \times 10^{-16} \text{ N} $$</p>
+                        <p>$$ a_y = \frac{F_y}{m} = \frac{2.4 \times 10^{-16}}{9.11 \times 10^{-31}} = 2.63 \times 10^{14} \text{ m s}^{-2} $$</p>
+                        <p><strong>3. Use SUVAT to find the vertical displacement ($s_y$):</strong></p>
+                        <p>The initial vertical velocity, $u_y$, is 0.</p>
+                        <p>$$ s_y = u_y t + \frac{1}{2}a_y t^2 $$</p>
+                        <p>$$ s_y = (0)(4.0 \times 10^{-9}) + \frac{1}{2}(2.63 \times 10^{14})(4.0 \times 10^{-9})^2 $$</p>
+                        <p>$$ s_y = \frac{1}{2}(2.63 \times 10^{14})(1.6 \times 10^{-17}) = 0.021 \text{ m} \text{ (or 2.1 cm)} $$</p>
+                    </div>
+                </div>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Motion of a Charge in an E-Field</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/T6E-89Ie2lI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Electric Field Hockey</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    This PhET simulation is a fun way to explore the motion of a charged particle in an electric field. Place charges to create a field and try to guide the test charge to the goal. This reinforces the link between field lines, force, and the resulting trajectory.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/electric-field-hockey/latest/electric-field-hockey_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

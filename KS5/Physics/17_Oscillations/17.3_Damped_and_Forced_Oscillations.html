@@ -1,1 +1,168 @@
-<!-- Placeholder for 17.3_Damped_and_Forced_Oscillations.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17.3 Damping and forced oscillations - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Oscillations</a> &gt;
+                <span class="font-semibold">17.3 Damping and forced oscillations</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">17.3 Damping and forced oscillations</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Understand that a resistive force acting on an oscillating system causes damping.</li>
+                    <li>Understand and use the terms light, critical and heavy damping and sketch displacement–time graphs illustrating these types of damping.</li>
+                    <li>Understand that resonance involves a maximum amplitude of oscillations and that this occurs when an oscillating system is forced to oscillate at its natural frequency.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 & LO2 -->
+            <div id="LO1_2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1 & LO2: Damping</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    In all real-world oscillating systems, there are resistive forces such as friction and air resistance. These forces oppose the motion of the oscillator. As the object oscillates, it does work against these resistive forces, causing a continuous loss of energy from the system, usually as thermal energy. This loss of energy and the corresponding reduction in the amplitude of the oscillations is called **damping**.
+                </p>
+                
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Types of Damping</h4>
+                <p class="text-lg leading-relaxed mb-4">The way in which the amplitude decreases depends on the magnitude of the resistive forces. We can classify damping into three types:</p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L5hH42T/damping-graphs.png" alt="Displacement-time graphs showing light, critical, and heavy damping" class="rounded-lg shadow-md max-w-2xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/800x400/00BFBF/FFFFFF?text=Types+of+Damping';">
+                </div>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-4 text-lg">
+                    <li><strong>Light Damping:</strong> The resistive forces are small. The system oscillates with a gradually decreasing amplitude, and the period of oscillation is slightly longer than the undamped period. The amplitude decreases exponentially over several oscillations. An example is a simple pendulum swinging in air.</li>
+                    <li><strong>Heavy Damping:</strong> The resistive forces are large. The system does not oscillate. It returns to the equilibrium position very slowly. An example is a pendulum attempting to swing in a thick fluid like treacle.</li>
+                    <li><strong>Critical Damping:</strong> This is a special case where the resistive forces are just large enough to prevent any oscillation. The system returns to the equilibrium position in the shortest possible time. This is a crucial principle in the design of systems like car suspension and analogue meters, where you want the system to return to zero quickly without overshooting.</li>
+                </ul>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Damping</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/P-3o_3ia33s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO3 -->
+            <div id="LO3" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO3: Forced Oscillations and Resonance</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Every oscillating system has a **natural frequency ($f_0$)** at which it will oscillate if displaced and then left to move freely. To overcome damping and keep a system oscillating, a periodic external force, called a **driving force**, must be applied. This is known as a **forced oscillation**.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The system will be forced to oscillate at the frequency of the driving force (the **driving frequency, $f_d$**). The amplitude of these forced oscillations depends on the relationship between the driving frequency and the natural frequency.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    **Resonance** is the phenomenon where the amplitude of a forced oscillation becomes a maximum. This occurs when the driving frequency is equal to the natural frequency of the oscillating system ($f_d = f_0$).
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    At resonance, there is a maximum rate of energy transfer from the driver to the oscillating system. If there is very little damping, the amplitude at resonance can become extremely large, potentially leading to the destruction of the system (e.g., the collapse of the Tacoma Narrows Bridge).
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/gZ7Q02C/resonance-curves.png" alt="Graph showing resonance curves for different amounts of damping" class="rounded-lg shadow-md max-w-xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/700x400/009999/FFFFFF?text=Resonance+Curves';">
+                </div>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    As the graph shows, increasing the damping on the system has two effects:
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li>It reduces the amplitude at all driving frequencies.</li>
+                    <li>It makes the resonance peak broader and shifts the frequency of maximum amplitude slightly lower.</li>
+                </ul>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Demonstration: The Tacoma Narrows Bridge Collapse</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/j-zczJXSxnw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Resonance</h4>
+                    <p class="text-base leading-relaxed mb-2">
+                        This PhET simulation is the perfect tool for exploring resonance. You can change the natural frequency of the oscillators and the driving frequency of the motor. Observe how the amplitude becomes very large only when the driving frequency matches the natural frequency. You can also adjust the damping to see its effect on the resonance peak.
+                    </p>
+                    <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                        Enter Fullscreen
+                    </button>
+                    <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                        <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/resonance/latest/resonance_en.html" allowfullscreen class="w-full h-full"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

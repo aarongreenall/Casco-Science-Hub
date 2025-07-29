@@ -1,1 +1,177 @@
-<!-- Placeholder for 12.2_Centripetal_Acceleration.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12.2 Centripetal acceleration - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Motion in a Circle</a> &gt;
+                <span class="font-semibold">12.2 Centripetal acceleration</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">12.2 Centripetal acceleration</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Understand that an object travelling in a circle at constant speed has an acceleration.</li>
+                    <li>Explain that the acceleration is directed towards the centre of the circle.</li>
+                    <li>Derive and use the formula for centripetal acceleration $a = v^2/r$.</li>
+                    <li>Derive and use the formula for centripetal acceleration $a = r\omega^2$.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 & LO2 -->
+            <div id="LO1_2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1 & LO2: The Nature of Centripetal Acceleration</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    A common misconception is that an object moving in a circle at a constant speed has zero acceleration. This is incorrect. **Acceleration** is defined as the rate of change of **velocity**, and velocity is a vector quantity with both magnitude (speed) and direction.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    For an object in uniform circular motion, its speed is constant, but its direction of motion is continuously changing. Since the velocity vector is changing, the object **must be accelerating**. This acceleration, directed towards the centre of the circle, is called **centripetal acceleration**.
+                </p>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Centripetal Acceleration</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/vZOk8NnjILg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO3 & LO4 -->
+            <div id="LO3_4" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO3 & LO4: Formulae for Centripetal Acceleration</h4>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Detailed Derivation using Similar Triangles</h4>
+                    <p class="text-lg leading-relaxed mb-4">
+                        We can derive the formula for centripetal acceleration by considering the geometry of the motion over a very small time interval, $\Delta t$.
+                    </p>
+                    <div class="flex flex-col md:flex-row items-center justify-center my-6 gap-8">
+                        <img src="https://i.ibb.co/L5hH42T/centripetal-acceleration-derivation.png" alt="Diagram showing velocity vectors and the change in velocity vector for circular motion" class="rounded-lg shadow-md max-w-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/500x400/00BFBF/FFFFFF?text=Change+in+Velocity';">
+                        <div class="text-lg space-y-2 md:w-1/2">
+                           <p>The "position triangle" is formed by the two radii ($r$) and the arc length ($s$) the object travels. The "velocity triangle" is formed by the initial velocity ($v_A$), the final velocity ($v_B$), and the change in velocity ($\Delta v$).</p>
+                           <p>Because the speed is constant, $|v_A| = |v_B| = v$, so the velocity triangle is isosceles. For a very small time interval, the arc length $s$ is almost a straight line, making the position triangle also isosceles. These two triangles are geometrically similar.</p>
+                        </div>
+                    </div>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Set up the ratio of corresponding sides from the similar triangles:</strong></p>
+                        <p>$$ \frac{\text{Change in Velocity}}{\text{Velocity}} = \frac{\text{Arc Length}}{\text{Radius}} $$</p>
+                        <p>$$ \frac{\Delta v}{v} = \frac{s}{r} $$</p>
+                        <p><strong>2. Express arc length in terms of speed and time:</strong></p>
+                        <p>For an object moving at a constant speed $v$ for a time $\Delta t$, the distance travelled is $s = v \Delta t$.</p>
+                        <p><strong>3. Substitute this expression for $s$ into the ratio from step 1:</strong></p>
+                        <p>$$ \frac{\Delta v}{v} = \frac{v \Delta t}{r} $$</p>
+                        <p><strong>4. Rearrange to find an expression for the change in velocity, $\Delta v$:</strong></p>
+                        <p>$$ \Delta v = \frac{v^2}{r} \Delta t $$</p>
+                        <p><strong>5. Use the definition of acceleration, $a = \frac{\Delta v}{\Delta t}$:</strong></p>
+                        <p>$$ a = \frac{\frac{v^2}{r} \Delta t}{\Delta t} $$</p>
+                        <p><strong>6. The $\Delta t$ terms cancel, giving the final formula:</strong></p>
+                        <p class="font-semibold">$$ a = \frac{v^2}{r} $$</p>
+                        <p><strong>7. To derive the second form, substitute $v = r\omega$:</strong></p>
+                        <p>$$ a = \frac{(r\omega)^2}{r} = \frac{r^2\omega^2}{r} $$</p>
+                        <p class="font-semibold">$$ a = r\omega^2 $$</p>
+                    </div>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Calculating Centripetal Acceleration</h4>
+                    <p class="text-lg leading-relaxed mb-4">A car travels at a constant speed of 12 m s⁻¹ around a circular track of radius 50 m. Calculate its centripetal acceleration.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Identify the known variables:</strong> $v = 12$ m s⁻¹, $r = 50$ m.</p>
+                        <p><strong>2. Choose the appropriate formula:</strong> We know $v$ and $r$, so we use $a = v^2/r$.</p>
+                        <p>$$ a = \frac{v^2}{r} $$</p>
+                        <p><strong>3. Substitute values and solve:</strong></p>
+                        <p>$$ a = \frac{(12)^2}{50} = \frac{144}{50} = 2.88 \text{ m s}^{-2} $$</p>
+                        <p>The acceleration is 2.9 m s⁻² towards the centre of the track.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Ladybug Revolution</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    This PhET simulation is excellent for understanding the relationship between linear and angular quantities. Place the ladybug at different radii on the turntable and observe how its linear velocity vector and centripetal acceleration vector change.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/rotation/latest/rotation_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

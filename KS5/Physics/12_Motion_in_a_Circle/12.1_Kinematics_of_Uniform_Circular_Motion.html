@@ -1,1 +1,195 @@
-<!-- Placeholder for 12.1_Kinematics_of_Uniform_Circular_Motion.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12.1 Kinematics of uniform circular motion - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <!-- GeoGebra Integration -->
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Motion in a Circle</a> &gt;
+                <span class="font-semibold">12.1 Kinematics of uniform circular motion</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">12.1 Kinematics of uniform circular motion</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Understand and use the radian as a measure of angle, and recall and use $s = r\theta$.</li>
+                    <li>Define and use angular speed $\omega = \theta/t = 2\pi/T = 2\pi f$.</li>
+                    <li>Recall and use $v = r\omega$.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: Radian Measure</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    In the physics of rotation, it is often more convenient to measure angles in **radians** rather than degrees.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    One radian is defined as the angle subtended at the centre of a circle by an arc that is equal in length to the radius of the circle.
+                </blockquote>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L5hH42T/radian-definition.png" alt="Diagram defining the radian" class="rounded-lg shadow-md max-w-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/500x300/00BFBF/FFFFFF?text=Radian+Definition';">
+                </div>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Since the circumference of a full circle is $2\pi r$, there are $2\pi$ arcs of length $r$ around the circle. This gives the fundamental conversion factor:
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ 360^\circ = 2\pi \text{ radians} \quad \implies \quad 180^\circ = \pi \text{ radians} $$</p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The definition of the radian leads to a simple formula for the arc length, $s$, subtended by an angle $\theta$ (in radians) in a circle of radius $r$:
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ s = r\theta $$</p>
+            </div>
+
+            <!-- Section for LO2 & LO3 -->
+            <div id="LO2_3" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2 & LO3: Angular and Linear Speed</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    For an object in circular motion, we can describe its speed in two ways.
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-4 text-lg">
+                    <li><strong>Angular speed ($\omega$):</strong> The rate of change of angular displacement. It measures how quickly the angle is swept out. Its SI unit is radians per second (rad s⁻¹).
+                        <p class="text-center font-semibold my-2">$$ \omega = \frac{\Delta\theta}{\Delta t} $$</p>
+                    </li>
+                    <li><strong>Linear speed ($v$):</strong> The instantaneous speed of the object along its circular path (i.e., the magnitude of its tangential velocity). Its SI unit is metres per second (m s⁻¹).</li>
+                </ul>
+                
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Relationships for Angular Speed</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    The concepts of Period ($T$) and Frequency ($f$) are the same as those you encountered in the study of waves (Topic 7). Circular motion is a periodic phenomenon, so the time for one complete revolution is the period, and the number of revolutions per second is the frequency.
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    For one complete revolution, the angle swept is $\Delta\theta = 2\pi$ radians and the time taken is the period, $T$. Therefore:
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ \omega = \frac{2\pi}{T} $$</p>
+                <p class="text-lg leading-relaxed mb-4">
+                    Since frequency $f = 1/T$, we can also write:
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ \omega = 2\pi f $$</p>
+                <p class="text-lg leading-relaxed mb-4">
+                    This means that the **angular speed ($\omega$)** for circular motion is mathematically identical to the **angular frequency ($\omega$)** used in describing oscillations and waves.
+                </p>
+
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Detailed Derivation of $v = r\omega$</h4>
+                    <div class="text-lg space-y-2">
+                        <p>1. Start with the definition of linear speed, $v$, as the distance travelled per unit time. The distance is the arc length, $s$.</p>
+                        <p>$$ v = \frac{s}{t} $$</p>
+                        <p>2. We know the formula for arc length in radians is $s = r\theta$. Substitute this into the speed equation:</p>
+                        <p>$$ v = \frac{r\theta}{t} $$</p>
+                        <p>3. Rearrange the terms:</p>
+                        <p>$$ v = r \left( \frac{\theta}{t} \right) $$</p>
+                        <p>4. We recognise that the term $\frac{\theta}{t}$ is the definition of angular speed, $\omega$.</p>
+                        <p>5. This gives the final relationship between linear and angular speed:</p>
+                        <p class="font-semibold">$$ v = r\omega $$</p>
+                    </div>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: A Spinning Disk</h4>
+                    <p class="text-lg leading-relaxed mb-4">A hard disk in a computer rotates at 7200 revolutions per minute (rpm). A point on the disk is located 4.0 cm from the centre. Calculate (a) its angular speed, and (b) its linear speed.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>(a) Calculate the angular speed ($\omega$):</strong></p>
+                        <p>1. Convert the frequency to SI units (Hz, or revolutions per second).</p>
+                        <p>$$ f = \frac{7200}{60} = 120 \text{ Hz} $$</p>
+                        <p>2. Use the formula $\omega = 2\pi f$.</p>
+                        <p>$$ \omega = 2\pi \times 120 = 240\pi \approx 754 \text{ rad s}^{-1} $$</p>
+                        <p><strong>(b) Calculate the linear speed ($v$):</strong></p>
+                        <p>1. Convert the radius to SI units: $r = 4.0 \text{ cm} = 0.040 \text{ m}$.</p>
+                        <p>2. Use the formula $v = r\omega$.</p>
+                        <p>$$ v = 0.040 \times 754 = 30.16 \text{ m s}^{-1} $$</p>
+                        <p>$$ v \approx 30 \text{ m s}^{-1} $$</p>
+                    </div>
+                </div>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Ladybug Revolution</h4>
+                    <p class="text-base leading-relaxed mb-2">
+                        This PhET simulation is excellent for understanding the relationship between linear and angular quantities. Place the ladybug at different radii on the turntable and observe how its linear velocity vector changes while the angular velocity remains the same.
+                    </p>
+                    <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                        Enter Fullscreen
+                    </button>
+                    <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                        <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/rotation/latest/rotation_en.html" allowfullscreen class="w-full h-full"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

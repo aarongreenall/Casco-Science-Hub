@@ -1,1 +1,179 @@
-<!-- Placeholder for 13.4_Gravitational_Potential.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13.4 Gravitational potential - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Gravitational Fields</a> &gt;
+                <span class="font-semibold">13.4 Gravitational potential</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">13.4 Gravitational potential</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Define gravitational potential at a point as the work done per unit mass in bringing a small test mass from infinity to the point.</li>
+                    <li>Use $\phi = –GM / r$ for the gravitational potential in the field due to a point mass.</li>
+                    <li>Understand how the concept of gravitational potential leads to the gravitational potential energy of two point masses and use $E_P = –GMm / r$.</li>
+                </ol>
+            </div>
+            
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">From Uniform Fields to Point Masses: A Step-by-Step Derivation</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    To understand the concept of gravitational potential, it's helpful to start with what we already know about potential energy near the Earth's surface and see why we need a more general definition for larger distances.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Step 1: The Near-Earth Approximation</h4>
+                    <p class="text-lg leading-relaxed mb-4">We are familiar with the formula for the change in gravitational potential energy:</p>
+                    <p>$$ \Delta E_p = mg\Delta h $$</p>
+                    <p class="text-lg leading-relaxed my-4">This works perfectly near the Earth's surface because we assume the gravitational field strength, $g$, is constant. If we want to describe the property of the field itself, we can talk about the potential energy *per unit mass*. We call this potential, $\phi$.</p>
+                    <p>$$ \phi = \frac{E_p}{m} = \frac{mgh}{m} = gh $$</p>
+                    <p class="text-lg leading-relaxed mt-4">So, for a uniform field, potential is simply $gh$. However, this breaks down in space where $g$ is not constant.</p>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Step 2: Generalizing with Newton's Law</h4>
+                    <p class="text-lg leading-relaxed mb-4">We know from Newton's law of gravitation that the field strength $g$ at a distance $r$ from a mass $M$ is actually:</p>
+                    <p>$$ g = \frac{GM}{r^2} $$</p>
+                    <p class="text-lg leading-relaxed my-4">To extend our idea of potential ($\phi = gh$) to all distances, we need to replace both $g$ and $h$ with more general expressions involving $r$. The height $h$ is really just a distance, so we can replace it with $r$. This gives a first guess of $\phi \approx (\frac{GM}{r^2}) \times r = \frac{GM}{r}$. This is close, but it's missing a crucial detail.</p>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Step 3: Defining a Zero Point and the Negative Sign</h4>
+                    <p class="text-lg leading-relaxed mb-4">Where is the zero point for potential energy? For $mgh$, we usually say the ground is $h=0$. But in space, where is the "ground"? Scientists have agreed that the zero point for gravitational potential is at **infinity**. At an infinite distance, the gravitational force is zero, so the potential energy is zero.</p>
+                    <p class="text-lg leading-relaxed my-4">Because gravity is an attractive force, as you bring a mass from infinity closer to a planet, the gravitational field does positive work on the mass. This means the mass *loses* potential energy. To move from a potential energy of 0 at infinity to a lower value, the potential energy anywhere else **must be negative**.</p>
+                    <p class="text-lg leading-relaxed my-4">Therefore, the gravitational potential energy of a mass $m$ at a distance $r$ from a mass $M$ is:</p>
+                    <p>$$ E_p = -\frac{GMm}{r} $$</p>
+                    <p class="text-lg leading-relaxed my-4">And the gravitational potential (energy per unit mass) is:</p>
+                    <p class="font-semibold">$$ \phi = \frac{E_p}{m} = -\frac{GM}{r} $$</p>
+                </div>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: Defining Gravitational Potential</h3>
+                 <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    The gravitational potential at a point is the work done per unit mass in bringing a small test mass from infinity to that point.
+                </blockquote>
+            </div>
+
+            <!-- Section for LO2 -->
+            <div id="LO2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2: Gravitational Potential due to a Point Mass</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The gravitational potential ($\phi$) at a distance $r$ from the centre of a point mass $M$ is given by the formula:
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="font-semibold">$$ \phi = -\frac{GM}{r} $$</p>
+                </blockquote>
+            </div>
+
+            <!-- Section for LO3 -->
+            <div id="LO3" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO3: Gravitational Potential Energy ($E_P$)</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The relationship $E_P = m\phi$ allows us to find the **gravitational potential energy ($E_P$)** of a mass $m$ placed at a point in the field. By substituting the formula for $\phi$ due to a point mass $M$, we get the equation for the gravitational potential energy of two point masses, $M$ and $m$:
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="font-semibold">$$ E_P = m \left( -\frac{GM}{r} \right) = -\frac{GMm}{r} $$</p>
+                </blockquote>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: GPE of a Satellite</h4>
+                    <p class="text-lg leading-relaxed mb-4">A satellite of mass 2500 kg is in a geostationary orbit at a radius of $4.22 \times 10^7$ m from the centre of the Earth. Calculate its gravitational potential energy.</p>
+                    <div class="text-lg space-y-2">
+                        <p>$$ E_P = -\frac{GMm}{r} = -\frac{(6.67 \times 10^{-11}) \times (5.97 \times 10^{24}) \times (2500)}{4.22 \times 10^7} $$</p>
+                        <p>$$ E_P = -2.36 \times 10^{10} \text{ J} $$</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Gravity and Orbits</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    This PhET simulation provides a powerful visualization of gravitational fields and orbits. Turn on the grid and the energy graph to see how the gravitational potential energy (and kinetic energy) of a satellite changes as its orbital radius changes.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/gravity-and-orbits/latest/gravity-and-orbits_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

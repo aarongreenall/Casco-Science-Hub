@@ -1,1 +1,194 @@
-<!-- Placeholder for 15.2_Equation_of_State.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15.2 Equation of state - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Ideal Gases</a> &gt;
+                <span class="font-semibold">15.2 Equation of state</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">15.2 Equation of state</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Understand that a gas obeying $pV \propto T$, where $T$ is the thermodynamic temperature, is known as an ideal gas.</li>
+                    <li>Recall and use the equation of state for an ideal gas expressed as $pV = nRT$, where $n$ = amount of substance (number of moles) and as $pV = NkT$, where $N$ = number of molecules.</li>
+                    <li>Recall that the Boltzmann constant $k$ is given by $k = R / N_A$.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: The Ideal Gas Concept</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The behaviour of real gases can be complex. To simplify this, physicists use the model of an **ideal gas**. This is a theoretical gas that perfectly obeys the gas laws. The model is based on a set of assumptions about the gas molecules:
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li>The volume of the molecules themselves is negligible compared to the volume of the container.</li>
+                    <li>There are no intermolecular forces between the molecules (except during collisions).</li>
+                    <li>The molecules are in continuous, random motion.</li>
+                    <li>All collisions (between molecules and with the container walls) are perfectly elastic, i.e. no kinetic energy is lost.</li>
+                </ul>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    For a fixed mass of an ideal gas, the individual gas laws (Boyle's Law, Charles's Law, and the Pressure Law) can be combined into a single relationship:
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ \frac{pV}{T} = \text{constant} \quad \implies \quad pV \propto T $$</p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Where $p$ is pressure, $V$ is volume, and $T$ is the **thermodynamic temperature in kelvin (K)**. Any gas that obeys this relationship is defined as an ideal gas. Real gases behave most like ideal gases at low pressures and high temperatures.
+                </p>
+            </div>
+
+            <!-- Section for LO2 & LO3 -->
+            <div id="LO2_3" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2 & LO3: The Equation of State</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The relationship $pV \propto T$ can be turned into an equation, known as the **equation of state for an ideal gas**. The constant of proportionality depends on the amount of gas present. This gives us two forms of the equation.
+                </p>
+                
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Version 1: Using Moles ($pV = nRT$)</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    If we measure the amount of gas in moles ($n$), the constant of proportionality is the **molar gas constant ($R$)**.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="font-semibold">$$ pV = nRT $$</p>
+                    <p class="mt-2">where $R = 8.31$ J K⁻¹ mol⁻¹.</p>
+                </blockquote>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example 1: Using $pV=nRT$</h4>
+                    <p class="text-lg leading-relaxed mb-4">A container of volume $2.0 \times 10^{-2}$ m³ contains 3.5 moles of an ideal gas at a temperature of 300 K. Calculate the pressure of the gas.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Rearrange the formula for pressure, $p$:</strong></p>
+                        <p>$$ p = \frac{nRT}{V} $$</p>
+                        <p><strong>2. Substitute values and solve:</strong></p>
+                        <p>$$ p = \frac{(3.5 \text{ mol}) \times (8.31 \text{ J K}^{-1} \text{mol}^{-1}) \times (300 \text{ K})}{2.0 \times 10^{-2} \text{ m}^3} $$</p>
+                        <p>$$ p = \frac{8725.5}{0.02} = 436275 \text{ Pa} $$</p>
+                        <p>$$ p \approx 4.4 \times 10^5 \text{ Pa} \text{ (or 440 kPa)} $$</p>
+                    </div>
+                </div>
+
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Version 2: Using Number of Molecules ($pV = NkT$)</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    Alternatively, we can express the equation in terms of the total number of molecules ($N$) in the gas. This involves a different constant, the **Boltzmann constant ($k$)**.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Detailed Derivation of $pV = NkT$</h4>
+                    <div class="text-lg space-y-2">
+                        <p>1. Start with the molar form of the equation: $pV = nRT$.</p>
+                        <p>2. We know the number of moles ($n$) is related to the number of molecules ($N$) by the Avogadro constant ($N_A$):</p>
+                        <p>$$ n = \frac{N}{N_A} $$</p>
+                        <p>3. Substitute this expression for $n$ into the ideal gas equation:</p>
+                        <p>$$ pV = \left( \frac{N}{N_A} \right) RT $$</p>
+                        <p>4. Group the constants together:</p>
+                        <p>$$ pV = N \left( \frac{R}{N_A} \right) T $$</p>
+                        <p>5. The term $\frac{R}{N_A}$ is a fundamental constant called the **Boltzmann constant ($k$)**. This is the gas constant *per molecule* rather than per mole.</p>
+                        <p class="font-semibold">$$ k = \frac{R}{N_A} = \frac{8.31}{6.02 \times 10^{23}} = 1.38 \times 10^{-23} \text{ J K}^{-1} $$</p>
+                        <p>6. Substituting $k$ into the equation gives the final form:</p>
+                        <p class="font-semibold">$$ pV = NkT $$</p>
+                    </div>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example 2: Using $pV=NkT$</h4>
+                    <p class="text-lg leading-relaxed mb-4">A sealed container of volume 0.50 m³ contains a gas at a pressure of $1.2 \times 10^5$ Pa and a temperature of 290 K. Calculate the number of gas molecules in the container.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Rearrange the formula for the number of molecules, $N$:</strong></p>
+                        <p>$$ N = \frac{pV}{kT} $$</p>
+                        <p><strong>2. Substitute values and solve:</strong></p>
+                        <p>$$ N = \frac{(1.2 \times 10^5 \text{ Pa}) \times (0.50 \text{ m}^3)}{(1.38 \times 10^{-23} \text{ J K}^{-1}) \times (290 \text{ K})} $$</p>
+                        <p>$$ N = \frac{60000}{3.996 \times 10^{-21}} $$</p>
+                        <p>$$ N = 1.5 \times 10^{25} \text{ molecules} $$</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Gas Properties</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    This PhET simulation is the perfect tool for exploring the ideal gas law. Use the "Ideal" tab. You can control the number of particles (N), volume (V), and temperature (T) and observe the effect on the pressure (p), verifying the relationships in the equation of state.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/gas-properties/latest/gas-properties_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

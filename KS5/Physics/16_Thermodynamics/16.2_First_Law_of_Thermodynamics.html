@@ -1,1 +1,189 @@
-<!-- Placeholder for 16.2_First_Law_of_Thermodynamics.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16.2 The first law of thermodynamics - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Thermodynamics</a> &gt;
+                <span class="font-semibold">16.2 The first law of thermodynamics</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">16.2 The first law of thermodynamics</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Recall and use $W = p\Delta V$ for the work done when the volume of a gas changes at constant pressure and understand the difference between the work done by the gas and the work done on the gas.</li>
+                    <li>Recall and use the first law of thermodynamics $\Delta U = q + W$ expressed in terms of the increase in internal energy, the heating of the system (energy transferred to the system by heating) and the work done on the system.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: Work Done by a Gas</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    When a gas expands, it pushes against its surroundings (e.g., a piston in a cylinder) and does mechanical work. Conversely, if a gas is compressed, work is done on it by the surroundings. For a gas changing volume at a constant pressure, we can derive a simple expression for this work.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Detailed Derivation of $W = p\Delta V$</h4>
+                    <div class="flex flex-col md:flex-row items-center justify-center my-6 gap-8">
+                        <img src="https://i.ibb.co/L5hH42T/work-done-by-gas.png" alt="Diagram of a gas expanding in a piston" class="rounded-lg shadow-md max-w-xs w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/300x400/00BFBF/FFFFFF?text=Gas+Expansion';">
+                        <div class="text-lg space-y-2 md:w-2/3">
+                            <p>1. Start with the definition of mechanical work done:</p>
+                            <p>$$ W = F \times \Delta x $$</p>
+                            <p>2. The gas exerts a constant pressure $p$ on the piston of cross-sectional area $A$. The force exerted by the gas on the piston is:</p>
+                            <p>$$ F = p \times A $$</p>
+                            <p>3. As the gas expands, the piston moves a distance $\Delta x$. The work done ($W$) by the gas is:</p>
+                            <p>$$ W = F \times \Delta x = (pA) \times \Delta x $$</p>
+                            <p>4. We recognise that the product of the area and the distance moved is the change in volume of the gas, $\Delta V = A \Delta x$.</p>
+                            <p>5. Substituting this in gives the final formula for the work done by a gas at constant pressure:</p>
+                            <p class="font-semibold">$$ W_{by gas} = p\Delta V $$</p>
+                        </div>
+                    </div>
+                </div>
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Sign Convention: Work Done ON vs BY the Gas</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The sign of the work done is crucial. The symbol $W$ in the First Law of Thermodynamics ($\Delta U = q + W$) **always represents the work done ON the system**. To ensure the physics is correct, we relate the work done ON the system to the pressure and volume change with the formula:
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ W = -p\Delta V $$</p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">Let's see why this single formula works for both expansion and compression:</p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-4 text-lg">
+                    <li><strong>Expansion (Work done BY the gas):</strong> The gas expands, so its volume change $\Delta V = (V_{final} - V_{initial})$ is **positive**. The work done ON the system is $W = -p \times (+\Delta V)$, which results in a **negative** value for $W$. This is correct, as the system has lost energy by doing work on its surroundings.</li>
+                    <li><strong>Compression (Work done ON the gas):</strong> The gas is compressed, so its volume change $\Delta V = (V_{final} - V_{initial})$ is **negative**. The work done ON the system is $W = -p \times (-\Delta V)$. The two negatives multiply to give a **positive** value for $W$. This is correct, as the system has gained energy from work being done on it.</li>
+                </ul>
+            </div>
+
+            <!-- Section for LO2 -->
+            <div id="LO2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2: The First Law of Thermodynamics</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The First Law of Thermodynamics is a statement of the principle of conservation of energy as applied to a thermodynamic system (e.g., a fixed amount of gas).
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    The increase in the internal energy of a system ($\Delta U$) is equal to the sum of the thermal energy supplied to the system ($q$) and the work done on the system ($W$).
+                </blockquote>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="font-semibold">$$ \Delta U = q + W $$</p>
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Sign convention is essential:
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li>$\Delta U$: Increase in internal energy is positive.</li>
+                    <li>$q$: Thermal energy **added to** the system is positive.</li>
+                    <li>$W$: Work done **on** the system (compression) is positive.</li>
+                </ul>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example 1: Expansion (Negative W)</h4>
+                    <p class="text-lg leading-relaxed mb-4">A gas in a cylinder is heated with 800 J of thermal energy. At the same time, it expands at a constant pressure of $2.0 \times 10^5$ Pa, and its volume increases by $1.5 \times 10^{-3}$ m³. Calculate the increase in the internal energy of the gas.</p>
+                    <div class="text-lg space-y-2 overflow-x-auto">
+                        <p><strong>1. Identify $q$:</strong> The system is heated, so $q = +800$ J.</p>
+                        <p><strong>2. Calculate the work done on the system ($W$):</strong> The gas expands, so $\Delta V = +1.5 \times 10^{-3}$ m³. The work done ON the system is negative.</p>
+                        <p>$$ W = -p\Delta V = -(2.0 \times 10^5 \text{ Pa}) \times (1.5 \times 10^{-3} \text{ m}^3) = -300 \text{ J} $$</p>
+                        <p><strong>3. Apply the First Law:</strong></p>
+                        <p>$$ \Delta U = q + W = (+800 \text{ J}) + (-300 \text{ J}) = 500 \text{ J} $$</p>
+                    </div>
+                </div>
+                 <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example 2: Compression (Positive W)</h4>
+                    <p class="text-lg leading-relaxed mb-4">A gas is compressed by a piston, which does 450 J of work on it. During the compression, 150 J of thermal energy is lost from the gas to the surroundings. Calculate the change in the internal energy of the gas.</p>
+                    <div class="text-lg space-y-2 overflow-x-auto">
+                        <p><strong>1. Identify $q$:</strong> Thermal energy is lost from the system, so $q$ is negative: $q = -150$ J.</p>
+                        <p><strong>2. Identify $W$:</strong> Work is done ON the gas, so $W$ is positive: $W = +450$ J.</p>
+                        <p><strong>3. Apply the First Law:</strong></p>
+                        <p>$$ \Delta U = q + W = (-150 \text{ J}) + (+450 \text{ J}) = 300 \text{ J} $$</p>
+                        <p>The internal energy of the gas increases by 300 J.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Gas Properties</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    Use the "Energy" tab in this PhET simulation to explore the First Law. You can add heat ($q$) and do work on the gas by changing the volume ($W$). Observe the direct effect on the internal energy, which is represented by the temperature of the gas.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/gas-properties/latest/gas-properties_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

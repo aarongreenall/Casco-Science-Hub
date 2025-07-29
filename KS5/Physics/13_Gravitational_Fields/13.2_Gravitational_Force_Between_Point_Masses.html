@@ -1,1 +1,190 @@
-<!-- Placeholder for 13.2_Gravitational_Force_Between_Point_Masses.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13.2 Gravitational force between point masses - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Gravitational Fields</a> &gt;
+                <span class="font-semibold">13.2 Gravitational force between point masses</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">13.2 Gravitational force between point masses</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Understand that, for a point outside a uniform sphere, the mass of the sphere may be considered to be a point mass at its centre.</li>
+                    <li>Recall and use Newton’s law of gravitation $F = Gm_1m_2 / r^2$ for the force between two point masses.</li>
+                    <li>Analyse circular orbits in gravitational fields by relating the gravitational force to the centripetal acceleration it causes.</li>
+                    <li>Understand that a satellite in a geostationary orbit remains at the same point above the Earth’s surface, with an orbital period of 24 hours, orbiting from west to east, directly above the Equator.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 & LO2 -->
+            <div id="LO1_2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1 & LO2: Newton's Law of Gravitation and Point Masses</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Isaac Newton formulated a law to describe the magnitude of the gravitational force between any two point masses in the universe.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    Any two point masses attract each other with a force that is directly proportional to the product of their masses and inversely proportional to the square of the distance between their centres.
+                </blockquote>
+                <p class="text-center text-lg font-semibold my-4">$$ F = \frac{Gm_1m_2}{r^2} $$</p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    A crucial simplification, known as **Newton's Shell Theorem**, is that for any point outside a uniform spherical body (like a planet), the gravitational force exerted by the sphere is identical to what it would be if all the sphere's mass were concentrated into a single point at its centre. This allows us to use the equation above for large objects like planets and stars by measuring the distance $r$ from their centres.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Force between Earth and Moon</h4>
+                    <p class="text-lg leading-relaxed mb-4">Calculate the magnitude of the gravitational force between the Earth and the Moon. (Mass of Earth = $5.97 \times 10^{24}$ kg; Mass of Moon = $7.35 \times 10^{22}$ kg; Mean distance between centres = $3.84 \times 10^8$ m).</p>
+                    <div class="text-lg space-y-2">
+                        <p>$$ F = \frac{Gm_1m_2}{r^2} = \frac{(6.67 \times 10^{-11}) \times (5.97 \times 10^{24}) \times (7.35 \times 10^{22})}{(3.84 \times 10^8)^2} $$</p>
+                        <p>$$ F = \frac{2.926 \times 10^{37}}{1.475 \times 10^{17}} = 1.98 \times 10^{20} \text{ N} $$</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO3 -->
+            <div id="LO3" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO3: Circular Orbits</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    For a satellite of mass $m$ to maintain a stable circular orbit of radius $r$ around a planet of mass $M$, there must be a resultant force acting on it. This force is the **centripetal force**, and it is provided entirely by the gravitational force between the planet and the satellite.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L5hH42T/orbital-mechanics.png" alt="Diagram showing gravitational force providing centripetal force for a satellite" class="rounded-lg shadow-md max-w-lg w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Orbital+Mechanics';">
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Derivation of Orbital Speed and Period</h4>
+                    <div class="text-lg space-y-2">
+                        <p>1. **Equate the forces:**</p>
+                        <p>$$ \text{Gravitational Force} = \text{Centripetal Force} $$</p>
+                        <p>$$ \frac{GMm}{r^2} = \frac{mv^2}{r} \quad \text{or} \quad \frac{GMm}{r^2} = mr\omega^2 $$</p>
+                        <p>2. **Derive Orbital Speed ($v$):** Using the first form, we can cancel $m$ and one factor of $r$.</p>
+                        <p>$$ \frac{GM}{r} = v^2 \implies v = \sqrt{\frac{GM}{r}} $$</p>
+                        <p>3. **Derive Orbital Period ($T$):** Using the second form, we can cancel $m$. We also know $\omega = 2\pi/T$.</p>
+                        <p>$$ \frac{GM}{r^2} = r\omega^2 = r\left(\frac{2\pi}{T}\right)^2 = \frac{4\pi^2r}{T^2} $$</p>
+                        <p>Rearranging for $T^2$ gives Kepler's Third Law for circular orbits:</p>
+                        <p class="font-semibold">$$ T^2 = \left(\frac{4\pi^2}{GM}\right)r^3 $$</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO4 -->
+            <div id="LO4" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO4: Geostationary Orbits</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    A **geostationary orbit** is a special type of orbit in which a satellite appears to remain fixed in the same position in the sky when viewed from the ground. This is essential for communications and weather satellites. For this to be possible, three conditions must be met:
+                </p>
+                <ol class="list-decimal list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li>The satellite must have an orbital **period of 24 hours** (or more precisely, one sidereal day: 86,164 seconds) to match the Earth's rotation.</li>
+                    <li>The satellite must orbit directly above the **Equator**.</li>
+                    <li>The satellite must orbit from **west to east**, the same direction as the Earth's rotation.</li>
+                </ol>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Radius of a Geostationary Orbit</h4>
+                    <p class="text-lg leading-relaxed mb-4">Calculate the radius of the orbit for a geostationary satellite above the Earth. (Mass of Earth, $M = 5.97 \times 10^{24}$ kg).</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. State the required period in SI units:</strong></p>
+                        <p>$$ T = 24 \text{ hours} = 24 \times 60 \times 60 = 86400 \text{ s} $$</p>
+                        <p><strong>2. Start with the formula for orbital period:</strong></p>
+                        <p>$$ T^2 = \left(\frac{4\pi^2}{GM}\right)r^3 $$</p>
+                        <p><strong>3. Rearrange to make $r$ the subject:</strong></p>
+                        <p>$$ r^3 = \frac{GMT^2}{4\pi^2} \implies r = \sqrt[3]{\frac{GMT^2}{4\pi^2}} $$</p>
+                        <p><strong>4. Substitute values and solve:</strong></p>
+                        <p>$$ r = \sqrt[3]{\frac{(6.67 \times 10^{-11})(5.97 \times 10^{24})(86400)^2}{4\pi^2}} $$</p>
+                        <p>$$ r = \sqrt[3]{\frac{2.97 \times 10^{42}}{39.48}} = \sqrt[3]{7.52 \times 10^{22}} $$</p>
+                        <p>$$ r = 4.22 \times 10^7 \text{ m} \text{ (or 42,200 km)} $$</p>
+                        <p>This is the radius from the centre of the Earth.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Gravity and Orbits</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    This PhET simulation provides a powerful visualization of gravitational fields and orbits. You can set up a satellite orbiting a planet and adjust its initial velocity to see how stable orbits are achieved.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/gravity-and-orbits/latest/gravity-and-orbits_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

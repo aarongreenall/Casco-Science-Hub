@@ -1,1 +1,178 @@
-<!-- Placeholder for 18.3_Electric_Force_Between_Point_Charges.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18.3 Electric force between point charges - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Electric Fields</a> &gt;
+                <span class="font-semibold">18.3 Electric force between point charges</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">18.3 Electric force between point charges</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Understand that, for a point outside a spherical conductor, the charge on the sphere may be considered to be a point charge at its centre.</li>
+                    <li>Recall and use Coulomb’s law $F = \frac{Q_1Q_2}{4\pi\epsilon_0 r^2}$ for the force between two point charges in free space.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 & LO2 -->
+            <div id="LO1_2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1 & LO2: Coulomb's Law</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    **Coulomb's Law** describes the magnitude of the electrostatic force between two point charges. It is the electrical analogue of Newton's Law of Gravitation.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Similar to gravity, a crucial simplification applies: for any point outside a uniformly charged sphere, the electrostatic force exerted by the sphere is identical to what it would be if all the sphere's charge were concentrated into a single **point charge** at its centre. This allows us to apply the law to spherical objects like charged metal spheres.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    The electrostatic force between two point charges is directly proportional to the product of their charges and inversely proportional to the square of the distance between them.
+                </blockquote>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="font-semibold">$$ F = \frac{Q_1Q_2}{4\pi\epsilon_0 r^2} $$</p>
+                </blockquote>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li>$F$ is the magnitude of the electrostatic force between the two charges.</li>
+                    <li>$Q_1$ and $Q_2$ are the magnitudes of the two charges.</li>
+                    <li>$r$ is the distance between the centres of the two charges.</li>
+                    <li>$\epsilon_0$ is the **permittivity of free space**, a fundamental constant with a value of $8.85 \times 10^{-12}$ F m⁻¹. It describes how easily an electric field can be established in a vacuum.</li>
+                </ul>
+                
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Comparison: Coulomb's Law vs. Newton's Law of Gravitation</h4>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gray-100 p-4 rounded-lg">
+                        <h5 class="text-lg font-semibold text-center">Newton's Law of Gravitation</h5>
+                        <p class="text-center text-lg font-semibold my-4">$$ F = \frac{Gm_1m_2}{r^2} $$</p>
+                        <ul class="list-disc list-inside">
+                            <li>Depends on the product of **masses**.</li>
+                            <li>Force is **always attractive**.</li>
+                            <li>$G$ is the gravitational constant.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded-lg">
+                        <h5 class="text-lg font-semibold text-center">Coulomb's Law</h5>
+                        <p class="text-center text-lg font-semibold my-4">$$ F = \frac{Q_1Q_2}{4\pi\epsilon_0 r^2} $$</p>
+                        <ul class="list-disc list-inside">
+                            <li>Depends on the product of **charges**.</li>
+                            <li>Force can be **attractive or repulsive**.</li>
+                            <li>$1/(4\pi\epsilon_0)$ is the electrostatic constant.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Force between Protons</h4>
+                    <p class="text-lg leading-relaxed mb-4">Calculate the magnitude of the electrostatic force between two protons separated by a distance of $5.0 \times 10^{-15}$ m in a nucleus.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Identify the variables:</strong></p>
+                        <p>The charge on a proton is the elementary charge, $Q_1 = Q_2 = e = 1.60 \times 10^{-19}$ C.</p>
+                        <p>$$ r = 5.0 \times 10^{-15} \text{ m} $$</p>
+                        <p><strong>2. State the formula and substitute values:</strong></p>
+                        <p>$$ F = \frac{Q_1Q_2}{4\pi\epsilon_0 r^2} $$</p>
+                        <p>$$ F = \frac{(1.60 \times 10^{-19}) \times (1.60 \times 10^{-19})}{4\pi(8.85 \times 10^{-12})(5.0 \times 10^{-15})^2} $$</p>
+                        <p><strong>3. Calculate the result:</strong></p>
+                        <p>$$ F = \frac{2.56 \times 10^{-38}}{2.78 \times 10^{-39}} $$</p>
+                        <p>$$ F = 9.21 \text{ N} $$</p>
+                        <p>This is a huge repulsive force on a nuclear scale, highlighting the need for the strong nuclear force to hold the nucleus together.</p>
+                    </div>
+                </div>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Coulomb's Law</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/rYjo7-M_s-0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Coulomb's Law</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    This PhET simulation allows you to visualize the electrostatic force between two charges. You can change the magnitude of the charges and the distance between them to see how the force vectors change, and verify Coulomb's Law.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/coulombs-law/latest/coulombs-law_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

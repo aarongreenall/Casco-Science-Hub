@@ -1,1 +1,203 @@
-<!-- Placeholder for 18.1_Electric_Fields_and_Field_Lines.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18.1 Electric fields and field lines - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Electric Fields</a> &gt;
+                <span class="font-semibold">18.1 Electric fields and field lines</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">18.1 Electric fields and field lines</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Understand that an electric field is an example of a field of force and define electric field strength as force per unit positive charge.</li>
+                    <li>Recall and use $F = qE$ for the force on a charge in an electric field.</li>
+                    <li>Represent an electric field by means of field lines.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: The Concept of an Electric Field</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Just like the gravitational force, the electrostatic force is a non-contact force. To explain this action at a distance, we use the concept of a **field of force**. An **electric field** is a region of space where a charged object experiences an electrostatic force. Any object with an electric charge creates an electric field around it.
+                </p>
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Comparison with Gravitational Fields</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    The concept of electric field strength is directly analogous to gravitational field strength. However, there is a critical difference that makes the vector nature of the electric field so important.
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-4 text-lg">
+                    <li><strong>Gravitational Fields (The "One-Way Street"):</strong> The source of a gravitational field is **mass**, which is always positive. Therefore, the gravitational force is **only ever attractive**. The field direction is unambiguous: it always points towards the source mass.</li>
+                    <li><strong>Electric Fields (The "Two-Way Street"):</strong> The source of an electric field is **charge**, which can be positive or negative. This means the electric force can be **attractive or repulsive**. This creates an ambiguity: in which direction does the field itself point?</li>
+                </ul>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    To solve this, physicists created a universal rule, or **convention**:
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    The direction of the electric field ($E$) at any point is defined as the direction of the force that would be exerted on a **positive** test charge placed at that point.
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    This leads to the formal definition of electric field strength:
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ E = \frac{F}{q} $$</p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Where $E$ is the electric field strength (a vector), $F$ is the force on the charge, and $q$ is the charge of the test particle. The SI unit is the newton per coulomb (N C⁻¹).
+                </p>
+            </div>
+
+            <!-- Section for LO2 -->
+            <div id="LO2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2: Force on a Charge in an Electric Field</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Rearranging the definition of electric field strength gives a formula for the force, $F$, on a charge, $q$, in a field of strength $E$. This is directly analogous to the formula for weight in a gravitational field.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gray-100 p-4 rounded-lg">
+                        <h5 class="text-lg font-semibold text-center">Weight in a Gravitational Field</h5>
+                        <p class="text-center text-lg font-semibold my-4">$$ F = mg $$</p>
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded-lg">
+                        <h5 class="text-lg font-semibold text-center">Force in an Electric Field</h5>
+                        <p class="text-center text-lg font-semibold my-4">$$ F = qE $$</p>
+                    </div>
+                </div>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Because of the convention for the direction of $E$, the direction of the force $F$ depends on the sign of the charge $q$:
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li>If the charge $q$ is **positive**, the force $F$ is in the **same direction** as the electric field $E$.</li>
+                    <li>If the charge $q$ is **negative**, the force $F$ is in the **opposite direction** to the electric field $E$.</li>
+                </ul>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Force on an Electron</h4>
+                    <p class="text-lg leading-relaxed mb-4">An electron is in a uniform electric field of strength 1500 N C⁻¹. Calculate the magnitude of the force on the electron and describe its direction relative to the field.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Identify the variables:</strong></p>
+                        <p>$$ E = 1500 \text{ N C}^{-1} $$</p>
+                        <p>The charge on an electron is the elementary charge, $q = e = 1.60 \times 10^{-19}$ C.</p>
+                        <p><strong>2. State the formula and solve for the magnitude of the force:</strong></p>
+                        <p>$$ F = qE $$</p>
+                        <p>$$ F = (1.60 \times 10^{-19} \text{ C}) \times (1500 \text{ N C}^{-1}) $$</p>
+                        <p>$$ F = 2.4 \times 10^{-16} \text{ N} $$</p>
+                        <p><strong>3. Describe the direction:</strong></p>
+                        <p>Since the electron has a negative charge, the force on it will be in the **opposite direction** to the electric field lines. This means if the field was created by a positive source, the electron would be attracted (move towards it). If the field was created by a negative source, the electron would be repelled (move away from it). In both cases, the direction of motion is opposite to the direction of the field line at that point.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO3 -->
+            <div id="LO3" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO3: Representing Electric Fields</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    We visualize electric fields using **electric field lines**. The direction of the field line at any point gives the direction of the force on a **positive** test charge.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8 text-center mt-6">
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Gravitational Field (Mass)</h4>
+                        <img src="https://i.ibb.co/L5hH42T/gravitational-field-lines.png" alt="Field lines for a point mass" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/400x300/00BFBF/FFFFFF?text=Gravitational+Field';">
+                        <p class="mt-2 text-lg">Always attractive. Lines always point towards the mass.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Electric Field (Positive Charge)</h4>
+                        <img src="https://i.ibb.co/gZ7Q02C/field-lines-positive.png" alt="Field lines for a positive point charge" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/400x300/009999/FFFFFF?text=Electric+Field';">
+                        <p class="mt-2 text-lg">Repulsive to positive test charges. Lines point away from the charge.</p>
+                    </div>
+                </div>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Because electric charge can be positive or negative, electric fields can be more complex than gravitational fields, forming patterns like dipoles.
+                </p>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Charges and Fields</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    This PhET simulation is the perfect tool for visualizing electric fields. Place positive and negative charges on the screen and observe the resulting field lines. Use the sensor to measure the strength and direction of the field at any point.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/charges-and-fields/latest/charges-and-fields_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

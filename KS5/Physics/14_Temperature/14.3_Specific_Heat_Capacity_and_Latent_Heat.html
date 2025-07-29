@@ -1,1 +1,233 @@
-<!-- Placeholder for 14.3_Specific_Heat_Capacity_and_Latent_Heat.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14.3 Specific heat capacity and specific latent heat - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Temperature</a> &gt;
+                <span class="font-semibold">14.3 Specific heat capacity and specific latent heat</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">14.3 Specific heat capacity and specific latent heat</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Define and use specific heat capacity.</li>
+                    <li>Define and use specific latent heat and distinguish between specific latent heat of fusion and specific latent heat of vaporisation.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: Specific Heat Capacity</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    When thermal energy is supplied to an object, its temperature generally increases. The **heat capacity** of an object is the amount of energy required to raise its temperature by 1 K (or 1 °C). However, this property depends on the size of the object; a swimming pool has a much larger heat capacity than a cup of water.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    To compare materials themselves, irrespective of their size, we use the **specific heat capacity ($c$)**. The word **"specific"** in physics means "per unit mass" (i.e., per kg). By defining the property per kilogram, we are standardizing it, allowing us to compare the intrinsic ability of different substances to store thermal energy. This is fundamentally related to the number of particles in that kilogram of substance, a concept that will be explored further in Topic 15.1 with the mole.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: Buckets and Water</h4>
+                    <p class="text-lg leading-relaxed">Think of the "capacity" of a substance to hold heat like the capacity of a bucket to hold water. A substance with a high specific heat capacity is like a very wide bucket: you have to add a lot of water (thermal energy) just to raise the water level (temperature) by one centimetre. A substance with a low specific heat capacity is like a very narrow bucket: just a small amount of water (thermal energy) will cause the water level (temperature) to rise significantly.</p>
+                </div>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    The specific heat capacity of a substance is the thermal energy required per unit mass to produce a unit increase in temperature.
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    This definition leads to the formula for the thermal energy, $Q$, required to change the temperature of a mass $m$ by $\Delta\theta$:
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ c = \frac{Q}{m\Delta\theta} \quad \implies \quad Q = mc\Delta\theta $$</p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Heating Water</h4>
+                    <p class="text-lg leading-relaxed mb-4">An electric kettle has a power rating of 2.2 kW. It contains 1.5 kg of water at an initial temperature of 20 °C. Assuming all the electrical energy is transferred to the water, calculate the time it will take for the water to reach boiling point (100 °C). The specific heat capacity of water is 4200 J kg⁻¹ K⁻¹.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Calculate the required thermal energy ($Q$):</strong></p>
+                        <p>The temperature change is $\Delta\theta = 100 - 20 = 80$ °C.</p>
+                        <p>$$ Q = mc\Delta\theta $$</p>
+                        <p>$$ Q = (1.5 \text{ kg}) \times (4200 \text{ J kg}^{-1} \text{K}^{-1}) \times (80 \text{ K}) $$</p>
+                        <p>$$ Q = 504000 \text{ J} $$</p>
+                        <p><strong>2. Relate energy, power, and time:</strong></p>
+                        <p class="mb-2">Historically, the study of heat (thermodynamics) and the study of mechanics and electricity developed separately. This led to different symbols being used for what we now understand as the same fundamental quantity: energy. We use $Q$ for thermal energy, $E$ for electrical energy, and $W$ (not to be confused with the unit W for watts, named after James Watt) for work done. By the principle of conservation of energy, the electrical energy supplied ($E$) is converted into thermal energy ($Q$), so $E=Q$.</p>
+                        <p>Power is the rate of energy transfer, $P = E/t$. Since $E=Q$, we can write:</p>
+                        <p>$$ P = \frac{Q}{t} \implies t = \frac{Q}{P} $$</p>
+                        <p><strong>3. Calculate the time ($t$):</strong></p>
+                        <p>Power $P = 2.2 \text{ kW} = 2200 \text{ W}$ (or J s⁻¹).</p>
+                        <p>$$ t = \frac{504000 \text{ J}}{2200 \text{ W}} $$</p>
+                        <p>$$ t = 229 \text{ s} \text{ (approx. 3.8 minutes)} $$</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO2 -->
+            <div id="LO2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2: Specific Latent Heat</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    When a substance changes state, thermal energy is transferred, but the temperature of the substance **remains constant**. This energy is called **latent heat**.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    The **specific latent heat ($L$)** of a substance is the thermal energy required to change the state of a unit mass of the substance without any change in temperature.
+                </blockquote>
+                <p class="text-center text-lg font-semibold my-4">$$ Q = mL $$</p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    There are two types, and the process is reversible:
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li><strong>Specific Latent Heat of Fusion ($L_f$):</strong> Energy is **absorbed** to melt a solid into a liquid. The same amount of energy is **released** when the liquid freezes back into a solid.</li>
+                    <li><strong>Specific Latent Heat of Vaporisation ($L_v$):</strong> Energy is **absorbed** to boil a liquid into a gas. The same amount of energy is **released** when the gas condenses back into a liquid.</li>
+                </ul>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Latent Heat</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/gDboF2k5a2k" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Latent Heat of Fusion</h4>
+    <p class="text-lg leading-relaxed mb-4">How much thermal energy is required to melt a 300 g block of ice at 0 °C? The specific latent heat of fusion of ice is $3.3 \times 10^5$ J kg⁻¹.</p>
+    <div class="text-lg space-y-2">
+        <p><strong>1. Convert mass to SI units:</strong></p>
+        <p>$$ m = 300 \text{ g} = 0.30 \text{ kg} $$</p>
+        <p><strong>2. State the formula for latent heat of fusion:</strong></p>
+        <p>$$ Q = mL_f $$</p>
+        <p><strong>3. Substitute values and solve:</strong></p>
+        <p>$$ Q = (0.30 \text{ kg}) \times (3.3 \times 10^5 \text{ J kg}^{-1}) $$</p>
+        <p>$$ Q = 99000 \text{ J} \text{ (or 99 kJ)} $$</p>
+    </div>
+</div>
+
+            <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Summary Worked Example 1: Heating Ice to Steam</h4>
+                <p class="text-lg leading-relaxed mb-4">Calculate the total energy required to turn 0.50 kg of ice at -10 °C into steam at 100 °C.
+                <br>(c_ice = 2100 J kg⁻¹ K⁻¹, c_water = 4200 J kg⁻¹ K⁻¹, L_f = 3.3 × 10⁵ J kg⁻¹, L_v = 2.3 × 10⁶ J kg⁻¹)</p>
+                <div class="text-lg space-y-2">
+                    <p><strong>1. Energy to heat the ice from -10 °C to 0 °C ($Q_1$):</strong></p>
+                    <p>$$ Q_1 = mc_{ice}\Delta\theta = (0.50) \times (2100) \times (10) = 10500 \text{ J} $$</p>
+                    <p><strong>2. Energy to melt the ice at 0 °C ($Q_2$):</strong></p>
+                    <p>$$ Q_2 = mL_f = (0.50) \times (3.3 \times 10^5) = 165000 \text{ J} $$</p>
+                    <p><strong>3. Energy to heat the water from 0 °C to 100 °C ($Q_3$):</strong></p>
+                    <p>$$ Q_3 = mc_{water}\Delta\theta = (0.50) \times (4200) \times (100) = 210000 \text{ J} $$</p>
+                    <p><strong>4. Energy to turn the water into steam at 100 °C ($Q_4$):</strong></p>
+                    <p>$$ Q_4 = mL_v = (0.50) \times (2.3 \times 10^6) = 1150000 \text{ J} $$</p>
+                    <p><strong>5. Total Energy ($Q_{total}$):</strong></p>
+                    <p>$$ Q_{total} = Q_1 + Q_2 + Q_3 + Q_4 = 1,535,500 \text{ J} \approx 1.5 \text{ MJ} $$</p>
+                </div>
+            </div>
+
+            <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Summary Worked Example 2: Mixing Ice and Water</h4>
+                <p class="text-lg leading-relaxed mb-4">A 50 g ice cube at 0 °C is placed in a thermally insulated beaker containing 200 g of water at 30 °C. After the ice has melted, a 2.0 kW heater is used to turn all the water into steam at 100 °C. Calculate (a) the final equilibrium temperature of the mixture after the ice melts, and (b) the total time the heater must be on.</p>
+                <div class="text-lg space-y-2">
+                    <p><strong>Part (a): Find the final temperature, $\theta_f$</strong></p>
+                    <p>By conservation of energy, the thermal energy lost by the warm water equals the energy gained by the ice.</p>
+                    <p>$$ \text{Energy lost by water} = \text{Energy to melt ice} + \text{Energy to heat melted ice} $$</p>
+                    <p>$$ m_w c_w (30 - \theta_f) = m_{ice} L_f + m_{ice} c_w (\theta_f - 0) $$</p>
+                    <p>$$ (0.200)(4200)(30 - \theta_f) = (0.050)(3.3 \times 10^5) + (0.050)(4200)(\theta_f) $$</p>
+                    <p>$$ 840(30 - \theta_f) = 16500 + 210\theta_f $$</p>
+                    <p>$$ 25200 - 840\theta_f = 16500 + 210\theta_f $$</p>
+                    <p>$$ 8700 = 1050\theta_f $$</p>
+                    <p>$$ \theta_f = \frac{8700}{1050} = 8.29 \, ^\circ\text{C} \approx 8.3 \, ^\circ\text{C} $$</p>
+                    <p><strong>Part (b): Find the time to turn the mixture into steam</strong></p>
+                    <p>The total mass of water is $m_{total} = 0.200 + 0.050 = 0.250$ kg. The initial temperature is 8.3 °C.</p>
+                    <p>1. **Energy to heat all water from 8.3 °C to 100 °C ($Q_1$):**</p>
+                    <p>$$ Q_1 = m_{total}c_w\Delta\theta = (0.250)(4200)(100 - 8.3) = 96285 \text{ J} $$</p>
+                    <p>2. **Energy to turn all water into steam at 100 °C ($Q_2$):**</p>
+                    <p>$$ Q_2 = m_{total}L_v = (0.250)(2.3 \times 10^6) = 575000 \text{ J} $$</p>
+                    <p>3. **Total energy required from heater ($Q_{total}$):**</p>
+                    <p>$$ Q_{total} = Q_1 + Q_2 = 96285 + 575000 = 671285 \text{ J} $$</p>
+                    <p>4. **Calculate the time ($t$):** Power $P = 2.0 \text{ kW} = 2000$ W.</p>
+                    <p>$$ t = \frac{Q_{total}}{P} = \frac{671285}{2000} = 335.6 \text{ s} \approx 340 \text{ s} $$</p>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: States of Matter</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    Use the "Phase Changes" tab in this PhET simulation. You can add heat to substances like water and observe the temperature graph. Notice how the temperature plateaus during melting and boiling, which are the points where latent heat is being absorbed.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/states-of-matter-basics/latest/states-of-matter-basics_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

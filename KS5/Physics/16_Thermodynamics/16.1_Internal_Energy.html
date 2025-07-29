@@ -1,1 +1,167 @@
-<!-- Placeholder for 16.1_Internal_Energy.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16.1 Internal energy - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Thermodynamics</a> &gt;
+                <span class="font-semibold">16.1 Internal energy</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">16.1 Internal energy</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Understand that internal energy is determined by the state of the system and that it can be expressed as the sum of a random distribution of kinetic and potential energies associated with the molecules of a system.</li>
+                    <li>Relate a rise in temperature of an object to an increase in its internal energy.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: The Nature of Internal Energy</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The **internal energy ($U$)** of a system is a fundamental concept in thermodynamics. It is determined by the **state of the system**, which is defined by its macroscopic properties like pressure ($p$), volume ($V$), and temperature ($T$). If these properties are known, the internal energy is fixed.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    At a microscopic level, the internal energy is the sum of the energies of all the individual molecules within the system. This total energy can be broken down into two components:
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="font-semibold">$$ U = \sum E_k + \sum E_p $$</p>
+                </blockquote>
+                <div class="flex flex-col md:flex-row items-center justify-center my-6 gap-8">
+                    <div class="md:w-1/2 space-y-4">
+                        <h4 class="text-xl font-semibold text-gray-800">Random Kinetic Energy ($\sum E_k$)</h4>
+                        <p class="text-lg">This is the energy the molecules have due to their random, disordered motion. This motion can be translational (moving from place to place), rotational (spinning), or vibrational (atoms within a molecule oscillating).</p>
+                        <h4 class="text-xl font-semibold text-gray-800 mt-4">Random Potential Energy ($\sum E_p$)</h4>
+                        <p class="text-lg">This is the energy stored in the electrostatic intermolecular forces between the molecules. It depends on the separation of the molecules. In solids and liquids, where molecules are close, these forces are significant. In an ideal gas, the molecules are assumed to be so far apart that these forces are negligible, so the potential energy component is taken to be zero.</p>
+                    </div>
+                    <img src="https://i.ibb.co/L5hH42T/internal-energy-components.png" alt="Diagram showing molecules in a substance with kinetic (motion) and potential (intermolecular forces) energy" class="rounded-lg shadow-md max-w-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/500x400/00BFBF/FFFFFF?text=Internal+Energy';">
+                </div>
+            </div>
+
+            <!-- Section for LO2 -->
+            <div id="LO2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2: Temperature and Internal Energy</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Temperature is directly related to the internal energy of a system. Specifically:
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    The thermodynamic temperature (in kelvin) of a substance is a measure of the **average random kinetic energy** of its constituent molecules.
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    When you heat an object (without changing its state), you are transferring thermal energy to it. This supplied energy increases the average random kinetic energy of the molecules. Since temperature is a measure of this average kinetic energy, the temperature of the object rises.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Because the internal energy $U$ is the sum of the kinetic and potential energies, an increase in the kinetic energy of the molecules directly leads to an **increase in the internal energy** of the object.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Example: Heating a Block of Metal</h4>
+                    <p class="text-lg leading-relaxed mb-4">
+                        Consider a solid block of copper at 20 °C. Its copper atoms are vibrating about fixed positions in a crystal lattice.
+                    </p>
+                    <div class="text-lg space-y-2">
+                        <p>1. **Initial State:** The internal energy is the sum of the kinetic energy of these vibrations and the potential energy stored in the bonds between the atoms.</p>
+                        <p>2. **Heating:** If we place the block over a Bunsen burner, thermal energy is transferred to it. This energy is absorbed by the copper atoms, causing them to vibrate more vigorously and with a larger amplitude.</p>
+                        <p>3. **Result:** The average random kinetic energy of the atoms increases. This is observed macroscopically as a rise in the block's temperature. Because the kinetic energy component has increased, the total internal energy of the copper block has also increased.</p>
+                    </div>
+                </div>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Internal Energy</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/5_j_4Ab0284" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: States of Matter</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    This PhET simulation provides a powerful visualization of internal energy. Select a substance and add heat. Observe how the speed of the molecules (their kinetic energy) increases, which is reflected in the rise of the thermometer.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/states-of-matter-basics/latest/states-of-matter-basics_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

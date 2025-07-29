@@ -1,1 +1,197 @@
-<!-- Placeholder for 18.5_Electric_Potential.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18.5 Electric potential - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Electric Fields</a> &gt;
+                <span class="font-semibold">18.5 Electric potential</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">18.5 Electric potential</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Define electric potential at a point as the work done per unit positive charge in bringing a small test charge from infinity to the point.</li>
+                    <li>Recall and use the fact that the electric field at a point is equal to the negative of potential gradient at that point.</li>
+                    <li>Use $V = \frac{Q}{4\pi\epsilon_0 r}$ for the electric potential in the field due to a point charge.</li>
+                    <li>Understand how the concept of electric potential leads to the electric potential energy of two point charges and use $E_P = \frac{Qq}{4\pi\epsilon_0 r}$.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: Defining Electric Potential</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The concept of **electric potential ($V$)** is the electrical analogue of gravitational potential. It describes the energy aspect of an electric field, independent of the charge placed in it.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    The electric potential at a point is the work done per unit positive charge in bringing a small test charge from infinity to that point.
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The reference point for zero potential is taken to be at **infinity**. The sign of the potential depends on the sign of the source charge creating the field:
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li>To bring a positive test charge towards a **positive source charge**, you must do work against the repulsive force. This increases the potential energy, so the potential is **positive**.</li>
+                    <li>To bring a positive test charge towards a **negative source charge**, the attractive field does work on the charge. This decreases the potential energy, so the potential is **negative**.</li>
+                </ul>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The SI unit for electric potential is the joule per coulomb (J C⁻¹), which is defined as the **volt (V)**.
+                </p>
+            </div>
+
+            <!-- Section for LO2 -->
+            <div id="LO2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2: Field Strength and Potential Gradient</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    There is a fundamental relationship between electric field strength ($E$) and electric potential ($V$). The electric field strength is equal to the negative of the **potential gradient**.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="font-semibold">$$ E = -\frac{\Delta V}{\Delta r} $$</p>
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The **potential gradient** ($\frac{\Delta V}{\Delta r}$) is the rate of change of potential with respect to distance. The negative sign is crucial: it signifies that the electric field lines always point in the direction of **decreasing electric potential**. This is analogous to a gravitational field, where objects naturally move "downhill" to a region of lower gravitational potential.
+                </p>
+            </div>
+
+            <!-- Section for LO3 -->
+            <div id="LO3" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO3: Electric Potential due to a Point Charge</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The electric potential ($V$) at a distance $r$ from the centre of a point charge $Q$ is given by the formula:
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="font-semibold">$$ V = \frac{Q}{4\pi\epsilon_0 r} $$</p>
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Note the key differences from the formula for electric field strength: potential is proportional to $1/r$, not $1/r^2$, and it is a scalar quantity.
+                </p>
+            </div>
+
+            <!-- Section for LO4 -->
+            <div id="LO4" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO4: Electric Potential Energy ($E_P$)</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The relationship between electric potential ($V$) and electric potential energy ($E_P$) is analogous to the one between gravitational potential and GPE. Since potential is the energy *per unit charge*, the total potential energy of a charge $q$ placed at that point is:
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ E_P = qV $$</p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    By substituting the formula for $V$ due to a point charge $Q$, we get the equation for the electric potential energy of two point charges, $Q$ and $q$:
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="font-semibold">$$ E_P = q \left( \frac{Q}{4\pi\epsilon_0 r} \right) = \frac{Qq}{4\pi\epsilon_0 r} $$</p>
+                </blockquote>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Potential and Potential Energy</h4>
+                    <p class="text-lg leading-relaxed mb-4">An alpha particle ($q = +2e$) is at a distance of $1.0 \times 10^{-12}$ m from a gold nucleus ($Q = +79e$). Calculate (a) the electric potential at this point due to the gold nucleus, and (b) the electric potential energy of the alpha particle.</p>
+                    <div class="text-lg space-y-2 overflow-x-auto">
+                        <p><strong>(a) Calculate the electric potential ($\phi$):</strong></p>
+                        <p>$$ V = \frac{Q}{4\pi\epsilon_0 r} = \frac{(79 \times 1.60 \times 10^{-19})}{4\pi(8.85 \times 10^{-12})(1.0 \times 10^{-12})} $$</p>
+                        <p>$$ V = \frac{1.264 \times 10^{-17}}{1.112 \times 10^{-22}} = 113669 \text{ V} \approx 1.1 \times 10^5 \text{ V} $$</p>
+                        <p><strong>(b) Calculate the electric potential energy ($E_P$):</strong></p>
+                        <p>$$ E_P = qV = (2 \times 1.60 \times 10^{-19} \text{ C}) \times (1.137 \times 10^5 \text{ V}) $$</p>
+                        <p>$$ E_P = 3.64 \times 10^{-14} \text{ J} $$</p>
+                        <p>Alternatively, using the full formula:</p>
+                        <p>$$ E_P = \frac{Qq}{4\pi\epsilon_0 r} = \frac{(79 \times 1.60 \times 10^{-19})(2 \times 1.60 \times 10^{-19})}{4\pi(8.85 \times 10^{-12})(1.0 \times 10^{-12})} $$</p>
+                        <p>$$ E_P = 3.64 \times 10^{-14} \text{ J} $$</p>
+                    </div>
+                </div>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Electric Potential</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/S4JCFz-3b-A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Charges and Fields</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    This PhET simulation is the perfect tool for visualizing electric potential. Place charges on the screen and use the voltmeter tool to measure the potential at any point. You can also plot equipotential lines to see how potential varies in space and relate it to the electric field strength.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/charges-and-fields/latest/charges-and-fields_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

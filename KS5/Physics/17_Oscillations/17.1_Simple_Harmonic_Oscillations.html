@@ -1,1 +1,205 @@
-<!-- Placeholder for 17.1_Simple_Harmonic_Oscillations.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17.1 Simple harmonic motion - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <!-- GeoGebra Integration -->
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Oscillations</a> &gt;
+                <span class="font-semibold">17.1 Simple harmonic motion</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">17.1 Simple harmonic motion</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Understand and use the terms displacement, amplitude, period, frequency, angular frequency and phase difference in the context of oscillations, and express the period in terms of both frequency and angular frequency.</li>
+                    <li>Understand that simple harmonic motion occurs when acceleration is proportional to displacement from a fixed point and in the opposite direction.</li>
+                    <li>Use $a = –\omega^2x$ and recall and use, as a solution to this equation, $x = x_0 \sin \omega t$.</li>
+                    <li>Use the equations $v = v_0 \cos \omega t$ and $v = \pm \omega \sqrt{(x_0^2 - x^2)}$.</li>
+                    <li>Analyse and interpret graphical representations of the variations of displacement, velocity and acceleration for simple harmonic motion.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: Terminology of Oscillations</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    An **oscillation** is a repeating, periodic motion about a central equilibrium position. The terms used to describe oscillations are very similar to those used for waves, as waves are generated by oscillating sources.
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li><strong>Displacement ($x$):</strong> The instantaneous distance of the oscillating object from its equilibrium position.</li>
+                    <li><strong>Amplitude ($x_0$):</strong> The maximum displacement from the equilibrium position.</li>
+                    <li><strong>Period ($T$):</strong> The time taken for one complete oscillation.</li>
+                    <li><strong>Frequency ($f$):</strong> The number of complete oscillations per unit time. $f = 1/T$.</li>
+                    <li><strong>Angular Frequency ($\omega$):</strong> A measure of the rate of oscillation in radians per second. It is directly related to frequency and period:</li>
+                </ul>
+                <p class="text-center text-lg font-semibold my-4">$$ \omega = 2\pi f = \frac{2\pi}{T} $$</p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    <strong>Phase Difference ($\phi$):</strong> Describes how "out of sync" two oscillating objects with the same frequency are. It is the fraction of an oscillation by which one leads or lags the other, measured in radians or degrees.
+                </p>
+            </div>
+
+            <!-- Section for LO2 & LO3 -->
+            <div id="LO2_3" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2 & LO3: The Defining Equation of SHM</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    **Simple Harmonic Motion (SHM)** is a special type of oscillation that occurs under specific conditions.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    An object undergoes simple harmonic motion if its acceleration is directly proportional to its displacement from a fixed equilibrium point, and is always directed towards that point.
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    This means the acceleration vector always points in the opposite direction to the displacement vector. Mathematically, this is expressed as:
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ a \propto -x $$</p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The constant of proportionality is the square of the angular frequency, $\omega^2$. This gives the **defining equation of SHM**:
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ a = -\omega^2x $$</p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The solution to this second-order differential equation describes the displacement $x$ at any time $t$. For an object starting at the equilibrium position ($x=0$ at $t=0$), the solution is:
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ x = x_0 \sin(\omega t) $$</p>
+            </div>
+
+            <!-- Section for LO4 -->
+            <div id="LO4" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO4: Velocity in SHM</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The velocity of an object in SHM is not constant. It is maximum as the object passes through the equilibrium position ($x=0$) and is momentarily zero at the points of maximum displacement ($x = \pm x_0$).
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The equation for velocity as a function of time is:
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ v = x_0\omega \cos(\omega t) $$</p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Since the maximum value of $\cos(\omega t)$ is 1, the maximum velocity, $v_0$, is:
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ v_0 = x_0\omega $$</p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    We can also find an equation for velocity as a function of displacement, $x$.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Derivation of $v = \pm \omega \sqrt{x_0^2 - x^2}$</h4>
+                    <div class="text-lg space-y-2">
+                        <p>1. Start with the equations for displacement and velocity:</p>
+                        <p>$$ x = x_0 \sin(\omega t) \quad \text{and} \quad v = x_0\omega \cos(\omega t) $$</p>
+                        <p>2. Rearrange them to make the trigonometric terms the subject:</p>
+                        <p>$$ \sin(\omega t) = \frac{x}{x_0} \quad \text{and} \quad \cos(\omega t) = \frac{v}{x_0\omega} $$</p>
+                        <p>3. Use the fundamental trigonometric identity:</p>
+                        <p>$$ \sin^2(\omega t) + \cos^2(\omega t) = 1 $$</p>
+                        <p>4. Substitute the expressions from step 2 into the identity:</p>
+                        <p>$$ \left(\frac{x}{x_0}\right)^2 + \left(\frac{v}{x_0\omega}\right)^2 = 1 $$</p>
+                        <p>5. Rearrange to make $v^2$ the subject:</p>
+                        <p>$$ \frac{v^2}{(x_0\omega)^2} = 1 - \frac{x^2}{x_0^2} = \frac{x_0^2 - x^2}{x_0^2} $$</p>
+                        <p>$$ v^2 = (x_0\omega)^2 \left( \frac{x_0^2 - x^2}{x_0^2} \right) = \omega^2 (x_0^2 - x^2) $$</p>
+                        <p>6. Take the square root of both sides:</p>
+                        <p class="font-semibold">$$ v = \pm \omega \sqrt{x_0^2 - x^2} $$</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO5 -->
+            <div id="LO5" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO5: Graphical Representations of SHM</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Plotting displacement, velocity, and acceleration against time reveals the phase relationships between them.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L5hH42T/shm-graphs.png" alt="Graphs of displacement, velocity, and acceleration vs time for SHM" class="rounded-lg shadow-md max-w-2xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/800x400/00BFBF/FFFFFF?text=SHM+Graphs';">
+                </div>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li>The velocity graph is a cosine curve, leading the sine curve of displacement by $\pi/2$ radians (90°).</li>
+                    <li>The acceleration graph is a negative sine curve. It is in **antiphase** with the displacement (a phase difference of $\pi$ radians or 180°), which is the defining condition of SHM.</li>
+                </ul>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Graph: SHM Curves</h4>
+                    <p class="text-base leading-relaxed mb-4">This GeoGebra applet shows the relationship between a point in uniform circular motion and the resulting SHM graphs for displacement, velocity, and acceleration. Use the slider to animate the motion.</p>
+                    <div id="geogebra-container-shm" class="w-full h-[600px] border-2 border-casco-dark-teal rounded-lg shadow-md"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        var ggbApplet1 = new GGBApplet({
+            "appName": "classic", 
+            "width": 800, 
+            "height": 600, 
+            "showToolBar": false, 
+            "showAlgebraInput": false, 
+            "showMenuBar": false, 
+            "material_id": "b7c9t2un"
+        }, true);
+        window.addEventListener("load", function() { 
+            ggbApplet1.inject('geogebra-container-shm');
+        });
+    </script>
+</body>
+</html>

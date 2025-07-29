@@ -1,1 +1,188 @@
-<!-- Placeholder for 17.2_Energy_in_SHM.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17.2 Energy in simple harmonic motion - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <!-- GeoGebra Integration -->
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Oscillations</a> &gt;
+                <span class="font-semibold">17.2 Energy in simple harmonic motion</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">17.2 Energy in simple harmonic motion</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Describe the interchange between kinetic and potential energy during simple harmonic motion.</li>
+                    <li>Recall and use $E = \frac{1}{2}m\omega^2x_0^2$ for the total energy of a system undergoing simple harmonic motion.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: Energy Interchange in SHM</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    For a system undergoing simple harmonic motion (assuming no damping), the total mechanical energy remains constant. However, there is a continuous interchange between kinetic energy ($E_k$) and potential energy ($E_p$).
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L5hH42T/shm-energy-interchange.png" alt="Diagram of a mass-spring system showing energy changes at different points of oscillation" class="rounded-lg shadow-md max-w-3xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/900x300/00BFBF/FFFFFF?text=Energy+Interchange+in+SHM';">
+                </div>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-4 text-lg">
+                    <li><strong>At maximum displacement (amplitude, $x = \pm x_0$):</strong> The object is momentarily stationary, so its velocity is zero and its kinetic energy is zero. The restoring force is at its maximum, so the potential energy (e.g., elastic potential energy in a spring) is at its maximum.</li>
+                    <li><strong>At the equilibrium position ($x = 0$):</strong> The object is moving at its maximum speed, so its kinetic energy is maximum. The restoring force is zero, so its potential energy is zero (relative to the equilibrium position).</li>
+                    <li><strong>At any other point:</strong> The total energy is a combination of both kinetic and potential energy. As the object moves away from the centre, its speed decreases (KE is converted to PE). As it moves towards the centre, its speed increases (PE is converted to KE).</li>
+                </ul>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Graph: Energy in SHM</h4>
+                    <p class="text-base leading-relaxed mb-4">This GeoGebra applet provides a powerful visualization of the energy interchange. Use the slider to animate the motion and observe how the kinetic energy (green) and potential energy (blue) graphs change with the displacement of the oscillator. Notice that their sum, the total energy (red), remains constant.</p>
+                    <div id="geogebra-container-energy" class="w-full h-[600px] border-2 border-casco-dark-teal rounded-lg shadow-md"></div>
+                </div>
+            </div>
+
+            <!-- Section for LO2 -->
+            <div id="LO2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2: Total Energy in SHM</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Since the total energy of the system is constant, we can find an expression for it by considering the point where the energy is easiest to calculate: at maximum displacement.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Detailed Derivation of $E = \frac{1}{2}m\omega^2x_0^2$</h4>
+                    <div class="text-lg space-y-2">
+                        <p>1. The total energy ($E$) of the system is constant and equal to the maximum potential energy, which occurs at the amplitude ($x=x_0$).</p>
+                        <p>$$ E = E_{p(max)} $$</p>
+                        <p>2. For a mass-spring system, the potential energy stored is the elastic potential energy, given by $E_p = \frac{1}{2}kx^2$. At maximum displacement, this is:</p>
+                        <p>$$ E = \frac{1}{2}kx_0^2 $$</p>
+                        <p>3. We need to relate the spring constant, $k$, to the properties of SHM. We know two expressions for the restoring force: Hooke's Law ($F=-kx$) and the SHM definition ($F=ma = -m\omega^2x$).</p>
+                        <p>$$ -kx = -m\omega^2x $$</p>
+                        <p>4. By comparing these two expressions, we can see that:</p>
+                        <p>$$ k = m\omega^2 $$</p>
+                        <p>5. Substitute this expression for $k$ back into the total energy equation from step 2:</p>
+                        <p>$$ E = \frac{1}{2}(m\omega^2)x_0^2 $$</p>
+                        <p>6. This gives the final formula for the total energy of any system undergoing SHM:</p>
+                        <p class="font-semibold">$$ E = \frac{1}{2}m\omega^2x_0^2 $$</p>
+                    </div>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Energy of an Oscillator</h4>
+                    <p class="text-lg leading-relaxed mb-4">A 250 g mass is attached to a spring and oscillates with SHM. The frequency of the oscillation is 5.0 Hz and the amplitude is 8.0 cm. Calculate the total energy of the oscillator.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. List variables and convert to SI units:</strong></p>
+                        <p>$$ m = 250 \text{ g} = 0.250 \text{ kg} $$</p>
+                        <p>$$ f = 5.0 \text{ Hz} $$</p>
+                        <p>$$ x_0 = 8.0 \text{ cm} = 0.080 \text{ m} $$</p>
+                        <p><strong>2. Calculate the angular frequency ($\omega$):</strong></p>
+                        <p>$$ \omega = 2\pi f = 2\pi \times 5.0 = 10\pi \text{ rad s}^{-1} $$</p>
+                        <p><strong>3. State the formula for total energy and solve:</strong></p>
+                        <p>$$ E = \frac{1}{2}m\omega^2x_0^2 $$</p>
+                        <p>$$ E = \frac{1}{2} \times (0.250) \times (10\pi)^2 \times (0.080)^2 $$</p>
+                        <p>$$ E = 0.125 \times 986.96 \times 0.0064 $$</p>
+                        <p>$$ E = 0.79 \text{ J} $$</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Masses and Springs</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    Use the "Energy" tab in this PhET simulation. You can set the mass and spring constant, and observe the energy bar charts for kinetic, potential, and total energy as the system oscillates. This provides a powerful visual confirmation of the energy interchange.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/masses-and-springs/latest/masses-and-springs_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        var ggbApplet1 = new GGBApplet({
+            "appName": "classic", 
+            "width": 800, 
+            "height": 600, 
+            "showToolBar": false, 
+            "showAlgebraInput": false, 
+            "showMenuBar": false, 
+            "material_id": "qp9T5k6E"
+        }, true);
+        window.addEventListener("load", function() { 
+            ggbApplet1.inject('geogebra-container-energy');
+        });
+
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

@@ -1,1 +1,205 @@
-<!-- Placeholder for 22.2_Photoelectric_Effect.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>22.2 The photoelectric effect - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Quantum Physics</a> &gt;
+                <span class="font-semibold">22.2 The photoelectric effect</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">22.2 The photoelectric effect</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Understand that photoelectrons may be emitted from a metal surface when it is illuminated by electromagnetic radiation.</li>
+                    <li>Understand and use the terms threshold frequency and threshold wavelength.</li>
+                    <li>Explain photoelectric emission in terms of photon energy and work function energy.</li>
+                    <li>Recall and use $hf = \Phi + \frac{1}{2}mv_{max}^2$.</li>
+                    <li>Explain why the maximum kinetic energy of photoelectrons is independent of intensity, whereas the photoelectric current is proportional to intensity.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: Photoelectric Emission</h3>
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">The Historical Context: A Scientific Reversal</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    For centuries, the nature of light was a central question in physics. Isaac Newton's highly influential 'corpuscular' theory proposed that light was composed of tiny particles. This view was the prevailing consensus for over a century.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    However, in the early 1800s, Thomas Young's double-slit experiment provided definitive proof of light's wave-like properties, showing that it could diffract and create interference patterns. This discovery caused a major shift in scientific thought, and the wave model became the universally accepted explanation for the nature of light.
+                </p>
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Einstein's "Miracle Year" (1905)</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The story might have ended there, but then came Albert Einstein. In 1905, while working as a patent clerk after a less-than-stellar university career, he had what is now known as his *annus mirabilis*, or "miracle year." In a single year, he published three revolutionary papers that would change the course of science forever:
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li><strong>Brownian Motion:</strong> He mathematically proved the existence of atoms by explaining that the random, jiggling motion of pollen grains in water was caused by them being bombarded by unseen, randomly moving water molecules.</li>
+                    <li><strong>Special Relativity:</strong> He introduced the world to the iconic equation $E=mc^2$ and completely redefined our understanding of space and time.</li>
+                    <li><strong>The Photoelectric Effect:</strong> This was the paper that would eventually win him the Nobel Prize. He explained that certain experimental results, which the wave theory of light couldn't account for, made perfect sense if you assumed light was not a continuous wave but a stream of discrete energy packets, or "quanta."</li>
+                </ul>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    In a stunning turn of events, Einstein had brought back Newton's particle idea, but in a new, quantum form. He proposed that light was both a wave *and* a particle, a concept now known as wave-particle duality. These particles of light are called **photons**, and they are the key to understanding the photoelectric effect.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The **photoelectric effect** is the emission of electrons from the surface of a material (usually a metal) when electromagnetic radiation of a high enough frequency is shone on it. The emitted electrons are called **photoelectrons**.
+                </p>
+            </div>
+
+            <!-- Section for LO2 & LO3 -->
+            <div id="LO2_3" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2 & LO3: Threshold Frequency and the Work Function</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Albert Einstein explained the photoelectric effect by proposing that light consists of photons. The key idea is that each electron on the metal surface can absorb the energy of only a **single photon**.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The electrons in a metal are held in place by electrostatic forces. To be liberated from the surface, an electron must be given a certain minimum amount of energy.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    The **work function ($\Phi$)** is the minimum energy required to remove a single electron from the surface of a particular metal.
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Since an electron can only absorb one photon, it will only be emitted if the energy of that single photon ($E=hf$) is greater than or equal to the work function. This leads to the concept of a **threshold frequency ($f_0$)**.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    The **threshold frequency** is the minimum frequency of electromagnetic radiation required to cause photoelectric emission from the surface of a particular metal.
+                </blockquote>
+                <p class="text-center text-lg font-semibold my-4">$$ hf_0 = \Phi $$</p>
+            </div>
+
+            <!-- Section for LO4 -->
+            <div id="LO4" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO4: Einstein's Photoelectric Equation</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Einstein's photoelectric equation is a simple statement of the conservation of energy for the one-photon, one-electron interaction.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="font-semibold text-center">Energy of incident photon = Work Function + Maximum KE of photoelectron</p>
+                    <p class="font-semibold text-center mt-2">$$ hf = \Phi + E_{k(max)} $$</p>
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    $E_{k(max)}$ is the maximum kinetic energy because the work function, $\Phi$, is the *minimum* energy required to escape. Some electrons deeper within the metal may require more energy to escape, and so will be emitted with less kinetic energy.
+                </p>
+                
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Graphical Analysis of the Photoelectric Equation</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    If we rearrange the photoelectric equation into the form of a straight-line graph ($y=mx+c$), we get:
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ E_{k(max)} = hf - \Phi $$</p>
+                <p class="text-lg leading-relaxed mb-4">
+                    Plotting a graph of $E_{k(max)}$ (y-axis) against frequency $f$ (x-axis) provides powerful experimental verification of the photon model.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L5hH42T/photoelectric-graph.png" alt="Graph of maximum kinetic energy vs frequency for the photoelectric effect" class="rounded-lg shadow-md max-w-xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/700x500/00BFBF/FFFFFF?text=Ek-f+Graph';">
+                </div>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li>The **gradient** of the graph is equal to the **Planck constant ($h$)**.</li>
+                    <li>The **x-intercept** gives the **threshold frequency ($f_0$)**.</li>
+                    <li>The **y-intercept** is equal to the **negative of the work function ($-\Phi$)**.</li>
+                </ul>
+            </div>
+
+            <!-- Section for LO5 -->
+            <div id="LO5" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO5: The Role of Intensity</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The photon model perfectly explains the experimental observations related to the intensity of the incident light.
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-4 text-lg">
+                    <li><strong>Maximum KE is independent of intensity:</strong> In the photon model, the intensity of light is proportional to the number of photons arriving per second. Increasing the intensity means more photons arrive, but the energy of each individual photon ($E=hf$) remains the same. Since each electron absorbs only one photon, the maximum kinetic energy it can be emitted with is fixed by the light's frequency, not its intensity.</li>
+                    <li><strong>Photoelectric current is proportional to intensity:</strong> A higher intensity means more photons are incident on the surface per second. This leads to more one-to-one interactions with electrons per second, so more photoelectrons are emitted per second. A greater rate of flow of charge results in a larger photoelectric current.</li>
+                </ul>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Photoelectric Effect</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    This PhET simulation is the best tool for visualizing the particulate nature of light. You can change the wavelength (colour) of the light and observe that individual electrons are only ejected if the individual photons have enough energy. You can also plot the Energy vs. Frequency graph directly in the simulation.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/photoelectric-effect/latest/photoelectric-effect_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

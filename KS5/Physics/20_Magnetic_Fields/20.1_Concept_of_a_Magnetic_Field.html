@@ -1,1 +1,173 @@
-<!-- Placeholder for 20.1_Concept_of_a_Magnetic_Field.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20.1 Concept of a magnetic field - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Magnetic Fields</a> &gt;
+                <span class="font-semibold">20.1 Concept of a magnetic field</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">20.1 Concept of a magnetic field</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Understand that a magnetic field is an example of a field of force produced either by moving charges or by permanent magnets.</li>
+                    <li>Represent a magnetic field by means of field lines.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: The Origin of Magnetic Fields</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    A **magnetic field** is a field of force that is created by and acts upon other moving charges and magnetic materials. Unlike gravitational fields (created by mass) and electric fields (created by static charge), magnetic fields have two distinct sources:
+                </p>
+                <ol class="list-decimal list-inside ml-4 my-2 space-y-4 text-lg">
+                    <li>
+                        <strong>Moving Charges (Currents):</strong> Any moving electric charge creates a magnetic field in the space around it. An electric current is a flow of charge, so every current-carrying wire is surrounded by a magnetic field. This is the fundamental principle of electromagnetism.
+                    </li>
+                    <li>
+                        <strong>Permanent Magnets:</strong> The magnetism in permanent magnets like bar magnets arises from the motion of electrons within the atoms of the material. Specifically, a property of electrons called "spin" creates a tiny magnetic field. In magnetic materials like iron, the spins of many electrons can align in the same direction, creating a large-scale, persistent magnetic field.
+                    </li>
+                </ol>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: The Source of Magnetism</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/hFAOXd_pIK4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO2 -->
+            <div id="LO2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2: Representing Magnetic Fields</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    We visualize magnetic fields using **magnetic field lines**. These lines are imaginary, but they provide a powerful way to map the strength and direction of the field.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    The direction of the magnetic field line at any point is the direction of the force that would be exerted on a **free north pole** placed at that point.
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The rules for drawing magnetic field lines are:
+                </p>
+                <ol class="list-decimal list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li>Field lines always emerge from a **North pole** and enter a **South pole**.</li>
+                    <li>The spacing of the field lines represents the strength of the field; closer lines indicate a stronger field.</li>
+                    <li>Field lines never cross each other.</li>
+                </ol>
+                <div class="grid md:grid-cols-2 gap-8 text-center mt-6">
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Bar Magnet</h4>
+                        <img src="https://i.ibb.co/L5hH42T/magnetic-field-bar-magnet.png" alt="Field lines for a single bar magnet" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/400x300/00BFBF/FFFFFF?text=Bar+Magnet';">
+                        <p class="mt-2 text-lg">Lines loop from North to South.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Attracting Poles (N-S)</h4>
+                        <img src="https://i.ibb.co/gZ7Q02C/magnetic-field-attracting.png" alt="Field lines between attracting north and south poles" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/400x300/009999/FFFFFF?text=Attraction';">
+                        <p class="mt-2 text-lg">Lines connect the two poles.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Repelling Poles (N-N)</h4>
+                        <img src="https://i.ibb.co/yqg6K1Q/magnetic-field-repelling.png" alt="Field lines between two repelling north poles" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/400x300/33EBEB/FFFFFF?text=Repulsion';">
+                        <p class="mt-2 text-lg">Lines curve away from each other, with a neutral point in the middle.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Current-Carrying Wire</h4>
+                        <img src="https://i.ibb.co/L5BwY3t/magnetic-field-wire.png" alt="Field lines around a current-carrying wire" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/400x300/E0F2F1/000000?text=Wire+Field';">
+                        <p class="mt-2 text-lg">Concentric circles, with direction given by the right-hand grip rule.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Magnets and Electromagnets</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    This PhET simulation is the perfect tool for visualizing magnetic fields. You can use a bar magnet or create an electromagnet with a current-carrying coil. Use the compass and field meter to explore the strength and direction of the field at any point.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/magnets-and-electromagnets/latest/magnets-and-electromagnets_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

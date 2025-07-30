@@ -1,1 +1,202 @@
-<!-- Placeholder for 19.3_Discharging_a_Capacitor.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>19.3 Discharging a capacitor - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <!-- GeoGebra Integration -->
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Capacitance</a> &gt;
+                <span class="font-semibold">19.3 Discharging a capacitor</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">19.3 Discharging a capacitor</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Analyse graphs of the variation with time of potential difference, charge and current for a capacitor discharging through a resistor.</li>
+                    <li>Recall and use $\tau = RC$ for the time constant for a capacitor discharging through a resistor.</li>
+                    <li>Use equations of the form $x = x_0 e^{–(t / RC)}$ where $x$ could represent current, charge or potential difference for a capacitor discharging through a resistor.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: Analysing the Discharge Process</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    When a charged capacitor is connected to a resistor, it begins to discharge. Electrons flow from the negative plate, through the resistor, to the positive plate, neutralizing the charge. This process is not instantaneous.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The rate of discharge is fastest at the beginning because the potential difference across the capacitor is at its maximum, driving the largest current through the resistor. As the charge on the plates decreases, the potential difference also decreases (since $V=Q/C$). This smaller p.d. drives a smaller current, so the rate of discharge slows down. This results in an **exponential decay** for the charge, potential difference, and current.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L5hH42T/capacitor-discharge-graphs.png" alt="Graphs of charge, voltage, and current against time for a discharging capacitor" class="rounded-lg shadow-md max-w-2xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/800x400/00BFBF/FFFFFF?text=Discharge+Graphs';">
+                </div>
+            </div>
+
+            <!-- Section for LO2 -->
+            <div id="LO2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2: The Time Constant ($\tau$)</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The rate of discharge is determined by the product of the resistance and the capacitance. This product is called the **time constant ($\tau$)**.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="font-semibold">$$ \tau = RC $$</p>
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The time constant has units of seconds and represents the time taken for the charge, potential difference, or current to decrease to $1/e$ (approximately 37%) of its initial value. A larger time constant means a slower discharge.
+                </p>
+
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Understanding the Exponential Term $e^{-t/RC}$</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    The exponent in the decay equation, $-t/RC$, can be confusing. It's best understood as a dimensionless ratio. Since $\tau = RC$, the term can be written as $-t/\tau$.
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    This ratio, $t/\tau$, simply answers the question: **"How many time constants have passed?"**
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li>When $t = \tau$ (one time constant has passed), the exponent is -1. The charge remaining is $Q = Q_0e^{-1} \approx 0.37 Q_0$.</li>
+                    <li>When $t = 2\tau$ (two time constants have passed), the exponent is -2. The charge remaining is $Q = Q_0e^{-2} \approx 0.135 Q_0$.</li>
+                </ul>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    This is very similar to the concept of half-life in radioactive decay. Just as half-life is the time for half of the nuclei to decay, the time constant is the time for the charge to fall to about 37% of its initial value.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/gZ7Q02C/time-constant-graph.png" alt="Graph of exponential decay showing the meaning of the time constant" class="rounded-lg shadow-md max-w-xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/700x400/009999/FFFFFF?text=Time+Constant+Graph';">
+                </div>
+            </div>
+
+            <!-- Section for LO3 -->
+            <div id="LO3" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO3: Exponential Decay Equations</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The exponential decay of charge, potential difference, and current during discharge can be described by the following equations, where $x_0$ is the initial value at $t=0$.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="font-semibold text-center">$$ Q = Q_0 e^{-t/RC} $$</p>
+                    <p class="font-semibold text-center">$$ V = V_0 e^{-t/RC} $$</p>
+                    <p class="font-semibold text-center">$$ I = I_0 e^{-t/RC} $$</p>
+                </blockquote>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example 1: Finding Values after a Time</h4>
+                    <p class="text-lg leading-relaxed mb-4">A 4700 $\mu$F capacitor is charged to a potential difference of 12 V and then discharged through a 2.0 k$\Omega$ resistor. Calculate the charge remaining on the capacitor after 10 s.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Calculate the initial charge ($Q_0$):</strong></p>
+                        <p>$$ Q_0 = CV_0 = (4700 \times 10^{-6} \text{ F}) \times (12 \text{ V}) = 0.0564 \text{ C} $$</p>
+                        <p><strong>2. Calculate the time constant ($\tau = RC$):</strong></p>
+                        <p>$$ \tau = (2000 \, \Omega) \times (4700 \times 10^{-6} \text{ F}) = 9.4 \text{ s} $$</p>
+                        <p><strong>3. Apply the decay equation for charge:</strong></p>
+                        <p>$$ Q = Q_0 e^{-t/RC} $$</p>
+                        <p>$$ Q = 0.0564 \times e^{-10/9.4} $$</p>
+                        <p>$$ Q = 0.0564 \times e^{-1.064} = 0.0564 \times 0.345 = 0.0195 \text{ C} $$</p>
+                    </div>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example 2: Finding the Time Taken</h4>
+                    <p class="text-lg leading-relaxed mb-4">For the same circuit, calculate the time taken for the potential difference across the capacitor to fall to 3.0 V.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. State the decay equation for voltage:</strong></p>
+                        <p>$$ V = V_0 e^{-t/RC} $$</p>
+                        <p><strong>2. Substitute values and rearrange:</strong></p>
+                        <p>$$ 3.0 = 12 e^{-t/9.4} $$</p>
+                        <p>$$ \frac{3.0}{12} = e^{-t/9.4} \implies 0.25 = e^{-t/9.4} $$</p>
+                        <p><strong>3. Take natural logarithms (ln) of both sides:</strong></p>
+                        <p>$$ \ln(0.25) = \ln(e^{-t/9.4}) $$</p>
+                        <p>$$ -1.386 = -\frac{t}{9.4} $$</p>
+                        <p><strong>4. Solve for $t$:</strong></p>
+                        <p>$$ t = 1.386 \times 9.4 = 13.0 \text{ s} $$</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Capacitor Lab</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    Use the "Light Bulb" tab in this PhET simulation. Charge the capacitor fully, then flip the switch to discharge it through the bulb. Use the voltmeter and timer to take readings and try to plot a discharge curve. Observe how changing R and C affects the time it takes for the bulb to dim.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/capacitor-lab-basics/latest/capacitor-lab-basics_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

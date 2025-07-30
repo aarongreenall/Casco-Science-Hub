@@ -1,1 +1,183 @@
-<!-- Placeholder for 20.4_Magnetic_Fields_due_to_Currents.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20.4 Magnetic fields due to currents - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Magnetic Fields</a> &gt;
+                <span class="font-semibold">20.4 Magnetic fields due to currents</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">20.4 Magnetic fields due to currents</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Sketch magnetic field patterns due to the currents in a long straight wire, a flat circular coil and a long solenoid.</li>
+                    <li>Understand that the magnetic field due to the current in a solenoid is increased by a ferrous core.</li>
+                    <li>Explain the origin of the forces between current-carrying conductors and determine the direction of the forces.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: Magnetic Field Patterns</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Any wire carrying an electric current produces a magnetic field. The shape of this field depends on the shape of the wire.
+                </p>
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Long Straight Wire</h4>
+                        <img src="https://i.ibb.co/L5BwY3t/magnetic-field-wire.png" alt="Field lines around a current-carrying wire" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/400x300/E0F2F1/000000?text=Wire+Field';">
+                        <p class="mt-2 text-lg">The field consists of concentric circles centred on the wire. The direction is given by the **Right-Hand Grip Rule**: if your thumb points in the direction of the conventional current, your fingers curl in the direction of the field lines.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Flat Circular Coil</h4>
+                        <img src="https://i.ibb.co/yqg6K1Q/magnetic-field-coil.png" alt="Field lines for a flat circular coil" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/400x300/33EBEB/FFFFFF?text=Coil+Field';">
+                        <p class="mt-2 text-lg">The fields from each part of the wire loop combine to create a stronger, concentrated field through the centre of the coil. The field lines loop around the outside of the coil.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Long Solenoid</h4>
+                        <img src="https://i.ibb.co/gZ7Q02C/magnetic-field-solenoid.png" alt="Field lines for a long solenoid" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/400x300/009999/FFFFFF?text=Solenoid+Field';">
+                        <p class="mt-2 text-lg">A long coil of wire creates a strong, uniform magnetic field inside the solenoid, with the field lines being parallel and equally spaced. The external field is weak and resembles that of a bar magnet.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO2 -->
+            <div id="LO2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2: The Effect of a Ferrous Core</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The magnetic field produced by a solenoid can be made much stronger by placing a **ferrous core** (a soft iron core) inside it. This creates an **electromagnet**.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Ferrous materials like iron are made up of tiny regions called **magnetic domains**. Normally, these domains are randomly oriented, so their individual magnetic fields cancel each other out. However, when the solenoid's magnetic field is applied, it causes these domains to align. The aligned domains produce their own strong magnetic field, which adds to the original field of the solenoid, resulting in a much stronger overall magnetic field.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L5hH42T/magnetic-domains.png" alt="Diagram showing random and aligned magnetic domains in a ferrous core" class="rounded-lg shadow-md max-w-xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/700x250/00BFBF/FFFFFF?text=Magnetic+Domains';">
+                </div>
+            </div>
+
+            <!-- Section for LO3 -->
+            <div id="LO3" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO3: Forces Between Current-Carrying Conductors</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Since any current-carrying wire creates a magnetic field, and any wire in a magnetic field experiences a force, it follows that two current-carrying wires placed near each other will exert forces on each other.
+                </p>
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Origin of the Force</h4>
+                <ol class="list-decimal list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li>Wire 1, carrying current $I_1$, produces a magnetic field ($B_1$) around it.</li>
+                    <li>Wire 2, carrying current $I_2$, is now sitting in the magnetic field $B_1$.</li>
+                    <li>According to the motor effect ($F=BIL$), Wire 2 experiences a force due to the field from Wire 1.</li>
+                    <li>By Newton's Third Law, Wire 1 must experience an equal and opposite force from the magnetic field of Wire 2.</li>
+                </ol>
+                <div class="grid md:grid-cols-2 gap-8 text-center mt-6">
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Parallel Currents (Attraction)</h4>
+                        <img src="https://i.ibb.co/yqg6K1Q/parallel-currents-attract.png" alt="Field pattern and forces for two parallel currents" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/400x350/00BFBF/FFFFFF?text=Parallel+Currents';">
+                        <p class="mt-2 text-lg">The magnetic field between the wires is weakened, and the wires are pushed together.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Anti-parallel Currents (Repulsion)</h4>
+                        <img src="https://i.ibb.co/L5BwY3t/antiparallel-currents-repel.png" alt="Field pattern and forces for two anti-parallel currents" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/400x350/009999/FFFFFF?text=Anti-parallel+Currents';">
+                        <p class="mt-2 text-lg">The magnetic field between the wires is strengthened, and the wires are pushed apart.</p>
+                    </div>
+                </div>
+                 <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Forces on Wires</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/pGz3-L4_a-4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Magnets and Electromagnets</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    Use the "Electromagnet" tab in this PhET simulation. You can create a solenoid and observe its magnetic field. See how the field strength (measured by the meter) increases when you increase the current or the number of loops.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/magnets-and-electromagnets/latest/magnets-and-electromagnets_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

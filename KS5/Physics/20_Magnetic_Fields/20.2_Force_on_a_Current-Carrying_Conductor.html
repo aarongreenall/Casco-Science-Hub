@@ -1,1 +1,185 @@
-<!-- Placeholder for 20.2_Force_on_a_Current-Carrying_Conductor.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20.2 Force on a current-carrying conductor - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Magnetic Fields</a> &gt;
+                <span class="font-semibold">20.2 Force on a current-carrying conductor</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">20.2 Force on a current-carrying conductor</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Understand that a force might act on a current-carrying conductor placed in a magnetic field.</li>
+                    <li>Recall and use the equation $F = BIL \sin \theta$, with directions as interpreted by Fleming’s left-hand rule.</li>
+                    <li>Define magnetic flux density as the force acting per unit current per unit length on a wire placed at right-angles to the magnetic field.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: The Motor Effect</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    We know that moving charges create a magnetic field. It follows that a magnetic field will exert a force on a moving charge. An electric current is a flow of moving charge carriers (electrons). Therefore, when a wire carrying an electric current is placed in an external magnetic field, it will experience a force. This phenomenon is known as the **motor effect**.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The force arises from the interaction between the magnetic field of the permanent magnet and the magnetic field created by the current in the wire. The two fields superpose, creating a stronger field on one side of the wire and a weaker field on the other. This results in a net force pushing the wire from the region of stronger field to the region of weaker field.
+                </p>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Demonstration: The Motor Effect</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/B4n45-a7m0I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO2 -->
+            <div id="LO2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2: Calculating the Magnetic Force</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The magnitude of the force on a current-carrying wire in a magnetic field depends on the strength of the field, the size of the current, the length of the wire in the field, and the angle between the wire and the field lines.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="font-semibold">$$ F = BIL \sin \theta $$</p>
+                </blockquote>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li>$F$ is the force on the conductor in newtons (N).</li>
+                    <li>$B$ is the magnetic flux density of the external field in tesla (T).</li>
+                    <li>$I$ is the current in the conductor in amperes (A).</li>
+                    <li>$L$ is the length of the conductor within the magnetic field in metres (m).</li>
+                    <li>$\theta$ is the angle between the conductor and the magnetic field lines.</li>
+                </ul>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The direction of the force is always perpendicular to both the current and the magnetic field, and is given by **Fleming's Left-Hand Rule**.
+                </p>
+                <div class="flex flex-col md:flex-row items-center justify-center my-6 gap-8">
+                    <img src="https://i.ibb.co/L5hH42T/flemings-left-hand-rule.png" alt="Diagram of Fleming's Left-Hand Rule" class="rounded-lg shadow-md max-w-sm w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00BFBF/FFFFFF?text=Fleming\'s+Left-Hand+Rule';">
+                    <ul class="list-disc list-inside space-y-4 text-lg md:w-1/2">
+                        <li><strong>Th</strong>umb represents the direction of the **Th**rust or **F**orce.</li>
+                        <li><strong>F</strong>irst finger represents the direction of the magnetic **F**ield (North to South).</li>
+                        <li>se**C**ond finger represents the direction of the conventional **C**urrent (Positive to Negative).</li>
+                    </ul>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Force on a Wire</h4>
+                    <p class="text-lg leading-relaxed mb-4">A straight wire of length 5.0 cm is placed in a uniform magnetic field of flux density 0.040 T. The wire carries a current of 2.0 A and makes an angle of 30° with the field lines. Calculate the magnitude of the force on the wire.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Identify variables and convert to SI units:</strong></p>
+                        <p>$$ B = 0.040 \text{ T}, \quad I = 2.0 \text{ A}, \quad L = 5.0 \text{ cm} = 0.050 \text{ m}, \quad \theta = 30^\circ $$</p>
+                        <p><strong>2. State the formula and substitute values:</strong></p>
+                        <p>$$ F = BIL \sin \theta $$</p>
+                        <p>$$ F = (0.040) \times (2.0) \times (0.050) \times \sin(30^\circ) $$</p>
+                        <p>$$ F = (0.004) \times (0.5) $$</p>
+                        <p>$$ F = 0.0020 \text{ N} \text{ (or 2.0 mN)} $$</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO3 -->
+            <div id="LO3" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO3: Defining Magnetic Flux Density ($B$)</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The quantity $B$, **magnetic flux density**, is a measure of the strength of a magnetic field. We can define it formally by rearranging the motor effect equation for the case of maximum force, which occurs when the wire is perpendicular to the field ($\theta = 90^\circ$, so $\sin\theta = 1$).
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    Magnetic flux density is the force acting per unit current per unit length on a wire placed at right-angles to the magnetic field.
+                </blockquote>
+                <p class="text-center text-lg font-semibold my-4">$$ B = \frac{F}{IL} $$</p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The SI unit for magnetic flux density is the **tesla (T)**. From the equation, we can see that $1 \text{ T} = 1 \text{ N A}^{-1} \text{m}^{-1}$. One tesla is a very strong magnetic field; the Earth's magnetic field is about 50 $\mu$T.
+                </p>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Magnetic Force</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    This PhET simulation allows you to explore the force on a current-carrying wire in a magnetic field. You can change the current, magnetic field strength, and length of the wire to see the effect on the force.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/faradays-law/latest/faradays-law_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

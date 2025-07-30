@@ -1,1 +1,200 @@
-<!-- Placeholder for 21.1_Characteristics_of_AC.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21.1 Characteristics of a.c. - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <!-- GeoGebra Integration -->
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Alternating Currents</a> &gt;
+                <span class="font-semibold">21.1 Characteristics of a.c.</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">21.1 Characteristics of a.c.</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Understand and use the terms period, frequency and peak value as applied to an alternating current or voltage.</li>
+                    <li>Use equations of the form $x = x_0 \sin \omega t$ representing a sinusoidally alternating current or voltage.</li>
+                    <li>Recall and use the fact that the mean power in a resistive load is half the maximum power for a sinusoidal alternating current.</li>
+                    <li>Distinguish between root-mean-square (r.m.s.) and peak values and recall and use $I_{r.m.s.} = I_0 / \sqrt{2}$ and $V_{r.m.s.} = V_0 / \sqrt{2}$ for a sinusoidal alternating current.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 & LO2 -->
+            <div id="LO1_2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1 & LO2: Describing Alternating Currents</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    An **alternating current (a.c.)** is an electric current that periodically reverses direction, in contrast to direct current (d.c.), which flows in a single direction. The most common form of a.c. is a **sinusoidal** waveform, where the current and voltage vary as a sine or cosine function of time.
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li><strong>Period (T):</strong> The time taken for one complete cycle of the alternating current.</li>
+                    <li><strong>Frequency (f):</strong> The number of complete cycles per second ($f=1/T$).</li>
+                    <li><strong>Peak Value ($I_0$ or $V_0$):</strong> The maximum value of the current or voltage in a cycle. This is the amplitude of the sine wave.</li>
+                </ul>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The instantaneous value of a sinusoidal current ($I$) or voltage ($V$) at time $t$ can be described by the equations:
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ I = I_0 \sin(\omega t) \quad \text{and} \quad V = V_0 \sin(\omega t) $$</p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    where $\omega$ is the angular frequency ($\omega = 2\pi f$).
+                </p>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Graph: Sinusoidal A.C.</h4>
+                    <p class="text-base leading-relaxed mb-4">This GeoGebra applet shows a sinusoidal voltage waveform. Use the sliders to change the peak voltage ($V_0$) and the frequency ($f$) and observe the effect on the shape of the graph.</p>
+                    <div id="geogebra-container-ac" class="w-full h-[600px] border-2 border-casco-dark-teal rounded-lg shadow-md"></div>
+                </div>
+            </div>
+
+            <!-- Section for LO3 & LO4 -->
+            <div id="LO3_4" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO3 & LO4: Power and r.m.s. Values</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Since the current and voltage in an a.c. circuit are constantly changing, the instantaneous power dissipated in a resistor ($P=I^2R$) also changes. The average current over a full cycle is zero, but the average power is not, because the power is proportional to $I^2$, which is always positive.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The **mean power ($\bar{P}$)** dissipated in a resistor in an a.c. circuit is exactly **half the maximum power ($P_0$)**.
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ \bar{P} = \frac{1}{2}P_0 = \frac{1}{2}I_0^2R $$</p>
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Root-Mean-Square (r.m.s.) Values</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    To make a.c. calculations more convenient, we use an "effective" value for current and voltage called the **root-mean-square (r.m.s.) value**.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    The r.m.s. value of an alternating current is the value of the direct current that would dissipate thermal energy at the same rate (i.e., produce the same power) in a given resistor.
+                </blockquote>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Detailed Derivation of r.m.s. Values</h4>
+                    <div class="text-lg space-y-2">
+                        <p>1. The power dissipated by a direct current $I_{DC}$ in a resistor $R$ is $P_{DC} = I_{DC}^2R$.</p>
+                        <p>2. The mean power dissipated by an alternating current with peak value $I_0$ is $\bar{P}_{AC} = \frac{1}{2}I_0^2R$.</p>
+                        <p>3. By definition, the r.m.s. current ($I_{r.m.s.}$) is the value of $I_{DC}$ that produces the same power. So, we set $P_{DC} = \bar{P}_{AC}$ and $I_{DC} = I_{r.m.s.}$.</p>
+                        <p>$$ (I_{r.m.s.})^2 R = \frac{1}{2}I_0^2R $$</p>
+                        <p>4. The resistance $R$ cancels from both sides:</p>
+                        <p>$$ (I_{r.m.s.})^2 = \frac{I_0^2}{2} $$</p>
+                        <p>5. Taking the square root of both sides gives the final relationship:</p>
+                        <p class="font-semibold">$$ I_{r.m.s.} = \frac{I_0}{\sqrt{2}} $$</p>
+                        <p>6. Since $V=IR$, the same relationship holds for voltage:</p>
+                        <p class="font-semibold">$$ V_{r.m.s.} = \frac{V_0}{\sqrt{2}} $$</p>
+                    </div>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: r.m.s. Values and Power</h4>
+                    <p class="text-lg leading-relaxed mb-4">The mains electricity supply in the UK is quoted as 230 V. This is the r.m.s. value. For this supply, calculate (a) the peak voltage, and (b) the mean power dissipated by a 100 $\Omega$ resistor connected to it.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>(a) Calculate the peak voltage ($V_0$):</strong></p>
+                        <p>$$ V_{r.m.s.} = \frac{V_0}{\sqrt{2}} \implies V_0 = V_{r.m.s.} \times \sqrt{2} $$</p>
+                        <p>$$ V_0 = 230 \times \sqrt{2} = 325.27... \approx 330 \text{ V} $$</p>
+                        <p><strong>(b) Calculate the mean power ($\bar{P}$):</strong></p>
+                        <p>We can use the standard power formulas with r.m.s. values to find the mean power directly.</p>
+                        <p>$$ \bar{P} = \frac{V_{r.m.s.}^2}{R} $$</p>
+                        <p>$$ \bar{P} = \frac{(230)^2}{100} $$</p>
+                        <p>$$ \bar{P} = \frac{52900}{100} = 529 \text{ W} \approx 530 \text{ W} $$</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: AC Circuits</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    This PhET simulation allows you to build simple AC circuits. Use the voltmeter and ammeter to observe the oscillating values, and use the chart to see the sinusoidal waveforms.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/circuit-construction-kit-ac/latest/circuit-construction-kit-ac_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        var ggbApplet1 = new GGBApplet({
+            "appName": "classic", 
+            "width": 800, 
+            "height": 600, 
+            "showToolBar": false, 
+            "showAlgebraInput": false, 
+            "showMenuBar": false, 
+            "material_id": "b378g6s6"
+        }, true);
+        window.addEventListener("load", function() { 
+            ggbApplet1.inject('geogebra-container-ac');
+        });
+
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

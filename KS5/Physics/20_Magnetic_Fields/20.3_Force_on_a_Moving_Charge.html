@@ -1,1 +1,211 @@
-<!-- Placeholder for 20.3_Force_on_a_Moving_Charge.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20.3 Force on a moving charge - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Magnetic Fields</a> &gt;
+                <span class="font-semibold">20.3 Force on a moving charge</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">20.3 Force on a moving charge</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Determine the direction of the force on a charge moving in a magnetic field.</li>
+                    <li>Recall and use $F = BQv \sin \theta$.</li>
+                    <li>Understand the origin of the Hall voltage and derive and use the expression $V_H = BI / (ntq)$, where t = thickness.</li>
+                    <li>Understand the use of a Hall probe to measure magnetic flux density.</li>
+                    <li>Describe the motion of a charged particle moving in a uniform magnetic field perpendicular to the direction of motion of the particle.</li>
+                    <li>Explain how electric and magnetic fields can be used in velocity selection.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 & LO2 -->
+            <div id="LO1_2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1 & LO2: Force on a Moving Charge</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Since an electric current is a flow of charge carriers, the motor effect can be understood at the level of a single charge. A magnetic field exerts a force on an individual moving charge.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="font-semibold">$$ F = BQv \sin \theta $$</p>
+                </blockquote>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li>$F$ is the force on the charge in newtons (N).</li>
+                    <li>$B$ is the magnetic flux density in tesla (T).</li>
+                    <li>$Q$ is the magnitude of the charge in coulombs (C).</li>
+                    <li>$v$ is the speed of the charge in metres per second (m s⁻¹).</li>
+                    <li>$\theta$ is the angle between the velocity vector of the charge and the magnetic field lines.</li>
+                </ul>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The direction of this force is given by **Fleming's Left-Hand Rule**, where the second finger (Current) now represents the direction of motion of a **positive charge**. If the moving charge is negative (like an electron), the force is in the **opposite direction** to that predicted by the rule.
+                </p>
+            </div>
+
+            <!-- Section for LO5 -->
+            <div id="LO5" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO5: Circular Motion in a Magnetic Field</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Consider a charged particle moving perpendicular to a uniform magnetic field ($\theta = 90^\circ$, so $\sin\theta = 1$). The magnetic force is $F = BQv$. According to Fleming's Left-Hand Rule, this force is always perpendicular to the particle's velocity.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    A force that is always perpendicular to the velocity will change the direction of the motion but not the speed. This is the exact condition required for **uniform circular motion**. The magnetic force provides the centripetal force.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L5hH42T/circular-motion-b-field.png" alt="Diagram showing a charged particle moving in a circular path in a uniform magnetic field" class="rounded-lg shadow-md max-w-lg w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Circular+Motion';">
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Radius of Path</h4>
+                    <p class="text-lg leading-relaxed mb-4">An electron is accelerated through a potential difference of 500 V and then enters a uniform magnetic field of flux density 2.0 mT, perpendicular to its path. Calculate the radius of the circular path it follows.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Find the speed of the electron ($v$):</strong> The work done by the electric field equals the kinetic energy gained.</p>
+                        <p>$$ QV = \frac{1}{2}mv^2 \implies v = \sqrt{\frac{2QV}{m}} $$</p>
+                        <p>$$ v = \sqrt{\frac{2(1.60 \times 10^{-19})(500)}{9.11 \times 10^{-31}}} = 1.33 \times 10^7 \text{ m s}^{-1} $$</p>
+                        <p><strong>2. Equate magnetic force and centripetal force:</strong></p>
+                        <p>$$ BQv = \frac{mv^2}{r} $$</p>
+                        <p><strong>3. Rearrange for radius ($r$):</strong></p>
+                        <p>$$ r = \frac{mv}{BQ} $$</p>
+                        <p><strong>4. Substitute values and solve:</strong></p>
+                        <p>$$ r = \frac{(9.11 \times 10^{-31})(1.33 \times 10^7)}{(2.0 \times 10^{-3})(1.60 \times 10^{-19})} = 0.0378 \text{ m} \approx 3.8 \text{ cm} $$</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO6 -->
+            <div id="LO6" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO6: Velocity Selection</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    By applying both a uniform electric field and a uniform magnetic field, perpendicular to each other and to the initial velocity of a charged particle, we can create a **velocity selector**.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/gZ7Q02C/velocity-selector.png" alt="Diagram of a velocity selector with crossed electric and magnetic fields" class="rounded-lg shadow-md max-w-xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/700x350/009999/FFFFFF?text=Velocity+Selector';">
+                </div>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The electric field exerts a force $F_E = QE$ in one direction (e.g., downwards). The magnetic field exerts a force $F_B = BQv$ in the opposite direction (e.g., upwards). For a specific speed, these two forces will be equal in magnitude, resulting in a zero net force. Particles travelling at this specific speed will pass through undeflected, while faster or slower particles will be deflected.
+                </p>
+                <p>$$ F_E = F_B \implies QE = BQv $$</p>
+                <p class="text-center text-lg font-semibold my-4">$$ v = \frac{E}{B} $$</p>
+            </div>
+
+            <!-- Section for LO3 & LO4 -->
+            <div id="LO3_4" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO3 & LO4: The Hall Effect and Hall Probes</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The **Hall effect** is the production of a potential difference (the **Hall voltage**) across an electrical conductor, transverse to an electric current in the conductor and a magnetic field perpendicular to the current.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    When a current flows through a thin slice of semiconductor material in a magnetic field, the magnetic force ($F_B = BQv$) pushes the charge carriers (e.g., electrons) to one side of the slice. This accumulation of charge creates a transverse electric field, $E_H$. This field exerts an opposing electric force, $F_E = QE_H$, on the charge carriers. Equilibrium is reached when the two forces balance.
+                </p>
+                 <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/yqg6K1Q/hall-effect-diagram.png" alt="Diagram showing the forces on an electron in a Hall probe" class="rounded-lg shadow-md max-w-lg w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/33EBEB/FFFFFF?text=Hall+Effect';">
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Derivation of the Hall Voltage Equation</h4>
+                    <div class="text-lg space-y-2">
+                        <p>1. At equilibrium, the magnetic force equals the electric force: $F_B = F_E$.</p>
+                        <p>$$ Bqv = qE_H \implies Bv = E_H $$</p>
+                        <p>2. The Hall voltage $V_H$ across the slice of width $w$ (often written as $d$ in other contexts) is related to the electric field by $E_H = V_H/w$.</p>
+                        <p>$$ Bv = \frac{V_H}{w} \implies V_H = Bvw $$</p>
+                        <p>3. From the drift velocity equation, we know $I=Anvq$. For a slice of thickness $t$ and width $w$, the area is $A=wt$. So, $v = \frac{I}{n(wt)q}$.</p>
+                        <p>4. Substitute this expression for $v$ into the equation for $V_H$:</p>
+                        <p>$$ V_H = B \left( \frac{I}{nwtq} \right) w $$</p>
+                        <p>5. The width $w$ cancels, giving the final Hall voltage equation:</p>
+                        <p class="font-semibold">$$ V_H = \frac{BI}{ntq} $$</p>
+                    </div>
+                </div>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    A **Hall probe** is a device that uses this principle to measure magnetic flux density. Since $V_H \propto B$ (for constant $I, n, t, q$), the probe can be calibrated so that its voltage output gives a direct reading of the magnetic field strength.
+                </p>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Magnetic Force</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    This PhET simulation allows you to explore the force on a current-carrying wire in a magnetic field. While it doesn't show single charges, the principles are the same.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/faradays-law/latest/faradays-law_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

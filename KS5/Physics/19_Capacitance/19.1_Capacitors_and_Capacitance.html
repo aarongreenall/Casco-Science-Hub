@@ -1,1 +1,217 @@
-<!-- Placeholder for 19.1_Capacitors_and_Capacitance.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>19.1 Capacitors and capacitance - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Capacitance</a> &gt;
+                <span class="font-semibold">19.1 Capacitors and capacitance</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">19.1 Capacitors and capacitance</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Define capacitance, as applied to both isolated spherical conductors and to parallel plate capacitors.</li>
+                    <li>Recall and use $C = Q / V$.</li>
+                    <li>Derive, using $C = Q / V$, formulae for the combined capacitance of capacitors in series and in parallel.</li>
+                    <li>Use the capacitance formulae for capacitors in series and in parallel.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 & LO2 -->
+            <div id="LO1_2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1 & LO2: The Concept of Capacitance</h3>
+                
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Why Use a Capacitor?</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    A **capacitor** is an electrical component that stores electric charge, and therefore electrical potential energy. While a battery also stores energy, a capacitor can release its energy much, much faster. This makes them essential for a wide range of applications:
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li><strong>Smoothing Voltage:</strong> In power supplies that convert AC to DC, capacitors are used to smooth out the rectified voltage, providing a steady DC output.</li>
+                    <li><strong>Timing Circuits:</strong> The predictable way a capacitor charges and discharges allows it to be used as the basis for timing circuits.</li>
+                    <li><strong>Energy Storage for Fast Discharge:</strong> Applications like a camera flash or a defibrillator require a large burst of energy in a very short time, which is a key function of a capacitor.</li>
+                    <li><strong>Tuning and Filtering:</strong> In radios and audio equipment, capacitors are used in circuits that select or filter out specific frequencies.</li>
+                </ul>
+
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How a Parallel Plate Capacitor Works</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The most common type of capacitor consists of two parallel conducting plates separated by an insulating material called a **dielectric**. When connected to a power source like a battery:
+                </p>
+                <ol class="list-decimal list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li>The battery pulls electrons from the plate connected to its positive terminal, making that plate positively charged.</li>
+                    <li>The battery pushes these electrons onto the plate connected to its negative terminal, making that plate negatively charged.</li>
+                    <li>This process continues until the potential difference across the capacitor plates is equal to the e.m.f. of the battery. At this point, the capacitor is fully charged.</li>
+                    <li>An electric field is established in the dielectric between the two oppositely charged plates, and this field is where the electrical potential energy is stored.</li>
+                </ol>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L5hH42T/capacitor-charging.png" alt="Diagram showing the charging process of a parallel plate capacitor" class="rounded-lg shadow-md max-w-xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/700x350/00BFBF/FFFFFF?text=Capacitor+Charging';">
+                </div>
+
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: The Re-chargeable Battery</h4>
+                    <p class="text-lg leading-relaxed">Think of a capacitor like a small, very fast re-chargeable battery. It can't hold nearly as much energy as a normal battery, but it can be charged up almost instantly and, more importantly, can release all of its stored energy in a sudden, powerful burst.</p>
+                </div>
+
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Real-World Capacitors</h4>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/gZ7Q02C/capacitor-types.jpg" alt="Images of different types of real-world capacitors" class="rounded-lg shadow-md max-w-lg w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/009999/FFFFFF?text=Capacitor+Types';">
+                </div>
+
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Defining Capacitance</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The ability of a capacitor to store charge is known as its **capacitance ($C$)**.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    Capacitance is defined as the ratio of the charge stored on an object to the potential difference across it.
+                </blockquote>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="font-semibold">$$ C = \frac{Q}{V} $$</p>
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The SI unit of capacitance is the **farad (F)**, where one farad is one coulomb per volt (1 F = 1 C V⁻¹). The farad is a very large unit, so capacitance is often measured in microfarads ($\mu$F, $10^{-6}$ F), nanofarads (nF, $10^{-9}$ F), or picofarads (pF, $10^{-12}$ F).
+                </p>
+            </div>
+
+            <!-- Section for LO3 & LO4 -->
+            <div id="LO3_4" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO3 & LO4: Capacitors in Combination</h3>
+                
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Capacitors in Parallel</h4>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Derivation for Parallel Capacitors</h4>
+                    <div class="flex flex-col md:flex-row items-center justify-center my-6 gap-8">
+                        <img src="https://i.ibb.co/L5hH42T/capacitors-parallel.png" alt="Circuit diagram of capacitors in parallel" class="rounded-lg shadow-md max-w-xs w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/300x300/00BFBF/FFFFFF?text=Parallel+Capacitors';">
+                        <div class="text-lg space-y-2 md:w-2/3">
+                            <p>1. In a parallel circuit, the potential difference $V$ across each capacitor is the same as the source voltage.</p>
+                            <p>2. The total charge $Q_T$ stored is the sum of the charges stored on each capacitor: $Q_T = Q_1 + Q_2 + \dots$</p>
+                            <p>3. From the definition of capacitance, $Q=CV$. Substitute this into the charge equation:</p>
+                            <p>$$ C_T V = C_1 V + C_2 V + \dots $$</p>
+                            <p>4. Since the voltage $V$ is common to all terms, it can be cancelled out:</p>
+                            <p class="font-semibold">$$ C_T = C_1 + C_2 + \dots $$</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Capacitors in Series</h4>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Derivation for Series Capacitors</h4>
+                    <div class="flex flex-col md:flex-row items-center justify-center my-6 gap-8">
+                        <img src="https://i.ibb.co/gZ7Q02C/capacitors-series.png" alt="Circuit diagram of capacitors in series" class="rounded-lg shadow-md max-w-xs w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/300x300/009999/FFFFFF?text=Series+Capacitors';">
+                        <div class="text-lg space-y-2 md:w-2/3">
+                            <p>1. In a series circuit, the charge $Q$ stored on each capacitor is the same.</p>
+                            <p>2. The total potential difference $V_T$ from the source is shared between the capacitors: $V_T = V_1 + V_2 + \dots$</p>
+                            <p>3. From the definition of capacitance, $V=Q/C$. Substitute this into the voltage equation:</p>
+                            <p>$$ \frac{Q}{C_T} = \frac{Q}{C_1} + \frac{Q}{C_2} + \dots $$</p>
+                            <p>4. Since the charge $Q$ is common to all terms, it can be cancelled out:</p>
+                            <p class="font-semibold">$$ \frac{1}{C_T} = \frac{1}{C_1} + \frac{1}{C_2} + \dots $$</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Combined Capacitance</h4>
+                    <p class="text-lg leading-relaxed mb-4">A 10 $\mu$F capacitor and a 20 $\mu$F capacitor are connected to a 12 V supply. Calculate the total capacitance and the total charge stored if they are connected (a) in parallel, and (b) in series.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>(a) In Parallel:</strong></p>
+                        <p>$$ C_T = C_1 + C_2 = 10 + 20 = 30 \, \mu\text{F} $$</p>
+                        <p>$$ Q_T = C_T V = (30 \times 10^{-6} \text{ F}) \times (12 \text{ V}) = 3.6 \times 10^{-4} \text{ C} $$</p>
+                        <p><strong>(b) In Series:</strong></p>
+                        <p>$$ \frac{1}{C_T} = \frac{1}{C_1} + \frac{1}{C_2} = \frac{1}{10} + \frac{1}{20} = \frac{2+1}{20} = \frac{3}{20} $$</p>
+                        <p>$$ C_T = \frac{20}{3} = 6.7 \, \mu\text{F} $$</p>
+                        <p>$$ Q_T = C_T V = (6.7 \times 10^{-6} \text{ F}) \times (12 \text{ V}) = 8.0 \times 10^{-5} \text{ C} $$</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Capacitor Lab</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    Use the "Multiple Capacitors" tab in this PhET simulation to build series and parallel circuits. Verify the rules for combining capacitance and check your answers to the worked example.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/capacitor-lab-basics/latest/capacitor-lab-basics_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

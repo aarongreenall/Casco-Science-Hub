@@ -1,1 +1,195 @@
-<!-- Placeholder for 22.3_Wave-Particle_Duality.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>22.3 Wave-particle duality - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Quantum Physics</a> &gt;
+                <span class="font-semibold">22.3 Wave-particle duality</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">22.3 Wave-particle duality</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Understand that the photoelectric effect provides evidence for a particulate nature of electromagnetic radiation while phenomena such as interference and diffraction provide evidence for a wave nature.</li>
+                    <li>Describe and interpret qualitatively the evidence provided by electron diffraction for the wave nature of particles.</li>
+                    <li>Understand the de Broglie wavelength as the wavelength associated with a moving particle.</li>
+                    <li>Recall and use $\lambda = h / p$.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: Wave-Particle Duality</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    One of the most profound and counter-intuitive concepts in modern physics is **wave-particle duality**. This principle states that all matter and radiation exhibit both wave-like and particle-like properties. Which property is observed depends on the experiment being performed.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gray-100 p-4 rounded-lg">
+                        <h5 class="text-lg font-semibold text-center">Evidence for Wave Nature</h5>
+                        <p class="mt-2 text-lg">Phenomena like **interference** and **diffraction** can only be explained by considering electromagnetic radiation as a wave. The constructive and destructive superposition of wavefronts is a purely wave-like behaviour.</p>
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded-lg">
+                        <h5 class="text-lg font-semibold text-center">Evidence for Particle Nature</h5>
+                        <p class="mt-2 text-lg">The **photoelectric effect** can only be explained by considering electromagnetic radiation as a stream of discrete particles (photons), where each photon carries a specific quantum of energy.</p>
+                    </div>
+                </div>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Therefore, light is not simply a wave or simply a particle; it is a more complex quantum entity that reveals one aspect of its nature depending on how we interact with it.
+                </p>
+            </div>
+
+            <!-- Section for LO2 -->
+            <div id="LO2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2: Electron Diffraction - Evidence for the Wave Nature of Particles</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    If waves (light) can behave like particles, can particles (like electrons) behave like waves? The answer is yes. The definitive proof for the wave nature of particles came from the phenomenon of **electron diffraction**.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    In an electron diffraction experiment, a beam of electrons is accelerated through a high voltage and then directed at a target. The target is a very thin crystalline material, such as graphite. The regular, repeating structure of the atoms in the crystal acts like a natural diffraction grating.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L5hH42T/electron-diffraction-tube.png" alt="Diagram of an electron diffraction tube" class="rounded-lg shadow-md max-w-xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/700x400/00BFBF/FFFFFF?text=Electron+Diffraction+Tube';">
+                </div>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    If electrons were only particles, they would pass straight through or scatter randomly. Instead, a distinct pattern of concentric rings is observed on a fluorescent screen. This pattern is an **interference pattern**, which can only be produced if the electrons are diffracting as they pass through the atomic layers of the crystal and then interfering constructively and destructively. This provides clear evidence that particles like electrons have a wave-like nature.
+                </p>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Electron Diffraction</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/A-b2Y_1v-k0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO3 & LO4 -->
+            <div id="LO3_4" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO3 & LO4: The de Broglie Wavelength</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    In 1924, Louis de Broglie proposed that all moving particles have a wavelength associated with them. This **de Broglie wavelength ($\lambda$)** is related to the particle's momentum ($p$).
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    We already know that for a photon, momentum is given by $p = h/\lambda$. De Broglie hypothesised that this relationship applies to all particles, not just photons.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="font-semibold">$$ \lambda = \frac{h}{p} = \frac{h}{mv} $$</p>
+                </blockquote>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example 1: Wavelength of an Electron</h4>
+                    <p class="text-lg leading-relaxed mb-4">Calculate the de Broglie wavelength of an electron accelerated through a potential difference of 150 V. (Mass of electron = $9.11 \times 10^{-31}$ kg).</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Find the speed of the electron ($v$):</strong> The kinetic energy gained is equal to the work done by the electric field.</p>
+                        <p>$$ E_k = VQ = (150 \text{ V}) \times (1.60 \times 10^{-19} \text{ C}) = 2.4 \times 10^{-17} \text{ J} $$</p>
+                        <p>$$ E_k = \frac{1}{2}mv^2 \implies v = \sqrt{\frac{2E_k}{m}} = \sqrt{\frac{2(2.4 \times 10^{-17})}{9.11 \times 10^{-31}}} = 7.26 \times 10^6 \text{ m s}^{-1} $$</p>
+                        <p><strong>2. Calculate the momentum ($p$):</strong></p>
+                        <p>$$ p = mv = (9.11 \times 10^{-31}) \times (7.26 \times 10^6) = 6.61 \times 10^{-24} \text{ kg m s}^{-1} $$</p>
+                        <p><strong>3. Calculate the de Broglie wavelength ($\lambda$):</strong></p>
+                        <p>$$ \lambda = \frac{h}{p} = \frac{6.63 \times 10^{-34}}{6.61 \times 10^{-24}} = 1.0 \times 10^{-10} \text{ m} $$</p>
+                        <p>This wavelength (0.1 nm) is comparable to the spacing of atoms in a crystal, which is why diffraction effects are observable.</p>
+                    </div>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example 2: Wavelength of a Tennis Ball</h4>
+                    <p class="text-lg leading-relaxed mb-4">A tennis ball of mass 60 g is travelling at a speed of 40 m s⁻¹. Calculate its de Broglie wavelength.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Calculate the momentum ($p$):</strong></p>
+                        <p>$$ p = mv = (0.060 \text{ kg}) \times (40 \text{ m s}^{-1}) = 2.4 \text{ kg m s}^{-1} $$</p>
+                        <p><strong>2. Calculate the de Broglie wavelength ($\lambda$):</strong></p>
+                        <p>$$ \lambda = \frac{h}{p} = \frac{6.63 \times 10^{-34}}{2.4} = 2.76 \times 10^{-34} \text{ m} $$</p>
+                        <p>This wavelength is incredibly small, many orders of magnitude smaller than any possible gap or obstacle. This is why we do not observe wave-like properties for macroscopic objects in our everyday lives.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Wave Interference</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    Use the "Diffraction" tab in this PhET simulation. You can switch the particles from photons to electrons and observe that they produce the same type of diffraction pattern, providing a powerful visual confirmation of wave-particle duality.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/wave-interference/latest/wave-interference_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

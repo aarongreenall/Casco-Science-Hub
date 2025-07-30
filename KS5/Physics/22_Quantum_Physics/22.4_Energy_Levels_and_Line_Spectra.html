@@ -1,1 +1,205 @@
-<!-- Placeholder for 22.4_Energy_Levels_and_Line_Spectra.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>22.4 Energy levels and line spectra - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Quantum Physics</a> &gt;
+                <span class="font-semibold">22.4 Energy levels and line spectra</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">22.4 Energy levels and line spectra</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Understand that there are discrete electron energy levels in isolated atoms (e.g. atomic hydrogen).</li>
+                    <li>Understand the appearance and formation of emission and absorption line spectra.</li>
+                    <li>Recall and use $hf = E_{higher} – E_{lower}$.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: Discrete Electron Energy Levels</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The Rutherford model of the atom, with electrons orbiting a central nucleus like planets around the sun, had a major flaw. According to classical physics, any accelerating charge must radiate electromagnetic energy. An electron in a circular orbit is continuously accelerating (as its direction is changing), so it should continuously lose energy and spiral into the nucleus in a fraction of a second. This "death spiral" obviously does not happen, meaning the classical model was incomplete.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Niels Bohr proposed a radical new model to solve this problem. While his model still pictured electrons in planetary-like orbits, he made a revolutionary postulate: he suggested that electrons could only exist in specific, "special" or "stable" orbits without radiating energy, in defiance of classical physics.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Each of these stable orbits corresponds to a specific, **discrete energy level**. An electron in an isolated atom cannot have an energy value between these levels; its energy is **quantised**. While Bohr's model of fixed orbits was later superseded by Schrödinger's full quantum mechanical model (which describes electrons in probability clouds called orbitals), Bohr's core concept of discrete, quantised energy levels remains a fundamental part of our modern understanding.
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li>The lowest possible energy level an electron can occupy is called the **ground state** (labelled n=1).</li>
+                    <li>Any energy level higher than the ground state is called an **excited state** (n=2, n=3, etc.).</li>
+                </ul>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    By convention, the energy of an electron that is completely free from the atom (at an infinite distance, n=$\infty$) is defined as 0 eV. Since work must be done to move an electron from a stable orbit out to infinity, all the energy levels within the atom have **negative** energy values.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L5hH42T/energy-levels-hydrogen.png" alt="Energy level diagram for a hydrogen atom" class="rounded-lg shadow-md max-w-lg w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x500/00BFBF/FFFFFF?text=Hydrogen+Energy+Levels';">
+                </div>
+            </div>
+
+            <!-- Section for LO2 -->
+            <div id="LO2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2: Emission and Absorption Spectra</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The existence of discrete energy levels provides a perfect explanation for the characteristic line spectra observed from different elements.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Emission Line Spectra</h4>
+                        <p class="text-lg leading-relaxed mb-4">When an atom is excited (e.g., by heating it in a flame or passing a high voltage through a gas), its electrons jump to higher energy levels. These excited states are unstable, and the electrons quickly fall back down to lower levels. When an electron de-excites, it emits a single photon. The energy of this photon is exactly equal to the energy difference between the two levels. Since only specific energy transitions are possible, only photons of specific energies (and therefore specific frequencies and wavelengths) are emitted. When this light is passed through a prism or diffraction grating, it produces a spectrum of discrete bright lines on a dark background.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Absorption Line Spectra</h4>
+                        <p class="text-lg leading-relaxed mb-4">When white light (containing a continuous range of all frequencies) is passed through a cool gas, the atoms in the gas will absorb photons. However, an atom can only absorb a photon if its energy is exactly equal to the energy difference between two of its electron energy levels. This excites the electron to a higher level. These specific frequencies are therefore removed from the spectrum of the transmitted light. When this light is passed through a prism, it produces a continuous spectrum with discrete dark lines at the exact positions where the emission lines would be for that element.</p>
+                    </div>
+                </div>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/gZ7Q02C/emission-absorption-spectra.png" alt="Diagram comparing emission and absorption line spectra for the same element" class="rounded-lg shadow-md max-w-2xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/800x300/009999/FFFFFF?text=Line+Spectra';">
+                </div>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Atomic Spectra</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/AO0o__s42_Q" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO3 -->
+            <div id="LO3" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO3: The Energy Transition Equation</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The relationship between the energy of an emitted or absorbed photon and the electron energy levels is given by the following equation, which is a direct application of the conservation of energy.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="font-semibold">$$ hf = E_{higher} - E_{lower} $$</p>
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Where $E_{higher}$ is the energy of the higher energy level and $E_{lower}$ is the energy of the lower energy level involved in the transition.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Converting between Joules and Electronvolts</h4>
+                    <p class="text-lg leading-relaxed mb-4">
+                        Energy levels are almost always given in electronvolts (eV), but the Planck constant is in joule-seconds (J s). It is essential to be able to convert between these units.
+                    </p>
+                    <p class="text-center text-lg font-semibold my-4">$$ 1 \text{ eV} = 1.60 \times 10^{-19} \text{ J} $$</p>
+                    <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                        <li>To convert from **eV to J**, you **multiply** by $1.60 \times 10^{-19}$.</li>
+                        <li>To convert from **J to eV**, you **divide** by $1.60 \times 10^{-19}$.</li>
+                    </ul>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Emission Spectrum of Hydrogen</h4>
+                    <p class="text-lg leading-relaxed mb-4">Using the energy level diagram for hydrogen shown above, calculate the wavelength of the photon emitted when an electron transitions from the n=3 level to the n=2 level.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Identify the energy levels:</strong></p>
+                        <p>$$ E_{higher} = E_3 = -1.51 \text{ eV} $$</p>
+                        <p>$$ E_{lower} = E_2 = -3.40 \text{ eV} $$</p>
+                        <p><strong>2. Calculate the energy of the emitted photon in eV:</strong></p>
+                        <p>$$ \Delta E = E_{higher} - E_{lower} = (-1.51) - (-3.40) = 1.89 \text{ eV} $$</p>
+                        <p><strong>3. Convert the photon energy to Joules:</strong></p>
+                        <p>$$ E_{Joules} = 1.89 \text{ eV} \times (1.60 \times 10^{-19} \text{ J/eV}) = 3.024 \times 10^{-19} \text{ J} $$</p>
+                        <p><strong>4. Use the photon energy equation to find the wavelength:</strong></p>
+                        <p>$$ E = \frac{hc}{\lambda} \implies \lambda = \frac{hc}{E} $$</p>
+                        <p>$$ \lambda = \frac{(6.63 \times 10^{-34})(3.00 \times 10^8)}{3.024 \times 10^{-19}} $$</p>
+                        <p>$$ \lambda = 6.58 \times 10^{-7} \text{ m} = 658 \text{ nm} $$</p>
+                        <p>This corresponds to a specific red line in the visible spectrum of hydrogen (the H-alpha line).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Models of the Hydrogen Atom</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    This PhET simulation is the perfect tool for visualizing electron transitions. Shine light of different wavelengths on a model hydrogen atom and observe which photons are absorbed, causing the electron to jump to a higher level. Then, watch as the electron de-excites and emits a photon of a specific colour.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/models-of-the-hydrogen-atom/latest/models-of-the-hydrogen-atom_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

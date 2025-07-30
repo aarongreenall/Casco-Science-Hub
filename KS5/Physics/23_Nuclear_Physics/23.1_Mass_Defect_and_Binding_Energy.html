@@ -1,1 +1,237 @@
-<!-- Placeholder for 23.1_Mass_Defect_and_Binding_Energy.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23.1 Mass defect and binding energy - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Nuclear Physics</a> &gt;
+                <span class="font-semibold">23.1 Mass defect and binding energy</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">23.1 Mass defect and binding energy</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Understand the equivalence between energy and mass as represented by $E = mc^2$ and recall and use this equation.</li>
+                    <li>Represent simple nuclear reactions by nuclear equations of the form $^{14}_{7}N + ^{4}_{2}He \rightarrow ^{17}_{8}O + ^{1}_{1}H$.</li>
+                    <li>Define and use the terms mass defect and binding energy.</li>
+                    <li>Sketch the variation of binding energy per nucleon with nucleon number.</li>
+                    <li>Explain what is meant by nuclear fusion and nuclear fission.</li>
+                    <li>Explain the relevance of binding energy per nucleon to nuclear reactions, including nuclear fusion and nuclear fission.</li>
+                    <li>Calculate the energy released in nuclear reactions using $E = c^2\Delta m$.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: Mass-Energy Equivalence</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    One of the most profound principles in physics, discovered by Albert Einstein, is that mass and energy are equivalent and can be converted into one another. Mass can be thought of as a highly concentrated form of energy.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="font-semibold">$$ E = mc^2 $$</p>
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Where $E$ is energy, $m$ is mass, and $c$ is the speed of light in a vacuum ($3.00 \times 10^8$ m s⁻¹). Because $c^2$ is a huge number, this equation shows that a tiny amount of mass can be converted into a vast amount of energy. This principle is the key to understanding all nuclear reactions.
+                </p>
+            </div>
+
+            <!-- Section for LO2 -->
+            <div id="LO2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2: Nuclear Equations</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Nuclear reactions, including radioactive decay, fission, and fusion, can be represented by balanced nuclear equations. In any nuclear reaction, two quantities must be conserved:
+                </p>
+                <ol class="list-decimal list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li><strong>Nucleon Number (A):</strong> The total number of protons and neutrons must be the same on both sides of the equation.</li>
+                    <li><strong>Proton Number (Z):</strong> The total charge (number of protons) must be the same on both sides of the equation.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO3 & LO7 -->
+            <div id="LO3_7" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO3 & LO7: Mass Defect and Binding Energy</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Careful measurements show that the mass of a nucleus is always slightly *less* than the sum of the masses of its individual, separate constituent protons and neutrons.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    The **mass defect ($\Delta m$)** is the difference between the total mass of the separate nucleons and the mass of the nucleus.
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    This "missing mass" has been converted into energy according to $E=mc^2$. This energy is the **binding energy ($E_B$)** of the nucleus.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    The **binding energy** is the minimum energy required to completely separate a nucleus into its constituent nucleons. It is also the energy released when a nucleus is formed from its constituent nucleons.
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The energy released in any nuclear reaction is calculated using the mass defect and Einstein's equation:
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ E = \Delta m c^2 $$</p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The mathematics for calculating binding energy can look complicated with lots of small numbers, but there are some simple rules to follow to avoid errors.
+                </p>
+                <ol class="list-decimal list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li>Count the number of protons in the nucleus and multiply by the mass of one proton.</li>
+                    <li>Count the number of neutrons in the nucleus and multiply by the mass of one neutron.</li>
+                    <li>Add these two values together to get the total mass of the separate parts.</li>
+                    <li>Subtract the actual mass of the nucleus from this total to find the mass defect, $\Delta m$.</li>
+                    <li>**Never round your numbers during these steps.** The mass defect is a very small quantity, and premature rounding will lead to significant errors.</li>
+                </ol>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example 1: Binding Energy of Helium-4</h4>
+                    <p class="text-lg leading-relaxed mb-4">Calculate the binding energy of a helium-4 nucleus ($^{4}_{2}He$).<br>
+                    Mass of proton = $1.67262 \times 10^{-27}$ kg<br>
+                    Mass of neutron = $1.67493 \times 10^{-27}$ kg<br>
+                    Mass of He-4 nucleus = $6.64466 \times 10^{-27}$ kg</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Calculate the total mass of the separate nucleons:</strong></p>
+                        <p>$$ \text{Total mass} = (2 \times m_p) + (2 \times m_n) $$</p>
+                        <p>$$ = (2 \times 1.67262 \times 10^{-27}) + (2 \times 1.67493 \times 10^{-27}) $$</p>
+                        <p>$$ = (3.34524 \times 10^{-27}) + (3.34986 \times 10^{-27}) $$</p>
+                        <p>Factor out the common power of 10:</p>
+                        <p>$$ = (3.34524 + 3.34986) \times 10^{-27} = 6.69510 \times 10^{-27} \text{ kg} $$</p>
+                        <p><strong>2. Calculate the mass defect ($\Delta m$):</strong></p>
+                        <p>$$ \Delta m = (6.69510 \times 10^{-27}) - (6.64466 \times 10^{-27}) = 0.05044 \times 10^{-27} \text{ kg} $$</p>
+                        <p><strong>3. Calculate the binding energy ($E_B$):</strong></p>
+                        <p>$$ E_B = \Delta m c^2 = (0.05044 \times 10^{-27}) \times (3.00 \times 10^8)^2 $$</p>
+                        <p>$$ E_B = 4.54 \times 10^{-12} \text{ J} $$</p>
+                    </div>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example 2: Energy Released in Alpha Decay</h4>
+                    <p class="text-lg leading-relaxed mb-4">Calculate the energy released in the alpha decay of Radium-226. The reaction is: $^{226}_{88}Ra \rightarrow ^{222}_{86}Rn + ^{4}_{2}He$.<br>
+                    Mass of Ra-226 nucleus = 226.02541 u<br>
+                    Mass of Rn-222 nucleus = 222.01758 u<br>
+                    Mass of He-4 nucleus = 4.00260 u<br>
+                    (1 u = $1.6605 \times 10^{-27}$ kg)</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Calculate the total mass before the decay:</strong></p>
+                        <p>$$ m_{before} = 226.02541 \text{ u} $$</p>
+                        <p><strong>2. Calculate the total mass after the decay:</strong></p>
+                        <p>$$ m_{after} = m_{Rn} + m_{He} = 222.01758 + 4.00260 = 226.02018 \text{ u} $$</p>
+                        <p><strong>3. Calculate the mass defect ($\Delta m$) in atomic mass units (u):</strong></p>
+                        <p>$$ \Delta m = m_{before} - m_{after} = 226.02541 - 226.02018 = 0.00523 \text{ u} $$</p>
+                        <p><strong>4. Convert the mass defect to kilograms:</strong></p>
+                        <p>$$ \Delta m_{kg} = 0.00523 \times (1.6605 \times 10^{-27}) = 8.684 \times 10^{-30} \text{ kg} $$</p>
+                        <p><strong>5. Calculate the energy released ($E$):</strong></p>
+                        <p>$$ E = \Delta m c^2 = (8.684 \times 10^{-30}) \times (3.00 \times 10^8)^2 $$</p>
+                        <p>$$ E = 7.82 \times 10^{-13} \text{ J} $$</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO4, LO5, LO6 -->
+            <div id="LO4_5_6" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO4, LO5 & LO6: Binding Energy per Nucleon and Nuclear Reactions</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    To compare the stability of different nuclei, we use the **binding energy per nucleon ($E_B/A$)**. This is the total binding energy of a nucleus divided by the number of nucleons it contains. A higher binding energy per nucleon indicates a more stable nucleus.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L5hH42T/binding-energy-curve.png" alt="Graph of binding energy per nucleon vs nucleon number" class="rounded-lg shadow-md max-w-2xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/800x500/00BFBF/FFFFFF?text=Binding+Energy+Curve';">
+                </div>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The graph of binding energy per nucleon against nucleon number is one of the most important in physics. It shows that the most stable nuclei are in the region of iron (Fe), which has the highest peak. This graph is the key to understanding energy release in nuclear reactions:
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-4 text-lg">
+                    <li><strong>Nuclear Fission:</strong> A very heavy, unstable nucleus (like Uranium-235) is on the right side of the peak, with a relatively low binding energy per nucleon. If it splits into two smaller, more stable nuclei (which are closer to the peak), the new nuclei have a **higher** binding energy per nucleon. This increase in binding energy is released as a large amount of energy.</li>
+                    <li><strong>Nuclear Fusion:</strong> Very light nuclei (like hydrogen isotopes) are on the left side of the peak, with a very low binding energy per nucleon. If they are forced to fuse together to form a heavier nucleus (like helium), the new nucleus is more stable and has a **higher** binding energy per nucleon. This increase in binding energy is released as a vast amount of energy. This is the process that powers the Sun.</li>
+                </ul>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: The Binding Energy Curve</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/fH6f_69g_Qk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Nuclear Fission</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    This PhET simulation allows you to induce fission in a Uranium-235 nucleus. Observe how the nucleus splits into smaller daughter nuclei and releases a huge amount of energy, as predicted by the binding energy curve.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/nuclear-fission/latest/nuclear-fission_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

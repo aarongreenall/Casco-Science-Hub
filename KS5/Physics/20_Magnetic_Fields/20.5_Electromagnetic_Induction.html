@@ -1,1 +1,212 @@
-<!-- Placeholder for 20.5_Electromagnetic_Induction.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20.5 Electromagnetic induction - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Magnetic Fields</a> &gt;
+                <span class="font-semibold">20.5 Electromagnetic induction</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">20.5 Electromagnetic induction</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Define magnetic flux as the product of the magnetic flux density and the cross-sectional area perpendicular to the direction of the magnetic flux density.</li>
+                    <li>Recall and use $\Phi = BA$.</li>
+                    <li>Understand and use the concept of magnetic flux linkage.</li>
+                    <li>Understand and explain experiments that demonstrate:
+                        <ul class="list-disc list-inside ml-6">
+                            <li>that a changing magnetic flux can induce an e.m.f. in a circuit</li>
+                            <li>that the induced e.m.f. is in such a direction as to oppose the change producing it</li>
+                            <li>the factors affecting the magnitude of the induced e.m.f.</li>
+                        </ul>
+                    </li>
+                    <li>Recall and use Faraday’s and Lenz’s laws of electromagnetic induction.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1, LO2, LO3 -->
+            <div id="LO1_2_3" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1, LO2 & LO3: Magnetic Flux and Flux Linkage</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    **Magnetic flux ($\Phi$)** is a measure of the total amount of magnetic field passing through a given area. It can be thought of as the number of magnetic field lines passing through that area.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    Magnetic flux is the product of the magnetic flux density and the cross-sectional area perpendicular to the direction of the magnetic flux density.
+                </blockquote>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="font-semibold">$$ \Phi = BA $$</p>
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The SI unit for magnetic flux is the **weber (Wb)**, where 1 Wb = 1 T m².
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Magnetic Flux</h4>
+                    <p class="text-lg leading-relaxed mb-4">A circular coil of radius 5.0 cm is placed in a uniform magnetic field of flux density 0.040 T. The plane of the coil is perpendicular to the field lines. Calculate the magnetic flux through the coil.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Calculate the area of the coil in SI units:</strong></p>
+                        <p>$$ r = 5.0 \text{ cm} = 0.050 \text{ m} $$</p>
+                        <p>$$ A = \pi r^2 = \pi (0.050)^2 = 7.85 \times 10^{-3} \text{ m}^2 $$</p>
+                        <p><strong>2. State the formula and solve:</strong></p>
+                        <p>$$ \Phi = BA $$</p>
+                        <p>$$ \Phi = (0.040 \text{ T}) \times (7.85 \times 10^{-3} \text{ m}^2) $$</p>
+                        <p>$$ \Phi = 3.14 \times 10^{-4} \text{ Wb} $$</p>
+                    </div>
+                </div>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    When dealing with a coil of wire with $N$ turns, the total flux passing through the entire coil is called the **magnetic flux linkage ($N\Phi$)**. It is the product of the number of turns and the flux through a single turn.
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ \text{Flux Linkage} = N\Phi = NBA $$</p>
+            </div>
+
+            <!-- Section for LO4 & LO5 -->
+            <div id="LO4_5" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO4 & LO5: The Laws of Electromagnetic Induction</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Experiments show that an e.m.f. (and therefore a current, if there is a complete circuit) is induced in a conductor whenever the magnetic flux linkage it experiences changes. This is the principle of **electromagnetic induction**. This can be achieved by:
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li>Moving a magnet relative to a coil.</li>
+                    <li>Moving a coil relative to a magnet.</li>
+                    <li>Changing the magnetic field strength (e.g., by changing the current in a nearby electromagnet).</li>
+                </ul>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Demonstration: Electromagnetic Induction</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/hajIIGHPeuU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Faraday's Law of Induction</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    Faraday's Law quantifies the magnitude of the induced e.m.f. The factors affecting the magnitude are the amount of flux change and the time taken for that change.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    The magnitude of the induced e.m.f. is directly proportional to the rate of change of magnetic flux linkage.
+                </blockquote>
+                <p class="text-center text-lg font-semibold my-4">$$ \mathcal{E} \propto \frac{\Delta(N\Phi)}{\Delta t} $$</p>
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Lenz's Law</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    Lenz's Law determines the direction of the induced e.m.f. and current. It is a consequence of the conservation of energy.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    The direction of the induced e.m.f. is such that it will oppose the change in magnetic flux that is producing it.
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    For example, if you push the north pole of a magnet into a coil, the induced current will flow in a direction that creates a north pole at that end of the coil to repel the incoming magnet. Work must be done against this repulsion to generate the electrical energy.
+                </p>
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">The Combined Law</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    Combining Faraday's Law (for magnitude) and Lenz's Law (for direction, represented by the minus sign) gives the full equation for electromagnetic induction:
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="font-semibold">$$ \mathcal{E} = -N\frac{\Delta\Phi}{\Delta t} $$</p>
+                </blockquote>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Induced e.m.f.</h4>
+                    <p class="text-lg leading-relaxed mb-4">A coil with 500 turns and a cross-sectional area of $4.0 \times 10^{-4}$ m² is placed in a uniform magnetic field of flux density 0.25 T, with its plane perpendicular to the field. The coil is then pulled out of the field in a time of 0.10 s. Calculate the magnitude of the average e.m.f. induced.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Calculate the initial magnetic flux linkage ($N\Phi_{initial}$):</strong></p>
+                        <p>$$ N\Phi_{initial} = NBA = (500) \times (0.25 \text{ T}) \times (4.0 \times 10^{-4} \text{ m}^2) = 0.050 \text{ Wb} $$</p>
+                        <p><strong>2. Determine the final flux linkage:</strong></p>
+                        <p>When the coil is out of the field, the flux linkage is zero. $N\Phi_{final} = 0$.</p>
+                        <p><strong>3. Calculate the change in flux linkage ($\Delta(N\Phi)$):</strong></p>
+                        <p>$$ \Delta(N\Phi) = N\Phi_{final} - N\Phi_{initial} = 0 - 0.050 = -0.050 \text{ Wb} $$</p>
+                        <p><strong>4. Apply Faraday's Law to find the magnitude of the e.m.f.:</strong></p>
+                        <p>$$ |\mathcal{E}| = \left|-N\frac{\Delta\Phi}{\Delta t}\right| = \left|-\frac{\Delta(N\Phi)}{\Delta t}\right| $$</p>
+                        <p>$$ |\mathcal{E}| = \left|-\frac{-0.050 \text{ Wb}}{0.10 \text{ s}}\right| = 0.50 \text{ V} $$</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Faraday's Law</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    This PhET simulation is the perfect tool for exploring electromagnetic induction. Move the bar magnet in and out of the coil and observe the induced current. Change the number of turns, the speed of the magnet, and the field strength to see how these factors affect the magnitude of the induced e.m.f.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/faradays-law/latest/faradays-law_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

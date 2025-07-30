@@ -1,1 +1,209 @@
-<!-- Placeholder for 22.1_Energy_and_Momentum_of_a_Photon.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>22.1 Energy and momentum of a photon - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Quantum Physics</a> &gt;
+                <span class="font-semibold">22.1 Energy and momentum of a photon</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">22.1 Energy and momentum of a photon</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Understand that electromagnetic radiation has a particulate nature.</li>
+                    <li>Understand that a photon is a quantum of electromagnetic energy.</li>
+                    <li>Recall and use $E = hf$.</li>
+                    <li>Use the electronvolt (eV) as a unit of energy.</li>
+                    <li>Understand that a photon has momentum and that the momentum is given by $p = E / c$.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 & LO2 -->
+            <div id="LO1_2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1 & LO2: The Particulate Nature of Light</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    For centuries, the nature of light was a central question in physics. Isaac Newton's highly influential 'corpuscular' theory proposed that light was composed of tiny particles. This view was the prevailing consensus for over a century.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    However, in the early 1800s, Thomas Young's double-slit experiment provided definitive proof of light's wave-like properties, showing that it could diffract and create interference patterns. This discovery caused a major shift in scientific thought, and the wave model became the universally accepted explanation for the nature of light.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    This consensus was challenged at the turn of the 20th century. New experimental results, most notably the photoelectric effect, could not be explained by the wave model. To account for these observations, Albert Einstein, building on the work of Max Planck, proposed that light energy was not a continuous wave but was quantised into discrete packets. This revived the particle-like view of light in a new form, leading to the modern understanding of wave-particle duality, where light exhibits both wave and particle properties. The fundamental particle of light is called the photon.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    A **photon** is a quantum (a discrete packet) of electromagnetic energy.
+                </blockquote>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: The Photon</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/Iq1a_L8x2-A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO3 -->
+            <div id="LO3" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO3: The Photon Energy Equation</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The energy of a single photon is directly proportional to the frequency of the electromagnetic radiation. This relationship is given by the Planck-Einstein relation:
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="font-semibold">$$ E = hf $$</p>
+                </blockquote>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li>$E$ is the energy of the photon in joules (J).</li>
+                    <li>$h$ is the **Planck constant**, a fundamental constant with a value of $6.63 \times 10^{-34}$ J s.</li>
+                    <li>$f$ is the frequency of the electromagnetic radiation in hertz (Hz).</li>
+                </ul>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Since $c = f\lambda$, we can also express the photon energy in terms of its wavelength:
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ E = \frac{hc}{\lambda} $$</p>
+            </div>
+
+            <!-- Section for LO4 -->
+            <div id="LO4" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO4: The Electronvolt (eV)</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The energy of a single photon is extremely small when measured in joules. For convenience in atomic and particle physics, a smaller unit of energy called the **electronvolt (eV)** is used.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    One electronvolt is the energy gained or lost by an electron when it moves through a potential difference of one volt.
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    From the definition of potential difference, $W=VQ$. The work done on an electron ($q=e$) moving through 1 V is:
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ 1 \text{ eV} = (1.60 \times 10^{-19} \text{ C}) \times (1 \text{ V}) = 1.60 \times 10^{-19} \text{ J} $$</p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Energy Conversion</h4>
+                    <p class="text-lg leading-relaxed mb-4">A photon of blue light has a wavelength of 450 nm. Calculate its energy in (a) joules, and (b) electronvolts.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>(a) Energy in Joules:</strong></p>
+                        <p>$$ E = \frac{hc}{\lambda} = \frac{(6.63 \times 10^{-34})(3.00 \times 10^8)}{450 \times 10^{-9}} $$</p>
+                        <p>$$ E = 4.42 \times 10^{-19} \text{ J} $$</p>
+                        <p><strong>(b) Energy in Electronvolts:</strong></p>
+                        <p>$$ E \text{ (in eV)} = \frac{E \text{ (in J)}}{1.60 \times 10^{-19}} = \frac{4.42 \times 10^{-19}}{1.60 \times 10^{-19}} $$</p>
+                        <p>$$ E = 2.76 \text{ eV} $$</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO5 -->
+            <div id="LO5" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO5: Photon Momentum</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Although photons have zero rest mass, they possess momentum. This is a consequence of Einstein's theory of relativity, which shows that energy and momentum are related. For a particle with zero rest mass, like a photon, the relationship simplifies.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="font-semibold">$$ p = \frac{E}{c} $$</p>
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    We can combine this with the photon energy equation ($E=hf$) and the wave equation ($c=f\lambda$) to get another important relationship:
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ p = \frac{hf}{c} = \frac{h}{\lambda} $$</p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Photon Momentum</h4>
+                    <p class="text-lg leading-relaxed mb-4">Calculate the momentum of a photon of the blue light from the previous example ($\lambda = 450$ nm).</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>Method 1: Using $p=E/c$</strong></p>
+                        <p>From the previous example, $E = 4.42 \times 10^{-19}$ J.</p>
+                        <p>$$ p = \frac{E}{c} = \frac{4.42 \times 10^{-19}}{3.00 \times 10^8} = 1.47 \times 10^{-27} \text{ kg m s}^{-1} $$</p>
+                        <p><strong>Method 2: Using $p=h/\lambda$</strong></p>
+                        <p>$$ p = \frac{h}{\lambda} = \frac{6.63 \times 10^{-34}}{450 \times 10^{-9}} = 1.47 \times 10^{-27} \text{ kg m s}^{-1} $$</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Photoelectric Effect</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    This PhET simulation is the best tool for visualizing the particulate nature of light. You can change the wavelength (colour) of the light and observe that individual electrons are only ejected if the individual photons have enough energy. Increasing the intensity just increases the *number* of photons, not their energy.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/photoelectric-effect/latest/photoelectric-effect_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

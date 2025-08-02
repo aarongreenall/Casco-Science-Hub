@@ -1,1 +1,194 @@
-<!-- Placeholder for 24.2_X-rays.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24.2 Production and use of X-rays - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Medical Physics</a> &gt;
+                <span class="font-semibold">24.2 Production and use of X-rays</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">24.2 Production and use of X-rays</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Explain that X-rays are produced by electron bombardment of a metal target and calculate the minimum wavelength of X-rays produced from the accelerating p.d.</li>
+                    <li>Understand the use of X-rays in imaging internal body structures, including an understanding of the term contrast in X-ray imaging.</li>
+                    <li>Recall and use $I = I_0e^{–\mu x}$ for the attenuation of X-rays in matter.</li>
+                    <li>Understand that computed tomography (CT) scanning produces a 3D image of an internal structure by first combining multiple X-ray images taken in the same section from different angles to obtain a 2D image of the section, then repeating this process along an axis and combining 2D images of multiple sections.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: Production of X-rays</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    X-rays are produced in an X-ray tube when fast-moving electrons bombard a heavy metal target. The process involves several key steps:
+                </p>
+                <ol class="list-decimal list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li><strong>Thermionic Emission:</strong> A filament (cathode) is heated by a low-voltage supply, causing it to release electrons.</li>
+                    <li><strong>Acceleration:</strong> A very high potential difference (the accelerating p.d., $V$) is applied between the cathode and a metal target (the anode). This accelerates the electrons to very high speeds and kinetic energies.</li>
+                    <li><strong>Bombardment:</strong> The high-energy electrons collide with the metal target.</li>
+                    <li><strong>Energy Conversion:</strong> Upon impact, the kinetic energy of the electrons is converted into other forms. Most of it (~99%) is converted into thermal energy, making the target extremely hot. A small fraction (~1%) is converted into X-ray photons.</li>
+                </ol>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The highest energy (and therefore shortest wavelength) X-ray photon is produced when a single electron loses all of its kinetic energy in a single interaction.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Derivation of Minimum Wavelength ($\lambda_{min}$)</h4>
+                    <div class="text-lg space-y-2">
+                        <p>1. The kinetic energy of an electron accelerated through a p.d. of $V$ is: $E_k = eV$.</p>
+                        <p>2. The maximum energy of a single X-ray photon, $E_{max}$, occurs when all of this kinetic energy is converted in one go: $E_{max} = eV$.</p>
+                        <p>3. The energy of a photon is also given by $E = hc/\lambda$. The maximum photon energy corresponds to the minimum possible wavelength, $\lambda_{min}$.</p>
+                        <p>4. Equating the two expressions for maximum energy:</p>
+                        <p>$$ eV = \frac{hc}{\lambda_{min}} $$</p>
+                        <p>5. Rearranging gives the formula for the minimum wavelength:</p>
+                        <p class="font-semibold">$$ \lambda_{min} = \frac{hc}{eV} $$</p>
+                    </div>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Minimum X-ray Wavelength</h4>
+                    <p class="text-lg leading-relaxed mb-4">An X-ray tube operates with an accelerating potential difference of 80 kV. Calculate the minimum wavelength of the X-rays produced.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Identify variables and convert to SI units:</strong></p>
+                        <p>$$ V = 80 \text{ kV} = 80 \times 10^3 \text{ V} $$</p>
+                        <p><strong>2. State the formula and substitute values:</strong></p>
+                        <p>$$ \lambda_{min} = \frac{hc}{eV} $$</p>
+                        <p>$$ \lambda_{min} = \frac{(6.63 \times 10^{-34}) \times (3.00 \times 10^8)}{(1.60 \times 10^{-19}) \times (80 \times 10^3)} $$</p>
+                        <p><strong>3. Calculate the result:</strong></p>
+                        <p>$$ \lambda_{min} = \frac{1.989 \times 10^{-25}}{1.28 \times 10^{-14}} = 1.55 \times 10^{-11} \text{ m} $$</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO2 & LO3 -->
+            <div id="LO2_3" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2 & LO3: X-ray Imaging and Attenuation</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    X-ray imaging works by passing a beam of X-rays through the body onto a detector. The resulting image is essentially a shadowgraph. The key principle is **differential absorption**.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    As X-rays pass through matter, their intensity decreases. This is called **attenuation**. The amount of attenuation depends on the thickness, density, and atomic number of the material. This exponential decrease is described by:
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="font-semibold">$$ I = I_0 e^{-\mu x} $$</p>
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Where $I_0$ is the initial intensity, $I$ is the transmitted intensity after passing through a thickness $x$, and $\mu$ is the linear attenuation coefficient of the material.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    **Contrast** in an X-ray image is the difference in darkness between different areas. Good contrast is achieved because different tissues have different attenuation coefficients. Bone, being dense and containing elements with high atomic numbers (like calcium), has a high $\mu$ and absorbs X-rays strongly, appearing white on the film. Soft tissues have a much lower $\mu$, allowing more X-rays to pass through, and appear as shades of grey.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Attenuation in Bone</h4>
+                    <p class="text-lg leading-relaxed mb-4">An X-ray beam with an initial intensity of $I_0$ passes through 2.5 cm of bone. The linear attenuation coefficient for bone for this X-ray energy is 0.35 cm⁻¹. Calculate the percentage of the intensity that is transmitted.</p>
+                    <div class="text-lg space-y-2">
+                        <p>$$ I = I_0 e^{-\mu x} $$</p>
+                        <p>$$ I = I_0 e^{-(0.35 \times 2.5)} = I_0 e^{-0.875} $$</p>
+                        <p>$$ I = I_0 \times 0.417 $$</p>
+                        <p>The ratio of transmitted to incident intensity is $I/I_0 = 0.417$. Therefore, 41.7% of the intensity is transmitted.</p>
+                        <p class="mt-4 font-semibold">Conclusion for Observation:</p>
+                        <p>This means that over 58% of the X-ray intensity is absorbed by the bone. This significant reduction in transmitted intensity is why bone appears much whiter on an X-ray image compared to surrounding soft tissue, which attenuates the beam far less. This difference in attenuation creates good contrast and makes the bone clearly visible.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO4 -->
+            <div id="LO4" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO4: Computed Tomography (CT) Scanning</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    A standard X-ray is a 2D projection, where 3D structures are superimposed on top of each other. **Computed Tomography (CT)** is an advanced imaging technique that overcomes this limitation to produce detailed 3D images.
+                </p>
+                <ol class="list-decimal list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li>An X-ray tube and a ring of detectors are mounted on a gantry that rotates around the patient.</li>
+                    <li>Multiple X-ray images are taken of a single "slice" of the body from many different angles as the gantry rotates.</li>
+                    <li>A powerful computer processes all these 2D projections and reconstructs a detailed 2D cross-sectional image of that slice.</li>
+                    <li>The patient's bed is then moved a small distance along the axis of the scanner, and the process is repeated for the next slice.</li>
+                    <li>Finally, the computer stacks all the individual 2D slices together to build up a full 3D image of the internal structure, which can be viewed from any angle.</li>
+                </ol>
+                <div class="grid md:grid-cols-2 gap-8 items-center mt-6">
+                    <div class="text-center">
+                        <img src="https://i.ibb.co/L5hH42T/ct-scanner-machine.jpg" alt="A modern CT scanner machine" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/500x400/00BFBF/FFFFFF?text=CT+Scanner';">
+                        <p class="mt-2 text-lg">A modern CT scanner.</p>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://i.ibb.co/gZ7Q02C/ct-scan-image.jpg" alt="A cross-sectional CT scan image of a human head" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/500x400/009999/FFFFFF?text=CT+Scan+Image';">
+                        <p class="mt-2 text-lg">A 2D slice from a CT scan of a brain.</p>
+                    </div>
+                </div>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: How a CT Scan Works</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/tqK49_d_2-Y" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+</body>
+</html>

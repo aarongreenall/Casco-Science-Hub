@@ -1,1 +1,190 @@
-<!-- Placeholder for 25.1_Standard_Candles.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>25.1 Luminosity and radiant flux intensity - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <!-- GeoGebra Integration -->
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Astronomy and Cosmology</a> &gt;
+                <span class="font-semibold">25.1 Luminosity and radiant flux intensity</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">25.1 Luminosity and radiant flux intensity</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Understand the term luminosity as the total power of radiation emitted by a star.</li>
+                    <li>Recall and use the inverse square law for radiant flux intensity F in terms of the luminosity L of the source $F = L / (4\pi d^2)$.</li>
+                    <li>Understand that an object of known luminosity is called a standard candle.</li>
+                    <li>Understand the use of standard candles to determine distances to galaxies.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: Luminosity</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    **Luminosity ($L$)** is the total power of electromagnetic radiation emitted by a star. It is a measure of the star's intrinsic brightness—how much energy it radiates into space every second.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    Luminosity is the total power radiated by a star.
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The SI unit for luminosity is the **watt (W)**. A star's luminosity depends on its temperature and its size (surface area).
+                </p>
+            </div>
+
+            <!-- Section for LO2 -->
+            <div id="LO2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2: Radiant Flux Intensity and the Inverse Square Law</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    While luminosity tells us the total power a star emits, what we measure on Earth is its apparent brightness. This is quantified as **radiant flux intensity ($F$)**, which is the power received per unit area.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    As the radiation from a star travels out into space, it spreads out over the surface of an ever-expanding sphere. This means the energy per unit area decreases with distance. This relationship is known as the **inverse square law**.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L5hH42T/inverse-square-law.png" alt="Diagram showing how radiation from a star spreads out over spheres of increasing area" class="rounded-lg shadow-md max-w-lg w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Inverse+Square+Law';">
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Detailed Derivation of $F = L / (4\pi d^2)$</h4>
+                    <div class="text-lg space-y-2">
+                        <p>1. Start with the definition of intensity: Intensity = Power / Area.</p>
+                        <p>2. For a star, the total power radiated is its luminosity, $L$. The radiant flux intensity, $F$, is the intensity we observe.</p>
+                        <p>3. At a distance $d$ from the star, the total power $L$ has spread out over the surface of a sphere of radius $d$. The surface area of this sphere is $A = 4\pi d^2$.</p>
+                        <p>4. Substitute these terms into the intensity definition:</p>
+                        <p class="font-semibold">$$ F = \frac{L}{4\pi d^2} $$</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO3 & LO4 -->
+            <div id="LO3_4" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO3 & LO4: Standard Candles and Measuring Cosmic Distances</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Measuring the vast distances to other galaxies is one of the greatest challenges in astronomy. A key tool for this is the **standard candle**.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    A **standard candle** is an astronomical object that has a known, predictable luminosity.
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The logic is simple but powerful: if you know how bright an object truly is (its luminosity, $L$), and you can measure how bright it appears to be from Earth (its radiant flux intensity, $F$), you can calculate its distance ($d$) by rearranging the inverse square law.
+                </p>
+                <p class="text-center text-lg font-semibold my-4">$$ d = \sqrt{\frac{L}{4\pi F}} $$</p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Two of the most important types of standard candles are:
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li><strong>Cepheid Variables:</strong> These are pulsating stars whose luminosity is directly related to the period of their pulsation. By measuring the period, astronomers can determine the star's true luminosity.</li>
+                    <li><strong>Type Ia Supernovae:</strong> These are powerful stellar explosions that occur when a white dwarf star in a binary system accretes too much mass. Because they all happen in a very similar way, their peak luminosity is incredibly consistent, making them excellent standard candles for measuring the distances to the most remote galaxies.</li>
+                </ul>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Distance to a Supernova</h4>
+                    <p class="text-lg leading-relaxed mb-4">A Type Ia supernova is observed in a distant galaxy. At its brightest, it has a peak luminosity of $2.0 \times 10^{36}$ W. The radiant flux intensity measured on Earth from this supernova is $4.5 \times 10^{-15}$ W m⁻². Calculate the distance to the galaxy.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. State the inverse square law, rearranged for distance:</strong></p>
+                        <p>$$ d = \sqrt{\frac{L}{4\pi F}} $$</p>
+                        <p><strong>2. Substitute the values:</strong></p>
+                        <p>$$ d = \sqrt{\frac{2.0 \times 10^{36}}{4\pi (4.5 \times 10^{-15})}} $$</p>
+                        <p><strong>3. Calculate the result:</strong></p>
+                        <p>$$ d = \sqrt{\frac{2.0 \times 10^{36}}{5.65 \times 10^{-14}}} = \sqrt{3.54 \times 10^{49}} $$</p>
+                        <p>$$ d = 1.88 \times 10^{24} \text{ m} $$</p>
+                    </div>
+                </div>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Standard Candles</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/iy-9g_bC_X4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Inverse Square Law for Light</h4>
+                <p class="text-base leading-relaxed mb-4">This GeoGebra applet provides a simple visualization of the inverse square law. Drag the slider to move the observer further from the light source and see how the intensity of the light received decreases with the square of the distance.</p>
+                <div id="geogebra-container-inverse-square" class="w-full h-[600px] border-2 border-casco-dark-teal rounded-lg shadow-md"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        var ggbApplet1 = new GGBApplet({
+            "appName": "classic", 
+            "width": 800, 
+            "height": 600, 
+            "showToolBar": false, 
+            "showAlgebraInput": false, 
+            "showMenuBar": false, 
+            "material_id": "V39t52k9"
+        }, true);
+        window.addEventListener("load", function() { 
+            ggbApplet1.inject('geogebra-container-inverse-square');
+        });
+    </script>
+</body>
+</html>

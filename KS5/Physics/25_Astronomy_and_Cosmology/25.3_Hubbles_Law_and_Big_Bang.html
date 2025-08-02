@@ -1,1 +1,194 @@
-<!-- Placeholder for 25.3_Hubbles_Law_and_Big_Bang.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>25.3 Hubble's law and the Big Bang theory - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Astronomy and Cosmology</a> &gt;
+                <span class="font-semibold">25.3 Hubble's law and the Big Bang theory</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">25.3 Hubble's law and the Big Bang theory</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Understand that the lines in the emission and absorption spectra from distant objects show an increase in wavelength from their known values.</li>
+                    <li>Use $\Delta\lambda / \lambda \approx \Delta f / f \approx v / c$ for the redshift of electromagnetic radiation from a source moving relative to an observer.</li>
+                    <li>Explain why redshift leads to the idea that the Universe is expanding.</li>
+                    <li>Recall and use Hubble’s law $v \approx H_0d$ and explain how this leads to the Big Bang theory (candidates will only be required to use SI units).</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 & LO2 -->
+            <div id="LO1_2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1 & LO2: Cosmological Redshift</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    When astronomers observe the light from distant galaxies, they analyse its spectrum. They observe the characteristic absorption or emission lines for known elements like hydrogen. However, they find that these lines are not at the wavelengths measured in a laboratory on Earth. For almost all distant galaxies, the spectral lines are shifted towards the longer-wavelength (red) end of the spectrum. This phenomenon is called **redshift**.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L5hH42T/redshift-spectra.png" alt="Diagram showing spectral lines from a distant galaxy shifted towards the red end of the spectrum" class="rounded-lg shadow-md max-w-xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/700x300/00BFBF/FFFFFF?text=Redshift';">
+                </div>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    This redshift is caused by the Doppler effect applied to light. It indicates that these distant galaxies are moving away from us. The change in wavelength ($\Delta\lambda$) or frequency ($\Delta f$) is related to the recessional velocity ($v$) of the source by the Doppler equation for electromagnetic radiation:
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="font-semibold">$$ z = \frac{\Delta\lambda}{\lambda} \approx \frac{\Delta f}{f} \approx \frac{v}{c} $$</p>
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Where $z$ is the redshift (a dimensionless quantity), $\lambda$ is the source wavelength, $f$ is the source frequency, and $c$ is the speed of light. This approximation is valid for velocities much less than the speed of light.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Calculating Recessional Velocity</h4>
+                    <p class="text-lg leading-relaxed mb-4">A specific spectral line for hydrogen has a wavelength of 656.3 nm when measured in a laboratory. When observing a distant galaxy, this same line is found to have a wavelength of 692.1 nm. Calculate the recessional velocity of the galaxy.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Calculate the change in wavelength ($\Delta\lambda$):</strong></p>
+                        <p>$$ \Delta\lambda = \lambda_{observed} - \lambda_{source} = 692.1 - 656.3 = 35.8 \text{ nm} $$</p>
+                        <p><strong>2. State the redshift formula and rearrange for $v$:</strong></p>
+                        <p>$$ \frac{\Delta\lambda}{\lambda} = \frac{v}{c} \implies v = c \left( \frac{\Delta\lambda}{\lambda} \right) $$</p>
+                        <p><strong>3. Substitute values and solve:</strong></p>
+                        <p>$$ v = (3.00 \times 10^8) \times \left( \frac{35.8 \text{ nm}}{656.3 \text{ nm}} \right) $$</p>
+                        <p>$$ v = (3.00 \times 10^8) \times 0.0545 $$</p>
+                        <p>$$ v = 1.64 \times 10^7 \text{ m s}^{-1} $$</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO3 & LO4 -->
+            <div id="LO3_4" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO3 & LO4: The Expanding Universe and the Big Bang Theory</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The crucial discovery made by Edwin Hubble in the 1920s was that not only are distant galaxies moving away from us, but the further away a galaxy is, the faster it is moving away. This observation is the cornerstone of modern cosmology.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The redshift of distant galaxies is not because they are flying through space away from a central point. Instead, it is evidence that **space itself is expanding**. This is a difficult concept to visualize, but a common analogy is the surface of an expanding balloon with dots drawn on it. As the balloon inflates, every dot moves away from every other dot, and dots that are further apart move away from each other faster.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/gZ7Q02C/expanding-universe-balloon.png" alt="Diagram of the expanding balloon analogy for the universe" class="rounded-lg shadow-md max-w-xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/700x400/009999/FFFFFF?text=Expanding+Universe';">
+                </div>
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Hubble's Law</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Hubble's observations are summarised in **Hubble's Law**:
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="font-semibold">$$ v \approx H_0 d $$</p>
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Where $v$ is the galaxy's recessional velocity, $d$ is its distance from us, and $H_0$ is the **Hubble constant**. The currently accepted value for $H_0$ is approximately $2.2 \times 10^{-18}$ s⁻¹.
+                </p>
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Evidence for the Big Bang Theory</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Hubble's Law provides the primary evidence for the **Big Bang theory**. If all galaxies are currently moving away from each other, it implies that in the past, they must have been much closer together. If we "rewind the clock" on the expansion, all the matter and energy in the universe must have originated from a single, incredibly hot and dense point. The expansion of space from this initial singularity is what we call the Big Bang. The age of the Universe can be estimated as the reciprocal of the Hubble constant ($t \approx 1/H_0$).
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Age of the Universe</h4>
+                    <p class="text-lg leading-relaxed mb-4">Use the Hubble constant, $H_0 = 2.2 \times 10^{-18}$ s⁻¹, to estimate the age of the Universe in years.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. State the relationship between age and the Hubble constant:</strong></p>
+                        <p>$$ t \approx \frac{1}{H_0} $$</p>
+                        <p><strong>2. Calculate the age in seconds:</strong></p>
+                        <p>$$ t \approx \frac{1}{2.2 \times 10^{-18} \text{ s}^{-1}} = 4.55 \times 10^{17} \text{ s} $$</p>
+                        <p><strong>3. Convert the age from seconds to years:</strong></p>
+                        <p>Number of seconds in a year = $365 \times 24 \times 60 \times 60 = 3.15 \times 10^7$ s.</p>
+                        <p>$$ t \approx \frac{4.55 \times 10^{17} \text{ s}}{3.15 \times 10^7 \text{ s/year}} = 1.44 \times 10^{10} \text{ years} $$</p>
+                        <p>This is approximately 14.4 billion years, which is in good agreement with more precise modern measurements.</p>
+                    </div>
+                </div>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: The Big Bang</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/w-M_A61j_gM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: The Hubble Law</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    This PhET simulation allows you to act as an astronomer. Measure the spectra from different galaxies to determine their recessional velocities, and then plot this against their (given) distances to determine a value for the Hubble constant and the age of the universe.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/the-hubble-law/latest/the-hubble-law_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

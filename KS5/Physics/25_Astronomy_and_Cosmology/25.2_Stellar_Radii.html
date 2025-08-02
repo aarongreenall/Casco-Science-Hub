@@ -1,1 +1,190 @@
-<!-- Placeholder for 25.2_Stellar_Radii.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>25.2 Stellar radii - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- MathJax for rendering equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS3</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../index.html" class="hover:underline">KS5 Physics</a> &gt;
+                <a href="./index.html" class="hover:underline">Astronomy and Cosmology</a> &gt;
+                <span class="font-semibold">25.2 Stellar radii</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">25.2 Stellar radii</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">Learning Objectives:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Recall and use Wien’s displacement law $\lambda_{max} \propto 1 / T$ to estimate the peak surface temperature of a star.</li>
+                    <li>Use the Stefan–Boltzmann law $L = 4\pi\sigma r^2 T^4$.</li>
+                    <li>Use Wien’s displacement law and the Stefan–Boltzmann law to estimate the radius of a star.</li>
+                </ol>
+            </div>
+
+            <!-- Section for LO1 -->
+            <div id="LO1" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO1: Wien's Displacement Law</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Stars behave approximately as **black-body radiators**, meaning they emit a continuous spectrum of electromagnetic radiation. The peak wavelength ($\lambda_{max}$) of this spectrum—the wavelength at which the star is most luminous—is determined by its surface temperature ($T$).
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    **Wien's Displacement Law** states that the peak wavelength of the emitted radiation is inversely proportional to the thermodynamic temperature of the black body.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="font-semibold">$$ \lambda_{max} T = \text{constant} = 2.90 \times 10^{-3} \text{ m K} $$</p>
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    This means hotter stars have a shorter peak wavelength and appear blueish-white, while cooler stars have a longer peak wavelength and appear reddish-orange.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L5hH42T/wien-law-graph.png" alt="Black-body radiation curves showing Wien's displacement law" class="rounded-lg shadow-md max-w-xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/700x400/00BFBF/FFFFFF?text=Wien\'s+Law';">
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Temperature of the Sun</h4>
+                    <p class="text-lg leading-relaxed mb-4">The Sun's spectrum peaks at a wavelength of approximately 500 nm. Estimate the surface temperature of the Sun.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. State Wien's Displacement Law and rearrange for T:</strong></p>
+                        <p>$$ \lambda_{max} T = 2.90 \times 10^{-3} \implies T = \frac{2.90 \times 10^{-3}}{\lambda_{max}} $$</p>
+                        <p><strong>2. Substitute values in SI units:</strong> $\lambda_{max} = 500 \text{ nm} = 500 \times 10^{-9}$ m.</p>
+                        <p>$$ T = \frac{2.90 \times 10^{-3}}{500 \times 10^{-9}} $$</p>
+                        <p>$$ T = 5800 \text{ K} $$</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section for LO2 -->
+            <div id="LO2" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO2: The Stefan-Boltzmann Law</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The **Stefan-Boltzmann Law** relates a star's luminosity ($L$) to its surface area and temperature. It states that the total power radiated per unit surface area of a black body is directly proportional to the fourth power of its absolute temperature.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    For a spherical star of radius $r$, the surface area is $4\pi r^2$. The law is therefore expressed as:
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="font-semibold">$$ L = 4\pi\sigma r^2 T^4 $$</p>
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Where $\sigma$ is the **Stefan-Boltzmann constant**:
+                </p>
+                <p class="text-lg leading-relaxed text-center font-semibold">
+                    $\sigma = 5.67 \times 10^{-8}$ W m⁻² K⁻⁴
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The strong dependence on temperature ($T^4$) means that a small increase in a star's temperature leads to a very large increase in its luminosity.
+                </p>
+            </div>
+
+            <!-- Section for LO3 -->
+            <div id="LO3" class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">LO3: Determining the Radius of a Star</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    By combining Wien's Law, the Stefan-Boltzmann Law, and the inverse square law for radiant flux intensity, we can estimate the radius of a distant star. This is a powerful application that connects several key concepts.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example: Radius of the Star Betelgeuse</h4>
+                    <p class="text-lg leading-relaxed mb-4">The star Betelgeuse has a peak emission wavelength of 855 nm and a radiant flux intensity on Earth of $2.9 \times 10^{-8}$ W m⁻². Its distance from Earth is $6.1 \times 10^{18}$ m. Estimate the radius of Betelgeuse.</p>
+                    <div class="text-lg space-y-2">
+                        <p><strong>Step 1: Find the surface temperature (T) using Wien's Law.</strong></p>
+                        <p>$$ T = \frac{2.90 \times 10^{-3}}{\lambda_{max}} = \frac{2.90 \times 10^{-3}}{855 \times 10^{-9}} = 3392 \text{ K} $$</p>
+                        <p><strong>Step 2: Find the luminosity (L) using the inverse square law.</strong></p>
+                        <p>$$ F = \frac{L}{4\pi d^2} \implies L = 4\pi d^2 F $$</p>
+                        <p>$$ L = 4\pi (6.1 \times 10^{18})^2 (2.9 \times 10^{-8}) = 1.35 \times 10^{31} \text{ W} $$</p>
+                        <p><strong>Step 3: Find the radius (r) using the Stefan-Boltzmann Law.</strong></p>
+                        <p>$$ L = 4\pi\sigma r^2 T^4 \implies r = \sqrt{\frac{L}{4\pi\sigma T^4}} $$</p>
+                        <p>$$ r = \sqrt{\frac{1.35 \times 10^{31}}{4\pi(5.67 \times 10^{-8})(3392)^4}} $$</p>
+                        <p>$$ r = \sqrt{\frac{1.35 \times 10^{31}}{9.45 \times 10^{16}}} = \sqrt{1.43 \times 10^{14}} $$</p>
+                        <p>$$ r = 3.78 \times 10^{11} \text{ m} $$</p>
+                        <p>(This is enormous - about 540 times the radius of our Sun, confirming Betelgeuse is a red supergiant).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Blackbody Spectrum</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    This PhET simulation is the perfect tool for exploring Wien's Law and the Stefan-Boltzmann Law. Use the slider to change the temperature of a star and observe how the peak wavelength of its spectrum shifts and how the total intensity (related to luminosity) changes dramatically.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/blackbody-spectrum/latest/blackbody-spectrum_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
+</body>
+</html>

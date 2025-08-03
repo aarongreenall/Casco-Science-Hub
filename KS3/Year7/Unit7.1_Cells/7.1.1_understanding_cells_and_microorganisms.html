@@ -96,7 +96,7 @@
             <div class="py-4">
                 <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">What are Microorganisms?</h3>
                 <p class="text-lg leading-relaxed mt-4 mb-4">
-                    Some living things are made of just one single cell! These are called **microorganisms** (or microbes). They are living organisms that are too small to be seen without a microscope. They are found everywhere on Earth: in the soil, in the air, in water, and even inside our bodies.
+                    Some living things are made of just one single cell! These are called **microorganisms** (or microbes). They are living organisms that are too small to be seen without the naked eye. They are found everywhere on Earth: in the soil, in the air, in water, and even inside our bodies.
                 </p>
                 <p class="text-lg leading-relaxed mt-4 mb-4">
                     Some common examples of microorganisms include:
@@ -106,6 +106,12 @@
                     <li><strong>Yeast:</strong> A type of single-celled fungus used to make bread rise and to brew drinks.</li>
                     <li><strong>Amoeba:</strong> A single-celled organism that lives in pond water and moves by changing its shape.</li>
                 </ul>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Cells and Microbes</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/J9hi-6h3O-A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
             </div>
 
             <!-- Section on Magnification -->
@@ -152,6 +158,19 @@
                     <li>Draw what you see in your notebook, making sure to label your drawing and note the magnification used.</li>
                 </ol>
             </div>
+            
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Virtual Microscope</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    Practice using a microscope with this virtual lab. You can explore different slides, change the magnification, and use the focus controls just like you would with a real microscope.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://www.nise.org/explore-science/science-at-home/virtual-microscope" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
 
         </section>
     </main>
@@ -163,5 +182,15 @@
 
     <!-- Main script file -->
     <script src="../../../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
 </body>
 </html>

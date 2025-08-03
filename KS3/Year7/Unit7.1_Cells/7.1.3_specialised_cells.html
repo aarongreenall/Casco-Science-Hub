@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7.1.3 Specialised Cells - Casco School</title>
+    <title>7.1.3 Specialised cells - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
@@ -19,112 +22,192 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../../../style.css">
+
+    <!-- MathJax for rendering equations -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
             svg: { fontCache: 'global' }
         };
     </script>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
             <nav id="desktop-nav" class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS3</a></li>
+                    <li><a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS5</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div id="mobile-menu-overlay">
-        <button id="close-mobile-menu" aria-label="Close mobile menu">&times;</button>
-        <nav>
-            <ul>
-                <li><a href="../../../index.html">Home</a></li>
-                <li>
-                    <button class="mobile-accordion-btn">KS3</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../Year7/index.html">Year 7</a></li>
-                        <li><a href="../../Year8/index.html">Year 8</a></li>
-                        <li><a href="../../Year9/index.html">Year 9</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <button class="mobile-accordion-btn">KS4</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS4/Biology/index.html">Biology</a></li>
-                        <li><a href="../../../KS4/Chemistry/index.html">Chemistry</a></li>
-                        <li><a href="../../../KS4/Physics/index.html">Physics</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <button class="mobile-accordion-btn">KS5</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS5/ib_biology/index.html">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html">IB Physics</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
+    <!-- Main Content -->
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <nav class="text-sm mb-4" aria-label="Breadcrumb">
-                <ol class="list-none p-0 inline-flex">
-                    <li class="flex items-center">
-                        <a href="../../../index.html" class="text-casco-main-teal hover:underline">Home</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../../index.html" class="text-casco-main-teal hover:underline">KS3</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../index.html" class="text-casco-main-teal hover:underline">Year 7</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="index.html" class="text-casco-main-teal hover:underline">Unit 7.1: Cells</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="text-gray-500">7.1.3 Specialised Cells</li>
-                </ol>
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 7</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 7.1 Cells</a> &gt;
+                <span class="font-semibold">7.1.3 Specialised cells</span>
             </nav>
-            <h1 class="text-3xl font-bold text-casco-main-teal mb-6">7.1.3 Specialised Cells</h1>
-            <p class="text-lg leading-relaxed mb-6">
-                Content for this section is under development. Please check back soon!
-            </p>
-            <div class="prose max-w-none">
-                <p>This page will explore how different cells are specialised to perform specific functions in multicellular organisms.</p>
-                <p>Key examples will include:</p>
-                <ul>
-                    <li>Nerve cells</li>
-                    <li>Muscle cells</li>
-                    <li>Sperm cells</li>
-                    <li>Egg cells</li>
-                    <li>Red blood cells</li>
-                    <li>Root hair cells (plants)</li>
-                    <li>Xylem and Phloem cells (plants)</li>
-                </ul>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">7.1.3 Specialised cells</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Explain what a specialised cell is.</li>
+                    <li>Describe how the structures of different animal and plant cells are adapted to their functions.</li>
+                    <li>Give examples of specialised cells in animals and plants.</li>
+                </ol>
             </div>
+
+            <!-- Section on Specialisation -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">What are Specialised Cells?</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    In large, multicellular organisms like humans and oak trees, not all cells are the same. Most cells develop in a way that makes them very good at one particular job. This process is called **specialisation** (or differentiation). A **specialised cell** is a cell whose shape and structure are adapted to carry out a specific function.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: A City of Specialists</h4>
+                    <p class="text-lg leading-relaxed">If a basic cell is like a general-purpose building in our "Cell City," then a specialised cell is like a purpose-built structure. A city doesn't just have identical buildings; it has specially designed power plants, communication towers, factories, and delivery depots. In the same way, an organism has specialised cells to do all the different jobs it needs to survive.</p>
+                </div>
+            </div>
+
+            <!-- Section on Animal Examples -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Specialised Animal Cells</h3>
+                <div class="grid md:grid-cols-3 gap-8 mt-6">
+                    <div class="text-center">
+                        <img src="https://i.ibb.co/L5hH42T/nerve-cell.png" alt="Diagram of a nerve cell" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/300x300/00BFBF/FFFFFF?text=Nerve+Cell';">
+                        <h4 class="text-xl font-semibold text-gray-800 my-2">Nerve Cell (Neurone)</h4>
+                        <p class="text-lg"><strong>Function:</strong> To carry electrical signals (nerve impulses) around the body. It's the city's telephone network.<br><strong>Adaptations:</strong> It is very long to carry signals over large distances, and has branched connections at its ends to connect to many other cells.</p>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://i.ibb.co/gZ7Q02C/muscle-cell.png" alt="Diagram of muscle cells" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/300x300/009999/FFFFFF?text=Muscle+Cell';">
+                        <h4 class="text-xl font-semibold text-gray-800 my-2">Muscle Cell</h4>
+                        <p class="text-lg"><strong>Function:</strong> To contract (shorten) to produce movement. It's the city's engines and cranes.<br><strong>Adaptations:</strong> It contains special proteins that can slide over each other to make the cell shorter. It also has lots of mitochondria to provide the energy needed for contraction.</p>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://i.ibb.co/yqg6K1Q/red-blood-cell.png" alt="Diagram of red blood cells" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/300x300/33EBEB/FFFFFF?text=Red+Blood+Cell';">
+                        <h4 class="text-xl font-semibold text-gray-800 my-2">Red Blood Cell</h4>
+                        <p class="text-lg"><strong>Function:</strong> To carry oxygen from the lungs to the body's cells. It's the city's delivery van fleet.<br><strong>Adaptations:</strong> It has no nucleus, providing more space for haemoglobin (the protein that carries oxygen). It has a biconcave shape to maximise its surface area for oxygen absorption.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section on Plant Examples -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Specialised Plant Cells</h3>
+                <div class="grid md:grid-cols-2 gap-8 mt-6">
+                    <div class="text-center">
+                        <img src="https://i.ibb.co/L5BwY3t/root-hair-cell.png" alt="Diagram of a root hair cell" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/400x350/00BFBF/FFFFFF?text=Root+Hair+Cell';">
+                        <h4 class="text-xl font-semibold text-gray-800 my-2">Root Hair Cell</h4>
+                        <p class="text-lg"><strong>Function:</strong> To absorb water and mineral ions from the soil. It's the city's water pipes extending into the ground.<br><strong>Adaptations:</strong> It has a long, thin extension (the "hair") which provides a large surface area for efficient absorption.</p>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://i.ibb.co/3mH3F3c/palisade-cell.png" alt="Diagram of a palisade cell" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/400x350/009999/FFFFFF?text=Palisade+Cell';">
+                        <h4 class="text-xl font-semibold text-gray-800 my-2">Palisade Cell</h4>
+                        <p class="text-lg"><strong>Function:</strong> To carry out photosynthesis. It's the city's solar panel array.<br><strong>Adaptations:</strong> It is packed full of chloroplasts (the site of photosynthesis) and is tall and thin, so lots of them can be packed together at the top of the leaf to absorb maximum sunlight.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Specialised Cells</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/wNe6gt_yTRs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+            <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Challenge Yourself: Match the Cell</h4>
+                <p class="text-lg leading-relaxed mb-4">Can you match the specialised cell to its key adaptation and its main function? (Answers at the bottom of the page).</p>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white border border-gray-300">
+                        <thead class="bg-casco-light-bg">
+                            <tr>
+                                <th class="py-2 px-4 border-b">Cell Type</th>
+                                <th class="py-2 px-4 border-b">Key Adaptation</th>
+                                <th class="py-2 px-4 border-b">Function</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="py-2 px-4 border-b">1. Red Blood Cell</td><td class="py-2 px-4 border-b">A. Long extension for a large surface area</td><td class="py-2 px-4 border-b">X. To absorb water and minerals</td></tr>
+                            <tr><td class="py-2 px-4 border-b">2. Nerve Cell</td><td class="py-2 px-4 border-b">B. Packed with chloroplasts</td><td class="py-2 px-4 border-b">Y. To carry oxygen</td></tr>
+                            <tr><td class="py-2 px-4 border-b">3. Root Hair Cell</td><td class="py-2 px-4 border-b">C. No nucleus and a biconcave shape</td><td class="py-2 px-4 border-b">Z. To carry electrical signals</td></tr>
+                            <tr><td class="py-2 px-4 border-b">4. Palisade Cell</td><td class="py-2 px-4 border-b">D. Very long with branched endings</td><td class="py-2 px-4 border-b">W. To carry out photosynthesis</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="mt-4 text-sm text-gray-600">Answers: 1-C-Y, 2-D-Z, 3-A-X, 4-B-W</p>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">In-School Experiment: Observing Specialised Cells</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    Using a microscope, you can observe the unique shapes of different specialised cells.
+                </p>
+                <h5 class="text-lg font-semibold text-gray-800 mt-4 mb-2">Equipment:</h5>
+                <ul class="list-disc list-inside ml-4 text-base">
+                    <li>A light microscope</li>
+                    <li>Prepared slides of specialised tissues (e.g., blood smear, nerve tissue, plant leaf cross-section)</li>
+                </ul>
+                <h5 class="text-lg font-semibold text-gray-800 mt-4 mb-2">Method:</h5>
+                <ol class="list-decimal list-inside ml-4 text-base space-y-1">
+                    <li>Observe each prepared slide under the microscope, starting with the lowest power objective lens.</li>
+                    <li>Focus the image and then switch to a higher power to see more detail.</li>
+                    <li>For each slide, make a careful drawing of one or two cells.</li>
+                    <li>Label any parts you can recognise and try to identify how the cell's shape is adapted for its function.</li>
+                </ol>
+            </div>
+            
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Cell Size and Scale</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    This interactive simulation allows you to zoom in from a coffee bean all the way down to a carbon atom. On your way, you can see and compare the sizes and shapes of different specialised cells, like a nerve cell and a plant cell.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://learn.genetics.utah.edu/content/cells/scale/" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
-        <div class="container mx-auto text-center text-sm">
-            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
-        </div>
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
 </body>
 </html>

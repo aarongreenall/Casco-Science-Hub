@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7.1.2 Cell Structures and Functions - Casco School</title>
+    <title>7.1.2 Cell structures and functions - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
@@ -19,113 +22,161 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../../../style.css">
+
+    <!-- MathJax for rendering equations -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
             svg: { fontCache: 'global' }
         };
     </script>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
             <nav id="desktop-nav" class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS3</a></li>
+                    <li><a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS5</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div id="mobile-menu-overlay">
-        <button id="close-mobile-menu" aria-label="Close mobile menu">&times;</button>
-        <nav>
-            <ul>
-                <li><a href="../../../index.html">Home</a></li>
-                <li>
-                    <button class="mobile-accordion-btn">KS3</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../Year7/index.html">Year 7</a></li>
-                        <li><a href="../../Year8/index.html">Year 8</a></li>
-                        <li><a href="../../Year9/index.html">Year 9</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <button class="mobile-accordion-btn">KS4</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS4/Biology/index.html">Biology</a></li>
-                        <li><a href="../../../KS4/Chemistry/index.html">Chemistry</a></li>
-                        <li><a href="../../../KS4/Physics/index.html">Physics</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <button class="mobile-accordion-btn">KS5</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS5/ib_biology/index.html">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html">IB Physics</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
+    <!-- Main Content -->
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <nav class="text-sm mb-4" aria-label="Breadcrumb">
-                <ol class="list-none p-0 inline-flex">
-                    <li class="flex items-center">
-                        <a href="../../../index.html" class="text-casco-main-teal hover:underline">Home</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../../index.html" class="text-casco-main-teal hover:underline">KS3</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../index.html" class="text-casco-main-teal hover:underline">Year 7</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="index.html" class="text-casco-main-teal hover:underline">Unit 7.1: Cells</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="text-gray-500">7.1.2 Cell Structures and Functions</li>
-                </ol>
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 7</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 7.1 Cells</a> &gt;
+                <span class="font-semibold">7.1.2 Cell structures and functions</span>
             </nav>
-            <h1 class="text-3xl font-bold text-casco-main-teal mb-6">7.1.2 Cell Structures and Functions</h1>
-            <p class="text-lg leading-relaxed mb-6">
-                Content for this section is under development. Please check back soon!
-            </p>
-            <div class="prose max-w-none">
-                <p>This page will detail the different structures within typical animal and plant cells and their respective functions.</p>
-                <p>Key topics will include:</p>
-                <ul>
-                    <li>Nucleus</li>
-                    <li>Cytoplasm</li>
-                    <li>Cell membrane</li>
-                    <li>Mitochondria</li>
-                    <li>Ribosomes</li>
-                    <li>Cell wall (plant cells)</li>
-                    <li>Chloroplasts (plant cells)</li>
-                    <li>Vacuole (plant cells)</li>
-                </ul>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">7.1.2 Cell structures and functions</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Identify the main parts of an animal cell.</li>
+                    <li>Identify the extra parts found in a plant cell.</li>
+                    <li>Describe the function (the "job") of each part.</li>
+                    <li>Explain the differences between animal and plant cells.</li>
+                </ol>
             </div>
+
+            <!-- Section on Animal Cells -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Inside an Animal Cell</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Just like our bodies have organs (like the heart and lungs) to do different jobs, cells have tiny structures inside them called **organelles**. Each organelle has a specific function that helps keep the cell alive.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: The Cell as a City</h4>
+                    <p class="text-lg leading-relaxed">Imagine a cell is like a busy city. Each part of the city has a special job to do to keep the whole city running smoothly. We can use this analogy to understand the job of each organelle.</p>
+                </div>
+                <div class="flex flex-col md:flex-row items-center justify-center my-6 gap-8">
+                    <img src="https://i.ibb.co/L5hH42T/animal-cell-labelled.png" alt="A labelled diagram of an animal cell" class="rounded-lg shadow-md max-w-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/500x400/00BFBF/FFFFFF?text=Animal+Cell';">
+                    <div class="space-y-4 text-lg md:w-1/2">
+                        <p><strong>Nucleus:</strong> The "City Hall" or control centre. It contains the cell's DNA (the master instructions) and controls all the cell's activities.</p>
+                        <p><strong>Cytoplasm:</strong> The jelly-like substance that fills the cell. It's like the ground and air of the city, where all the chemical reactions happen.</p>
+                        <p><strong>Cell Membrane:</strong> The "City Border." It controls what substances can enter and leave the cell.</p>
+                        <p><strong>Mitochondria:</strong> The "Power Plants." This is where respiration happens, releasing energy to power the cell's activities.</p>
+                        <p><strong>Ribosomes:</strong> Tiny "Factories" that build proteins, which are essential for the cell to grow and repair itself.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Section on Plant Cells -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Inside a Plant Cell</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Plant cells have all the same organelles as animal cells, but they also have three extra parts that animal cells do not have.
+                </p>
+                <div class="flex flex-col md:flex-row items-center justify-center my-6 gap-8">
+                    <img src="https://i.ibb.co/gZ7Q02C/plant-cell-labelled.png" alt="A labelled diagram of a plant cell" class="rounded-lg shadow-md max-w-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/500x400/009999/FFFFFF?text=Plant+Cell';">
+                    <div class="space-y-4 text-lg md:w-1/2">
+                        <p><strong>Cell Wall:</strong> The "Strong Outer City Wall." Made of tough cellulose, it provides strength and support to the plant cell and helps it keep a fixed shape.</p>
+                        <p><strong>Permanent Vacuole:</strong> The "Large Water Reservoir." This is a large, central sac filled with cell sap (a watery solution of sugars and salts). It helps to keep the cell firm and rigid.</p>
+                        <p><strong>Chloroplasts:</strong> The "Solar-Powered Food Factories." These contain a green substance called chlorophyll, which absorbs sunlight for photosynthesis, the process plants use to make their own food.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Cell Organelles</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/URUJD5NEXC8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">In-School Experiment: Observing Cheek Cells</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    In this experiment, you will prepare a slide of your own cheek cells to see a real animal cell under the microscope.
+                </p>
+                <h5 class="text-lg font-semibold text-gray-800 mt-4 mb-2">Equipment:</h5>
+                <ul class="list-disc list-inside ml-4 text-base">
+                    <li>Clean cotton bud</li>
+                    <li>Clean microscope slide and coverslip</li>
+                    <li>Dropper bottle of methylene blue stain</li>
+                    <li>Light microscope</li>
+                </ul>
+                <h5 class="text-lg font-semibold text-gray-800 mt-4 mb-2">Method:</h5>
+                <ol class="list-decimal list-inside ml-4 text-base space-y-1">
+                    <li>Gently rub the inside of your cheek with the clean cotton bud.</li>
+                    <li>Smear the cotton bud onto the centre of the clean microscope slide.</li>
+                    <li>Add one drop of methylene blue stain to the smear. This will make the nucleus visible.</li>
+                    <li>Carefully lower a coverslip onto the drop at an angle to avoid trapping air bubbles.</li>
+                    <li>Place the slide on the microscope stage and observe it, starting with the lowest power objective lens.</li>
+                    <li>Try to find a single, clear cell and draw it in your notebook. Can you identify the nucleus, cytoplasm, and cell membrane?</li>
+                </ol>
+            </div>
+            
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Cell Explorer</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    This PhET simulation allows you to explore the different organelles inside animal and plant cells and learn about their functions.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/cell-structure/latest/cell-structure_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
-        <div class="container mx-auto text-center text-sm">
-            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
-        </div>
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
 </body>
 </html>

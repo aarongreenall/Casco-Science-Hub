@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7.1.5 Levels of Organization - Casco School</title>
+    <title>7.1.5 Levels of organization - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
@@ -19,110 +22,177 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../../../style.css">
+
+    <!-- MathJax for rendering equations -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
             svg: { fontCache: 'global' }
         };
     </script>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
             <nav id="desktop-nav" class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS3</a></li>
+                    <li><a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS5</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div id="mobile-menu-overlay">
-        <button id="close-mobile-menu" aria-label="Close mobile menu">&times;</button>
-        <nav>
-            <ul>
-                <li><a href="../../../index.html">Home</a></li>
-                <li>
-                    <button class="mobile-accordion-btn">KS3</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../Year7/index.html">Year 7</a></li>
-                        <li><a href="../../Year8/index.html">Year 8</a></li>
-                        <li><a href="../../Year9/index.html">Year 9</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <button class="mobile-accordion-btn">KS4</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS4/Biology/index.html">Biology</a></li>
-                        <li><a href="../../../KS4/Chemistry/index.html">Chemistry</a></li>
-                        <li><a href="../../../KS4/Physics/index.html">Physics</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <button class="mobile-accordion-btn">KS5</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS5/ib_biology/index.html">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html">IB Physics</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
+    <!-- Main Content -->
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <nav class="text-sm mb-4" aria-label="Breadcrumb">
-                <ol class="list-none p-0 inline-flex">
-                    <li class="flex items-center">
-                        <a href="../../../index.html" class="text-casco-main-teal hover:underline">Home</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../../index.html" class="text-casco-main-teal hover:underline">KS3</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../index.html" class="text-casco-main-teal hover:underline">Year 7</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="index.html" class="text-casco-main-teal hover:underline">Unit 7.1: Cells</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="text-gray-500">7.1.5 Levels of Organization</li>
-                </ol>
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 7</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 7.1 Cells</a> &gt;
+                <span class="font-semibold">7.1.5 Levels of organization</span>
             </nav>
-            <h1 class="text-3xl font-bold text-casco-main-teal mb-6">7.1.5 Levels of Organization</h1>
-            <p class="text-lg leading-relaxed mb-6">
-                Content for this section is under development. Please check back soon!
-            </p>
-            <div class="prose max-w-none">
-                <p>This page will explain how cells are organised into tissues, organs, and organ systems in multicellular organisms.</p>
-                <p>Key levels to be discussed:</p>
-                <ul>
-                    <li>Cells: The basic unit of life.</li>
-                    <li>Tissues: Groups of similar cells performing a specific function (e.g., muscle tissue, nervous tissue).</li>
-                    <li>Organs: Structures made of different tissues working together for a common purpose (e.g., heart, lungs, stomach).</li>
-                    <li>Organ Systems: Groups of organs working together to perform major bodily functions (e.g., digestive system, circulatory system).</li>
-                    <li>Organism: A complete living being.</li>
-                </ul>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">7.1.5 Levels of organization</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Describe the arrangement of cells into tissues, organs, and organ systems.</li>
+                    <li>Explain the meaning of each level of organisation.</li>
+                    <li>Give examples of each level of organisation in an animal.</li>
+                </ol>
+            </div>
+
+            <!-- Section on Organisation -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">From Cells to Organisms</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    In complex, multicellular organisms like you, cells don't just float around randomly. They are organised into a clear hierarchy, like a well-structured company or an army. Each level of organisation is built upon the one below it, from the simplest cell to the entire organism.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: The LEGO Castle</h4>
+                    <p class="text-lg leading-relaxed">Let's complete our LEGO analogy. We know a single LEGO brick is like a cell. The levels of organisation are like building a giant castle from those bricks:</p>
+                    <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                        <li>A **Cell** is one single **LEGO brick**.</li>
+                        <li>A **Tissue** is a group of similar bricks put together to make a simple **wall**.</li>
+                        <li>An **Organ** is a structure made of different walls and parts, like a **castle tower**.</li>
+                        <li>An **Organ System** is a group of towers and walls working together, like the castle's entire **defence system**.</li>
+                        <li>An **Organism** is the finished **LEGO Castle**, with all its systems working together.</li>
+                    </ul>
+                </div>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L5hH42T/levels-of-organisation-diagram.png" alt="Diagram showing the levels of organisation from cell to organism" class="rounded-lg shadow-md max-w-4xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/1000x300/00BFBF/FFFFFF?text=Levels+of+Organisation';">
+                </div>
+
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Challenge Yourself: Match the Levels</h4>
+                    <p class="text-lg leading-relaxed mb-4">Click on a level in the left column, then click on its correct description in the right column. Correct matches will turn green!</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="matching-game">
+                        <div id="levels-col">
+                            <div class="p-3 bg-white border-2 border-casco-dark-teal rounded-lg cursor-pointer hover:bg-casco-light-bg" data-match-id="1">Organism</div>
+                            <div class="p-3 mt-2 bg-white border-2 border-casco-dark-teal rounded-lg cursor-pointer hover:bg-casco-light-bg" data-match-id="2">Organ System</div>
+                            <div class="p-3 mt-2 bg-white border-2 border-casco-dark-teal rounded-lg cursor-pointer hover:bg-casco-light-bg" data-match-id="3">Organ</div>
+                            <div class="p-3 mt-2 bg-white border-2 border-casco-dark-teal rounded-lg cursor-pointer hover:bg-casco-light-bg" data-match-id="4">Tissue</div>
+                            <div class="p-3 mt-2 bg-white border-2 border-casco-dark-teal rounded-lg cursor-pointer hover:bg-casco-light-bg" data-match-id="5">Cell</div>
+                        </div>
+                        <div id="descriptions-col">
+                            <div class="p-3 bg-white border-2 border-casco-dark-teal rounded-lg cursor-pointer hover:bg-casco-light-bg" data-match-id="3">A group of different tissues working together to perform a specific function (e.g., the stomach).</div>
+                            <div class="p-3 mt-2 bg-white border-2 border-casco-dark-teal rounded-lg cursor-pointer hover:bg-casco-light-bg" data-match-id="5">The basic building block of all living things.</div>
+                            <div class="p-3 mt-2 bg-white border-2 border-casco-dark-teal rounded-lg cursor-pointer hover:bg-casco-light-bg" data-match-id="1">A complete living being made of many organ systems.</div>
+                            <div class="p-3 mt-2 bg-white border-2 border-casco-dark-teal rounded-lg cursor-pointer hover:bg-casco-light-bg" data-match-id="4">A group of similar cells working together to perform a specific function (e.g., muscle tissue).</div>
+                            <div class="p-3 mt-2 bg-white border-2 border-casco-dark-teal rounded-lg cursor-pointer hover:bg-casco-light-bg" data-match-id="2">A group of organs working together to perform a major function in the body (e.g., the digestive system).</div>
+                        </div>
+                    </div>
+                    <button id="reset-button" class="mt-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">Reset</button>
+                </div>
+
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Levels of Organisation</h4>
+                    <div class="w-full h-[50vh] md:h-[60vh]">
+                        <iframe src="https://www.youtube.com/embed/ZRFykdf4kDc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
-        <div class="container mx-auto text-center text-sm">
-            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
-        </div>
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const levelsCol = document.getElementById('levels-col');
+            const descriptionsCol = document.getElementById('descriptions-col');
+            const resetButton = document.getElementById('reset-button');
+            let selectedLevel = null;
+
+            function resetGame() {
+                const items = document.querySelectorAll('#matching-game > div > div');
+                items.forEach(item => {
+                    item.classList.remove('bg-green-200', 'border-green-500', 'bg-red-200', 'border-red-500', 'bg-blue-200', 'border-blue-500', 'pointer-events-none');
+                    item.classList.add('bg-white', 'border-casco-dark-teal', 'hover:bg-casco-light-bg');
+                });
+                selectedLevel = null;
+            }
+
+            function handleItemClick(e) {
+                const clickedItem = e.target;
+                if (clickedItem.classList.contains('pointer-events-none')) return;
+
+                const isLevel = clickedItem.parentElement.id === 'levels-col';
+
+                if (isLevel) {
+                    // If a level is already selected, deselect it
+                    if (selectedLevel) {
+                        selectedLevel.classList.remove('bg-blue-200', 'border-blue-500');
+                        selectedLevel.classList.add('bg-white', 'border-casco-dark-teal', 'hover:bg-casco-light-bg');
+                    }
+                    // Select the new level
+                    selectedLevel = clickedItem;
+                    selectedLevel.classList.add('bg-blue-200', 'border-blue-500');
+                    selectedLevel.classList.remove('bg-white', 'border-casco-dark-teal', 'hover:bg-casco-light-bg');
+                } else if (selectedLevel) { // A description was clicked and a level is selected
+                    const levelId = selectedLevel.dataset.matchId;
+                    const descId = clickedItem.dataset.matchId;
+
+                    if (levelId === descId) {
+                        // Correct match
+                        selectedLevel.classList.remove('bg-blue-200', 'border-blue-500');
+                        selectedLevel.classList.add('bg-green-200', 'border-green-500', 'pointer-events-none');
+                        clickedItem.classList.remove('hover:bg-casco-light-bg');
+                        clickedItem.classList.add('bg-green-200', 'border-green-500', 'pointer-events-none');
+                        selectedLevel = null;
+                    } else {
+                        // Incorrect match
+                        clickedItem.classList.add('bg-red-200', 'border-red-500');
+                        setTimeout(() => {
+                            clickedItem.classList.remove('bg-red-200', 'border-red-500');
+                        }, 500);
+                    }
+                }
+            }
+
+            levelsCol.addEventListener('click', handleItemClick);
+            descriptionsCol.addEventListener('click', handleItemClick);
+            resetButton.addEventListener('click', resetGame);
+        });
+    </script>
 </body>
 </html>

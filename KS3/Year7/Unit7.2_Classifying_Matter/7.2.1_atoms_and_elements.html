@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7.2.1 Atoms and Elements - Casco School</title>
+    <title>7.2.1 Atoms and elements - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
@@ -19,109 +22,151 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../../../style.css">
+
+    <!-- MathJax for rendering equations -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
             svg: { fontCache: 'global' }
         };
     </script>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
             <nav id="desktop-nav" class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS3</a></li>
+                    <li><a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS5</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div id="mobile-menu-overlay">
-        <button id="close-mobile-menu" aria-label="Close mobile menu">&times;</button>
-        <nav>
-            <ul>
-                <li><a href="../../../index.html">Home</a></li>
-                <li>
-                    <button class="mobile-accordion-btn">KS3</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../Year7/index.html">Year 7</a></li>
-                        <li><a href="../../Year8/index.html">Year 8</a></li>
-                        <li><a href="../../Year9/index.html">Year 9</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <button class="mobile-accordion-btn">KS4</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS4/Biology/index.html">Biology</a></li>
-                        <li><a href="../../../KS4/Chemistry/index.html">Chemistry</a></li>
-                        <li><a href="../../../KS4/Physics/index.html">Physics</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <button class="mobile-accordion-btn">KS5</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS5/ib_biology/index.html">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html">IB Physics</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
+    <!-- Main Content -->
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <nav class="text-sm mb-4" aria-label="Breadcrumb">
-                <ol class="list-none p-0 inline-flex">
-                    <li class="flex items-center">
-                        <a href="../../../index.html" class="text-casco-main-teal hover:underline">Home</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../../index.html" class="text-casco-main-teal hover:underline">KS3</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../index.html" class="text-casco-main-teal hover:underline">Year 7</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="index.html" class="text-casco-main-teal hover:underline">Unit 7.2: Classifying Matter</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="text-gray-500">7.2.1 Atoms and Elements</li>
-                </ol>
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 7</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 7.2 Classifying Matter</a> &gt;
+                <span class="font-semibold">7.2.1 Atoms and elements</span>
             </nav>
-            <h1 class="text-3xl font-bold text-casco-main-teal mb-6">7.2.1 Atoms and Elements</h1>
-            <p class="text-lg leading-relaxed mb-6">
-                Content for this section is under development. Please check back soon!
-            </p>
-            <div class="prose max-w-none">
-                <p>This page will introduce the concept of atoms as the basic building blocks of matter and define what elements are.</p>
-                <p>Key topics will include:</p>
-                <ul>
-                    <li>Definition of an atom</li>
-                    <li>Basic structure of an atom (protons, neutrons, electrons - simplified)</li>
-                    <li>Definition of an element</li>
-                    <li>Introduction to chemical symbols for common elements</li>
-                </ul>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">7.2.1 Atoms and elements</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Define an atom as the smallest particle of an element.</li>
+                    <li>Define an element as a pure substance made up of only one type of atom.</li>
+                    <li>Describe the structure of an atom in terms of protons, neutrons, and electrons.</li>
+                </ol>
             </div>
+
+            <!-- Section on Atoms and Elements -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Atoms and Elements</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Everything in the universe, from the air you breathe to the stars in the sky, is made of matter. The fundamental building blocks of this matter are called **atoms**. An **element** is a pure substance that is made up of only one type of atom. For example, a pure gold bar contains only gold atoms, and a balloon filled with helium contains only helium atoms.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: LEGO Bricks</h4>
+                    <p class="text-lg leading-relaxed">Think about a giant box of LEGO bricks. You might have red bricks, blue bricks, and yellow bricks. Each colour represents a different **element**. All the red 2x4 bricks are the element "Red Brickium," and all the blue 2x4 bricks are the element "Blue Brickium." A single, individual red brick is therefore an **atom** of Red Brickium.</p>
+                </div>
+            </div>
+
+            <!-- Section on Atomic Structure -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Inside an Atom</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Atoms themselves are made of even smaller particles called **subatomic particles**. There are three types you need to know:
+                </p>
+                <div class="flex flex-col md:flex-row items-center justify-center my-6 gap-8">
+                    <img src="https://i.ibb.co/L5hH42T/bohr-model-carbon.png" alt="A Bohr model diagram of a Carbon atom" class="rounded-lg shadow-md max-w-sm w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00BFBF/FFFFFF?text=Carbon+Atom';">
+                    <div class="space-y-4 text-lg md:w-1/2">
+                        <p><strong>Protons:</strong> Found in the centre of the atom, in a region called the **nucleus**. They have a positive (+) electric charge.</p>
+                        <p><strong>Neutrons:</strong> Also found in the nucleus. They have no charge (they are neutral).</p>
+                        <p><strong>Electrons:</strong> They move around the nucleus in specific energy levels called shells. They have a negative (-) electric charge.</p>
+                    </div>
+                </div>
+                <div class="overflow-x-auto my-4">
+                    <table class="min-w-full bg-white border border-gray-300 rounded-lg shadow-md">
+                        <thead class="bg-casco-light-bg text-casco-dark-teal">
+                            <tr>
+                                <th class="py-2 px-4 border-b">Particle</th>
+                                <th class="py-2 px-4 border-b">Location</th>
+                                <th class="py-2 px-4 border-b">Relative Mass</th>
+                                <th class="py-2 px-4 border-b">Charge</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="py-2 px-4 border-b">Proton</td><td class="py-2 px-4 border-b">Nucleus</td><td class="py-2 px-4 border-b">1</td><td class="py-2 px-4 border-b">+1</td></tr>
+                            <tr><td class="py-2 px-4 border-b">Neutron</td><td class="py-2 px-4 border-b">Nucleus</td><td class="py-2 px-4 border-b">1</td><td class="py-2 px-4 border-b">0</td></tr>
+                            <tr><td class="py-2 px-4 border-b">Electron</td><td class="py-2 px-4 border-b">Shells</td><td class="py-2 px-4 border-b">Almost 0 (approx 1/1840)</td><td class="py-2 px-4 border-b">-1</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Atoms and Elements</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/R1RMV5qhwyE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">In-School Activity: Exploring the Periodic Table</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    The number of protons in an atom defines what element it is. This is called the **atomic number**. In a neutral atom, the number of electrons is equal to the number of protons. Use a periodic table to find the atomic number for the first 20 elements and complete a table showing the number of protons and electrons in a neutral atom of each.
+                </p>
+            </div>
+            
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Build an Atom</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    This PhET simulation lets you build your own atoms! Drag and drop protons, neutrons, and electrons to see how you can create different elements and find out what makes an atom stable or unstable.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/build-an-atom/latest/build-an-atom_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
-        <div class="container mx-auto text-center text-sm">
-            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
-        </div>
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
 </body>
 </html>

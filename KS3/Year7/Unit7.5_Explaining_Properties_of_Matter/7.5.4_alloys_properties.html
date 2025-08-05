@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7.5.4 Alloys and Their Properties - Casco School</title>
+    <title>7.5.4 Alloys properties - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
@@ -19,116 +22,133 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../../../style.css">
+
+    <!-- MathJax for rendering equations -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
             svg: { fontCache: 'global' }
         };
     </script>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
             <nav id="desktop-nav" class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS3</a></li>
+                    <li><a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS5</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div id="mobile-menu-overlay">
-        <button id="close-mobile-menu" aria-label="Close mobile menu">&times;</button>
-        <nav>
-            <ul>
-                <li><a href="../../../index.html">Home</a></li>
-                <li>
-                    <button class="mobile-accordion-btn">KS3</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../Year7/index.html">Year 7</a></li>
-                        <li><a href="../../Year8/index.html">Year 8</a></li>
-                        <li><a href="../../Year9/index.html">Year 9</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <button class="mobile-accordion-btn">KS4</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS4/Biology/index.html">Biology</a></li>
-                        <li><a href="../../../KS4/Chemistry/index.html">Chemistry</a></li>
-                        <li><a href="../../../KS4/Physics/index.html">Physics</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <button class="mobile-accordion-btn">KS5</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS5/ib_biology/index.html">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html">IB Physics</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
+    <!-- Main Content -->
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <nav class="text-sm mb-4" aria-label="Breadcrumb">
-                <ol class="list-none p-0 inline-flex">
-                    <li class="flex items-center">
-                        <a href="../../../index.html" class="text-casco-main-teal hover:underline">Home</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../../index.html" class="text-casco-main-teal hover:underline">KS3</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../index.html" class="text-casco-main-teal hover:underline">Year 7</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="index.html" class="text-casco-main-teal hover:underline">Unit 7.5: Explaining Properties of Matter</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="text-gray-500">7.5.4 Alloys and Their Properties</li>
-                </ol>
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 7</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 7.5 Explaining Properties of Matter</a> &gt;
+                <span class="font-semibold">7.5.4 Alloys properties</span>
             </nav>
-            <h1 class="text-3xl font-bold text-casco-main-teal mb-6">7.5.4 Alloys and Their Properties</h1>
-            <p class="text-lg leading-relaxed mb-6">
-                Content for this section is under development. Please check back soon!
-            </p>
-            <div class="prose max-w-none">
-                <p>This page will define alloys and explain why they are made and how their properties differ from those of pure metals.</p>
-                <p>Key concepts:</p>
-                <ul>
-                    <li>Definition: An alloy is a mixture of a metal with at least one other element (which can be a metal or a non-metal).</li>
-                    <li>Purpose of alloying: To enhance the properties of the base metal, such as increasing strength, hardness, or resistance to corrosion.</li>
-                    <li>How alloying works: The different sized atoms of the added element(s) distort the regular arrangement of atoms in the pure metal, making it harder for layers to slide over each other.</li>
-                    <li>Common examples of alloys and their uses:
-                        <ul>
-                            <li><strong>Steel:</strong> Iron and carbon (and other elements). Used in construction, cars, tools. (Stronger than pure iron).</li>
-                            <li><strong>Brass:</strong> Copper and zinc. Used for musical instruments, plumbing fittings. (Harder than copper, corrosion-resistant).</li>
-                            <li><strong>Bronze:</strong> Copper and tin. Used for statues, bells, bearings. (Harder than copper, casts well).</li>
-                            <li><strong>Solder:</strong> Tin and lead (or other metals). Used for joining electrical components. (Low melting point).</li>
-                        </ul>
-                    </li>
-                </ul>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">7.5.4 Alloys properties</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Define an alloy as a mixture containing a metal.</li>
+                    <li>Explain why alloys are often harder and stronger than pure metals.</li>
+                    <li>Give examples of common alloys and their uses.</li>
+                </ol>
             </div>
+
+            <!-- Section on Alloys -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">What is an Alloy?</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Pure metals are often surprisingly soft and not very useful for many jobs. To improve their properties, we can mix them with other elements.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    An **alloy** is a mixture containing a metal and at least one other element. This other element can be another metal or a non-metal like carbon.
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Alloys are created to give them improved or specific properties that the pure metal doesn't have, such as increased strength, hardness, or resistance to rust.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: Reinforced Concrete</h4>
+                    <p class="text-lg leading-relaxed">A good analogy for an alloy is reinforced concrete. On its own, concrete is strong when you squash it, but it can be brittle and crack if you try to bend it. Steel rods are strong when you stretch them, but they can bend. When you combine them by putting the steel rods inside the concrete, you create a new material that is strong against both squashing and stretching. It has the best properties of both.</p>
+                    <p class="text-lg leading-relaxed mt-4 font-semibold">A Key Difference:</p>
+                    <p class="text-lg leading-relaxed">It's important to remember that this is an analogy. Reinforced concrete is a *physical* mixture of two different materials. An alloy is different because the mixing happens at the atomic level. The atoms of the different elements are mixed together and form new metallic bonds, which is a *chemical* change that results in a completely new material with its own unique properties.</p>
+                </div>
+            </div>
+
+            <!-- Section on Properties -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Why are Alloys Harder?</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    In a pure metal, all the atoms are the same size and are arranged in neat, regular layers. These layers can easily slide over one another, which is what makes pure metals soft and malleable.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    When we create an alloy, we introduce atoms of a different element, which are usually a different size. These different-sized atoms disrupt the neat, regular layers. This makes it much more difficult for the layers of atoms to slide over each other, making the alloy harder and stronger than the original pure metal.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L5hH42T/alloy-structure.png" alt="Particle diagram showing how different sized atoms in an alloy disrupt the regular layers of a pure metal" class="rounded-lg shadow-md max-w-2xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/800x300/00BFBF/FFFFFF?text=Alloy+Structure';">
+                </div>
+            </div>
+
+            <!-- Section on Examples -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Common Alloys and Their Uses</h3>
+                <div class="overflow-x-auto my-4">
+                    <table class="min-w-full bg-white border border-gray-300 rounded-lg shadow-md">
+                        <thead class="bg-casco-light-bg text-casco-dark-teal">
+                            <tr>
+                                <th class="py-2 px-4 border-b">Alloy Name</th>
+                                <th class="py-2 px-4 border-b">Made From</th>
+                                <th class="py-2 px-4 border-b">Special Property</th>
+                                <th class="py-2 px-4 border-b">Common Use</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="py-2 px-4 border-b font-semibold">Steel</td><td class="py-2 px-4 border-b">Iron + Carbon</td><td class="py-2 px-4 border-b">Hard and strong</td><td class="py-2 px-4 border-b">Buildings, cars, tools</td></tr>
+                            <tr><td class="py-2 px-4 border-b font-semibold">Stainless Steel</td><td class="py-2 px-4 border-b">Iron + Carbon + Chromium</td><td class="py-2 px-4 border-b">Hard and resistant to rust</td><td class="py-2 px-4 border-b">Cutlery, surgical instruments</td></tr>
+                            <tr><td class="py-2 px-4 border-b font-semibold">Brass</td><td class="py-2 px-4 border-b">Copper + Zinc</td><td class="py-2 px-4 border-b">Harder than copper, looks like gold</td><td class="py-2 px-4 border-b">Musical instruments, taps</td></tr>
+                            <tr><td class="py-2 px-4 border-b font-semibold">Bronze</td><td class="py-2 px-4 border-b">Copper + Tin</td><td class="py-2 px-4 border-b">Harder than copper, resistant to corrosion</td><td class="py-2 px-4 border-b">Statues, medals, ship propellers</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: What are Alloys?</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/heP_Y4_W05k" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
-        <div class="container mx-auto text-center text-sm">
-            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
-        </div>
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
 </body>
 </html>

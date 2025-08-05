@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7.5.2 Acidity and Alkalinity (pH) - Casco School</title>
+    <title>7.5.2 Acidity and alkalinity (pH) - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
@@ -19,115 +22,153 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../../../style.css">
+
+    <!-- MathJax for rendering equations -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
             svg: { fontCache: 'global' }
         };
     </script>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
             <nav id="desktop-nav" class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS3</a></li>
+                    <li><a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS5</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div id="mobile-menu-overlay">
-        <button id="close-mobile-menu" aria-label="Close mobile menu">&times;</button>
-        <nav>
-            <ul>
-                <li><a href="../../../index.html">Home</a></li>
-                <li>
-                    <button class="mobile-accordion-btn">KS3</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../Year7/index.html">Year 7</a></li>
-                        <li><a href="../../Year8/index.html">Year 8</a></li>
-                        <li><a href="../../Year9/index.html">Year 9</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <button class="mobile-accordion-btn">KS4</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS4/Biology/index.html">Biology</a></li>
-                        <li><a href="../../../KS4/Chemistry/index.html">Chemistry</a></li>
-                        <li><a href="../../../KS4/Physics/index.html">Physics</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <button class="mobile-accordion-btn">KS5</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS5/ib_biology/index.html">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html">IB Physics</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
+    <!-- Main Content -->
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <nav class="text-sm mb-4" aria-label="Breadcrumb">
-                <ol class="list-none p-0 inline-flex">
-                    <li class="flex items-center">
-                        <a href="../../../index.html" class="text-casco-main-teal hover:underline">Home</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../../index.html" class="text-casco-main-teal hover:underline">KS3</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../index.html" class="text-casco-main-teal hover:underline">Year 7</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="index.html" class="text-casco-main-teal hover:underline">Unit 7.5: Explaining Properties of Matter</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="text-gray-500">7.5.2 Acidity and Alkalinity (pH)</li>
-                </ol>
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 7</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 7.5 Explaining Properties of Matter</a> &gt;
+                <span class="font-semibold">7.5.2 Acidity and alkalinity (pH)</span>
             </nav>
-            <h1 class="text-3xl font-bold text-casco-main-teal mb-6">7.5.2 Acidity and Alkalinity (pH)</h1>
-            <p class="text-lg leading-relaxed mb-6">
-                Content for this section is under development. Please check back soon!
-            </p>
-            <div class="prose max-w-none">
-                <p>This page will introduce the concepts of acidity, alkalinity, and the pH scale.</p>
-                <p>Key concepts:</p>
-                <ul>
-                    <li><strong>Acids:</strong> Substances that produce hydrogen ions (H⁺) in solution. They typically taste sour (do not taste unknown chemicals!), can be corrosive, and turn blue litmus paper red. Examples: Lemon juice (citric acid), vinegar (acetic acid), stomach acid (hydrochloric acid).</li>
-                    <li><strong>Alkalis (Bases):</strong> Substances that can neutralize acids. Soluble bases are called alkalis and produce hydroxide ions (OH⁻) in solution. They often feel soapy and turn red litmus paper blue. Examples: Baking soda (sodium bicarbonate), soap, oven cleaner (sodium hydroxide).</li>
-                    <li><strong>Neutral Substances:</strong> Substances that are neither acidic nor alkaline. Example: Pure water.</li>
-                    <li><strong>The pH Scale:</strong> A scale from 0 to 14 used to measure how acidic or alkaline a solution is.
-                        <ul>
-                            <li>pH < 7: Acidic (lower pH means stronger acid)</li>
-                            <li>pH = 7: Neutral</li>
-                            <li>pH > 7: Alkaline (higher pH means stronger alkali)</li>
-                        </ul>
-                    </li>
-                </ul>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">7.5.2 Acidity and alkalinity (pH)</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Define acids and alkalis based on their properties.</li>
+                    <li>Describe the pH scale as a measure of acidity and alkalinity.</li>
+                    <li>Give examples of common acidic, alkaline, and neutral substances.</li>
+                </ol>
             </div>
+
+            <!-- Section on Acids and Alkalis -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Acids and Alkalis</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Many common substances we use every day can be classified as either an **acid** or an **alkali**. An alkali is a base that can dissolve in water. Substances that are neither acidic nor alkaline are called **neutral**. We can identify them by their chemical properties:
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-4 text-lg">
+                    <li><strong>Acids:</strong> These are substances that react with metals to produce hydrogen gas, and react with carbonates (like limestone) to produce carbon dioxide gas. Common examples include lemon juice (citric acid) and vinegar (acetic acid).</li>
+                    <li><strong>Alkalis:</strong> These are substances that can neutralise acids. Common examples include baking soda, soap, and bleach.</li>
+                </ul>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: A Chemical Tug-of-War</h4>
+                    <p class="text-lg leading-relaxed">You can think of acidity and alkalinity as a kind of chemical tug-of-war. **Acids** are like a team pulling strongly in one direction. **Alkalis** are like a team pulling strongly in the *opposite* direction. A **neutral** substance like pure water is when the two teams are pulling with equal strength, resulting in a perfect balance.</p>
+                </div>
+            </div>
+
+            <!-- Section on pH Scale -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">The pH Scale</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    To measure how acidic or alkaline a substance is, scientists use the **pH scale**. The scale runs from 0 to 14.
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li>A pH **less than 7** indicates an **acidic** substance. The lower the number, the stronger the acid.</li>
+                    <li>A pH **of exactly 7** indicates a **neutral** substance.</li>
+                    <li>A pH **greater than 7** indicates an **alkaline** substance. The higher the number, the stronger the alkali.</li>
+                </ul>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L5hH42T/ph-scale-diagram.png" alt="A colourful diagram of the pH scale with examples of common substances" class="rounded-lg shadow-md max-w-3xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/900x200/00BFBF/FFFFFF?text=The+pH+Scale';">
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Acids, Alkalis, and the pH Scale</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/vt8fB33by_M" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">In-School Experiment: Measuring pH</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    You can measure the pH of different household liquids using a special chemical called a **universal indicator**. It changes colour depending on the pH of the substance it is mixed with.
+                </p>
+                <h5 class="text-lg font-semibold text-gray-800 mt-4 mb-2">Equipment:</h5>
+                <ul class="list-disc list-inside ml-4 text-base">
+                    <li>A spotting tile or a set of test tubes</li>
+                    <li>Samples of different safe liquids (e.g., lemon juice, vinegar, water, salt water, baking soda solution, soap solution)</li>
+                    <li>Universal indicator solution (or paper) and a pH colour chart</li>
+                    <li>Dropping pipettes</li>
+                </ul>
+                <h5 class="text-lg font-semibold text-gray-800 mt-4 mb-2">Method:</h5>
+                <ol class="list-decimal list-inside ml-4 text-base space-y-1">
+                    <li>Place a few drops of each liquid into a separate dimple of the spotting tile or a separate test tube.</li>
+                    <li>Add a drop of universal indicator solution to each liquid (or dip a piece of universal indicator paper in).</li>
+                    <li>Observe the colour change for each substance.</li>
+                    <li>Compare the colour to the pH colour chart to determine the approximate pH of each liquid.</li>
+                    <li>Record your results in a table and classify each substance as an acid, an alkali, or neutral.</li>
+                </ol>
+            </div>
+            
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: pH Scale</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    This PhET simulation lets you test the pH of a wide range of everyday substances, from battery acid to drain cleaner. See how the concentration of H₃O⁺ and OH⁻ ions determines whether something is an acid or an alkali.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/ph-scale-basics/latest/ph-scale-basics_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
-        <div class="container mx-auto text-center text-sm">
-            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
-        </div>
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
 </body>
 </html>

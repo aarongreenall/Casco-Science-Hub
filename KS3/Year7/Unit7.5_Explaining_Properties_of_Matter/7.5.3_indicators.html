@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7.5.3 Indicators - Casco School</title>
+    <title>7.5.3 Indicators - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
@@ -19,114 +22,137 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../../../style.css">
+
+    <!-- MathJax for rendering equations -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
             svg: { fontCache: 'global' }
         };
     </script>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
             <nav id="desktop-nav" class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS3</a></li>
+                    <li><a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS5</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div id="mobile-menu-overlay">
-        <button id="close-mobile-menu" aria-label="Close mobile menu">&times;</button>
-        <nav>
-            <ul>
-                <li><a href="../../../index.html">Home</a></li>
-                <li>
-                    <button class="mobile-accordion-btn">KS3</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../Year7/index.html">Year 7</a></li>
-                        <li><a href="../../Year8/index.html">Year 8</a></li>
-                        <li><a href="../../Year9/index.html">Year 9</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <button class="mobile-accordion-btn">KS4</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS4/Biology/index.html">Biology</a></li>
-                        <li><a href="../../../KS4/Chemistry/index.html">Chemistry</a></li>
-                        <li><a href="../../../KS4/Physics/index.html">Physics</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <button class="mobile-accordion-btn">KS5</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS5/ib_biology/index.html">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html">IB Physics</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
+    <!-- Main Content -->
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <nav class="text-sm mb-4" aria-label="Breadcrumb">
-                <ol class="list-none p-0 inline-flex">
-                    <li class="flex items-center">
-                        <a href="../../../index.html" class="text-casco-main-teal hover:underline">Home</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../../index.html" class="text-casco-main-teal hover:underline">KS3</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../index.html" class="text-casco-main-teal hover:underline">Year 7</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="index.html" class="text-casco-main-teal hover:underline">Unit 7.5: Explaining Properties of Matter</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="text-gray-500">7.5.3 Indicators</li>
-                </ol>
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 7</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 7.5 Explaining Properties of Matter</a> &gt;
+                <span class="font-semibold">7.5.3 Indicators</span>
             </nav>
-            <h1 class="text-3xl font-bold text-casco-main-teal mb-6">7.5.3 Indicators</h1>
-            <p class="text-lg leading-relaxed mb-6">
-                Content for this section is under development. Please check back soon!
-            </p>
-            <div class="prose max-w-none">
-                <p>This page will explain what indicators are and how they are used to determine the pH of a substance.</p>
-                <p>Key concepts:</p>
-                <ul>
-                    <li>Definition: Indicators are substances (usually dyes) that change color in the presence of an acid or an alkali.</li>
-                    <li>Common indicators and their color changes:
-                        <ul>
-                            <li><strong>Litmus paper:</strong> Red in acid, blue in alkali, purple when neutral.</li>
-                            <li><strong>Universal indicator:</strong> Shows a range of colors corresponding to different pH values (e.g., red for strong acid, green for neutral, purple for strong alkali). Often available as paper strips or solution.</li>
-                            <li>Natural indicators (e.g., red cabbage juice).</li>
-                        </ul>
-                    </li>
-                    <li>How to use indicators to test the pH of everyday substances.</li>
-                </ul>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">7.5.3 Indicators</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Define an indicator as a substance that changes colour to show pH.</li>
+                    <li>Give examples of common indicators and their colour changes.</li>
+                    <li>Understand that different indicators have different colour schemes.</li>
+                </ol>
             </div>
+
+            <!-- Section on Indicators -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">What is an Indicator?</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    How can you tell if a clear, colourless liquid is a dangerous acid or just plain water? You can't know just by looking. To find out the hidden chemical property of acidity or alkalinity (its pH), scientists use a special chemical called an **indicator**.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    An **indicator** is a substance that changes colour when it is added to an acidic or alkaline solution.
+                </blockquote>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: Goldilocks and the Thermal Camera</h4>
+                    <p class="text-lg leading-relaxed">Imagine a modern-day Goldilocks who is also a strong, independent scientist. Before she tastes any porridge, she checks it with her special thermal camera. The camera's screen is an **indicator** of the porridge's temperature. If the porridge is too hot, the screen flashes **red**. If it's too cold, it turns **blue**. If it's just right, it shows **green**. The colour change gives her a visual signal about the hidden property of temperature.</p>
+                </div>
+            </div>
+
+            <!-- Section on Types of Indicator -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Different Indicators, Different Colours</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The Goldilocks analogy is just a way to understand the idea. In a real science lab, we use chemical indicators, and it's very important to know that **different indicators have different colour schemes**. You must know what the colours mean for the specific indicator you are using.
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li><strong>Universal Indicator:</strong> This is a mixture of different indicators and gives a whole rainbow of colours, from red for strong acids to dark purple for strong alkalis, with green for neutral.</li>
+                    <li><strong>Litmus Paper:</strong> This is a simpler indicator. It turns **red** in acid and **blue** in alkali.</li>
+                    <li><strong>Phenolphthalein:</strong> This indicator is interesting because it is **colourless** in acidic and neutral solutions, but turns a bright **pink** in alkaline solutions.</li>
+                </ul>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L5hH42T/universal-indicator-chart.png" alt="The colour chart for universal indicator" class="rounded-lg shadow-md max-w-2xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/800x150/00BFBF/FFFFFF?text=Universal+Indicator';">
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Indicators</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/ci_x5-4WTTs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">At-Home Experiment: Making a Red Cabbage pH Indicator</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    You can make your own pH indicator at home using a red cabbage! The purple pigment in the cabbage leaves changes colour at different pH levels. Before you start, here are the colours you should expect:
+                </p>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-base">
+                    <li>In **strong acids** (like lemon juice), it will turn **red/pink**.</li>
+                    <li>In **neutral** solutions (like pure water), it will stay **purplish**.</li>
+                    <li>In **alkalis** (like baking soda solution), it will turn **blue/green**.</li>
+                </ul>
+                <h5 class="text-lg font-semibold text-gray-800 mt-4 mb-2">Equipment:</h5>
+                <ul class="list-disc list-inside ml-4 text-base">
+                    <li>A few leaves of red cabbage</li>
+                    <li>A bowl and hot water (ask an adult for help)</li>
+                    <li>A sieve or coffee filter</li>
+                    <li>Several clear glasses or jars</li>
+                    <li>Household substances to test (e.g., lemon juice, vinegar, tap water, baking soda mixed with water, soap solution).</li>
+                </ul>
+                <h5 class="text-lg font-semibold text-gray-800 mt-4 mb-2">Method:</h5>
+                <ol class="list-decimal list-inside ml-4 text-base space-y-1">
+                    <li>Tear the cabbage leaves into small pieces and place them in the bowl.</li>
+                    <li>Ask an adult to carefully pour hot water over the leaves until they are covered.</li>
+                    <li>Leave the cabbage to soak for about 15-20 minutes. The water will turn a deep purple colour.</li>
+                    <li>Carefully strain the purple liquid into a clean jar. This is your indicator solution!</li>
+                    <li>Pour a small amount of your indicator into several clean glasses.</li>
+                    <li>One by one, add a few drops of your test substances to the indicator and watch the colour change.</li>
+                    <li>Can you use your results to classify your household substances as acidic, alkaline, or neutral?</li>
+                </ol>
+            </div>
+            
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
-        <div class="container mx-auto text-center text-sm">
-            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
-        </div>
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
 </body>
 </html>

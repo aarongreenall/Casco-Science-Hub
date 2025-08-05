@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7.7.3 Tidal Forces - Casco School</title>
+    <title>7.7.3 Tidal forces - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
@@ -19,110 +22,114 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../../../style.css">
+
+    <!-- MathJax for rendering equations -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
             svg: { fontCache: 'global' }
         };
     </script>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
             <nav id="desktop-nav" class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS3</a></li>
+                    <li><a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS5</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div id="mobile-menu-overlay">
-        <button id="close-mobile-menu" aria-label="Close mobile menu">&times;</button>
-        <nav>
-            <ul>
-                <li><a href="../../../index.html">Home</a></li>
-                <li>
-                    <button class="mobile-accordion-btn">KS3</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../Year7/index.html">Year 7</a></li>
-                        <li><a href="../../Year8/index.html">Year 8</a></li>
-                        <li><a href="../../Year9/index.html">Year 9</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <button class="mobile-accordion-btn">KS4</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS4/Biology/index.html">Biology</a></li>
-                        <li><a href="../../../KS4/Chemistry/index.html">Chemistry</a></li>
-                        <li><a href="../../../KS4/Physics/index.html">Physics</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <button class="mobile-accordion-btn">KS5</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS5/ib_biology/index.html">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html">IB Physics</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
+    <!-- Main Content -->
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <nav class="text-sm mb-4" aria-label="Breadcrumb">
-                <ol class="list-none p-0 inline-flex">
-                    <li class="flex items-center">
-                        <a href="../../../index.html" class="text-casco-main-teal hover:underline">Home</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../../index.html" class="text-casco-main-teal hover:underline">KS3</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../index.html" class="text-casco-main-teal hover:underline">Year 7</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="index.html" class="text-casco-main-teal hover:underline">Unit 7.7: Environment and Ecosystems</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="text-gray-500">7.7.3 Tidal Forces</li>
-                </ol>
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 7</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 7.7 Environment and Ecosystems</a> &gt;
+                <span class="font-semibold">7.7.3 Tidal forces</span>
             </nav>
-            <h1 class="text-3xl font-bold text-casco-main-teal mb-6">7.7.3 Tidal Forces</h1>
-            <p class="text-lg leading-relaxed mb-6">
-                Content for this section is under development. Please check back soon!
-            </p>
-            <div class="prose max-w-none">
-                <p>This page will explain how the gravitational forces of the Moon and Sun cause tides on Earth.</p>
-                <p>Key concepts:</p>
-                <ul>
-                    <li>Tides are the regular rise and fall of sea levels.</li>
-                    <li>Mainly caused by the Moon's gravitational pull on Earth's oceans. The side of Earth closest to the Moon experiences a strong pull, creating a bulge of water (high tide). A similar bulge occurs on the opposite side of Earth due to inertia.</li>
-                    <li>The Sun also exerts a gravitational force, but it's weaker than the Moon's tidal effect due to its greater distance.</li>
-                    <li><strong>Spring Tides:</strong> Occur when the Sun, Earth, and Moon are aligned (new moon and full moon). The gravitational forces of the Sun and Moon combine, leading to higher high tides and lower low tides.</li>
-                    <li><strong>Neap Tides:</strong> Occur when the Sun and Moon are at right angles to each other relative to Earth (first and third quarter moons). The gravitational forces partially cancel each other out, leading to less extreme high and low tides.</li>
-                </ul>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">7.7.3 Tidal forces</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Define tides as the regular rise and fall of the Earth's oceans.</li>
+                    <li>Explain that tides are caused mainly by the gravitational pull of the Moon.</li>
+                    <li>Describe how the alignment of the Sun and Moon causes Spring and Neap tides.</li>
+                </ol>
             </div>
+
+            <!-- Section on Tides -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">What are Tides?</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    **Tides** are the regular, predictable rise and fall of the sea level. They are caused by the force of gravity. While the Sun's gravity has an effect, the main cause of the Earth's tides is the gravitational pull of the **Moon**.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The Moon's gravity pulls on the entire Earth, but it pulls more strongly on the parts that are closer to it. This difference in gravitational pull is what creates the tides. The water on the side of the Earth nearest the Moon is pulled towards it, creating a bulge of water, or a **high tide**.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    But this doesn't explain why there are two high tides every day. The Moon's gravity also pulls on the solid Earth more strongly than it pulls on the water on the far side. This effectively pulls the Earth away from the water on the far side, leaving a second bulge of water behind. This creates a second high tide on the opposite side of the Earth. As the Earth spins, any location on the coast passes through both of these bulges each day.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L5hH42T/tidal-bulge-diagram.png" alt="Diagram showing the two tidal bulges on Earth caused by the Moon's gravity" class="rounded-lg shadow-md max-w-xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/700x300/00BFBF/FFFFFF?text=Tidal+Bulges';">
+                </div>
+            </div>
+
+            <!-- Section on Spring and Neap Tides -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Spring and Neap Tides</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The Sun's gravity also affects the tides, though less than the Moon's. When the Sun, Earth, and Moon are aligned, their gravitational pulls combine to create more extreme tides.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Spring Tides</h4>
+                        <p class="text-lg leading-relaxed mb-4">This happens during a New Moon and a Full Moon, when the Sun, Earth, and Moon are in a straight line. The gravitational forces of the Sun and Moon work together, creating extra-high high tides and extra-low low tides.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Neap Tides</h4>
+                        <p class="text-lg leading-relaxed mb-4">This happens during the first and third quarter moons, when the Sun and Moon are at right angles to each other relative to the Earth. Their gravitational forces partially cancel each other out, leading to less extreme tides with a smaller difference between high and low tide.</p>
+                    </div>
+                </div>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/gZ7Q02C/spring-neap-tides.png" alt="Diagram showing the alignment of the Sun, Earth, and Moon for spring and neap tides" class="rounded-lg shadow-md max-w-2xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/800x400/009999/FFFFFF?text=Spring+and+Neap+Tides';">
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Tides</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/5_p-iGg53-k" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
-        <div class="container mx-auto text-center text-sm">
-            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
-        </div>
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
 </body>
 </html>

@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7.5.1 Chemical and Physical Properties - Casco School</title>
+    <title>7.5.1 Chemical and physical properties - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
@@ -19,111 +22,160 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../../../style.css">
+
+    <!-- MathJax for rendering equations -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
             svg: { fontCache: 'global' }
         };
     </script>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
             <nav id="desktop-nav" class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS3</a></li>
+                    <li><a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS5</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div id="mobile-menu-overlay">
-        <button id="close-mobile-menu" aria-label="Close mobile menu">&times;</button>
-        <nav>
-            <ul>
-                <li><a href="../../../index.html">Home</a></li>
-                <li>
-                    <button class="mobile-accordion-btn">KS3</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../Year7/index.html">Year 7</a></li>
-                        <li><a href="../../Year8/index.html">Year 8</a></li>
-                        <li><a href="../../Year9/index.html">Year 9</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <button class="mobile-accordion-btn">KS4</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS4/Biology/index.html">Biology</a></li>
-                        <li><a href="../../../KS4/Chemistry/index.html">Chemistry</a></li>
-                        <li><a href="../../../KS4/Physics/index.html">Physics</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <button class="mobile-accordion-btn">KS5</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS5/ib_biology/index.html">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html">IB Physics</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
+    <!-- Main Content -->
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <nav class="text-sm mb-4" aria-label="Breadcrumb">
-                <ol class="list-none p-0 inline-flex">
-                    <li class="flex items-center">
-                        <a href="../../../index.html" class="text-casco-main-teal hover:underline">Home</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../../index.html" class="text-casco-main-teal hover:underline">KS3</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../index.html" class="text-casco-main-teal hover:underline">Year 7</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="index.html" class="text-casco-main-teal hover:underline">Unit 7.5: Explaining Properties of Matter</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="text-gray-500">7.5.1 Chemical and Physical Properties</li>
-                </ol>
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 7</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 7.5 Explaining Properties of Matter</a> &gt;
+                <span class="font-semibold">7.5.1 Chemical and physical properties</span>
             </nav>
-            <h1 class="text-3xl font-bold text-casco-main-teal mb-6">7.5.1 Chemical and Physical Properties</h1>
-            <p class="text-lg leading-relaxed mb-6">
-                Content for this section is under development. Please check back soon!
-            </p>
-            <div class="prose max-w-none">
-                <p>This page will differentiate between chemical and physical properties of matter and provide examples of each.</p>
-                <p><strong>Physical Properties:</strong> Characteristics that can be observed or measured without changing the chemical identity of the substance.</p>
-                <ul>
-                    <li>Examples: Color, odor, state (solid, liquid, gas), density, melting point, boiling point, hardness, solubility.</li>
-                </ul>
-                <p><strong>Chemical Properties:</strong> Characteristics that describe how a substance reacts or changes chemically to form new substances.</p>
-                <ul>
-                    <li>Examples: Flammability, reactivity with acids, ability to rust (oxidize), toxicity, heat of combustion.</li>
-                </ul>
-                <p>Understanding the difference is key to classifying and predicting the behavior of materials.</p>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">7.5.1 Chemical and physical properties</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Define and give examples of physical properties.</li>
+                    <li>Define and give examples of chemical properties.</li>
+                    <li>Distinguish between a physical change and a chemical change.</li>
+                </ol>
             </div>
+
+            <!-- Section on Properties -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Describing Matter</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Scientists describe substances using their **properties**. These properties can be divided into two main types: physical properties and chemical properties.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: Baking a Cake</h4>
+                    <p class="text-lg leading-relaxed">Think about the ingredients for a cake sitting on the kitchen counter. We can use this to understand the difference between physical and chemical properties.</p>
+                    <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                        <li><strong>Physical Properties:</strong> These are the characteristics of the ingredients *before* you start baking. You can observe them without changing what the ingredients are. For example, flour is a white powder, sugar is made of white crystals, and an egg is an oval with a brittle shell.</li>
+                        <li><strong>Chemical Properties:</strong> These describe what the ingredients *do* when they react. You can't know these just by looking. A key chemical property of the mixture is its ability to **react with heat to form a cake**. You only see this property when you put it in the oven and cause a chemical change.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section on Changes -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Physical vs. Chemical Changes</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The key difference between a physical and a chemical change is whether a new substance is formed.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Physical Change</h4>
+                        <p class="text-lg leading-relaxed mb-4">A physical change alters the form of a substance, but not its chemical identity. No new substance is made. These changes are often easy to reverse. Examples include changing state (melting ice into water), dissolving sugar in tea, or mixing sand and salt.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Chemical Change</h4>
+                        <p class="text-lg leading-relaxed mb-4">A chemical change (or chemical reaction) results in the formation of one or more new substances with different properties. These changes are usually difficult or impossible to reverse. Examples include burning wood (which turns into ash and smoke) or a nail rusting.</p>
+                    </div>
+                </div>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L5hH42T/physical-vs-chemical-change.png" alt="Diagram comparing ice melting (physical change) to wood burning (chemical change)" class="rounded-lg shadow-md max-w-2xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/800x300/00BFBF/FFFFFF?text=Physical+vs+Chemical+Change';">
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Physical vs. Chemical Changes</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/4hM_Zg_wFso" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">In-School Activity: Classifying Changes</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    Your teacher will give you a list of different changes. For each one, decide if it is a physical change or a chemical change, and be ready to explain your reasoning.
+                </p>
+                <h5 class="text-lg font-semibold text-gray-800 mt-4 mb-2">Activity 1: Classify the Changes</h5>
+                <ul class="list-disc list-inside ml-4 text-base">
+                    <li>Melting an ice cube</li>
+                    <li>Frying an egg</li>
+                    <li>Dissolving salt in water</li>
+                    <li>A firework exploding</li>
+                    <li>Tearing a piece of paper</li>
+                </ul>
+                <h5 class="text-lg font-semibold text-gray-800 mt-4 mb-2">Activity 2: The Skittles Test</h5>
+                <ol class="list-decimal list-inside ml-4 text-base space-y-1">
+                    <li>Your teacher will give you a small pot of Skittles. Pour them out onto a piece of paper and mix them up. Is this a physical or chemical change? Can you easily separate the colours again?</li>
+                    <li>Now, take a few Skittles and chew them thoroughly. Spit the chewed mixture onto a paper plate. Is this a physical or chemical change? Can you separate the colours now? The chewing and the action of your saliva have caused an irreversible chemical change!</li>
+                </ol>
+                <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mt-4" role="alert">
+                    <p class="font-bold">Important Safety Warning!</p>
+                    <p>Do not do this at home your parents will not forgive you for showing them half chewed skittle spittle on a plate....no matter how much they might like science.</p>
+                </div>
+            </div>
+            
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: States of Matter</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    This PhET simulation is a great way to see physical changes at the particle level. Use the "Phase Changes" tab to heat and cool a substance like water. Watch how the arrangement and movement of the water molecules change as it turns from a solid (ice) to a liquid and then to a gas (steam), but notice that the individual H₂O molecules themselves do not change.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/states-of-matter-basics/latest/states-of-matter-basics_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
-        <div class="container mx-auto text-center text-sm">
-            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
-        </div>
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
 </body>
 </html>

@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7.6.3 Sound Waves and Vacuum - Casco School</title>
+    <title>7.6.3 Sound waves and the vacuum - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
@@ -19,111 +22,145 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../../../style.css">
+
+    <!-- MathJax for rendering equations -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
             svg: { fontCache: 'global' }
         };
     </script>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
             <nav id="desktop-nav" class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS3</a></li>
+                    <li><a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS5</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div id="mobile-menu-overlay">
-        <button id="close-mobile-menu" aria-label="Close mobile menu">&times;</button>
-        <nav>
-            <ul>
-                <li><a href="../../../index.html">Home</a></li>
-                <li>
-                    <button class="mobile-accordion-btn">KS3</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../Year7/index.html">Year 7</a></li>
-                        <li><a href="../../Year8/index.html">Year 8</a></li>
-                        <li><a href="../../Year9/index.html">Year 9</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <button class="mobile-accordion-btn">KS4</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS4/Biology/index.html">Biology</a></li>
-                        <li><a href="../../../KS4/Chemistry/index.html">Chemistry</a></li>
-                        <li><a href="../../../KS4/Physics/index.html">Physics</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <button class="mobile-accordion-btn">KS5</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS5/ib_biology/index.html">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html">IB Physics</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
+    <!-- Main Content -->
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <nav class="text-sm mb-4" aria-label="Breadcrumb">
-                <ol class="list-none p-0 inline-flex">
-                    <li class="flex items-center">
-                        <a href="../../../index.html" class="text-casco-main-teal hover:underline">Home</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../../index.html" class="text-casco-main-teal hover:underline">KS3</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../index.html" class="text-casco-main-teal hover:underline">Year 7</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="index.html" class="text-casco-main-teal hover:underline">Unit 7.6: Energy and Sound</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="text-gray-500">7.6.3 Sound Waves and Vacuum</li>
-                </ol>
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 7</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 7.6 Energy and Sound</a> &gt;
+                <span class="font-semibold">7.6.3 Sound waves and the vacuum</span>
             </nav>
-            <h1 class="text-3xl font-bold text-casco-main-teal mb-6">7.6.3 Sound Waves and Vacuum</h1>
-            <p class="text-lg leading-relaxed mb-6">
-                Content for this section is under development. Please check back soon!
-            </p>
-            <div class="prose max-w-none">
-                <p>This page will explain that sound travels as waves and requires a medium to travel through, meaning it cannot travel through a vacuum.</p>
-                <p>Key concepts:</p>
-                <ul>
-                    <li>Sound is produced by vibrations.</li>
-                    <li>These vibrations travel as waves (longitudinal waves) through a medium (solid, liquid, or gas) by causing particles in the medium to vibrate.</li>
-                    <li>Sound travels at different speeds in different media (fastest in solids, slowest in gases).</li>
-                    <li>A vacuum is a space with no particles (or very few).</li>
-                    <li>Since sound requires particles to vibrate and transmit the wave, sound cannot travel through a vacuum. (Classic bell jar experiment demonstration).</li>
-                    <li>This is why there is no sound in outer space (which is mostly a vacuum).</li>
-                </ul>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">7.6.3 Sound waves and the vacuum</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Explain that sound is a mechanical wave that requires a medium to travel.</li>
+                    <li>Define a vacuum as a space with no particles.</li>
+                    <li>Explain why sound cannot travel through a vacuum.</li>
+                </ol>
             </div>
+
+            <!-- Section on Sound in a Medium -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Why Sound Needs to Travel Through Something</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    We know that sound is caused by vibrations. For the sound to travel from the source to our ears, those vibrations need something to travel through. This "something" is called a **medium**. A medium can be a solid, a liquid, or a gas.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The vibrations from the source bump into the particles of the medium, which then bump into their neighbours, and so on. This chain reaction carries the sound energy from one place to another.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: The Domino Rally</h4>
+                    <p class="text-lg leading-relaxed">Imagine a long line of dominoes. The dominoes are the **particles of the medium**. When you push the first domino (the **vibrating source**), it passes its energy to the next, which passes it to the next, creating a wave that travels all the way down the line. The dominoes themselves only move a little bit, but the wave of energy travels a long way. Now, what happens if you leave a gap in the line of dominoes? The wave stops! That gap is like a **vacuum**.</p>
+                </div>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    A **vacuum** is a space with no particles in it. Because there are no particles to pass the vibrations along, **sound cannot travel through a vacuum**. This is why there is no sound in outer space.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L5hH42T/bell-in-jar-experiment.png" alt="Diagram of the bell in a bell jar experiment" class="rounded-lg shadow-md max-w-xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/700x400/00BFBF/FFFFFF?text=Bell+Jar+Experiment';">
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Sound in a Vacuum</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/b-eMoS0q6sE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">At-Home Experiment: Making a String Telephone</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    This classic experiment is a fun and simple way to prove that sound travels through a solid medium (the string) much better than it does through a gas (the air).
+                </p>
+                <h5 class="text-lg font-semibold text-gray-800 mt-4 mb-2">Equipment:</h5>
+                <ul class="list-disc list-inside ml-4 text-base">
+                    <li>Two paper or plastic cups</li>
+                    <li>A long piece of string (5-10 metres is great)</li>
+                    <li>A sharp pencil or a pin</li>
+                    <li>A friend to help you!</li>
+                </ul>
+                <h5 class="text-lg font-semibold text-gray-800 mt-4 mb-2">Method:</h5>
+                <ol class="list-decimal list-inside ml-4 text-base space-y-1">
+                    <li>Carefully poke a small hole in the centre of the bottom of each cup.</li>
+                    <li>Thread one end of the string through the hole in one cup, from the outside in. Tie a large knot on the inside of the cup so the string can't pull out.</li>
+                    <li>Do the same with the other end of the string and the second cup.</li>
+                    <li>You and your friend should each take a cup and walk apart until the string is pulled tight. **The string must be taut for this to work!**</li>
+                    <li>One person should put the cup to their ear (the receiver) while the other person speaks into their cup (the transmitter).</li>
+                    <li>Now, try talking to your friend from the same distance without the string telephone. Which is louder and clearer?</li>
+                </ol>
+                <h5 class="text-lg font-semibold text-gray-800 mt-4 mb-2">What's Happening?</h5>
+                <p class="text-base leading-relaxed">When you speak into the cup, the sound waves make the bottom of the cup vibrate. These vibrations travel along the taut string to the other cup, making its bottom vibrate too. This second cup then turns the vibrations back into sound waves that your friend can hear. The sound is much clearer than through the air because the solid string is a better medium for transmitting the vibrations.</p>
+            </div>
+            
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Sound</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    This PhET simulation lets you see sound waves travelling. Use the "Listen to a Single Source" tab. Watch how the speaker creates waves that travel through the air. Now, use the slider on the right to "Remove Air From Box". What happens to the sound waves when there is a vacuum?
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/sound/latest/sound_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
-        <div class="container mx-auto text-center text-sm">
-            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
-        </div>
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
 </body>
 </html>

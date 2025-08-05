@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7.7.2 Earthquakes, Volcanoes, and Fold Mountains - Casco School</title>
+    <title>7.7.2 Earthquakes, volcanoes, fold mountains - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
@@ -19,109 +22,149 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../../../style.css">
+
+    <!-- MathJax for rendering equations -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
             svg: { fontCache: 'global' }
         };
     </script>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
             <nav id="desktop-nav" class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS3</a></li>
+                    <li><a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS5</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div id="mobile-menu-overlay">
-        <button id="close-mobile-menu" aria-label="Close mobile menu">&times;</button>
-        <nav>
-            <ul>
-                <li><a href="../../../index.html">Home</a></li>
-                <li>
-                    <button class="mobile-accordion-btn">KS3</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../Year7/index.html">Year 7</a></li>
-                        <li><a href="../../Year8/index.html">Year 8</a></li>
-                        <li><a href="../../Year9/index.html">Year 9</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <button class="mobile-accordion-btn">KS4</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS4/Biology/index.html">Biology</a></li>
-                        <li><a href="../../../KS4/Chemistry/index.html">Chemistry</a></li>
-                        <li><a href="../../../KS4/Physics/index.html">Physics</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <button class="mobile-accordion-btn">KS5</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS5/ib_biology/index.html">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html">IB Physics</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
+    <!-- Main Content -->
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <nav class="text-sm mb-4" aria-label="Breadcrumb">
-                <ol class="list-none p-0 inline-flex">
-                    <li class="flex items-center">
-                        <a href="../../../index.html" class="text-casco-main-teal hover:underline">Home</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../../index.html" class="text-casco-main-teal hover:underline">KS3</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../index.html" class="text-casco-main-teal hover:underline">Year 7</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="index.html" class="text-casco-main-teal hover:underline">Unit 7.7: Environment and Ecosystems</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="text-gray-500">7.7.2 Earthquakes, Volcanoes, and Fold Mountains</li>
-                </ol>
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 7</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 7.7 Environment and Ecosystems</a> &gt;
+                <span class="font-semibold">7.7.2 Earthquakes, volcanoes, fold mountains</span>
             </nav>
-            <h1 class="text-3xl font-bold text-casco-main-teal mb-6">7.7.2 Earthquakes, Volcanoes, and Fold Mountains</h1>
-            <p class="text-lg leading-relaxed mb-6">
-                Content for this section is under development. Please check back soon!
-            </p>
-            <div class="prose max-w-none">
-                <p>This page will explain how the movement of tectonic plates leads to geological events like earthquakes and volcanoes, and the formation of fold mountains.</p>
-                <p>Key concepts:</p>
-                <ul>
-                    <li><strong>Earthquakes:</strong> Caused by the sudden release of energy in the Earth's crust, typically along fault lines at plate boundaries, creating seismic waves.</li>
-                    <li><strong>Volcanoes:</strong> Often found at convergent and divergent plate boundaries where magma (molten rock) rises to the surface.</li>
-                    <li><strong>Fold Mountains:</strong> Formed at convergent plate boundaries where layers of rock are crumpled and folded upwards as plates collide (e.g., the Himalayas).</li>
-                    <li>The relationship between these phenomena and plate boundaries.</li>
-                </ul>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">7.7.2 Earthquakes, volcanoes, and fold mountains</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Explain that earthquakes and volcanoes are found at the boundaries between tectonic plates.</li>
+                    <li>Describe the three main types of plate boundary: convergent, divergent, and transform.</li>
+                    <li>Relate the formation of volcanoes and fold mountains to different types of plate boundary.</li>
+                </ol>
             </div>
+
+            <!-- Section on Plate Boundaries -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Where Plates Meet</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The Earth's most dramatic geological events—massive earthquakes, explosive volcanoes, and the creation of huge mountain ranges—are not random. They happen in specific zones, which are the **boundaries** where the tectonic plates meet. The way the plates interact at these boundaries determines what kind of geological features are formed.
+                </p>
+            </div>
+
+            <!-- Section on Convergent Boundaries -->
+            <div class="py-4">
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Convergent Boundaries (Plates Colliding)</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    At a convergent boundary, two tectonic plates are moving towards each other and colliding. What happens next depends on the type of plates. If two continental plates collide, they have a similar density, so neither can slide under the other. Instead, the immense pressure buckles and pushes the rock upwards, creating enormous **fold mountains**.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L5hH42T/convergent-boundary-fold-mountains.png" alt="Diagram of a convergent boundary forming fold mountains" class="rounded-lg shadow-md max-w-lg w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x300/00BFBF/FFFFFF?text=Convergent+Boundary';">
+                </div>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    <strong>Real-World Example:</strong> The **Himalayan mountain range** was formed (and is still growing) due to the collision between the Indian Plate and the Eurasian Plate. If an oceanic plate collides with a continental plate, the denser oceanic plate is forced underneath in a process called subduction. This often creates a line of volcanoes, like those in the **Pacific Ring of Fire**.
+                </p>
+            </div>
+            
+            <!-- Section on Divergent Boundaries -->
+            <div class="py-4">
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Divergent Boundaries (Plates Separating)</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    At a divergent boundary, two tectonic plates are moving away from each other. This creates a gap between the plates, allowing hot magma from the mantle to rise to the surface. When the magma cools, it forms new crust.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/gZ7Q02C/divergent-boundary.png" alt="Diagram of a divergent boundary forming a mid-ocean ridge" class="rounded-lg shadow-md max-w-lg w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x300/009999/FFFFFF?text=Divergent+Boundary';">
+                </div>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    <strong>Real-World Example:</strong> The **Mid-Atlantic Ridge** is a massive underwater mountain range in the middle of the Atlantic Ocean where the North American and Eurasian plates are pulling apart. This process, known as seafloor spreading, creates volcanoes and shallow earthquakes along the ridge.
+                </p>
+            </div>
+
+            <!-- Section on Transform Boundaries -->
+            <div class="py-4">
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Transform Boundaries (Plates Sliding)</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    At a transform boundary, two plates are sliding past each other horizontally. The edges of the plates are rough and can get stuck. As the rest of the plates continue to move, huge amounts of stress build up in the stuck sections. When the stress becomes too great, the rocks suddenly break or slip, releasing the stored energy as seismic waves, which we feel as an **earthquake**.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/yqg6K1Q/transform-boundary.png" alt="Diagram of a transform boundary showing plates sliding past each other" class="rounded-lg shadow-md max-w-lg w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x300/33EBEB/FFFFFF?text=Transform+Boundary';">
+                </div>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    <strong>Real-World Example:</strong> The **San Andreas Fault** in California is a famous transform boundary between the Pacific Plate and the North American Plate. The city of San Francisco is located on this fault line and has a long history of powerful earthquakes, including the great earthquake of 1906.
+                </p>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Plate Boundaries</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/d-p_62B92k4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+            
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Plate Tectonics</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    This PhET simulation is the perfect tool for understanding plate boundaries. You can create different types of crust and then crash them together (convergent), pull them apart (divergent), or slide them past each other (transform) to see what happens.
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/plate-tectonics/latest/plate-tectonics_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
-        <div class="container mx-auto text-center text-sm">
-            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
-        </div>
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
 </body>
 </html>

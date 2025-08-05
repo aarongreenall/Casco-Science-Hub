@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7.6.1 Energy Changes - Casco School</title>
+    <title>7.6.1 Energy changes and Sound - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
@@ -19,125 +22,118 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../../../style.css">
+
+    <!-- MathJax for rendering equations -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
             svg: { fontCache: 'global' }
         };
     </script>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
             <nav id="desktop-nav" class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS3</a></li>
+                    <li><a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS5</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div id="mobile-menu-overlay">
-        <button id="close-mobile-menu" aria-label="Close mobile menu">&times;</button>
-        <nav>
-            <ul>
-                <li><a href="../../../index.html">Home</a></li>
-                <li>
-                    <button class="mobile-accordion-btn">KS3</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../Year7/index.html">Year 7</a></li>
-                        <li><a href="../../Year8/index.html">Year 8</a></li>
-                        <li><a href="../../Year9/index.html">Year 9</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <button class="mobile-accordion-btn">KS4</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS4/Biology/index.html">Biology</a></li>
-                        <li><a href="../../../KS4/Chemistry/index.html">Chemistry</a></li>
-                        <li><a href="../../../KS4/Physics/index.html">Physics</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <button class="mobile-accordion-btn">KS5</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS5/ib_biology/index.html">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html">IB Physics</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
+    <!-- Main Content -->
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <nav class="text-sm mb-4" aria-label="Breadcrumb">
-                <ol class="list-none p-0 inline-flex">
-                    <li class="flex items-center">
-                        <a href="../../../index.html" class="text-casco-main-teal hover:underline">Home</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../../index.html" class="text-casco-main-teal hover:underline">KS3</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../index.html" class="text-casco-main-teal hover:underline">Year 7</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="index.html" class="text-casco-main-teal hover:underline">Unit 7.6: Energy and Sound</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="text-gray-500">7.6.1 Energy Changes</li>
-                </ol>
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 7</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 7.6 Energy and Sound</a> &gt;
+                <span class="font-semibold">7.6.1 Energy changes and Sound</span>
             </nav>
-            <h1 class="text-3xl font-bold text-casco-main-teal mb-6">7.6.1 Energy Changes</h1>
-            <p class="text-lg leading-relaxed mb-6">
-                Content for this section is under development. Please check back soon!
-            </p>
-            <div class="prose max-w-none">
-                <p>This page will introduce the different forms of energy and the concept of energy transformation (changes from one form to another).</p>
-                <p>Forms of Energy:</p>
-                <ul>
-                    <li>Kinetic (movement)</li>
-                    <li>Potential (stored energy, e.g., gravitational, elastic, chemical)</li>
-                    <li>Thermal (heat)</li>
-                    <li>Light</li>
-                    <li>Sound</li>
-                    <li>Electrical</li>
-                    <li>Nuclear</li>
-                </ul>
-                <p>Energy Transformations:</p>
-                <ul>
-                    <li>Energy can be changed from one form to another.</li>
-                    <li>Examples:
-                        <ul>
-                            <li>A light bulb: Electrical energy to light and thermal energy.</li>
-                            <li>A car engine: Chemical energy (fuel) to kinetic and thermal energy.</li>
-                            <li>Photosynthesis: Light energy to chemical energy.</li>
-                            <li>A falling object: Gravitational potential energy to kinetic energy.</li>
-                        </ul>
-                    </li>
-                    <li>The principle of conservation of energy (energy cannot be created or destroyed, only transformed).</li>
-                </ul>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">7.6.1 Energy changes and Sound</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Define sound as a form of energy produced by vibrations.</li>
+                    <li>Describe the three things needed for a sound to be heard.</li>
+                    <li>Explain that sound waves transfer energy.</li>
+                </ol>
             </div>
+
+            <!-- Section on Sound -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">What is Sound?</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    **Sound** is a form of energy that we can hear. It is created when an object **vibrates**—moves back and forth very quickly. These vibrations travel through a substance as a wave, carrying energy from the source to our ears.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    For a sound to be heard, three things are needed:
+                </p>
+                <ol class="list-decimal list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li>A **Source:** Something that vibrates to create the sound (e.g., a guitar string, your vocal cords).</li>
+                    <li>A **Medium:** A substance for the vibrations to travel through (e.g., air, water, a solid wall).</li>
+                    <li>A **Detector:** Something to detect the vibrations (e.g., your ear, a microphone).</li>
+                </ol>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L5hH42T/sound-vibrations-ear.png" alt="Diagram showing vibrations from a speaker travelling through the air to an ear" class="rounded-lg shadow-md max-w-2xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/800x300/00BFBF/FFFFFF?text=Sound+Travel';">
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: Ripples in a Pond</h4>
+                    <p class="text-lg leading-relaxed">A great way to understand how sound travels is to think about dropping a stone into a calm pond. The **stone hitting the water** is like the **vibrating source**. The **water** is the **medium**. The **ripples** that spread out are like the **sound waves**. If you watch a leaf floating on the water, you will see it bob up and down as the ripples pass, but it doesn't travel across the pond. This shows that **energy** has been transferred by the wave, but the medium (the water) has stayed in the same place. Sound works in exactly the same way.</p>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: What is Sound?</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/3-xKZKxXuu0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">In-School Activity: Feeling the Vibrations</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    You can directly feel the link between sound and vibrations with some simple activities.
+                </p>
+                <h5 class="text-lg font-semibold text-gray-800 mt-4 mb-2">Equipment:</h5>
+                <ul class="list-disc list-inside ml-4 text-base">
+                    <li>A plastic ruler</li>
+                    <li>A tuning fork and a block to strike it on</li>
+                    <li>A rubber band</li>
+                </ul>
+                <h5 class="text-lg font-semibold text-gray-800 mt-4 mb-2">Method:</h5>
+                <ol class="list-decimal list-inside ml-4 text-base space-y-2">
+                    <li><strong>The Ruler:</strong> Hold the ruler firmly on the edge of a desk with about half of it sticking out. Pluck the end of the ruler to make it twang. You can see it vibrating and hear the sound. Now, place your other hand on the ruler to stop the vibrations. What happens to the sound?</li>
+                    <li><strong>The Tuning Fork:</strong> Strike the tuning fork on the block to make it ring. Gently touch the prongs with your fingertips. What do you feel? Now touch the prongs to the surface of some water in a beaker. What do you see?</li>
+                    <li><strong>The Rubber Band:</strong> Stretch a rubber band between your thumb and forefinger. Pluck it like a guitar string. Can you see it vibrating and hear the sound?</li>
+                </ol>
+            </div>
+
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
-        <div class="container mx-auto text-center text-sm">
-            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
-        </div>
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
 </body>
 </html>

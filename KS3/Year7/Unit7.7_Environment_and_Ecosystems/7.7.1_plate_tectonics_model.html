@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7.7.1 Plate Tectonics Model - Casco School</title>
+    <title>7.7.1 Plate tectonics model - Casco School Science</title>
+    
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
@@ -19,116 +22,130 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+    <!-- Link to external custom CSS file -->
+    <link rel="stylesheet" href="../../../../style.css">
+
+    <!-- MathJax for rendering equations -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams' 
+            },
             svg: { fontCache: 'global' }
         };
     </script>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
             <nav id="desktop-nav" class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                <ul class="flex items-center space-x-4">
+                    <li><a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">Home</a></li>
+                    <li><a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">KS3</a></li>
+                    <li><a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS4</a></li>
+                    <li><a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">KS5</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div id="mobile-menu-overlay">
-        <button id="close-mobile-menu" aria-label="Close mobile menu">&times;</button>
-        <nav>
-            <ul>
-                <li><a href="../../../index.html">Home</a></li>
-                <li>
-                    <button class="mobile-accordion-btn">KS3</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../Year7/index.html">Year 7</a></li>
-                        <li><a href="../../Year8/index.html">Year 8</a></li>
-                        <li><a href="../../Year9/index.html">Year 9</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <button class="mobile-accordion-btn">KS4</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS4/Biology/index.html">Biology</a></li>
-                        <li><a href="../../../KS4/Chemistry/index.html">Chemistry</a></li>
-                        <li><a href="../../../KS4/Physics/index.html">Physics</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <button class="mobile-accordion-btn">KS5</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS5/ib_biology/index.html">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html">IB Physics</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
+    <!-- Main Content -->
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <nav class="text-sm mb-4" aria-label="Breadcrumb">
-                <ol class="list-none p-0 inline-flex">
-                    <li class="flex items-center">
-                        <a href="../../../index.html" class="text-casco-main-teal hover:underline">Home</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../../index.html" class="text-casco-main-teal hover:underline">KS3</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../index.html" class="text-casco-main-teal hover:underline">Year 7</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="index.html" class="text-casco-main-teal hover:underline">Unit 7.7: Environment and Ecosystems</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="text-gray-500">7.7.1 Plate Tectonics Model</li>
-                </ol>
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 7</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 7.7 Environment and Ecosystems</a> &gt;
+                <span class="font-semibold">7.7.1 Plate tectonics model</span>
             </nav>
-            <h1 class="text-3xl font-bold text-casco-main-teal mb-6">7.7.1 Plate Tectonics Model</h1>
-            <p class="text-lg leading-relaxed mb-6">
-                Content for this section is under development. Please check back soon!
-            </p>
-            <div class="prose max-w-none">
-                <p>This page will introduce the model of plate tectonics to explain the Earth's structure and movement of its crust.</p>
-                <p>Key concepts:</p>
-                <ul>
-                    <li>The Earth's lithosphere (crust and upper mantle) is divided into several large and small tectonic plates.</li>
-                    <li>These plates float on the semi-fluid asthenosphere beneath them.</li>
-                    <li>Convection currents in the mantle are thought to be the driving force behind plate movement.</li>
-                    <li>Types of plate boundaries (briefly):
-                        <ul>
-                            <li><strong>Convergent:</strong> Plates move towards each other.</li>
-                            <li><strong>Divergent:</strong> Plates move away from each other.</li>
-                            <li><strong>Transform:</strong> Plates slide past each other.</li>
-                        </ul>
-                    </li>
-                    <li>Brief mention of how plate tectonics explains continental drift.</li>
-                </ul>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">7.7.1 Plate tectonics model</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Describe the structure of the Earth in terms of crust, mantle, and core.</li>
+                    <li>Define a tectonic plate.</li>
+                    <li>Explain how convection currents in the mantle cause the tectonic plates to move.</li>
+                </ol>
             </div>
+
+            <!-- Section on Earth's Structure -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">The Structure of the Earth</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Our planet is not a solid ball of rock. It is made up of several distinct layers, a bit like an onion. The three main layers are:
+                </p>
+                <div class="flex flex-col md:flex-row items-center justify-center my-6 gap-8">
+                    <img src="https://i.ibb.co/L5hH42T/earth-layers.png" alt="A cross-section of the Earth showing the crust, mantle, and core" class="rounded-lg shadow-md max-w-sm w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00BFBF/FFFFFF?text=Earth\'s+Layers';">
+                    <ul class="list-disc list-inside space-y-4 text-lg md:w-1/2">
+                        <li><strong>Crust:</strong> A very thin, rocky outer layer. This is the part we live on.</li>
+                        <li><strong>Mantle:</strong> A very thick layer beneath the crust. It is mostly solid rock, but it is so hot that it can flow very slowly, like thick treacle.</li>
+                        <li><strong>Core:</strong> The centre of the Earth, made of iron and nickel. It has a solid inner core and a liquid outer core. The heat from the core is what drives the movement of the mantle.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section on Tectonic Plates -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Tectonic Plates and Convection Currents</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The Earth's crust is not one solid piece. It is broken up into several huge, rigid slabs called **tectonic plates**. These plates "float" on top of the slowly moving mantle.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/gZ7Q02C/tectonic-plates-map.png" alt="A world map showing the major tectonic plates" class="rounded-lg shadow-md max-w-2xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/800x400/009999/FFFFFF?text=Tectonic+Plates';">
+                </div>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The movement of these plates is driven by heat from the Earth's core. This heat creates very slow **convection currents** within the mantle.
+                </p>
+                <ol class="list-decimal list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li>Hot, less dense rock in the mantle slowly rises.</li>
+                    <li>When it reaches the top, it spreads out, dragging the tectonic plates along with it.</li>
+                    <li>As the rock cools, it becomes denser and sinks back down towards the core.</li>
+                </ol>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    This continuous, slow-moving cycle is what causes the continents to drift, mountains to form, and earthquakes and volcanoes to occur at the plate boundaries.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/yqg6K1Q/convection-currents-mantle.png" alt="Diagram showing how convection currents in the mantle move the tectonic plates" class="rounded-lg shadow-md max-w-xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/700x350/33EBEB/FFFFFF?text=Convection+Currents';">
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Plate Tectonics</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/RA2-Vc4PIOY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">In-School Activity: Mapping the Evidence</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    Your teacher will give you two maps: one showing the Earth's tectonic plates (like the one above) and another showing the locations of the world's major earthquakes and volcanoes.
+                </p>
+                <h5 class="text-lg font-semibold text-gray-800 mt-4 mb-2">Your Task:</h5>
+                <ol class="list-decimal list-inside ml-4 text-base space-y-1">
+                    <li>Place a sheet of tracing paper over the earthquake and volcano map and mark the locations of these events.</li>
+                    <li>Now, place the tracing paper over the map of the tectonic plates.</li>
+                    <li>What do you notice about the relationship between the locations of earthquakes and volcanoes and the boundaries of the tectonic plates? Write a short sentence to describe the pattern you see.</li>
+                </ol>
+            </div>
+            
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
-        <div class="container mx-auto text-center text-sm">
-            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
-        </div>
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
 </body>
 </html>

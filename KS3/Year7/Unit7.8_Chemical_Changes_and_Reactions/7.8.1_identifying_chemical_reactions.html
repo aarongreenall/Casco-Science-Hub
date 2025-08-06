@@ -199,5 +199,26 @@
 
     <!-- Main script file -->
     <script src="../../../../script.js"></script>
+    <script>
+        const hamburger = document.getElementById('hamburger-button');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+
+        hamburger.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        accordionBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>

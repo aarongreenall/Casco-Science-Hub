@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7.8.1 Identifying Chemical Reactions - Casco School</title>
+    <title>Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
@@ -19,119 +22,200 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+
+    <!-- External Style Sheet (adjust path as needed) -->
+    <link rel="stylesheet" href="../../../../style.css">
+
+    <!-- MathJax -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams'
+            },
             svg: { fontCache: 'global' }
         };
     </script>
 </head>
+
 <body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
+            
+            <!-- Hamburger button for mobile -->
             <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+
+            <!-- Desktop nav -->
             <nav id="desktop-nav" class="hidden md:block">
                 <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                    <li><a href="../../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
+                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
+                    <li><a href="../../../../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
+                    <li><a href="../../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div id="mobile-menu-overlay">
-        <button id="close-mobile-menu" aria-label="Close mobile menu">&times;</button>
-        <nav>
-            <ul>
-                <li><a href="../../../index.html">Home</a></li>
+    <!-- Mobile Nav Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-casco-dark-teal bg-opacity-95 z-50 p-6 text-white">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-4xl absolute top-4 right-6 hover:text-casco-light-teal">&times;</button>
+        <nav class="mt-16 space-y-4">
+            <ul class="text-lg space-y-4">
+                <li><a href="../../../../index.html" class="block hover:text-casco-light-teal">Home</a></li>
                 <li>
-                    <button class="mobile-accordion-btn">KS3</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../Year7/index.html">Year 7</a></li>
-                        <li><a href="../../Year8/index.html">Year 8</a></li>
-                        <li><a href="../../Year9/index.html">Year 9</a></li>
+                    <button class="mobile-accordion-btn font-semibold">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-1 hidden">
+                        <li><a href="../../../Year7/index.html" class="block hover:text-casco-light-teal">Year 7</a></li>
+                        <li><a href="../../../Year8/index.html" class="block hover:text-casco-light-teal">Year 8</a></li>
+                        <li><a href="../../../Year9/index.html" class="block hover:text-casco-light-teal">Year 9</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn">KS4</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS4/Biology/index.html">Biology</a></li>
-                        <li><a href="../../../KS4/Chemistry/index.html">Chemistry</a></li>
-                        <li><a href="../../../KS4/Physics/index.html">Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-1 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html" class="block hover:text-casco-light-teal">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html" class="block hover:text-casco-light-teal">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html" class="block hover:text-casco-light-teal">Physics</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn">KS5</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS5/ib_biology/index.html">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-1 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html" class="block hover:text-casco-light-teal">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html" class="block hover:text-casco-light-teal">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html" class="block hover:text-casco-light-teal">IB Physics</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </div>
 
+    <!-- Mobile Nav Script -->
+    <script>
+        const hamburgerBtn = document.getElementById("hamburger-button");
+        const closeBtn = document.getElementById("close-mobile-menu");
+        const overlay = document.getElementById("mobile-menu-overlay");
+        const accordionBtns = document.querySelectorAll(".mobile-accordion-btn");
+
+        hamburgerBtn.addEventListener("click", () => {
+            overlay.classList.remove("hidden");
+        });
+
+        closeBtn.addEventListener("click", () => {
+            overlay.classList.add("hidden");
+        });
+
+        accordionBtns.forEach(btn => {
+            btn.addEventListener("click", () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle("hidden");
+            });
+        });
+    </script>
+
+
+    <!-- Main Content -->
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <nav class="text-sm mb-4" aria-label="Breadcrumb">
-                <ol class="list-none p-0 inline-flex">
-                    <li class="flex items-center">
-                        <a href="../../../index.html" class="text-casco-main-teal hover:underline">Home</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../../index.html" class="text-casco-main-teal hover:underline">KS3</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../index.html" class="text-casco-main-teal hover:underline">Year 7</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="index.html" class="text-casco-main-teal hover:underline">Unit 7.8: Chemical Changes and Reactions</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="text-gray-500">7.8.1 Identifying Chemical Reactions</li>
-                </ol>
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 7</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 7.8 Chemical Changes and Reactions</a> &gt;
+                <span class="font-semibold">7.8.1 Identifying chemical reactions</span>
             </nav>
-            <h1 class="text-3xl font-bold text-casco-main-teal mb-6">7.8.1 Identifying Chemical Reactions</h1>
-            <p class="text-lg leading-relaxed mb-6">
-                Content for this section is under development. Please check back soon!
-            </p>
-            <div class="prose max-w-none">
-                <p>This page will explain what chemical reactions are and how to identify them by observing common signs.</p>
-                <p><strong>What is a Chemical Reaction?</strong></p>
-                <p>A chemical reaction is a process that involves rearrangement of the molecular or ionic structure of a substance, as opposed to a change in physical form or a nuclear reaction. In a chemical reaction, new substances with new properties are formed.</p>
-                <p><strong>Signs of a Chemical Reaction:</strong></p>
-                <ul>
-                    <li><strong>Color Change:</strong> A substance changes color (e.g., rusting of iron, ripening of fruit).</li>
-                    <li><strong>Gas Production:</strong> Bubbles of gas are formed (e.g., baking soda reacting with vinegar, Alka-Seltzer in water). This is often called effervescence.</li>
-                    <li><strong>Formation of a Precipitate:</strong> A solid is formed when two solutions are mixed (e.g., milk curdling, silver nitrate and sodium chloride forming silver chloride).</li>
-                    <li><strong>Temperature Change (Energy Change):</strong>
-                        <ul>
-                            <li><strong>Exothermic Reaction:</strong> Heat is released, and the surroundings get warmer (e.g., burning wood, hand warmers).</li>
-                            <li><strong>Endothermic Reaction:</strong> Heat is absorbed, and the surroundings get cooler (e.g., instant cold packs, photosynthesis).</li>
-                        </ul>
-                    </li>
-                    <li><strong>Light Production:</strong> Light is emitted (e.g., fireworks, glow sticks).</li>
-                    <li><strong>Odor Change:</strong> A new smell is produced (e.g., food rotting, baking bread).</li>
-                </ul>
-                <p>It's important to note that some physical changes can also involve some of these signs (e.g., boiling water produces gas bubbles but is a physical change). Usually, a combination of these signs, along with the formation of a new substance, indicates a chemical reaction.</p>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">7.8.1 Identifying chemical reactions</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Define a chemical reaction as a process that forms a new substance.</li>
+                    <li>Identify the common signs that a chemical reaction has occurred.</li>
+                    <li>Distinguish between a reversible physical change and an irreversible chemical change.</li>
+                </ol>
             </div>
+
+            <!-- Section on Chemical Reactions -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">What is a Chemical Reaction?</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    A **chemical reaction** is a process that changes one set of chemical substances into another. The starting materials are called **reactants**, and the new substances that are formed are called **products**. The key idea is that a chemical reaction creates something new, and this change is usually difficult or impossible to reverse.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: Baking a Cake</h4>
+                    <p class="text-lg leading-relaxed">Think about the ingredients for a cake (flour, eggs, sugar). These are your reactants. You can describe their physical properties, like colour and texture. A simple **physical change** would be mixing them together; you could still, in theory, separate them. However, when you put the mixture in the oven, the heat causes a **chemical change**. The ingredients react and transform into a completely new substance (a cake) with new properties. You can't "un-bake" the cake to get your original flour, sugar, and eggs back. The change is irreversible.</p>
+                </div>
+            </div>
+
+            <!-- Section on Signs of a Reaction -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Spotting a Chemical Reaction</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    How can you tell if a chemical reaction has happened? You need to look for clues. Here are some of the most common signs:
+                </p>
+                <div class="overflow-x-auto my-4">
+                    <table class="min-w-full bg-white border border-gray-300 rounded-lg shadow-md">
+                        <thead class="bg-casco-light-bg text-casco-dark-teal">
+                            <tr>
+                                <th class="py-2 px-4 border-b">Observation</th>
+                                <th class="py-2 px-4 border-b">Conclusion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="py-2 px-4 border-b font-semibold">A colour change</td><td class="py-2 px-4 border-b">A new substance with a different colour has been formed.</td></tr>
+                            <tr><td class="py-2 px-4 border-b font-semibold">Gas is produced (fizzing/bubbling)</td><td class="py-2 px-4 border-b">A new substance has been formed that is a gas at room temperature.</td></tr>
+                            <tr><td class="py-2 px-4 border-b font-semibold">A temperature change (gets hotter or colder)</td><td class="py-2 px-4 border-b">Energy is being released (exothermic) or taken in (endothermic) by the reaction.</td></tr>
+                            <tr><td class="py-2 px-4 border-b font-semibold">A solid (precipitate) forms when two solutions are mixed</td><td class="py-2 px-4 border-b">A new substance has been formed that is insoluble in the solvent.</td></tr>
+                            <tr><td class="py-2 px-4 border-b font-semibold">A smell is produced</td><td class="py-2 px-4 border-b">A new substance has been formed that is volatile (evaporates easily).</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Chemical Reactions</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/0Bt6RPP2ANI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">At-Home Experiment: Making Invisible Ink</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    You can see a chemical change in action by making your own secret message with invisible ink!
+                </p>
+                <h5 class="text-lg font-semibold text-gray-800 mt-4 mb-2">Equipment:</h5>
+                <ul class="list-disc list-inside ml-4 text-base">
+                    <li>Half a lemon</li>
+                    <li>A cotton bud</li>
+                    <li>A piece of white paper</li>
+                    <li>A heat source like a warm lightbulb or a hairdryer (ask an adult for help!)</li>
+                </ul>
+                <h5 class="text-lg font-semibold text-gray-800 mt-4 mb-2">Method:</h5>
+                <ol class="list-decimal list-inside ml-4 text-base space-y-1">
+                    <li>Squeeze the lemon juice into a small bowl.</li>
+                    <li>Dip the cotton bud into the lemon juice and write a secret message on the paper.</li>
+                    <li>Let the juice dry completely. The message will be invisible!</li>
+                    <li>To reveal the message, ask an adult to help you gently heat the paper by holding it near a warm lightbulb or using a hairdryer.</li>
+                    <li>The message will appear in brown! The heat causes a chemical reaction (oxidation) with the acid in the lemon juice, creating a new, coloured substance. This is an irreversible chemical change.</li>
+                </ol>
+            </div>
+            
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
-        <div class="container mx-auto text-center text-sm">
-            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
-        </div>
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
 </body>
 </html>

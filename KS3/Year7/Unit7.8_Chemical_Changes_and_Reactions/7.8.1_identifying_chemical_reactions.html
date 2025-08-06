@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casco School Science</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7.8.1 Identifying Chemical Reactions - Casco School Science</title>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Custom Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
@@ -20,20 +19,17 @@
                     }
                 }
             }
-        }
+        };
     </script>
 
-    <!-- External Style Sheet (adjust path as needed) -->
-    <link rel="stylesheet" href="../../../../style.css">
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
 
     <!-- MathJax -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                tags: 'ams'
-            },
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], tags: 'ams' },
             svg: { fontCache: 'global' }
         };
     </script>
@@ -43,80 +39,72 @@
     <!-- Header -->
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            
-            <!-- Hamburger button for mobile -->
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
-
-            <!-- Desktop nav -->
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
             <nav id="desktop-nav" class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="../../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../../../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Mobile Nav Overlay -->
-    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-casco-dark-teal bg-opacity-95 z-50 p-6 text-white">
-        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-4xl absolute top-4 right-6 hover:text-casco-light-teal">&times;</button>
-        <nav class="mt-16 space-y-4">
-            <ul class="text-lg space-y-4">
-                <li><a href="../../../../index.html" class="block hover:text-casco-light-teal">Home</a></li>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
+        <nav>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
                 <li>
-                    <button class="mobile-accordion-btn font-semibold">KS3</button>
-                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-1 hidden">
-                        <li><a href="../../../Year7/index.html" class="block hover:text-casco-light-teal">Year 7</a></li>
-                        <li><a href="../../../Year8/index.html" class="block hover:text-casco-light-teal">Year 8</a></li>
-                        <li><a href="../../../Year9/index.html" class="block hover:text-casco-light-teal">Year 9</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../index.html">Year 7</a></li>
+                        <li><a href="../../../Year8/index.html">Year 8</a></li>
+                        <li><a href="../../../Year9/index.html">Year 9</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn font-semibold">KS4</button>
-                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-1 hidden">
-                        <li><a href="../../../../KS4/Biology/index.html" class="block hover:text-casco-light-teal">Biology</a></li>
-                        <li><a href="../../../../KS4/Chemistry/index.html" class="block hover:text-casco-light-teal">Chemistry</a></li>
-                        <li><a href="../../../../KS4/Physics/index.html" class="block hover:text-casco-light-teal">Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn font-semibold">KS5</button>
-                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-1 hidden">
-                        <li><a href="../../../../KS5/ib_biology/index.html" class="block hover:text-casco-light-teal">IB Biology</a></li>
-                        <li><a href="../../../../KS5/ib_chemistry/index.html" class="block hover:text-casco-light-teal">IB Chemistry</a></li>
-                        <li><a href="../../../../KS5/ib_physics/index.html" class="block hover:text-casco-light-teal">IB Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </div>
-
-    <!-- Mobile Nav Script -->
-    <script>
-        const hamburgerBtn = document.getElementById("hamburger-button");
-        const closeBtn = document.getElementById("close-mobile-menu");
-        const overlay = document.getElementById("mobile-menu-overlay");
-        const accordionBtns = document.querySelectorAll(".mobile-accordion-btn");
-
-        hamburgerBtn.addEventListener("click", () => {
-            overlay.classList.remove("hidden");
-        });
-
-        closeBtn.addEventListener("click", () => {
-            overlay.classList.add("hidden");
-        });
-
-        accordionBtns.forEach(btn => {
-            btn.addEventListener("click", () => {
-                const content = btn.nextElementSibling;
-                content.classList.toggle("hidden");
-            });
-        });
-    </script>
-
 
     <!-- Main Content -->
     <main class="container mx-auto p-4 md:p-8">
@@ -164,24 +152,18 @@
                         <thead class="bg-casco-light-bg text-casco-dark-teal">
                             <tr>
                                 <th class="py-2 px-4 border-b">Observation</th>
-                                <th class="py-2 px-4 border-b">Conclusion</th>
+                                <th class="py-2 px-4 border-b">Scientific Conclusion</th>
+                                <th class="py-2 px-4 border-b">In Simple Terms</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td class="py-2 px-4 border-b font-semibold">A colour change</td><td class="py-2 px-4 border-b">A new substance with a different colour has been formed.</td></tr>
-                            <tr><td class="py-2 px-4 border-b font-semibold">Gas is produced (fizzing/bubbling)</td><td class="py-2 px-4 border-b">A new substance has been formed that is a gas at room temperature.</td></tr>
-                            <tr><td class="py-2 px-4 border-b font-semibold">A temperature change (gets hotter or colder)</td><td class="py-2 px-4 border-b">Energy is being released (exothermic) or taken in (endothermic) by the reaction.</td></tr>
-                            <tr><td class="py-2 px-4 border-b font-semibold">A solid (precipitate) forms when two solutions are mixed</td><td class="py-2 px-4 border-b">A new substance has been formed that is insoluble in the solvent.</td></tr>
-                            <tr><td class="py-2 px-4 border-b font-semibold">A smell is produced</td><td class="py-2 px-4 border-b">A new substance has been formed that is volatile (evaporates easily).</td></tr>
+                            <tr><td class="py-2 px-4 border-b font-semibold">A colour change</td><td class="py-2 px-4 border-b">A new substance with a different colour has been formed.</td><td class="py-2 px-4 border-b">Something new with a different colour has appeared.</td></tr>
+                            <tr><td class="py-2 px-4 border-b font-semibold">Gas is produced (fizzing/bubbling)</td><td class="py-2 px-4 border-b">A new substance has been formed that is a gas at room temperature.</td><td class="py-2 px-4 border-b">You see fizzing or bubbles, meaning a gas has been made.</td></tr>
+                            <tr><td class="py-2 px-4 border-b font-semibold">A temperature change</td><td class="py-2 px-4 border-b">Energy is being released (exothermic) or taken in (endothermic).</td><td class="py-2 px-4 border-b">It gets hotter or colder all by itself.</td></tr>
+                            <tr><td class="py-2 px-4 border-b font-semibold">A precipitate forms</td><td class="py-2 px-4 border-b">A new substance has been formed that is insoluble.</td><td class="py-2 px-4 border-b">A solid appears in a liquid and makes it cloudy.</td></tr>
+                            <tr><td class="py-2 px-4 border-b font-semibold">A smell is produced</td><td class="py-2 px-4 border-b">A new substance has been formed that is volatile.</td><td class="py-2 px-4 border-b">A new smell is created.</td></tr>
                         </tbody>
                     </table>
-                </div>
-            </div>
-
-            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
-                <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Chemical Reactions</h4>
-                <div class="w-full h-[50vh] md:h-[60vh]">
-                    <iframe src="https://www.youtube.com/embed/0Bt6RPP2ANI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
                 </div>
             </div>
 

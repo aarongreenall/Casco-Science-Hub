@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>8.3.4 Diffusion of Gases and Liquids - Casco School</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8.3.4 Diffusion of gases and liquids - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -17,126 +19,178 @@
                     }
                 }
             }
-        }
+        };
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
+
+    <!-- MathJax -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], tags: 'ams' },
             svg: { fontCache: 'global' }
         };
     </script>
 </head>
+
 <body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
             <nav id="desktop-nav" class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div id="mobile-menu-overlay">
-        <button id="close-mobile-menu" aria-label="Close mobile menu">&times;</button>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
         <nav>
-            <ul>
-                <li><a href="../../../index.html">Home</a></li>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
                 <li>
-                    <button class="mobile-accordion-btn">KS3</button>
-                    <ul class="mobile-accordion-content">
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
                         <li><a href="../../Year7/index.html">Year 7</a></li>
                         <li><a href="../index.html">Year 8</a></li>
                         <li><a href="../../Year9/index.html">Year 9</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn">KS4</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS4/Biology/index.html">Biology</a></li>
-                        <li><a href="../../../KS4/Chemistry/index.html">Chemistry</a></li>
-                        <li><a href="../../../KS4/Physics/index.html">Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn">KS5</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS5/ib_biology/index.html">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </div>
 
+    <!-- Main Content -->
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <nav class="text-sm mb-4" aria-label="Breadcrumb">
-                <ol class="list-none p-0 inline-flex">
-                    <li class="flex items-center">
-                        <a href="../../../index.html" class="text-casco-main-teal hover:underline">Home</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../../index.html" class="text-casco-main-teal hover:underline">KS3</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../index.html" class="text-casco-main-teal hover:underline">Year 8</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="index.html" class="text-casco-main-teal hover:underline">Unit 8.3: Respiration and the Respiratory System</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="text-gray-500">8.3.4 Diffusion of Gases and Liquids</li>
-                </ol>
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 8</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 8.3 Respiration and the Respiratory System</a> &gt;
+                <span class="font-semibold">8.3.4 Diffusion of gases and liquids</span>
             </nav>
-            <h1 class="text-3xl font-bold text-casco-main-teal mb-6">8.3.4 Diffusion of Gases and Liquids</h1>
-            <p class="text-lg leading-relaxed mb-6">
-                Content for this section is under development. Please check back soon!
-            </p>
-            <div class="prose max-w-none">
-                <p>This page will consolidate the concept of diffusion by applying it to biological contexts, such as gas exchange.</p>
-                <p><strong>Diffusion Revisited:</strong></p>
-                <ul>
-                    <li>Diffusion is the net movement of particles from a region of their higher concentration to a region of their lower concentration, down a concentration gradient.</li>
-                    <li>It is a passive process, meaning it does not require energy from the organism.</li>
-                </ul>
-                <p><strong>Diffusion in Biological Systems:</strong></p>
-                <ul>
-                    <li><strong>Gas Exchange in the Lungs:</strong>
-                        <ul>
-                            <li>Oxygen diffuses from the high concentration in the alveoli into the low concentration in the blood.</li>
-                            <li>Carbon dioxide diffuses from the high concentration in the blood into the low concentration in the alveoli.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Gas Exchange at the Tissues:</strong>
-                        <ul>
-                            <li>Oxygen diffuses from the blood (where its concentration is high) into the body cells (where its concentration is low because it's being used for respiration).</li>
-                            <li>Carbon dioxide (a waste product of respiration) diffuses from the body cells (high concentration) into the blood (low concentration).</li>
-                        </ul>
-                    </li>
-                    <li><strong>Nutrient Absorption:</strong> Digested food molecules (like glucose) can diffuse from the small intestine into the bloodstream.</li>
-                </ul>
-                <p>This illustrates how the physical process of diffusion is fundamental to many life processes.</p>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">8.3.4 Diffusion of gases and liquids</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Define diffusion as the movement of particles down a concentration gradient.</li>
+                    <li>Explain how diffusion drives gas exchange in the lungs.</li>
+                    <li>Explain how the role of haemoglobin maintains a steep concentration gradient for oxygen.</li>
+                </ol>
             </div>
+
+            <!-- Section on Diffusion -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Diffusion: The Driving Force of Gas Exchange</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    **Diffusion** is the net movement of particles from an area of high concentration to an area of low concentration. This is a **passive process**, meaning it requires no energy. It happens because particles are always in random motion.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    This simple principle is the driving force behind **gas exchange**. The key to efficient gas exchange is maintaining a steep **concentration gradient** for each gas. A steep gradient means there is a very big difference between the high and low concentrations, which makes diffusion happen much faster.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    In the lungs, when oxygen diffuses from the alveoli into the blood, it immediately bonds with a protein called **haemoglobin** in the red blood cells. This effectively "hides" the oxygen from the blood plasma, keeping the concentration of free, dissolved oxygen in the blood very low. This ensures the concentration gradient between the lungs and the blood stays very steep, so oxygen continues to diffuse across rapidly. At the same time, the blood is full of waste carbon dioxide, which diffuses down its own steep concentration gradient into the lungs to be exhaled.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: The Supermarket Checkout</h4>
+                    <p class="text-lg leading-relaxed">Think of the boundary between an air sac (alveolus) and the blood as a **supermarket checkout**. The **lungs** are your **shopping trolley**, full of items (oxygen). The **blood plasma** is the **small space on the conveyor belt** right in front of the cashier. The **red blood cells** are the **shopping bags**, and **haemoglobin** is the **super-fast cashier**.</p>
+                    <ul class="list-disc list-inside ml-4 my-2 space-y-4 text-lg">
+                        <li><strong>Oxygen's Journey:</strong> As you put oxygen items from your trolley onto the belt (diffusion), the cashier (haemoglobin) instantly grabs them and puts them into bags (red blood cells). Because the items are immediately bagged and removed from the belt, the space in front of you stays clear, allowing you to keep putting more items on it very quickly. This keeps the flow of oxygen moving rapidly from the lungs into the blood.</li>
+                        <li><strong>Carbon Dioxide's Journey:</strong> At the same time, the waste paper and packaging from the previous customer (carbon dioxide) is on the belt coming towards you. You take it off to be thrown away (breathed out), making space for your shopping. The two processes happen at the same time but are independent of each other.</li>
+                    </ul>
+                </div>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L5hH42T/gas-exchange-summary.png" alt="A diagram showing gas exchange at the alveoli and at the body's cells, with arrows for O2 and CO2 diffusion" class="rounded-lg shadow-md max-w-3xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/900x400/00BFBF/FFFFFF?text=Gas+Exchange';">
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Gas Exchange</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/AJpur6XUiq4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
-        <div class="container mx-auto text-center text-sm">
-            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
-        </div>
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        const hamburger = document.getElementById('hamburger-button');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+
+        hamburger.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        accordionBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>

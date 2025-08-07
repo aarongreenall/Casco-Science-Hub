@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>8.3.3 Blood Components and Transport - Casco School</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8.3.3 Blood components and transport - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -17,129 +19,313 @@
                     }
                 }
             }
-        }
+        };
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
+
+    <!-- MathJax -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], tags: 'ams' },
             svg: { fontCache: 'global' }
         };
     </script>
 </head>
+
 <body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
             <nav id="desktop-nav" class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div id="mobile-menu-overlay">
-        <button id="close-mobile-menu" aria-label="Close mobile menu">&times;</button>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
         <nav>
-            <ul>
-                <li><a href="../../../index.html">Home</a></li>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
                 <li>
-                    <button class="mobile-accordion-btn">KS3</button>
-                    <ul class="mobile-accordion-content">
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
                         <li><a href="../../Year7/index.html">Year 7</a></li>
                         <li><a href="../index.html">Year 8</a></li>
                         <li><a href="../../Year9/index.html">Year 9</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn">KS4</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS4/Biology/index.html">Biology</a></li>
-                        <li><a href="../../../KS4/Chemistry/index.html">Chemistry</a></li>
-                        <li><a href="../../../KS4/Physics/index.html">Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn">KS5</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS5/ib_biology/index.html">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </div>
 
+    <!-- Main Content -->
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <nav class="text-sm mb-4" aria-label="Breadcrumb">
-                <ol class="list-none p-0 inline-flex">
-                    <li class="flex items-center">
-                        <a href="../../../index.html" class="text-casco-main-teal hover:underline">Home</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../../index.html" class="text-casco-main-teal hover:underline">KS3</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../index.html" class="text-casco-main-teal hover:underline">Year 8</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="index.html" class="text-casco-main-teal hover:underline">Unit 8.3: Respiration and the Respiratory System</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="text-gray-500">8.3.3 Blood Components and Transport</li>
-                </ol>
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 8</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 8.3 Respiration and the Respiratory System</a> &gt;
+                <span class="font-semibold">8.3.3 Blood components and transport</span>
             </nav>
-            <h1 class="text-3xl font-bold text-casco-main-teal mb-6">8.3.3 Blood Components and Transport</h1>
-            <p class="text-lg leading-relaxed mb-6">
-                Content for this section is under development. Please check back soon!
-            </p>
-            <div class="prose max-w-none">
-                <p>This page will describe the main components of blood and their roles in transporting substances around the body.</p>
-                <p><strong>Components of Blood:</strong></p>
-                <ul>
-                    <li><strong>Plasma:</strong> The liquid part of the blood. It transports blood cells, dissolved nutrients (like glucose), hormones, carbon dioxide, and waste products (like urea).</li>
-                    <li><strong>Red Blood Cells:</strong>
-                        <ul>
-                            <li>Contain a red pigment called <strong>haemoglobin</strong>, which binds with oxygen in the lungs to form oxyhaemoglobin.</li>
-                            <li>Transport oxygen from the lungs to all body cells for respiration.</li>
-                            <li>Have a biconcave shape to increase surface area and no nucleus to maximize space for haemoglobin.</li>
-                        </ul>
-                    </li>
-                    <li><strong>White Blood Cells:</strong>
-                        <ul>
-                            <li>Part of the immune system.</li>
-                            <li>Defend the body against pathogens (disease-causing microorganisms).</li>
-                            <li>Some (phagocytes) engulf pathogens, while others (lymphocytes) produce antibodies.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Platelets:</strong>
-                        <ul>
-                            <li>Small cell fragments that help the blood to clot at the site of a wound.</li>
-                            <li>Clotting prevents excessive blood loss and stops pathogens from entering the body.</li>
-                        </ul>
-                    </li>
-                </ul>
-                <p>The circulatory system, powered by the heart, pumps blood around the body to ensure all cells receive the oxygen and nutrients they need and to remove waste products.</p>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">8.3.3 Blood components and transport</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Identify the four main components of blood.</li>
+                    <li>Describe the function of plasma, red blood cells, white blood cells, and platelets.</li>
+                    <li>Explain how red blood cells are adapted to their function.</li>
+                </ol>
             </div>
+
+            <!-- Section on Blood -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">The River of Life</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    **Blood** is the body's essential transport system. It is a specialised tissue that is pumped around the body by the heart, delivering vital substances like oxygen and nutrients to our cells and carrying away waste products like carbon dioxide. Blood is made of four main components.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: A Busy River</h4>
+                    <p class="text-lg leading-relaxed">Think of your blood as a busy river flowing through your body. The **plasma** is the **water** of the river, carrying everything along. The **red blood cells** are like millions of tiny **delivery boats**, designed to carry oxygen. The **white blood cells** are the **police boats**, patrolling for invaders. And the **platelets** are the **emergency repair crews**, ready to plug any leaks.</p>
+                </div>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L5hH42T/blood-components-diagram.png" alt="A diagram showing the four main components of blood" class="rounded-lg shadow-md max-w-2xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/800x400/00BFBF/FFFFFF?text=Blood+Components';">
+                </div>
+            </div>
+
+            <!-- Section on Components -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">The Four Components of Blood</h3>
+                <div class="overflow-x-auto my-4">
+                    <table class="min-w-full bg-white border border-gray-300 rounded-lg shadow-md">
+                        <thead class="bg-casco-light-bg text-casco-dark-teal">
+                            <tr>
+                                <th class="py-2 px-4 border-b">Component</th>
+                                <th class="py-2 px-4 border-b">Description</th>
+                                <th class="py-2 px-4 border-b">Function</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-2 px-4 border-b font-semibold">Plasma</td>
+                                <td class="py-2 px-4 border-b">A straw-coloured liquid that makes up over half of the blood's volume.</td>
+                                <td class="py-2 px-4 border-b">Transports everything: blood cells, nutrients (like glucose), carbon dioxide, hormones, and waste products.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b font-semibold">Red Blood Cells</td>
+                                <td class="py-2 px-4 border-b">Tiny, biconcave discs that contain a red protein called haemoglobin. They have no nucleus.</td>
+                                <td class="py-2 px-4 border-b">To transport oxygen from the lungs to the body's cells.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b font-semibold">White Blood Cells</td>
+                                <td class="py-2 px-4 border-b">Larger than red blood cells and have a nucleus. There are many different types.</td>
+                                <td class="py-2 px-4 border-b">Part of the immune system. They fight off invading pathogens like bacteria and viruses.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b font-semibold">Platelets</td>
+                                <td class="py-2 px-4 border-b">Small fragments of cells.</td>
+                                <td class="py-2 px-4 border-b">To help the blood clot at the site of a wound to prevent blood loss and stop pathogens from getting in.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: The Components of Blood</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/HQi_h4w_o_A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Activity: Match the Components</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    Test your knowledge! Click on a component name, then click on its matching image and its correct function. Correct matches will lock in and turn green.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="matching-game">
+                    <!-- Column 1: Names -->
+                    <div id="names-col" class="space-y-2">
+                        <div class="p-3 bg-white border-2 border-casco-dark-teal rounded-lg cursor-pointer hover:bg-casco-light-bg" data-match-id="1">Red Blood Cell</div>
+                        <div class="p-3 bg-white border-2 border-casco-dark-teal rounded-lg cursor-pointer hover:bg-casco-light-bg" data-match-id="2">White Blood Cell</div>
+                        <div class="p-3 bg-white border-2 border-casco-dark-teal rounded-lg cursor-pointer hover:bg-casco-light-bg" data-match-id="3">Platelets</div>
+                        <div class="p-3 bg-white border-2 border-casco-dark-teal rounded-lg cursor-pointer hover:bg-casco-light-bg" data-match-id="4">Plasma</div>
+                    </div>
+                    <!-- Column 2: Images -->
+                    <div id="images-col" class="space-y-2">
+                        <div class="p-3 bg-white border-2 border-casco-dark-teal rounded-lg cursor-pointer hover:bg-casco-light-bg flex justify-center items-center h-24" data-match-id="2"><img src="https://i.ibb.co/gZ7Q02C/white-blood-cell.png" class="h-16" alt="White blood cell"></div>
+                        <div class="p-3 bg-white border-2 border-casco-dark-teal rounded-lg cursor-pointer hover:bg-casco-light-bg flex justify-center items-center h-24" data-match-id="4"><img src="https://i.ibb.co/yqg6K1Q/plasma.png" class="h-16" alt="Plasma"></div>
+                        <div class="p-3 bg-white border-2 border-casco-dark-teal rounded-lg cursor-pointer hover:bg-casco-light-bg flex justify-center items-center h-24" data-match-id="1"><img src="https://i.ibb.co/L5BwY3t/red-blood-cell.png" class="h-16" alt="Red blood cell"></div>
+                        <div class="p-3 bg-white border-2 border-casco-dark-teal rounded-lg cursor-pointer hover:bg-casco-light-bg flex justify-center items-center h-24" data-match-id="3"><img src="https://i.ibb.co/3mH3F3c/platelets.png" class="h-16" alt="Platelets"></div>
+                    </div>
+                    <!-- Column 3: Functions -->
+                    <div id="functions-col" class="space-y-2">
+                        <div class="p-3 bg-white border-2 border-casco-dark-teal rounded-lg cursor-pointer hover:bg-casco-light-bg flex items-center h-24" data-match-id="3">Helps the blood to clot</div>
+                        <div class="p-3 bg-white border-2 border-casco-dark-teal rounded-lg cursor-pointer hover:bg-casco-light-bg flex items-center h-24" data-match-id="1">Transports oxygen</div>
+                        <div class="p-3 bg-white border-2 border-casco-dark-teal rounded-lg cursor-pointer hover:bg-casco-light-bg flex items-center h-24" data-match-id="4">The liquid part that carries everything</div>
+                        <div class="p-3 bg-white border-2 border-casco-dark-teal rounded-lg cursor-pointer hover:bg-casco-light-bg flex items-center h-24" data-match-id="2">Fights off invading pathogens</div>
+                    </div>
+                </div>
+                <button id="reset-button" class="mt-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">Reset</button>
+            </div>
+            
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
-        <div class="container mx-auto text-center text-sm">
-            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
-        </div>
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        // JavaScript for the interactive matching game
+        document.addEventListener('DOMContentLoaded', () => {
+            const gameContainer = document.getElementById('matching-game');
+            const resetButton = document.getElementById('reset-button');
+            
+            let selectedName = null;
+            let selectedImage = null;
+            let selectedFunction = null;
+
+            function resetGame() {
+                const items = gameContainer.querySelectorAll('[data-match-id]');
+                items.forEach(item => {
+                    item.classList.remove('bg-green-200', 'border-green-500', 'bg-red-200', 'border-red-500', 'bg-blue-200', 'border-blue-500', 'pointer-events-none');
+                    item.classList.add('bg-white', 'border-casco-dark-teal', 'hover:bg-casco-light-bg');
+                });
+                selectedName = null;
+                selectedImage = null;
+                selectedFunction = null;
+            }
+
+            function checkMatch() {
+                if (selectedName && selectedImage && selectedFunction) {
+                    const nameId = selectedName.dataset.matchId;
+                    const imageId = selectedImage.dataset.matchId;
+                    const functionId = selectedFunction.dataset.matchId;
+
+                    if (nameId === imageId && nameId === functionId) {
+                        // Correct match
+                        selectedName.classList.add('bg-green-200', 'border-green-500', 'pointer-events-none');
+                        selectedImage.classList.add('bg-green-200', 'border-green-500', 'pointer-events-none');
+                        selectedFunction.classList.add('bg-green-200', 'border-green-500', 'pointer-events-none');
+                    } else {
+                        // Incorrect match
+                        selectedName.classList.add('bg-red-200', 'border-red-500');
+                        selectedImage.classList.add('bg-red-200', 'border-red-500');
+                        selectedFunction.classList.add('bg-red-200', 'border-red-500');
+                        setTimeout(() => {
+                            selectedName.classList.remove('bg-red-200', 'border-red-500');
+                            selectedImage.classList.remove('bg-red-200', 'border-red-500');
+                            selectedFunction.classList.remove('bg-red-200', 'border-red-500');
+                        }, 1000);
+                    }
+                    // Reset selections after a short delay
+                    setTimeout(() => {
+                        if (selectedName && !selectedName.classList.contains('pointer-events-none')) selectedName.classList.remove('bg-blue-200', 'border-blue-500');
+                        if (selectedImage && !selectedImage.classList.contains('pointer-events-none')) selectedImage.classList.remove('bg-blue-200', 'border-blue-500');
+                        if (selectedFunction && !selectedFunction.classList.contains('pointer-events-none')) selectedFunction.classList.remove('bg-blue-200', 'border-blue-500');
+                        selectedName = null;
+                        selectedImage = null;
+                        selectedFunction = null;
+                    }, 200);
+                }
+            }
+
+            gameContainer.addEventListener('click', (e) => {
+                const item = e.target.closest('[data-match-id]');
+                if (!item || item.classList.contains('pointer-events-none')) return;
+
+                const parentId = item.parentElement.id;
+
+                // Deselect if clicking the same item again
+                if (parentId === 'names-col' && item === selectedName) {
+                    selectedName.classList.remove('bg-blue-200', 'border-blue-500');
+                    selectedName = null;
+                    return;
+                }
+                 if (parentId === 'images-col' && item === selectedImage) {
+                    selectedImage.classList.remove('bg-blue-200', 'border-blue-500');
+                    selectedImage = null;
+                    return;
+                }
+                 if (parentId === 'functions-col' && item === selectedFunction) {
+                    selectedFunction.classList.remove('bg-blue-200', 'border-blue-500');
+                    selectedFunction = null;
+                    return;
+                }
+
+                // Select item
+                if (parentId === 'names-col') {
+                    if(selectedName) selectedName.classList.remove('bg-blue-200', 'border-blue-500');
+                    selectedName = item;
+                } else if (parentId === 'images-col') {
+                    if(selectedImage) selectedImage.classList.remove('bg-blue-200', 'border-blue-500');
+                    selectedImage = item;
+                } else if (parentId === 'functions-col') {
+                    if(selectedFunction) selectedFunction.classList.remove('bg-blue-200', 'border-blue-500');
+                    selectedFunction = item;
+                }
+                
+                item.classList.add('bg-blue-200', 'border-blue-500');
+                checkMatch();
+            });
+
+            resetButton.addEventListener('click', resetGame);
+        });
+    </script>
 </body>
 </html>

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>8.8.4 Asteroids and Galaxies - Casco School</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8.8.4 Asteroids and galaxies - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -17,127 +19,207 @@
                     }
                 }
             }
-        }
+        };
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
+
+    <!-- MathJax -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], tags: 'ams' },
             svg: { fontCache: 'global' }
         };
     </script>
 </head>
+
 <body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
             <nav id="desktop-nav" class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div id="mobile-menu-overlay">
-        <button id="close-mobile-menu" aria-label="Close mobile menu">&times;</button>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
         <nav>
-            <ul>
-                <li><a href="../../../index.html">Home</a></li>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
                 <li>
-                    <button class="mobile-accordion-btn">KS3</button>
-                    <ul class="mobile-accordion-content">
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
                         <li><a href="../../Year7/index.html">Year 7</a></li>
                         <li><a href="../index.html">Year 8</a></li>
                         <li><a href="../../Year9/index.html">Year 9</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn">KS4</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS4/Biology/index.html">Biology</a></li>
-                        <li><a href="../../../KS4/Chemistry/index.html">Chemistry</a></li>
-                        <li><a href="../../../KS4/Physics/index.html">Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn">KS5</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS5/ib_biology/index.html">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </div>
 
+    <!-- Main Content -->
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <nav class="text-sm mb-4" aria-label="Breadcrumb">
-                <ol class="list-none p-0 inline-flex">
-                    <li class="flex items-center">
-                        <a href="../../../index.html" class="text-casco-main-teal hover:underline">Home</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../../index.html" class="text-casco-main-teal hover:underline">KS3</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../index.html" class="text-casco-main-teal hover:underline">Year 8</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="index.html" class="text-casco-main-teal hover:underline">Unit 8.8: Earth and the Solar System</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="text-gray-500">8.8.4 Asteroids and Galaxies</li>
-                </ol>
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 8</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 8.8 Earth and the Solar System</a> &gt;
+                <span class="font-semibold">8.8.4 Asteroids and galaxies</span>
             </nav>
-            <h1 class="text-3xl font-bold text-casco-main-teal mb-6">8.8.4 Asteroids and Galaxies</h1>
-            <p class="text-lg leading-relaxed mb-6">
-                Content for this section is under development. Please check back soon!
-            </p>
-            <div class="prose max-w-none">
-                <p>This page will introduce asteroids and our place in the wider universe of galaxies.</p>
-                <p><strong>Asteroids:</strong></p>
-                <ul>
-                    <li>Small, rocky objects that orbit the Sun.</li>
-                    <li>They are much smaller than planets.</li>
-                    <li>Most are found in the <strong>asteroid belt</strong>, a region between the orbits of Mars and Jupiter.</li>
-                    <li>Sometimes referred to as minor planets.</li>
-                    <li>They are leftover material from the formation of the Solar System.</li>
-                </ul>
-                <p><strong>Galaxies:</strong></p>
-                <ul>
-                    <li>A galaxy is a huge collection of gas, dust, and billions of stars and their solar systems, all held together by gravity.</li>
-                    <li>Our solar system is part of the <strong>Milky Way</strong> galaxy.</li>
-                    <li>The Sun is just one of billions of stars in the Milky Way.</li>
-                    <li>There are billions of other galaxies in the universe.</li>
-                    <li><strong>Types of Galaxies (simple introduction):</strong>
-                        <ul>
-                            <li><strong>Spiral:</strong> Have a central bulge with arms spiraling outwards (e.g., the Milky Way, Andromeda).</li>
-                            <li><strong>Elliptical:</strong> Smooth, oval-shaped collections of stars.</li>
-                            <li><strong>Irregular:</strong> Have no distinct shape.</li>
-                        </ul>
-                    </li>
-                    <li>The universe is vast, containing countless galaxies, each with countless stars.</li>
-                </ul>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">8.8.4 Asteroids and galaxies</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Describe asteroids as rocks left over from the formation of a planetary system.</li>
+                    <li>Describe a galaxy as a huge collection of stars, dust, and gas.</li>
+                    <li>Understand the scale of the universe from our solar system to galaxies.</li>
+                </ol>
             </div>
+
+            <!-- Section on Asteroids -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Asteroids: The Leftovers</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    **Asteroids** are large, rocky objects that orbit the Sun. They are much smaller than planets. Most of the asteroids in our solar system are found in the **asteroid belt**, a region of space between the orbits of Mars and Jupiter.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    They are essentially the "leftovers" from the formation of our solar system 4.6 billion years ago. While gravity was pulling gas and dust together to form the planets, the immense gravitational pull of the giant planet Jupiter prevented a planet from forming in the region of the asteroid belt. Instead, the rocky material was left to orbit the Sun as millions of asteroids.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L5hH42T/asteroid-belt.png" alt="A diagram of the solar system showing the asteroid belt between Mars and Jupiter" class="rounded-lg shadow-md max-w-2xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/800x400/00BFBF/FFFFFF?text=Asteroid+Belt';">
+                </div>
+            </div>
+
+            <!-- Section on Galaxies -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Galaxies: Islands of Stars</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Our solar system is just one tiny part of a much, much larger structure. A **galaxy** is a huge collection of stellar dust, gas, stars, and their planetary systems, all held together by gravity.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Our home galaxy is called the **Milky Way**. It is a spiral galaxy containing hundreds of billions of stars, and our Sun is just one of them, located about two-thirds of the way out from the galactic centre. The universe is filled with billions of other galaxies of different shapes and sizes.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: The Sandy Beach</h4>
+                    <p class="text-lg leading-relaxed">To understand the incredible scale of the universe, imagine you are standing on a giant, sandy beach. The entire **beach** is the **universe**. If you bend down and pick up a single **grain of sand**, that one grain represents our entire **Milky Way galaxy**. Our **solar system**, with the Sun and all the planets, would be a microscopic, invisible speck on that single grain of sand. And every other grain of sand on the beach is another galaxy, each containing billions of its own stars and planets.</p>
+                </div>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/gZ7Q02C/spiral-galaxy.jpg" alt="A photograph of a spiral galaxy similar to the Milky Way" class="rounded-lg shadow-md max-w-lg w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/009999/FFFFFF?text=Spiral+Galaxy';">
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Galaxies</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/--O_M9I3_s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">At-Home Experiment: Modeling the Solar System in the Playground</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    It's hard to understand the true scale of our solar system from a book. This activity helps you to create a scale model to appreciate the vast distances between the planets.
+                </p>
+                <h5 class="text-lg font-semibold text-gray-800 mt-4 mb-2">Equipment:</h5>
+                <ul class="list-disc list-inside ml-4 text-base">
+                    <li>A large open space (a playground, park, or long hallway)</li>
+                    <li>A long measuring tape (or a piece of string marked with metres)</li>
+                    <li>Various small objects to represent the planets (e.g., a large beach ball for the Sun, a peppercorn for Mercury, a bead for Earth, a marble for Jupiter)</li>
+                </ul>
+                <h5 class="text-lg font-semibold text-gray-800 mt-4 mb-2">Method:</h5>
+                <ol class="list-decimal list-inside ml-4 text-base space-y-1">
+                    <li>Place your large "Sun" object at one end of your open space.</li>
+                    <li>Use a scale where 1 metre in your model represents 100 million kilometres in space.</li>
+                    <li>Using the measuring tape, measure out the distance for each planet from your Sun and place your object there. (Your teacher will provide the scaled distances).</li>
+                    <li>For example, Earth is about 150 million km from the Sun, so you would place your "Earth" bead at 1.5 metres from the "Sun".</li>
+                    <li>Jupiter is about 778 million km from the Sun, so you would place your "Jupiter" marble at about 7.8 metres.</li>
+                    <li>Lay out all the planets. What do you notice about the spacing? You will see that the inner planets are all quite close together, while the outer planets are incredibly far apart.</li>
+                </ol>
+            </div>
+
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
-        <div class="container mx-auto text-center text-sm">
-            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
-        </div>
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        const hamburger = document.getElementById('hamburger-button');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+
+        hamburger.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        accordionBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>

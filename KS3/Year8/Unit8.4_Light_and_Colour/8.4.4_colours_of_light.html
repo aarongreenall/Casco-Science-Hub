@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>8.4.4 Colours of Light - Casco School</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8.4.4 Colours of light - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -17,147 +19,232 @@
                     }
                 }
             }
-        }
+        };
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
+
+    <!-- MathJax -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], tags: 'ams' },
             svg: { fontCache: 'global' }
         };
     </script>
 </head>
+
 <body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
             <nav id="desktop-nav" class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div id="mobile-menu-overlay">
-        <button id="close-mobile-menu" aria-label="Close mobile menu">&times;</button>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
         <nav>
-            <ul>
-                <li><a href="../../../index.html">Home</a></li>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
                 <li>
-                    <button class="mobile-accordion-btn">KS3</button>
-                    <ul class="mobile-accordion-content">
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
                         <li><a href="../../Year7/index.html">Year 7</a></li>
                         <li><a href="../index.html">Year 8</a></li>
                         <li><a href="../../Year9/index.html">Year 9</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn">KS4</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS4/Biology/index.html">Biology</a></li>
-                        <li><a href="../../../KS4/Chemistry/index.html">Chemistry</a></li>
-                        <li><a href="../../../KS4/Physics/index.html">Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn">KS5</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS5/ib_biology/index.html">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </div>
 
+    <!-- Main Content -->
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <nav class="text-sm mb-4" aria-label="Breadcrumb">
-                <ol class="list-none p-0 inline-flex">
-                    <li class="flex items-center">
-                        <a href="../../../index.html" class="text-casco-main-teal hover:underline">Home</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../../index.html" class="text-casco-main-teal hover:underline">KS3</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../index.html" class="text-casco-main-teal hover:underline">Year 8</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="index.html" class="text-casco-main-teal hover:underline">Unit 8.4: Light and Colour</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="text-gray-500">8.4.4 Colours of Light</li>
-                </ol>
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 8</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 8.4 Light and Colour</a> &gt;
+                <span class="font-semibold">8.4.4 Colours of light</span>
             </nav>
-            <h1 class="text-3xl font-bold text-casco-main-teal mb-6">8.4.4 Colours of Light</h1>
-            <p class="text-lg leading-relaxed mb-6">
-                Content for this section is under development. Please check back soon!
-            </p>
-            <div class="prose max-w-none">
-                <p>This page will explain how the color of an object is determined by the light it reflects, absorbs, and transmits.</p>
-                <p><strong>Colored Objects:</strong></p>
-                <ul>
-                    <li>The color of an opaque object is determined by the colors of light it reflects. All other colors are absorbed.
-                        <ul>
-                            <li>A red book appears red because it reflects red light and absorbs all other colors.</li>
-                            <li>A white object reflects all colors of light.</li>
-                            <li>A black object absorbs all colors of light.</li>
-                        </ul>
-                    </li>
-                    <li>The color of a transparent or translucent object (a filter) is determined by the colors of light it transmits (allows to pass through).
-                        <ul>
-                            <li>A blue filter appears blue because it transmits blue light and absorbs all other colors.</li>
-                        </ul>
-                    </li>
-                </ul>
-                <p><strong>Mixing Colors:</strong></p>
-                <ul>
-                    <li><strong>Additive Colour Mixing (Light):</strong>
-                        <ul>
-                            <li>Primary colors of light: Red, Green, and Blue (RGB).</li>
-                            <li>Mixing primary colors of light creates secondary colors:
-                                <ul>
-                                    <li>Red + Green = Yellow</li>
-                                    <li>Red + Blue = Magenta</li>
-                                    <li>Green + Blue = Cyan</li>
-                                    <li>Red + Green + Blue = White</li>
-                                </ul>
-                            </li>
-                            <li>This is used in screens (TVs, phones, computer monitors).</li>
-                        </ul>
-                    </li>
-                    <li><strong>Subtractive Colour Mixing (Pigments/Paints):</strong>
-                        <ul>
-                            <li>Primary colors of pigments: Cyan, Magenta, and Yellow (CMY).</li>
-                            <li>Mixing pigments subtracts (absorbs) colors from white light.
-                                <ul>
-                                    <li>Cyan + Magenta + Yellow = Black (theoretically)</li>
-                                </ul>
-                            </li>
-                            <li>This is used in printing.</li>
-                        </ul>
-                    </li>
-                </ul>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">8.4.4 Colours of light</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Identify the primary and secondary colours of light.</li>
+                    <li>Explain how colours of light can be added together.</li>
+                    <li>Explain that the colour of an object depends on which colours of light it reflects and absorbs.</li>
+                </ol>
             </div>
+
+            <!-- Section on Additive Colour -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Adding Colours of Light</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The colours we see on screens (like your phone or a TV) are made by adding different colours of light together. The **primary colours of light** are **Red**, **Green**, and **Blue**. By mixing these three colours in different amounts, we can create all other colours.
+                </p>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L5hH42T/additive-colour-mixing.png" alt="A diagram showing the additive mixing of red, green, and blue light" class="rounded-lg shadow-md max-w-lg w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/500x500/00BFBF/FFFFFF?text=Additive+Colour';">
+                </div>
+                <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li>Red + Green = **Yellow**</li>
+                    <li>Red + Blue = **Magenta**</li>
+                    <li>Green + Blue = **Cyan**</li>
+                    <li>Red + Green + Blue = **White**</li>
+                </ul>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Yellow, magenta, and cyan are known as the **secondary colours of light**.
+                </p>
+            </div>
+
+            <!-- Section on Reflection and Absorption -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">The Colour of Objects</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Why does a banana look yellow? Why does a leaf look green? The colour of an object is not a property of the object itself. It depends on the colours of light that the object **reflects** into our eyes. When white light hits an object, some colours are **absorbed** by the object, and some are reflected.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: The Bouncy Ball Catcher</h4>
+                    <p class="text-lg leading-relaxed">Imagine white light is like someone throwing a red ball, a green ball, and a blue ball at you all at once. If you are wearing a **red jumper**, your jumper is a special material that only bounces the **red ball** back (reflection) but "catches" and holds onto the green and blue balls (absorption). An observer only sees the red ball coming from you, so they see your jumper as red. A **white jumper** is like a super bouncy trampoline that reflects all three coloured balls. When an observer's eyes see red, green, and blue light all at once, their brain mixes them to see white. A **black jumper** is like a patch of sticky mud that catches and holds all three coloured balls. None of them bounce back to an observer's eyes, so they see black.</p>
+                </div>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/gZ7Q02C/colour-reflection-absorption.png" alt="Diagram showing white light hitting a red object, which reflects red light and absorbs blue and green" class="rounded-lg shadow-md max-w-xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/700x300/009999/FFFFFF?text=Colour+Reflection';">
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Colour</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/a5_A-e-c-aY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">In-School Experiment: Coloured Filters</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    You can investigate how coloured objects appear under different coloured lights using filters. A filter is a piece of transparent material that only lets its own colour of light pass through, absorbing all other colours.
+                </p>
+                <h5 class="text-lg font-semibold text-gray-800 mt-4 mb-2">Equipment:</h5>
+                <ul class="list-disc list-inside ml-4 text-base">
+                    <li>A ray box (producing white light)</li>
+                    <li>Red, green, and blue coloured filters</li>
+                    <li>A piece of white paper</li>
+                    <li>A piece of red paper and a piece of blue paper</li>
+                </ul>
+                <h5 class="text-lg font-semibold text-gray-800 mt-4 mb-2">Method:</h5>
+                <ol class="list-decimal list-inside ml-4 text-base space-y-1">
+                    <li>In a darkened room, shine the white light from the ray box onto the white paper. Observe its colour.</li>
+                    <li>Now, place the red filter in front of the light. What colour does the white paper appear?</li>
+                    <li>Shine the red light onto the red paper. What colour does it appear?</li>
+                    <li>Shine the red light onto the blue paper. What colour does it appear? Why do you think this is? (Hint: The blue paper can only reflect blue light. What happens when only red light hits it?)</li>
+                    <li>Repeat steps 2-4 using the blue filter and then the green filter, and record your observations in a table.</li>
+                </ol>
+            </div>
+            
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Color Vision</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    This PhET simulation is a great way to explore colour. You can shine different coloured lights on a person's shirt and see what colour of light is reflected to the observer's eye. Try shining a red light on a yellow shirt!
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/color-vision/latest/color-vision_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
-        <div class="container mx-auto text-center text-sm">
-            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
-        </div>
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        const hamburger = document.getElementById('hamburger-button');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+
+        hamburger.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        accordionBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
 </body>
 </html>

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>8.8.2 Ecosystems and Invasive Species - Casco School</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8.8.2 Ecosystems and invasive species - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -17,129 +19,208 @@
                     }
                 }
             }
-        }
+        };
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
+
+    <!-- MathJax -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], tags: 'ams' },
             svg: { fontCache: 'global' }
         };
     </script>
 </head>
+
 <body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
             <nav id="desktop-nav" class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div id="mobile-menu-overlay">
-        <button id="close-mobile-menu" aria-label="Close mobile menu">&times;</button>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
         <nav>
-            <ul>
-                <li><a href="../../../index.html">Home</a></li>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
                 <li>
-                    <button class="mobile-accordion-btn">KS3</button>
-                    <ul class="mobile-accordion-content">
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
                         <li><a href="../../Year7/index.html">Year 7</a></li>
                         <li><a href="../index.html">Year 8</a></li>
                         <li><a href="../../Year9/index.html">Year 9</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn">KS4</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS4/Biology/index.html">Biology</a></li>
-                        <li><a href="../../../KS4/Chemistry/index.html">Chemistry</a></li>
-                        <li><a href="../../../KS4/Physics/index.html">Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn">KS5</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS5/ib_biology/index.html">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </div>
 
+    <!-- Main Content -->
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <nav class="text-sm mb-4" aria-label="Breadcrumb">
-                <ol class="list-none p-0 inline-flex">
-                    <li class="flex items-center">
-                        <a href="../../../index.html" class="text-casco-main-teal hover:underline">Home</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../../index.html" class="text-casco-main-teal hover:underline">KS3</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../index.html" class="text-casco-main-teal hover:underline">Year 8</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="index.html" class="text-casco-main-teal hover:underline">Unit 8.8: Earth and the Solar System</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="text-gray-500">8.8.2 Ecosystems and Invasive Species</li>
-                </ol>
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 8</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 8.8 Earth and the Solar System</a> &gt;
+                <span class="font-semibold">8.8.2 Ecosystems and invasive species</span>
             </nav>
-            <h1 class="text-3xl font-bold text-casco-main-teal mb-6">8.8.2 Ecosystems and Invasive Species</h1>
-            <p class="text-lg leading-relaxed mb-6">
-                Content for this section is under development. Please check back soon!
-            </p>
-            <div class="prose max-w-none">
-                <p>This page will define ecosystems and explain the threat posed by invasive species.</p>
-                <p><strong>Ecosystems:</strong></p>
-                <ul>
-                    <li>An ecosystem is a community of living organisms (biotic components) interacting with their non-living physical environment (abiotic components).</li>
-                    <li>Ecosystems have a delicate balance, with complex food webs and nutrient cycles.</li>
-                </ul>
-                <p><strong>Invasive Species:</strong></p>
-                <ul>
-                    <li>An invasive species is an organism that is not native to a specific location and has a tendency to spread to a degree believed to cause damage to the environment, economy, or human health.</li>
-                    <li><strong>Characteristics of Invasive Species:</strong>
-                        <ul>
-                            <li>Fast growth and reproduction.</li>
-                            <li>Few or no natural predators or diseases in the new environment.</li>
-                            <li>Ability to outcompete native species for resources like food, water, and space.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Impact on Ecosystems:</strong>
-                        <ul>
-                            <li><strong>Competition:</strong> They compete with native species for resources, often leading to a decline in native populations.</li>
-                            <li><strong>Predation:</strong> They may prey on native species that have not evolved defenses against them.</li>
-                            <li><strong>Habitat Alteration:</strong> They can change the physical environment, making it unsuitable for native species.</li>
-                            <li><strong>Disease:</strong> They can introduce new diseases to which native species have no immunity.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Examples:</strong> Cane toads in Australia, zebra mussels in the Great Lakes, grey squirrels in the UK (outcompeting red squirrels).</li>
-                </ul>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">8.8.2 Ecosystems and invasive species</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Define ecosystem, habitat, and invasive species.</li>
+                    <li>Explain how an invasive species can disrupt a stable ecosystem.</li>
+                    <li>Use a real-world example to describe the impact of an invasive species.</li>
+                </ol>
             </div>
+
+            <!-- Section on Ecosystems -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Ecosystems and Habitats</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    An **ecosystem** is a community of living organisms (like plants and animals) interacting with their non-living environment (like the soil, water, and climate). Within an ecosystem, each organism lives in a specific **habitat**, which is the natural home or environment of that organism.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    In a healthy, stable ecosystem, all the different species are in a delicate balance. They compete for resources like food and space, and are part of complex food webs. But what happens when a new species is introduced?
+                </p>
+            </div>
+
+            <!-- Section on Invasive Species -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Invasive Species</h3>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    An **invasive species** is an organism that is not native to a particular ecosystem and which causes harm to the environment, the economy, or human health.
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Invasive species are a major problem because they can disrupt the delicate balance of an ecosystem. They often have no natural predators in their new environment and can out-compete the native species for food and resources.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Real-World Example: Red vs. Grey Squirrels</h4>
+                    <p class="text-lg leading-relaxed">A classic example in the UK is the story of the red and grey squirrels. The **Red Squirrel** is the native species, perfectly adapted to its woodland ecosystem. The **Grey Squirrel** was introduced from North America in the 19th century. The grey squirrel is larger and can eat a wider variety of food, so it **out-competes** the red squirrel for resources. Crucially, the grey squirrel also carries a disease (squirrel pox) that is harmless to them but deadly to the red squirrels. Because the grey squirrel has no natural predators in the UK and is a better competitor, its population has grown, and the native red squirrel population has been pushed to the brink of extinction in many areas.</p>
+                </div>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L5hH42T/invasive-species-food-web.png" alt="A food web diagram showing how an invasive species can disrupt the balance" class="rounded-lg shadow-md max-w-2xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/800x400/00BFBF/FFFFFF?text=Invasive+Species+Impact';">
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Invasive Species</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/g977250A2-A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">At-Home Experiment: Building a Model Ecosystem in a Jar (Ecosphere)</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    You can create your own self-sustaining, sealed ecosystem in a jar. This is a great long-term project to observe how the different parts of an ecosystem work together.
+                </p>
+                <h5 class="text-lg font-semibold text-gray-800 mt-4 mb-2">Equipment:</h5>
+                <ul class="list-disc list-inside ml-4 text-base">
+                    <li>A large, clear glass jar with a sealable lid (like a jam or pickle jar)</li>
+                    <li>Small pebbles or gravel for drainage</li>
+                    <li>A layer of activated charcoal (from a pet shop or garden centre)</li>
+                    <li>Potting soil</li>
+                    <li>Small, slow-growing plants that like humidity (like moss, small ferns, or fittonia)</li>
+                    <li>A small amount of water</li>
+                </ul>
+                <h5 class="text-lg font-semibold text-gray-800 mt-4 mb-2">Method:</h5>
+                <ol class="list-decimal list-inside ml-4 text-base space-y-1">
+                    <li>Start by adding a layer of small pebbles at the bottom of the jar for drainage.</li>
+                    <li>Add a thin layer of activated charcoal on top of the pebbles. This will help to keep the water clean.</li>
+                    <li>Add a deeper layer of potting soil.</li>
+                    <li>Carefully plant your small plants in the soil.</li>
+                    <li>Add just enough water to make the soil damp, but not waterlogged.</li>
+                    <li>Seal the jar tightly and place it in a spot with bright, indirect light (not direct sunlight, as this can cook the plants).</li>
+                    <li>Observe your ecosphere over the next few weeks. You should see a mini water cycle happening inside, with condensation on the glass. The plants will produce their own oxygen, and decomposers in the soil will recycle any dead leaves.</li>
+                </ol>
+            </div>
+
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
-        <div class="container mx-auto text-center text-sm">
-            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
-        </div>
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        const hamburger = document.getElementById('hamburger-button');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+
+        hamburger.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        accordionBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>8.6.4 Bioaccumulation - Casco School</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8.6.4 Bioaccumulation - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -17,132 +19,194 @@
                     }
                 }
             }
-        }
+        };
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
+
+    <!-- MathJax -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], tags: 'ams' },
             svg: { fontCache: 'global' }
         };
     </script>
 </head>
+
 <body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
             <nav id="desktop-nav" class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div id="mobile-menu-overlay">
-        <button id="close-mobile-menu" aria-label="Close mobile menu">&times;</button>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
         <nav>
-            <ul>
-                <li><a href="../../../index.html">Home</a></li>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
                 <li>
-                    <button class="mobile-accordion-btn">KS3</button>
-                    <ul class="mobile-accordion-content">
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
                         <li><a href="../../Year7/index.html">Year 7</a></li>
                         <li><a href="../index.html">Year 8</a></li>
                         <li><a href="../../Year9/index.html">Year 9</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn">KS4</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS4/Biology/index.html">Biology</a></li>
-                        <li><a href="../../../KS4/Chemistry/index.html">Chemistry</a></li>
-                        <li><a href="../../../KS4/Physics/index.html">Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn">KS5</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS5/ib_biology/index.html">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </div>
 
+    <!-- Main Content -->
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <nav class="text-sm mb-4" aria-label="Breadcrumb">
-                <ol class="list-none p-0 inline-flex">
-                    <li class="flex items-center">
-                        <a href="../../../index.html" class="text-casco-main-teal hover:underline">Home</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../../index.html" class="text-casco-main-teal hover:underline">KS3</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../index.html" class="text-casco-main-teal hover:underline">Year 8</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="index.html" class="text-casco-main-teal hover:underline">Unit 8.6: Health</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="text-gray-500">8.6.4 Bioaccumulation</li>
-                </ol>
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 8</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 8.6 Health</a> &gt;
+                <span class="font-semibold">8.6.4 Bioaccumulation</span>
             </nav>
-            <h1 class="text-3xl font-bold text-casco-main-teal mb-6">8.6.4 Bioaccumulation</h1>
-            <p class="text-lg leading-relaxed mb-6">
-                Content for this section is under development. Please check back soon!
-            </p>
-            <div class="prose max-w-none">
-                <p>This page will explain the process of bioaccumulation and its impact on food chains.</p>
-                <p><strong>Bioaccumulation:</strong></p>
-                <ul>
-                    <li>The build-up of a substance (usually a toxin or pesticide) in a living organism.</li>
-                    <li>This occurs when an organism absorbs a substance at a rate faster than that at which the substance is lost by catabolism and excretion.</li>
-                </ul>
-                <p><strong>Biomagnification:</strong></p>
-                <ul>
-                    <li>The increasing concentration of a substance in organisms at successively higher levels in a food chain.</li>
-                    <li><strong>How it works:</strong>
-                        <ol>
-                            <li>A persistent toxin (one that is not easily broken down), such as DDT or mercury, is introduced into the environment.</li>
-                            <li>It is absorbed by producers (e.g., algae, plants).</li>
-                            <li>Primary consumers eat many producers, accumulating all the toxin from those producers in their own bodies.</li>
-                            <li>Secondary consumers eat many primary consumers, accumulating the toxin from all of them.</li>
-                            <li>This process continues up the food chain, so the top predators accumulate the highest and most dangerous concentration of the toxin.</li>
-                        </ol>
-                    </li>
-                    <li><strong>Example: DDT</strong>
-                        <ul>
-                            <li>DDT was a widely used pesticide.</li>
-                            <li>It washed into waterways and was absorbed by small aquatic organisms.</li>
-                            <li>Small fish ate these organisms, accumulating DDT.</li>
-                            <li>Large fish ate the small fish.</li>
-                            <li>Birds of prey (like eagles) ate the large fish, accumulating very high levels of DDT.</li>
-                            <li>This caused the shells of their eggs to become thin and break easily, leading to a massive decline in their populations.</li>
-                        </ul>
-                    </li>
-                </ul>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">8.6.4 Bioaccumulation</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Define bioaccumulation as the build-up of a toxic substance in an organism.</li>
+                    <li>Explain how the concentration of a toxin can increase up a food chain (biomagnification).</li>
+                    <li>Describe the impact of bioaccumulation on an ecosystem.</li>
+                </ol>
             </div>
+
+            <!-- Section on Bioaccumulation -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">What is Bioaccumulation?</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Some toxic (poisonous) substances, like pesticides or heavy metals, are not easily broken down by living organisms. If an organism takes in one of these substances, it can get stored in its tissues. **Bioaccumulation** is the gradual build-up of a toxic substance in a single organism over its lifetime.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    This becomes a much bigger problem when we look at a whole food chain. As one organism eats another, the toxin is passed along. Because a consumer needs to eat many organisms from the level below it, the toxin becomes more and more concentrated at each step up the food chain. This process is called **biomagnification**.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: The Un-washable Ink Stain</h4>
+                    <p class="text-lg leading-relaxed">Imagine a field of grass is sprayed with a special, permanent ink (the toxin). Each blade of grass has one tiny drop of ink on it. A grasshopper eats 10 blades of grass, so it now has 10 drops of ink inside it. A frog then eats 5 of these grasshoppers, so it now has 50 drops of ink inside it. Finally, a hawk (the apex predator) eats 2 of these frogs. The hawk now has 100 drops of ink inside it. The ink, which was only a tiny drop on each plant, has become highly concentrated and potentially dangerous at the top of the food chain.</p>
+                </div>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L5hH42T/bioaccumulation-diagram.png" alt="A food pyramid showing how the concentration of a toxin increases at each trophic level" class="rounded-lg shadow-md max-w-lg w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/500x500/00BFBF/FFFFFF?text=Biomagnification';">
+                </div>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    This means that the organisms at the top of the food chain, the **apex predators**, are the most affected by these toxins, even if the initial amount in the environment was very small.
+                </p>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Bioaccumulation</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/TZk6vcmLcKw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">In-School Activity: Modelling Bioaccumulation</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    You can model how a toxin becomes more concentrated up a food chain using counters.
+                </p>
+                <h5 class="text-lg font-semibold text-gray-800 mt-4 mb-2">Equipment:</h5>
+                <ul class="list-disc list-inside ml-4 text-base">
+                    <li>A large number of small counters of one colour (e.g., green, representing plants)</li>
+                    <li>A smaller number of counters of a different colour (e.g., red, representing a toxin)</li>
+                    <li>Small cups or pots</li>
+                </ul>
+                <h5 class="text-lg font-semibold text-gray-800 mt-4 mb-2">Method:</h5>
+                <ol class="list-decimal list-inside ml-4 text-base space-y-1">
+                    <li>Imagine a field of 20 plants. Place 20 green counters on the table. Add one red "toxin" counter to each green "plant" counter.</li>
+                    <li>Now, imagine 4 rabbits eat these plants. Each rabbit eats 5 plants. Give 4 students a cup. They must "eat" 5 plants each, collecting both the green and the red counters. How many red counters does each rabbit now have?</li>
+                    <li>Finally, imagine 2 foxes eat the rabbits. Each fox eats 2 rabbits. Give 2 students a cup. They must "eat" 2 rabbits, collecting all the counters from those rabbits' cups.</li>
+                    <li>Count the number of red "toxin" counters in each fox. You should see that the concentration of the toxin is much higher at the top of the food chain.</li>
+                </ol>
+            </div>
+
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
-        <div class="container mx-auto text-center text-sm">
-            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
-        </div>
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        const hamburger = document.getElementById('hamburger-button');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+
+        hamburger.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        accordionBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>

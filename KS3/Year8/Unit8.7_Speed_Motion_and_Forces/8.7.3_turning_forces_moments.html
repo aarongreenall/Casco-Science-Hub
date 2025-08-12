@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>8.7.3 Turning Forces (Moments) - Casco School</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8.7.3 Turning forces (moments) - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -17,132 +19,270 @@
                     }
                 }
             }
-        }
+        };
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
+
+    <!-- MathJax -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], tags: 'ams' },
             svg: { fontCache: 'global' }
         };
     </script>
 </head>
+
 <body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
             <nav id="desktop-nav" class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div id="mobile-menu-overlay">
-        <button id="close-mobile-menu" aria-label="Close mobile menu">&times;</button>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
         <nav>
-            <ul>
-                <li><a href="../../../index.html">Home</a></li>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
                 <li>
-                    <button class="mobile-accordion-btn">KS3</button>
-                    <ul class="mobile-accordion-content">
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
                         <li><a href="../../Year7/index.html">Year 7</a></li>
                         <li><a href="../index.html">Year 8</a></li>
                         <li><a href="../../Year9/index.html">Year 9</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn">KS4</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS4/Biology/index.html">Biology</a></li>
-                        <li><a href="../../../KS4/Chemistry/index.html">Chemistry</a></li>
-                        <li><a href="../../../KS4/Physics/index.html">Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn">KS5</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS5/ib_biology/index.html">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </div>
 
+    <!-- Main Content -->
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <nav class="text-sm mb-4" aria-label="Breadcrumb">
-                <ol class="list-none p-0 inline-flex">
-                    <li class="flex items-center">
-                        <a href="../../../index.html" class="text-casco-main-teal hover:underline">Home</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../../index.html" class="text-casco-main-teal hover:underline">KS3</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../index.html" class="text-casco-main-teal hover:underline">Year 8</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="index.html" class="text-casco-main-teal hover:underline">Unit 8.7: Speed, Motion, and Forces</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="text-gray-500">8.7.3 Turning Forces (Moments)</li>
-                </ol>
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 8</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 8.7 Speed, Motion, and Forces</a> &gt;
+                <span class="font-semibold">8.7.3 Turning forces (moments)</span>
             </nav>
-            <h1 class="text-3xl font-bold text-casco-main-teal mb-6">8.7.3 Turning Forces (Moments)</h1>
-            <p class="text-lg leading-relaxed mb-6">
-                Content for this section is under development. Please check back soon!
-            </p>
-            <div class="prose max-w-none">
-                <p>This page will introduce the concept of moments as turning forces and the principle of moments.</p>
-                <p><strong>Moment:</strong></p>
-                <ul>
-                    <li>A moment is the turning effect of a force.</li>
-                    <li>It depends on two things: the size of the force and the distance from the pivot.</li>
-                    <li><strong>Formula:</strong> Moment = Force × Perpendicular distance from the pivot</li>
-                    <li>Units: Newton-meters (Nm).</li>
-                </ul>
-                <p><strong>Pivot (or Fulcrum):</strong></p>
-                <ul>
-                    <li>The point around which an object turns.</li>
-                </ul>
-                <p><strong>Principle of Moments:</strong></p>
-                <ul>
-                    <li>For an object to be balanced (in equilibrium), the total clockwise moment about a pivot must be equal to the total anticlockwise moment about the same pivot.</li>
-                    <li><strong>Formula:</strong> Total Clockwise Moments = Total Anticlockwise Moments</li>
-                </ul>
-                <p><strong>Levers:</strong></p>
-                <ul>
-                    <li>Levers are simple machines that use moments to make work easier. They multiply the effect of a force.</li>
-                    <li>Examples:
-                        <ul>
-                            <li><strong>Seesaw:</strong> A classic example of the principle of moments.</li>
-                            <li><strong>Spanner:</strong> A long handle increases the distance from the pivot (the nut), so a smaller force is needed to create a large turning moment.</li>
-                            <li><strong>Crowbar:</strong> Used to lift heavy objects by applying a small force over a large distance.</li>
-                            <li><strong>Bottle opener, wheelbarrow, scissors.</strong></li>
-                        </ul>
-                    </li>
-                </ul>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">8.7.3 Turning forces (moments)</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Define a moment as the turning effect of a force.</li>
+                    <li>Explain that the size of a moment depends on the force and the distance from the pivot.</li>
+                    <li>Calculate moments using the formula: moment = force × perpendicular distance.</li>
+                    <li>Use the principle of moments to solve balancing problems.</li>
+                </ol>
             </div>
+
+            <!-- Section on Moments -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">What is a Moment?</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    When a force makes an object turn, we say it has a **turning effect**. The scientific name for this turning effect is a **moment**. A moment is created when a force is applied to an object that can rotate around a fixed point called a **pivot** or **fulcrum**.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The size of the moment depends on two things:
+                </p>
+                <ol class="list-decimal list-inside ml-4 my-2 space-y-2 text-lg">
+                    <li>The **size of the force** applied.</li>
+                    <li>The **perpendicular distance** from the pivot to the line of action of the force.</li>
+                </ol>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100">
+                    <p class="font-semibold">$$ \text{Moment} = \text{Force} \times \text{Perpendicular Distance from Pivot} $$</p>
+                    <p class="font-semibold mt-2">$$ M = F \times d $$</p>
+                </blockquote>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The unit for a moment is the newton-metre (Nm).
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: Using a Spanner</h4>
+                    <p class="text-lg leading-relaxed">The best way to understand moments is to think about tightening a nut with a spanner. The **nut** is the **pivot**. The **push or pull** on the spanner is the **force**. The **moment** is the **turning effect** that tightens the nut. It's much easier to turn a tight nut with a long spanner than a short one. This is because the same force applied at a greater distance creates a larger moment.</p>
+                </div>
+                <div class="flex justify-center my-6">
+                    <img src="https://i.ibb.co/L5hH42T/moment-spanner.png" alt="A diagram of a spanner turning a nut, illustrating a moment" class="rounded-lg shadow-md max-w-lg w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x300/00BFBF/FFFFFF?text=Moment+of+a+Force';">
+                </div>
+            </div>
+
+            <!-- Section on Balancing -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">The Principle of Moments</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    When an object like a seesaw is balanced, it is not moving. This means the total turning effect in the clockwise direction is exactly equal to the total turning effect in the anticlockwise direction. This is known as the **Principle of Moments**.
+                </p>
+                <blockquote class="border-l-4 border-casco-dark-teal pl-4 py-2 my-4 text-lg bg-gray-100 italic">
+                    For an object to be in rotational equilibrium (balanced), the sum of the clockwise moments about any pivot must equal the sum of the anticlockwise moments about the same pivot.
+                </blockquote>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example 1: The Balanced Seesaw</h4>
+                    <p class="text-lg leading-relaxed mb-4">A child with a weight of 300 N sits on a seesaw at a distance of 1.5 m from the pivot. Where must a child with a weight of 450 N sit to balance the seesaw?</p>
+                    <div class="my-4 p-4 border rounded-lg bg-white overflow-x-auto">
+                        $$ \text{Anticlockwise} \quad \circlearrowleft \quad |\quad \blacktriangle \quad | \quad \circlearrowright \quad \text{Clockwise} $$
+                        $$ \downarrow F_1 = 300 \text{ N} \quad \quad \quad \quad \quad \downarrow F_2 = 450 \text{ N} $$
+                        $$ \leftarrow d_1 = 1.5 \text{ m} \rightarrow \quad \quad \leftarrow d_2 = ? \rightarrow $$
+                    </div>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Identify the moments:</strong></p>
+                        <p>The 300 N child creates an anticlockwise moment. The 450 N child must create an equal clockwise moment.</p>
+                        <p><strong>2. Apply the Principle of Moments:</strong></p>
+                        <p>$$ \text{Clockwise Moment} = \text{Anticlockwise Moment} $$</p>
+                        <p>$$ F_2 \times d_2 = F_1 \times d_1 $$</p>
+                        <p>$$ (450 \text{ N} \times d_2) = (300 \text{ N} \times 1.5 \text{ m}) $$</p>
+                        <p><strong>3. Solve for the unknown distance, $d_2$:</strong></p>
+                        <p>$$ 450 d_2 = 450 $$</p>
+                        <p>$$ d_2 = \frac{450}{450} = 1.0 \text{ m} $$</p>
+                        <p>The second child must sit 1.0 m from the pivot on the opposite side.</p>
+                    </div>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Worked Example 2: Net Moment on a Beam</h4>
+                    <p class="text-lg leading-relaxed mb-4">A wooden beam is pivoted at one end. A downward force of 20 N is applied 0.5 m from the pivot, and an upward force of 15 N is applied 1.0 m from the pivot. Calculate the net moment and state the direction of rotation.</p>
+                     <div class="my-4 p-4 border rounded-lg bg-white overflow-x-auto">
+                        $$ \blacktriangle \text{ Pivot} \quad \quad \quad \downarrow F_1 = 20 \text{ N} \quad \quad \quad \uparrow F_2 = 15 \text{ N} $$
+                        $$ \quad \quad \quad \leftarrow d_1 = 0.5 \text{ m} \rightarrow $$
+                        $$ \quad \quad \quad \leftarrow \quad \quad d_2 = 1.0 \text{ m} \quad \quad \rightarrow $$
+                    </div>
+                    <div class="text-lg space-y-2">
+                        <p><strong>1. Calculate the clockwise moment:</strong></p>
+                        <p>$$ M_{cw} = F_1 \times d_1 = 20 \text{ N} \times 0.5 \text{ m} = 10 \text{ Nm} $$</p>
+                        <p><strong>2. Calculate the anticlockwise moment:</strong></p>
+                        <p>$$ M_{acw} = F_2 \times d_2 = 15 \text{ N} \times 1.0 \text{ m} = 15 \text{ Nm} $$</p>
+                        <p><strong>3. Find the net moment:</strong></p>
+                        <p>The anticlockwise moment is larger than the clockwise moment.</p>
+                        <p>$$ \text{Net Moment} = M_{acw} - M_{cw} = 15 - 10 = 5 \text{ Nm} $$</p>
+                        <p>The net moment is 5 Nm in the **anticlockwise** direction, so the beam will rotate anticlockwise.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">In-School Experiment: Balancing a Ruler</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    You can investigate the principle of moments using a ruler, a pivot, and some weights.
+                </p>
+                <h5 class="text-lg font-semibold text-gray-800 mt-4 mb-2">Equipment:</h5>
+                <ul class="list-disc list-inside ml-4 text-base">
+                    <li>A 30 cm or 1 m ruler</li>
+                    <li>A triangular pivot</li>
+                    <li>A set of slotted masses (or identical coins and tape)</li>
+                </ul>
+                <h5 class="text-lg font-semibold text-gray-800 mt-4 mb-2">Method:</h5>
+                <ol class="list-decimal list-inside ml-4 text-base space-y-1">
+                    <li>Find the centre of the ruler and place it on the pivot so that it balances.</li>
+                    <li>Place a known weight (e.g., 100 g, which is about 1 N) at a certain distance from the pivot on one side. This creates a known moment.</li>
+                    <li>Now, take a different weight (e.g., 50 g, about 0.5 N) and try to find the position on the other side of the pivot where it will make the ruler balance again.</li>
+                    <li>Calculate the clockwise moment and the anticlockwise moment. Are they equal?</li>
+                    <li>Repeat with different weights and distances to confirm the principle of moments.</li>
+                </ol>
+            </div>
+            
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Balancing Act</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    This PhET simulation is a fantastic way to explore the principle of moments. You can place different objects on a seesaw and try to make it balance. Use the "Balance Lab" tab to see the forces and distances, then switch to the "Game" tab to test your skills!
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/balancing-act/latest/balancing-act_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
-        <div class="container mx-auto text-center text-sm">
-            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
-        </div>
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        const hamburger = document.getElementById('hamburger-button');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+
+        hamburger.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        accordionBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
 </body>
 </html>

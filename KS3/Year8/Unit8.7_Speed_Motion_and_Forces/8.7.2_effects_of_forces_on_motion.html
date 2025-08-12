@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>8.7.2 Effects of Forces on Motion - Casco School</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8.7.2 Effects of forces on motion - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -17,134 +19,228 @@
                     }
                 }
             }
-        }
+        };
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
+
+    <!-- MathJax -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], tags: 'ams' },
             svg: { fontCache: 'global' }
         };
     </script>
 </head>
+
 <body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
             <nav id="desktop-nav" class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div id="mobile-menu-overlay">
-        <button id="close-mobile-menu" aria-label="Close mobile menu">&times;</button>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
         <nav>
-            <ul>
-                <li><a href="../../../index.html">Home</a></li>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
                 <li>
-                    <button class="mobile-accordion-btn">KS3</button>
-                    <ul class="mobile-accordion-content">
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
                         <li><a href="../../Year7/index.html">Year 7</a></li>
                         <li><a href="../index.html">Year 8</a></li>
                         <li><a href="../../Year9/index.html">Year 9</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn">KS4</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS4/Biology/index.html">Biology</a></li>
-                        <li><a href="../../../KS4/Chemistry/index.html">Chemistry</a></li>
-                        <li><a href="../../../KS4/Physics/index.html">Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn">KS5</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS5/ib_biology/index.html">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </div>
 
+    <!-- Main Content -->
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <nav class="text-sm mb-4" aria-label="Breadcrumb">
-                <ol class="list-none p-0 inline-flex">
-                    <li class="flex items-center">
-                        <a href="../../../index.html" class="text-casco-main-teal hover:underline">Home</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../../index.html" class="text-casco-main-teal hover:underline">KS3</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../index.html" class="text-casco-main-teal hover:underline">Year 8</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="index.html" class="text-casco-main-teal hover:underline">Unit 8.7: Speed, Motion, and Forces</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="text-gray-500">8.7.2 Effects of Forces on Motion</li>
-                </ol>
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 8</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 8.7 Speed, Motion, and Forces</a> &gt;
+                <span class="font-semibold">8.7.2 Effects of forces on motion</span>
             </nav>
-            <h1 class="text-3xl font-bold text-casco-main-teal mb-6">8.7.2 Effects of Forces on Motion</h1>
-            <p class="text-lg leading-relaxed mb-6">
-                Content for this section is under development. Please check back soon!
-            </p>
-            <div class="prose max-w-none">
-                <p>This page will describe how forces can change the motion of an object.</p>
-                <p><strong>What is a Force?</strong></p>
-                <ul>
-                    <li>A force is a push or a pull.</li>
-                    <li>Forces are measured in Newtons (N).</li>
-                    <li>Forces can change an object's speed, direction of motion, or shape.</li>
-                </ul>
-                <p><strong>Balanced and Unbalanced Forces:</strong></p>
-                <ul>
-                    <li>Forces acting on an object can be balanced or unbalanced.</li>
-                    <li><strong>Balanced Forces:</strong> When the forces acting on an object are equal in size and opposite in direction.
-                        <ul>
-                            <li>Effect: There is no change in motion. An object at rest stays at rest, and a moving object continues to move at a constant speed in a straight line.</li>
-                            <li>The resultant force is zero.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Unbalanced Forces:</strong> When the forces acting on an object are not equal and opposite.
-                        <ul>
-                            <li>Effect: There is a change in motion. The object will accelerate (speed up), decelerate (slow down), or change direction.</li>
-                            <li>There is a non-zero resultant force.</li>
-                        </ul>
-                    </li>
-                </ul>
-                <p><strong>Types of Forces:</strong></p>
-                <ul>
-                    <li><strong>Friction:</strong> A force that opposes motion between surfaces in contact.</li>
-                    <li><strong>Air Resistance (Drag):</strong> A type of friction that acts on objects moving through the air.</li>
-                    <li><strong>Gravity (Weight):</strong> The force of attraction between objects with mass.</li>
-                    <li><strong>Upthrust:</strong> An upward force exerted by a fluid that opposes the weight of an immersed object.</li>
-                </ul>
-                <p>Examples: A car moving at a constant speed has balanced forces (driving force equals air resistance and friction). A car accelerating has unbalanced forces (driving force is greater than resistive forces).</p>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">8.7.2 Effects of forces on motion</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Define balanced and unbalanced forces.</li>
+                    <li>Explain how balanced forces result in no change in motion.</li>
+                    <li>Explain how an unbalanced force causes a change in motion (speeding up, slowing down, or changing direction).</li>
+                </ol>
             </div>
+
+            <!-- Section on Forces -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Balanced vs. Unbalanced Forces</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Forces are pushes or pulls that act on objects. Usually, there is more than one force acting on an object at any time. The overall effect of these forces depends on whether they are balanced or unbalanced.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: A Tug-of-War</h4>
+                    <p class="text-lg leading-relaxed">A tug-of-war is a perfect way to understand the difference between balanced and unbalanced forces.</p>
+                    <ul class="list-disc list-inside ml-4 my-2 space-y-2 text-lg">
+                        <li><strong>Balanced Forces:</strong> Imagine two teams are pulling on a rope with exactly the same strength. The rope doesn't move. The forces are equal in size and opposite in direction, so they cancel each other out.</li>
+                        <li><strong>Unbalanced Forces:</strong> Now, imagine one team suddenly pulls harder. The forces are no longer equal. There is a net force in the direction of the stronger team, and the rope (and the other team!) will accelerate in that direction.</li>
+                    </ul>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center mt-6">
+                    <div class="text-center">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Balanced Forces</h4>
+                        <img src="https://i.ibb.co/L5hH42T/balanced-forces.png" alt="Force diagram showing balanced forces on a box" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/400x300/00BFBF/FFFFFF?text=Balanced+Forces';">
+                        <p class="mt-2 text-lg">If the forces on an object are balanced, its motion does not change. If it's stationary, it stays stationary. If it's moving, it continues to move at a constant speed in a straight line.</p>
+                    </div>
+                    <div class="text-center">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Unbalanced Forces</h4>
+                        <img src="https://i.ibb.co/gZ7Q02C/unbalanced-forces.png" alt="Force diagram showing unbalanced forces on a box" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/400x300/009999/FFFFFF?text=Unbalanced+Forces';">
+                        <p class="mt-2 text-lg">If the forces on an object are unbalanced, its motion will change. An unbalanced force will cause the object to speed up, slow down, or change direction.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Explanation: Balanced and Unbalanced Forces</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/C-i-z4-W-f8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">At-Home Experiment: The Parachute Egg Drop Challenge</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    Your challenge is to design and build a parachute that can safely land a raw egg when dropped from a height. This experiment explores the forces of gravity and air resistance.
+                </p>
+                <h5 class="text-lg font-semibold text-gray-800 mt-4 mb-2">Equipment:</h5>
+                <ul class="list-disc list-inside ml-4 text-base">
+                    <li>A raw egg</li>
+                    <li>A plastic bag (like a bin bag or shopping bag)</li>
+                    <li>String</li>
+                    <li>Scissors and tape</li>
+                    <li>A small container for the egg (like a yogurt pot or a paper cup)</li>
+                </ul>
+                <h5 class="text-lg font-semibold text-gray-800 mt-4 mb-2">Method:</h5>
+                <ol class="list-decimal list-inside ml-4 text-base space-y-1">
+                    <li>Place your egg safely inside the container.</li>
+                    <li>Cut a large square or circle from the plastic bag to be your parachute canopy.</li>
+                    <li>Attach several pieces of string of equal length from the corners of your canopy to the egg container.</li>
+                    <li>Find a safe, high place to drop your egg (ask an adult for permission and help!). A first-floor window is ideal.</li>
+                    <li>Drop your parachute and observe its descent. Did the egg survive?</li>
+                </ol>
+                <h5 class="text-lg font-semibold text-gray-800 mt-4 mb-2">The Science:</h5>
+                <p class="text-base leading-relaxed">When you drop the egg, two main forces are acting on it: **gravity** pulling it down, and **air resistance** pushing it up. Your goal is to make the air resistance as large as possible to balance the force of gravity. A large parachute canopy catches more air, creating a large upward force of air resistance. This slows the parachute down, allowing your egg to land gently.</p>
+            </div>
+            
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Simulation: Forces and Motion</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    Use the "Motion" and "Friction" tabs in this PhET simulation to explore balanced and unbalanced forces. You can apply forces to a crate and see how it moves. Try to apply a force that exactly balances the friction force. What happens to the object's motion?
+                </p>
+                <button id="fullscreen-btn" class="mb-4 bg-casco-dark-teal text-white py-2 px-4 rounded-md hover:bg-casco-main-teal transition-colors duration-300">
+                    Enter Fullscreen
+                </button>
+                <div id="simulation-container" class="w-full h-[75vh] border-2 border-casco-dark-teal rounded-lg shadow-md">
+                    <iframe id="simulation-iframe" src="https://phet.colorado.edu/sims/html/forces-and-motion-basics/latest/forces-and-motion-basics_en.html" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
-        <div class="container mx-auto text-center text-sm">
-            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
-        </div>
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        const hamburger = document.getElementById('hamburger-button');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+
+        hamburger.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        accordionBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const simIframe = document.getElementById('simulation-iframe');
+        fullscreenBtn.addEventListener('click', () => {
+            if (simIframe.requestFullscreen) simIframe.requestFullscreen();
+            else if (simIframe.mozRequestFullScreen) simIframe.mozRequestFullScreen();
+            else if (simIframe.webkitRequestFullscreen) simIframe.webkitRequestFullscreen();
+            else if (simIframe.msRequestFullscreen) simIframe.msRequestFullscreen();
+        });
+    </script>
 </body>
 </html>

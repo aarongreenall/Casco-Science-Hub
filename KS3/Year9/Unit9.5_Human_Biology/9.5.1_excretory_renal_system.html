@@ -1,13 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Placeholder</title>
-    <link rel="stylesheet" href="../../../style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9.5.1 The Excretory (Renal) System - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
+
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams'
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
-<body>
-    <p>Placeholder for 9.5.1</p>
-    <script src="../../../script.js"></script>
+
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
+        <nav>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../Year7/index.html">Year 7</a></li>
+                        <li><a href="../../Year8/index.html">Year 8</a></li>
+                        <li><a href="../index.html">Year 9</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 9</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 9.5 Human Biology</a> &gt;
+                <span class="font-semibold">9.5.1 The Excretory (Renal) System</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">9.5.1 The Excretory (Renal) System</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Describe the structure of the human excretory (renal) system and its function (limited to kidneys filtering blood to remove urea, which is excreted in urine).</li>
+                </ol>
+            </div>
+
+            <!-- Section: Cleaning Crew -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Your Body's Ultimate Cleaning Crew</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Your body's cells are constantly carrying out chemical reactions to keep you alive. These reactions, known as metabolism, produce useful substances but also create waste products that can be toxic if they build up. The **excretory system** is the body's vital cleaning service, responsible for removing these waste products from the blood.
+                </p>
+                <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mt-6 mb-6 rounded-lg" role="alert">
+                  <h4 class="font-bold">Excretion vs. Egestion</h4>
+                  <p>It's important not to confuse these two terms!
+                  <br>• <strong>Excretion</strong> is the removal of metabolic waste products made by your body's cells (like urea).
+                  <br>• <strong>Egestion</strong> is the removal of undigested food from the gut as feces. Feces are not a product of your cells, so this is not excretion.</p>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: A City's Waste Management</h4>
+                    <p class="text-lg leading-relaxed">
+                        Think of your body as a busy city. The cells are the houses and factories, constantly producing waste. The bloodstream is the road network where bin lorries collect this waste. The **kidneys** are the city's sophisticated waste treatment plant, filtering the waste out of the lorries and keeping the city clean and running smoothly.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section: Meet the Renal System -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Meet the Renal System</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The main part of the excretory system is the **renal system** (also called the urinary system). It has four main parts:
+                </p>
+                <div class="flex flex-col md:flex-row items-center gap-6">
+                    <div class="md:w-1/2">
+                        <img src="https://i.ibb.co/Vv30d7G/renal-system-diagram.png" alt="A labelled diagram of the human renal system" class="rounded-lg shadow-md w-full" onerror="this.onerror=null;this.src='https://placehold.co/400x500/00BFBF/FFFFFF?text=Renal+System';">
+                    </div>
+                    <div class="md:w-1/2">
+                         <ol class="list-decimal list-inside space-y-4 text-lg">
+                            <li><strong>Kidneys:</strong> You have two bean-shaped kidneys. These are the master filters that clean the blood.</li>
+                            <li><strong>Ureters:</strong> Two tubes that carry the filtered waste, now called urine, from the kidneys down to the bladder.</li>
+                            <li><strong>Bladder:</strong> A muscular, stretchy bag that stores urine until you are ready to go to the toilet.</li>
+                            <li><strong>Urethra:</strong> A tube that carries urine from the bladder out of the body.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Master Filters -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">The Kidneys: Master Filters</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The real work of the excretory system happens in the kidneys. Your entire blood supply passes through your kidneys many times each day. Their main job is to filter a toxic waste product called **urea** from the blood. Urea is produced in the liver when it breaks down excess proteins that your body doesn't need.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Inside the kidneys, millions of tiny filtering units remove urea, excess water, and excess mineral salts from the blood. These substances combine to form **urine**. The newly cleaned blood then leaves the kidneys to continue circulating around the body.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: A Coffee Filter</h4>
+                    <p class="text-lg leading-relaxed">
+                        The filtering process in the kidneys is like making coffee with a filter paper. You pour a mixture of coffee grounds and hot water into the filter. The filter paper has tiny holes that are large enough to let the water and dissolved coffee flavours (like urine) pass through, but small enough to trap the solid coffee grounds (like blood cells and large proteins). The useful parts stay in the filter, while the waste is removed.
+                    </p>
+                </div>
+                 <div class="flex justify-center mt-6">
+                     <img src="https://i.ibb.co/bF9J2Zz/kidney-filtration-diagram.png" alt="Diagram showing blood entering a kidney, being filtered, and clean blood leaving" class="rounded-lg shadow-md w-full md:w-4/5" onerror="this.onerror=null;this.src='https://placehold.co/600x400/009999/FFFFFF?text=Kidney+Filtration';">
+                </div>
+            </div>
+            
+            <!-- In-School Activity -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">In-School Activity: Modelling Filtration</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    You can model the basic principle of kidney filtration with simple lab equipment.
+                </p>
+                <p class="text-base leading-relaxed mb-2 font-semibold">You will need:</p>
+                <ul class="list-disc list-inside ml-4 text-base space-y-1 mb-4">
+                    <li>A beaker, filter funnel, and filter paper</li>
+                    <li>A mixture made of water, a little sand, some salt, and a drop of food colouring</li>
+                </ul>
+                <p class="text-base leading-relaxed mb-2 font-semibold">Procedure:</p>
+                <ol class="list-decimal list-inside ml-4 text-base space-y-2">
+                    <li>Set up the filter funnel over the beaker with the filter paper inside.</li>
+                    <li>Slowly pour the mixture into the filter paper.</li>
+                    <li>Observe what passes through the filter paper (the filtrate) and what is left behind.</li>
+                </ol>
+                <p class="text-base leading-relaxed mt-4 font-semibold">Explanation:</p>
+                <p>The water, dissolved salt (like urea), and food colouring pass through the filter paper. The sand particles (like large blood cells) are too big and get trapped. This is a simple model of how kidneys separate small, dissolved waste products from the larger, essential components of blood.</p>
+            </div>
+
+            <!-- Video Explanation -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Video Explanation: The Urinary System</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/o_L-d6kYp6c" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        // Mobile Menu Script
+        const hamburger = document.getElementById('hamburger-button');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+
+        hamburger.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        accordionBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>

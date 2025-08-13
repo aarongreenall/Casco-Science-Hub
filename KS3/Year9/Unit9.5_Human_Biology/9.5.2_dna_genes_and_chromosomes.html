@@ -1,13 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Placeholder</title>
-    <link rel="stylesheet" href="../../../style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9.5.2 DNA, Genes, and Chromosomes - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
+
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams'
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
-<body>
-    <p>Placeholder for 9.5.2</p>
-    <script src="../../../script.js"></script>
+
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
+        <nav>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../Year7/index.html">Year 7</a></li>
+                        <li><a href="../../Year8/index.html">Year 8</a></li>
+                        <li><a href="../index.html">Year 9</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 9</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 9.5 Human Biology</a> &gt;
+                <span class="font-semibold">9.5.2 DNA, Genes, and Chromosomes</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">9.5.2 DNA, Genes, and Chromosomes</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn that:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Chromosomes contain genes, made of DNA, and that genes contribute to the determination of an organism's characteristics.</li>
+                </ol>
+            </div>
+
+            <!-- Section: Instruction Manual -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">The Instruction Manual for Life</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Inside the nucleus of almost every cell in your body is a detailed instruction manual that tells your body how to grow, function, and repair itself. This manual contains all the information that makes you unique. The incredible molecule that holds all this information is called **DNA (Deoxyribonucleic Acid)**.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: A Giant Cookbook</h4>
+                    <p class="text-lg leading-relaxed">
+                        Think of all the genetic information for an organism as a giant, multi-volume cookbook.
+                    </p>
+                    <ul class="list-disc list-inside ml-4 mt-2 text-lg space-y-1">
+                        <li>The entire collection of books is the **Genome**.</li>
+                        <li>Each individual book is a **Chromosome**.</li>
+                        <li>Each single recipe within a book is a **Gene**.</li>
+                        <li>The letters and words that make up the recipes are the **DNA** code itself.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section: Unpacking the Instructions -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Unpacking the Instructions: From DNA to Chromosomes</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    These three terms are closely related, describing the same set of instructions at different levels of organisation.
+                </p>
+                <div class="flex justify-center mt-6">
+                     <img src="https://i.ibb.co/Y0JtX6f/dna-gene-chromosome-diagram.png" alt="Diagram showing the relationship between DNA, a gene, and a chromosome" class="rounded-lg shadow-md w-full" onerror="this.onerror=null;this.src='https://placehold.co/800x300/00BFBF/FFFFFF?text=DNA+Hierarchy';">
+                </div>
+                <div class="grid md:grid-cols-3 gap-6 mt-6">
+                    <div class="bg-white p-4 rounded-lg shadow">
+                        <h4 class="text-xl font-semibold text-casco-dark-teal mb-2">1. DNA</h4>
+                        <p>DNA is a very long molecule with a twisted ladder shape called a **double helix**. The "rungs" of the ladder are made of four chemical bases (A, T, C, and G) that form the genetic code.</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow">
+                        <h4 class="text-xl font-semibold text-casco-dark-teal mb-2">2. Gene</h4>
+                        <p>A **gene** is a specific section of the DNA molecule. Each gene contains the instructions (the "recipe") for making one specific protein. These proteins then build our bodies and determine our traits.</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow">
+                        <h4 class="text-xl font-semibold text-casco-dark-teal mb-2">3. Chromosome</h4>
+                        <p>A single DNA molecule can be several centimetres long! To fit inside a microscopic nucleus, it has to be tightly coiled and packaged. This super-coiled structure is called a **chromosome**.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Genes and Characteristics -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Genes and Your Characteristics</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The proteins made using the instructions from your genes determine your **traits**, or **characteristics**. Because you inherit your chromosomes from your parents, you inherit a combination of their genes, which is why you have a mixture of their traits.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Examples of traits determined by your genes include:
+                </p>
+                <ul class="list-disc list-inside ml-4 text-lg space-y-1">
+                    <li>Natural eye colour</li>
+                    <li>Natural hair colour</li>
+                    <li>Whether your earlobes are attached or detached</li>
+                    <li>Your blood type (A, B, AB, or O)</li>
+                    <li>Your ability to roll your tongue</li>
+                </ul>
+            </div>
+            
+            <!-- In-School Activity -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">In-School Activity: Extracting DNA from a Strawberry</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    You can actually see DNA! This simple experiment allows you to extract the DNA from a strawberry and see the genetic material with your own eyes.
+                </p>
+                <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-lg" role="alert">
+                    <h5 class="font-bold">Safety First!</h5>
+                    <p>This experiment should be done with teacher supervision. Handle the rubbing alcohol carefully.</p>
+                </div>
+                <p class="text-base leading-relaxed mt-4 font-semibold">Procedure:</p>
+                <ol class="list-decimal list-inside ml-4 text-base space-y-2">
+                    <li>Place a strawberry in a sealable plastic bag and mash it thoroughly for about 2 minutes.</li>
+                    <li>In a separate beaker, mix a small amount of washing-up liquid and a pinch of salt with some water to create an "extraction solution".</li>
+                    <li>Add the extraction solution to the mashed strawberry in the bag, seal it, and mix gently.</li>
+                    <li>Filter the mixture through a coffee filter or fine sieve into a clean beaker to remove the solid bits.</li>
+                    <li>Gently pour cold rubbing alcohol down the side of the beaker to form a layer on top of the strawberry liquid.</li>
+                    <li>Wait for a minute. You will see white, stringy strands appearing at the boundary between the two liquids. This is the strawberry's DNA!</li>
+                </ol>
+            </div>
+
+            <!-- Video Explanation -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Video Explanation: DNA, Chromosomes, and Genes</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/8m6hHRlKwxY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        // Mobile Menu Script
+        const hamburger = document.getElementById('hamburger-button');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+
+        hamburger.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        accordionBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>9.3.3 Conservation of Energy - Casco School</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9.3.3 Conservation of Energy - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -17,130 +19,235 @@
                     }
                 }
             }
-        }
+        };
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
+
+    <!-- MathJax -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams'
+            },
             svg: { fontCache: 'global' }
         };
     </script>
 </head>
+
 <body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
             <nav id="desktop-nav" class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div id="mobile-menu-overlay">
-        <button id="close-mobile-menu" aria-label="Close mobile menu">&times;</button>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
         <nav>
-            <ul>
-                <li><a href="../../../index.html">Home</a></li>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
                 <li>
-                    <button class="mobile-accordion-btn">KS3</button>
-                    <ul class="mobile-accordion-content">
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
                         <li><a href="../../Year7/index.html">Year 7</a></li>
                         <li><a href="../../Year8/index.html">Year 8</a></li>
                         <li><a href="../index.html">Year 9</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn">KS4</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS4/Biology/index.html">Biology</a></li>
-                        <li><a href="../../../KS4/Chemistry/index.html">Chemistry</a></li>
-                        <li><a href="../../../KS4/Physics/index.html">Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn">KS5</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS5/ib_biology/index.html">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </div>
 
+    <!-- Main Content -->
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <nav class="text-sm mb-4" aria-label="Breadcrumb">
-                <ol class="list-none p-0 inline-flex">
-                    <li class="flex items-center">
-                        <a href="../../../index.html" class="text-casco-main-teal hover:underline">Home</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../../index.html" class="text-casco-main-teal hover:underline">KS3</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../index.html" class="text-casco-main-teal hover:underline">Year 9</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="index.html" class="text-casco-main-teal hover:underline">Unit 9.3: Sound and Energy</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="text-gray-500">9.3.3 Conservation of Energy</li>
-                </ol>
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 9</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 9.3 Sound and Energy</a> &gt;
+                <span class="font-semibold">9.3.3 Conservation of Energy</span>
             </nav>
-            <h1 class="text-3xl font-bold text-casco-main-teal mb-6">9.3.3 Conservation of Energy</h1>
-            <p class="text-lg leading-relaxed mb-6">
-                Content for this section is under development. Please check back soon!
-            </p>
-            <div class="prose max-w-none">
-                <p>This page will explain the fundamental principle of conservation of energy.</p>
-                <p><strong>The Principle of Conservation of Energy:</strong></p>
-                <ul>
-                    <li>Energy cannot be created or destroyed, it can only be transferred or transformed from one form to another.</li>
-                    <li>The total amount of energy in a closed system remains constant.</li>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">9.3.3 Conservation of Energy</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn that:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Energy is conserved, meaning it cannot be created or destroyed.</li>
+                </ol>
+            </div>
+
+            <!-- Section: The First Rule of Energy -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">The First Rule of Energy</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    There is one rule about energy that is perhaps the most important in all of science: The **Law of Conservation of Energy**. This law states that:
+                </p>
+                <div class="bg-blue-100 border-l-4 border-blue-500 text-blue-800 p-4 my-6 rounded-lg text-center">
+                    <p class="text-2xl font-semibold">Energy cannot be created or destroyed, it can only be transferred from one store to another.</p>
+                </div>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    This means the total amount of energy in a closed system (like the entire universe) is always constant. It never changes. It just moves around and changes form.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: LEGO® Bricks</h4>
+                    <p class="text-lg leading-relaxed">
+                        Imagine you have a sealed box containing 100 LEGO® bricks. This is your closed system, and the bricks represent the total energy. You can shake the box and the bricks might form a pile. You can open it, build a car, take it apart, and then build a house. The *form* of the bricks has changed (from a pile to a car to a house), but you will always have exactly 100 bricks. You can't magically create new bricks, and the bricks can't just vanish. Energy works in exactly the same way.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section: Energy Stores and Transfers -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Energy Stores and Transfers</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Since energy can't be made or destroyed, it's helpful to think of it as being held in different **energy stores**. When an event happens, energy is **transferred** from one store to another. Some common energy stores are:
+                </p>
+                <ul class="list-disc list-inside ml-4 text-lg space-y-1">
+                    <li><strong>Chemical Store:</strong> Energy stored in food, fuel, and batteries.</li>
+                    <li><strong>Kinetic Store:</strong> The energy of a moving object.</li>
+                    <li><strong>Gravitational Potential Store:</strong> Energy stored in an object due to its height.</li>
+                    <li><strong>Elastic Potential Store:</strong> Energy stored in a stretched or compressed object, like a spring or rubber band.</li>
+                    <li><strong>Thermal Store:</strong> The energy of an object due to its temperature (the kinetic energy of its particles).</li>
                 </ul>
-                <p><strong>Energy Transfers and Transformations:</strong></p>
-                <ul>
-                    <li>When energy is used, it doesn't disappear. It changes into other forms.</li>
-                    <li><strong>Example: A bouncing ball</strong>
-                        <ol>
-                            <li>At the start (held up high): Maximum Gravitational Potential Energy (GPE).</li>
-                            <li>As it falls: GPE is converted into Kinetic Energy (KE).</li>
-                            <li>At the moment of impact: KE is converted into Elastic Potential Energy (as the ball deforms) and some is dissipated as Sound and Thermal energy.</li>
-                            <li>As it bounces up: Elastic Potential Energy is converted back into KE.</li>
-                            <li>As it rises: KE is converted back into GPE.</li>
-                        </ol>
-                        The ball doesn't bounce back to its original height because some energy is "lost" (dissipated) as heat and sound at each bounce. However, the total energy of the system (ball + surroundings) is conserved.
-                    </li>
-                </ul>
-                <p><strong>Sankey Diagrams:</strong></p>
-                <ul>
-                    <li>A type of flow diagram that represents energy transfers.</li>
-                    <li>The width of the arrows is proportional to the amount of energy being transferred.</li>
-                    <li>Useful energy is shown as a straight arrow, while wasted (dissipated) energy is shown as arrows curving away.</li>
-                    <li>Example: A Sankey diagram for a light bulb would show the input electrical energy, with a thin arrow going forward for useful light energy and a much thicker arrow curving down for wasted heat energy.</li>
+                <div class="flex justify-center mt-6">
+                     <img src="https://i.ibb.co/L5hS0hB/energy-transfer-ball-throw.png" alt="Energy transfer diagram for a ball being thrown in the air" class="rounded-lg shadow-md w-full md:w-4/5" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Energy+Transfers';">
+                </div>
+            </div>
+
+            <!-- Section: Misconception Alert -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Misconception Alert: "Using Up" Energy</h3>
+                 <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mt-6 mb-6 rounded-lg" role="alert">
+                  <h4 class="font-bold">Be careful with your words!</h4>
+                  <p>In everyday language, we talk about "running out of energy" or "using up" electricity. In science, this is incorrect! When your phone battery dies, the energy hasn't vanished. It has been transferred from the **chemical** store in the battery into useful **light** and **sound** stores, but also into the **thermal** store of the phone and its surroundings (the phone gets warm!). The energy is still all there, it's just been dissipated into a less useful form.</p>
+                </div>
+            </div>
+
+            <!-- Section: Sankey Diagrams -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">The Sankey Diagram: Following the Energy</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Scientists and engineers need to track energy transfers to make devices more efficient. A **Sankey diagram** is a special flow chart where the width of the arrows is proportional to the amount of energy. This gives a clear picture of how much of the input energy is transferred to useful stores, and how much is wasted (usually as heat).
+                </p>
+                <div class="flex justify-center mt-6">
+                     <img src="https://i.ibb.co/M8Vv90v/sankey-diagram-bulb.png" alt="A Sankey diagram for an inefficient incandescent light bulb" class="rounded-lg shadow-md w-full md:w-3/5" onerror="this.onerror=null;this.src='https://placehold.co/500x300/009999/FFFFFF?text=Sankey+Diagram';">
+                     <p class="text-center mt-2">This Sankey diagram shows that for an old light bulb, most of the electrical energy is wasted as heat, and only a small amount becomes useful light.</p>
+                </div>
+            </div>
+
+            <!-- In-School Activity -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">In-School Activity: Where Does the Energy Go?</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    This simple experiment demonstrates energy conservation and wasted energy.
+                </p>
+                <ol class="list-decimal list-inside ml-4 text-base space-y-2">
+                    <li>Take a bouncy ball and a metre ruler.</li>
+                    <li>Hold the ball so its base is level with the 100 cm mark on the ruler.</li>
+                    <li>Drop the ball and carefully observe the height of the first bounce.</li>
+                </ol>
+                <p class="text-base leading-relaxed mt-4 font-semibold">Discussion Questions:</p>
+                <ul class="list-disc list-inside ml-4 text-base space-y-1">
+                    <li>What main energy store does the ball have at the start?</li>
+                    <li>What is this energy transferred into as the ball falls?</li>
+                    <li>Why doesn't the ball bounce back to its original height? According to the Law of Conservation of Energy, the energy can't have been destroyed. So where did it go?</li>
+                    <li><strong>Answer:</strong> On impact, some energy is transferred to the thermal store of the ball and the floor (they get slightly warmer) and some is transferred to a sound store (you hear the bounce). This "wasted" energy is no longer available to be transferred back into gravitational potential energy.</li>
                 </ul>
             </div>
+
+            <!-- Video Explanation -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Video Explanation: Conservation of Energy</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/zGrS4pM8V-A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
-        <div class="container mx-auto text-center text-sm">
-            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
-        </div>
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        // Mobile Menu Script
+        const hamburger = document.getElementById('hamburger-button');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+
+        hamburger.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        accordionBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>

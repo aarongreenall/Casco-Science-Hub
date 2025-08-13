@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>9.3.4 Heat and Temperature - Casco School</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9.3.4 Heat and Temperature - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -17,123 +19,236 @@
                     }
                 }
             }
-        }
+        };
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
+
+    <!-- MathJax -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams'
+            },
             svg: { fontCache: 'global' }
         };
     </script>
 </head>
+
 <body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
             <nav id="desktop-nav" class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div id="mobile-menu-overlay">
-        <button id="close-mobile-menu" aria-label="Close mobile menu">&times;</button>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
         <nav>
-            <ul>
-                <li><a href="../../../index.html">Home</a></li>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
                 <li>
-                    <button class="mobile-accordion-btn">KS3</button>
-                    <ul class="mobile-accordion-content">
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
                         <li><a href="../../Year7/index.html">Year 7</a></li>
                         <li><a href="../../Year8/index.html">Year 8</a></li>
                         <li><a href="../index.html">Year 9</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn">KS4</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS4/Biology/index.html">Biology</a></li>
-                        <li><a href="../../../KS4/Chemistry/index.html">Chemistry</a></li>
-                        <li><a href="../../../KS4/Physics/index.html">Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn">KS5</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS5/ib_biology/index.html">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </div>
 
+    <!-- Main Content -->
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <nav class="text-sm mb-4" aria-label="Breadcrumb">
-                <ol class="list-none p-0 inline-flex">
-                    <li class="flex items-center">
-                        <a href="../../../index.html" class="text-casco-main-teal hover:underline">Home</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../../index.html" class="text-casco-main-teal hover:underline">KS3</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../index.html" class="text-casco-main-teal hover:underline">Year 9</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="index.html" class="text-casco-main-teal hover:underline">Unit 9.3: Sound and Energy</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="text-gray-500">9.3.4 Heat and Temperature</li>
-                </ol>
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 9</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 9.3 Sound and Energy</a> &gt;
+                <span class="font-semibold">9.3.4 Heat and Temperature</span>
             </nav>
-            <h1 class="text-3xl font-bold text-casco-main-teal mb-6">9.3.4 Heat and Temperature</h1>
-            <p class="text-lg leading-relaxed mb-6">
-                Content for this section is under development. Please check back soon!
-            </p>
-            <div class="prose max-w-none">
-                <p>This page will explain the difference between the concepts of heat and temperature.</p>
-                <p><strong>Temperature:</strong></p>
-                <ul>
-                    <li>A measure of the average kinetic energy of the particles in a substance.</li>
-                    <li>It indicates how "hot" or "cold" something is.</li>
-                    <li>Measured in degrees Celsius (°C) or Kelvin (K).</li>
-                    <li>If two objects have the same temperature, their particles have the same average kinetic energy.</li>
-                </ul>
-                <p><strong>Heat (Thermal Energy):</strong></p>
-                <ul>
-                    <li>The total amount of kinetic energy of all the particles in a substance.</li>
-                    <li>It is a form of energy and is measured in Joules (J).</li>
-                    <li>Heat energy naturally flows from a hotter object (higher temperature) to a colder object (lower temperature).</li>
-                </ul>
-                <p><strong>The Difference:</strong></p>
-                <ul>
-                    <li>An object can have a very high temperature but not much heat energy if it has very few particles (e.g., a spark from a fire).</li>
-                    <li>An object can have a lower temperature but a lot of heat energy if it is very large and has many particles (e.g., an iceberg).</li>
-                    <li><strong>Analogy:</strong> Imagine temperature is the average height of students in a class, and heat is the total height of all students combined. A class of a few very tall students could have a high average height (temperature), but a large class of shorter students could have a much greater total height (heat).</li>
-                </ul>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">9.3.4 Heat and Temperature</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Describe the difference between heat and temperature.</li>
+                    <li>Know that thermal energy will always transfer from hotter regions or objects to colder ones, and this is known as heat dissipation.</li>
+                </ol>
             </div>
+
+            <!-- Section: Heat vs Temperature -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Heat vs. Temperature: What's the Difference?</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    In everyday conversation, we often use the words 'heat' and 'temperature' as if they mean the same thing. We might say, "Turn up the heat!" when we're cold. In science, however, they have very different and specific meanings. Understanding this difference is key to understanding energy.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: A Cup vs. a Bathtub of Tea</h4>
+                    <p class="text-lg leading-relaxed">
+                        Imagine you have a small cup of boiling hot tea and a large bathtub full of warm tea.
+                    </p>
+                    <ul class="list-disc list-inside ml-4 mt-2 text-lg space-y-1">
+                        <li>The cup of tea has a very **high temperature**. Its particles are moving, on average, very fast.</li>
+                        <li>The bathtub of tea has a **lower temperature**. Its particles are moving, on average, more slowly.</li>
+                        <li>However, because the bathtub contains vastly more water particles, its **total thermal energy** is much greater. The bathtub contains more **heat**.</li>
+                    </ul>
+                     <p class="text-lg leading-relaxed mt-2">
+                        A drop of boiling tea on your skin would hurt, but the bathtub of warm water could heat up an entire room!
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section: A Closer Look at Temperature -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">A Closer Look at Temperature</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    **Temperature** is a measure of how hot or cold something is. Scientifically, it's a measure of the **average kinetic energy** of the particles in a substance. The faster the particles in an object are moving or vibrating, the more kinetic energy they have, and the higher the object's temperature. We measure temperature in degrees Celsius (°C).
+                </p>
+                <div class="flex justify-center mt-6">
+                     <img src="https://i.ibb.co/VMyh02M/temperature-particles.png" alt="Diagram showing slow-moving particles in a cold object and fast-moving particles in a hot object" class="rounded-lg shadow-md w-full md:w-4/5" onerror="this.onerror=null;this.src='https://placehold.co/600x250/00BFBF/FFFFFF?text=Temperature+and+Particle+Motion';">
+                </div>
+            </div>
+
+            <!-- Section: A Closer Look at Heat -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">A Closer Look at Heat</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    **Heat** is not something an object *has*, but rather the **transfer of thermal energy** from a hotter object to a colder one. Because it is a measure of energy transfer, heat is measured in Joules (J). This transfer process is also known as **heat dissipation**.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4 font-bold text-center text-casco-dark-teal">
+                    The golden rule of heat transfer is: Thermal energy always flows from a region of higher temperature to a region of lower temperature.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: A Waterfall</h4>
+                    <p class="text-lg leading-relaxed">
+                        Think of temperature as height. A waterfall always flows from a high point to a low point, never the other way around on its own. In the same way, heat always flows from a high temperature to a low temperature.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Misconception Alert -->
+            <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mt-8 mb-6 rounded-lg" role="alert">
+                <h4 class="font-bold">Misconception Alert! "Keep the cold out"</h4>
+                <p>You've probably heard someone say, "Shut the door, you're letting the cold in!" While we all know what this means, it's scientifically incorrect. There is no such thing as "cold" that can flow into a room. What is actually happening is that **heat** from the warm room is flowing out into the colder air outside. You close the door to prevent this transfer of heat energy.</p>
+            </div>
+
+            <!-- In-School Investigation -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">In-School Investigation: Cooling Race</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    This experiment shows the difference between heat and temperature.
+                </p>
+                <p class="text-base leading-relaxed mb-2 font-semibold">You will need:</p>
+                <ul class="list-disc list-inside ml-4 text-base space-y-1 mb-4">
+                    <li>Two beakers (one 100 ml, one 250 ml)</li>
+                    <li>A kettle to provide hot water</li>
+                    <li>Two thermometers</li>
+                    <li>A stopwatch</li>
+                </ul>
+                <p class="text-base leading-relaxed mb-2 font-semibold">Procedure:</p>
+                <ol class="list-decimal list-inside ml-4 text-base space-y-2">
+                    <li>Your teacher will help you pour 50 ml of hot water into the small beaker and 200 ml of the same hot water into the large beaker. Both will start at the same **temperature**.</li>
+                    <li>Place a thermometer in each beaker and start the stopwatch.</li>
+                    <li>Record the temperature of the water in each beaker every minute for 10 minutes.</li>
+                </ol>
+                <p class="text-base leading-relaxed mt-4 font-semibold">Prediction & Result:</p>
+                <p>Which beaker do you think will cool down faster? You will observe that the smaller beaker, with less water, cools down much more quickly. Even though both started at the same temperature, the larger beaker contained more total thermal energy (more heat) and therefore takes longer to transfer that energy to the surroundings.</p>
+            </div>
+
+            <!-- Video Explanation -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Video Explanation: Heat vs. Temperature</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/v1zT8D1G3vA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
-        <div class="container mx-auto text-center text-sm">
-            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
-        </div>
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        // Mobile Menu Script
+        const hamburger = document.getElementById('hamburger-button');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+
+        hamburger.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        accordionBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>

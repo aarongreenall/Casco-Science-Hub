@@ -1,13 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Placeholder</title>
-    <link rel="stylesheet" href="../../../style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9.8.5 Asteroid Collision Consequences - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
+
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams'
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
-<body>
-    <p>Placeholder for 9.8.5</p>
-    <script src="../../../script.js"></script>
+
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
+        <nav>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../Year7/index.html">Year 7</a></li>
+                        <li><a href="../../Year8/index.html">Year 8</a></li>
+                        <li><a href="../index.html">Year 9</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 9</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 9.8 Species and Their Environments</a> &gt;
+                <span class="font-semibold">9.8.5 Asteroid Collision Consequences</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">9.8.5 Asteroid Collision Consequences</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Describe the consequences of asteroid collision with the Earth, including climate change and mass extinctions.</li>
+                </ol>
+            </div>
+
+            <!-- Section: What is an Asteroid? -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">What is an Asteroid?</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    **Asteroids** are large, rocky bodies that orbit the Sun. Most of them are found in the "asteroid belt," a region of space between the orbits of Mars and Jupiter. They are leftover material from the formation of our solar system. While thousands of small meteors (often no bigger than a grain of sand) enter Earth's atmosphere every day and burn up as "shooting stars," a collision with a large asteroid is an extremely rare but catastrophic event.
+                </p>
+            </div>
+
+            <!-- Section: Immediate Aftermath -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">The Immediate Aftermath: Impact!</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    If a large asteroid (several kilometres wide) were to hit Earth, the immediate effects would be devastating. The immense kinetic energy of the asteroid would be converted into a massive explosion on impact, creating a huge crater. This would trigger powerful earthquakes across the globe and, if the impact was in an ocean, generate gigantic tsunamis that would wipe out coastal regions.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: A Planetary-Scale Explosion</h4>
+                    <p class="text-lg leading-relaxed">
+                        The energy released by a major asteroid impact would be many thousands of times more powerful than all the nuclear weapons on Earth combined, detonating in a single spot. The initial blast and shockwave would destroy everything for hundreds of kilometres.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section: Global Winter -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Global Winter and Climate Change</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The most significant long-term consequence would be a drastic change in the global climate. The impact would vaporize rock and throw enormous quantities of dust, soot, and debris high into the atmosphere. This thick cloud of material would spread around the entire globe, acting like a shroud that blocks out sunlight.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Without the Sun's energy reaching the surface, global temperatures would plummet, plunging the planet into a long, dark, and freezing **"impact winter"** that could last for months or even years.
+                </p>
+                <div class="flex justify-center mt-6">
+                     <img src="https://i.ibb.co/hK7Jv4s/impact-winter.jpg" alt="Artist's impression of Earth shrouded in dust after an asteroid impact" class="rounded-lg shadow-md w-full md:w-4/5" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Impact+Winter';">
+                </div>
+            </div>
+
+            <!-- Section: Mass Extinction -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">The Great Dying: Mass Extinction</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    This sudden and severe climate change would lead to a **mass extinction**, where a huge percentage of all life on Earth dies out in a geologically short period of time.
+                </p>
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">The Domino Effect on Life:</h4>
+                <ol class="list-decimal list-inside space-y-2 text-lg">
+                    <li><strong>Plants Die:</strong> With no sunlight for photosynthesis, plants on land and phytoplankton (microscopic plants) in the sea would die off on a massive scale.</li>
+                    <li><strong>Food Webs Collapse:</strong> With the producers gone, the entire food web would collapse from the bottom up. Herbivores would starve, followed by the carnivores that ate them.</li>
+                    <li><strong>Freezing Temperatures:</strong> The freezing conditions of the impact winter would kill any organisms not adapted to survive extreme cold.</li>
+                </ol>
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Case Study: The End of the Dinosaurs</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The leading scientific theory for the extinction of the dinosaurs 66 million years ago is a massive asteroid, about 10 km wide, that struck the Earth off the coast of modern-day Mexico. The resulting impact winter and collapsed food webs wiped out about 75% of all species on the planet, including all dinosaurs except for the ancestors of modern birds.
+                </p>
+            </div>
+            
+            <!-- At-Home Experiment -->
+            <div class="bg-green-100 border-t-4 border-green-500 rounded-b text-green-900 px-4 py-3 shadow-md my-8" role="alert">
+                <div class="flex">
+                    <div class="py-1"><svg class="fill-current h-6 w-6 text-green-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zM9 11v4h2v-4h-2zm0-6h2v2h-2V5z"/></svg></div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2">At-Home Experiment: Flour Power Craters</h4>
+                        <p class="mb-4">You can model how asteroid impacts create craters in your own kitchen.</p>
+                        <p class="font-bold">You will need:</p>
+                        <ul class="list-disc list-inside mb-4">
+                            <li>A baking tray or deep dish</li>
+                            <li>Plain flour</li>
+                            <li>A few small pebbles of different sizes</li>
+                        </ul>
+                        <p class="font-bold">Procedure:</p>
+                        <ol class="list-decimal list-inside mb-4 space-y-1">
+                            <li>Fill the tray with flour to a depth of a few centimetres and smooth the surface.</li>
+                            <li>From about 30 cm high, drop a small pebble into the flour. Carefully remove it and observe the crater it made.</li>
+                            <li>Smooth the flour over. Now drop the same pebble from a greater height (e.g., 1 metre). How is the crater different?</li>
+                            <li>Smooth the flour again. Try dropping a larger pebble from the same height. How does the size of the "asteroid" affect the crater?</li>
+                        </ol>
+                        <p class="font-bold">Scientific Explanation:</p>
+                        <p>You should see that faster and larger pebbles create bigger craters and throw out more flour (called "ejecta"). This is a simple model of how scientists can study the craters on the Moon and other planets to work out the size and speed of the asteroids that created them millions of years ago.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Explanation -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Video Explanation: The Asteroid That Killed the Dinosaurs</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/dFCbJmgeHmA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        // Mobile Menu Script
+        const hamburger = document.getElementById('hamburger-button');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+
+        hamburger.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        accordionBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>

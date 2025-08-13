@@ -1,13 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Placeholder</title>
-    <link rel="stylesheet" href="../../../style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9.7.5 Rate of Reaction - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
+
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams'
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
-<body>
-    <p>Placeholder for 9.7.5</p>
-    <script src="../../../script.js"></script>
+
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
+        <nav>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../Year7/index.html">Year 7</a></li>
+                        <li><a href="../../Year8/index.html">Year 8</a></li>
+                        <li><a href="../index.html">Year 9</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 9</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 9.7 Chemical Reactions</a> &gt;
+                <span class="font-semibold">9.7.5 Rate of Reaction</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">9.7.5 Rate of Reaction</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Describe the effects of concentration, surface area, and temperature on the rate of reaction, and explain them using the particle model.</li>
+                </ol>
+            </div>
+
+            <!-- Section: What is Rate of Reaction? -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">What is Rate of Reaction?</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Some chemical reactions are incredibly fast, like an explosion, while others are extremely slow, like the rusting of iron. The **rate of reaction** is a measure of how quickly the reactants are converted into products. We can measure it by finding out how much product is made (or how much reactant is used up) in a certain period of time.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: Making Popcorn</h4>
+                    <p class="text-lg leading-relaxed">
+                        Think of the reaction rate as how quickly your popcorn pops in the microwave. A **fast rate** means all the kernels pop within two minutes. A **slow rate** might mean it takes five minutes for them all to pop. You could measure the rate by counting how many kernels pop every 10 seconds.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section: Collision Theory -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Collision Theory: The Key to Speed</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    For a chemical reaction to happen, the reactant particles must physically collide with each other. But not just any collision will do! **Collision Theory** states that for a reaction to occur, particles must collide with **sufficient energy** (known as the activation energy).
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4 font-bold text-center text-casco-dark-teal">
+                    The rate of reaction depends on the frequency of successful collisions between reactant particles.
+                </p>
+                 <div class="flex justify-center mt-6">
+                     <img src="https://i.ibb.co/L95Z27b/collision-theory.png" alt="Diagram showing a successful vs an unsuccessful particle collision" class="rounded-lg shadow-md w-full md:w-4/5" onerror="this.onerror=null;this.src='https://placehold.co/600x300/00BFBF/FFFFFF?text=Collision+Theory';">
+                </div>
+            </div>
+
+            <!-- Section: Factors Affecting Rate -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Factors Affecting the Rate of Reaction</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    If we want to speed up a reaction, we need to increase the number of successful collisions per second. We can do this by changing three main factors.
+                </p>
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">1. Temperature</h4>
+                        <p class="text-lg leading-relaxed mb-4">Increasing the temperature increases the reaction rate. This is because heating gives the particles more kinetic energy. They move faster, leading to **more frequent collisions**, and the collisions are **more energetic**, so they are more likely to be successful.</p>
+                        <img src="https://i.ibb.co/3Y7yL20/rate-temperature.png" alt="Particle diagram for temperature effect" class="rounded-lg shadow-md w-full" onerror="this.onerror=null;this.src='https://placehold.co/800x200/009999/FFFFFF?text=Temperature+Effect';">
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">2. Concentration</h4>
+                        <p class="text-lg leading-relaxed mb-4">Increasing the concentration of a reactant (or the pressure of a gas) increases the reaction rate. This is because there are more reactant particles packed into the same volume, so **collisions are more frequent**.</p>
+                        <img src="https://i.ibb.co/hXqY8Yk/rate-concentration.png" alt="Particle diagram for concentration effect" class="rounded-lg shadow-md w-full" onerror="this.onerror=null;this.src='https://placehold.co/800x200/009999/FFFFFF?text=Concentration+Effect';">
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">3. Surface Area</h4>
+                        <p class="text-lg leading-relaxed mb-4">For a solid reactant, breaking it into smaller pieces (increasing its surface area) increases the reaction rate. This is because more particles of the solid are exposed and available for collisions, leading to **more frequent collisions**.</p>
+                        <img src="https://i.ibb.co/xJ52D5t/rate-surface-area.png" alt="Particle diagram for surface area effect" class="rounded-lg shadow-md w-full" onerror="this.onerror=null;this.src='https://placehold.co/800x200/009999/FFFFFF?text=Surface+Area+Effect';">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summary Table -->
+            <div class="py-4 mt-8">
+                 <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Summary of Factors</h4>
+                 <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white rounded-lg shadow mt-4">
+                        <thead class="bg-casco-dark-teal text-white">
+                            <tr>
+                                <th class="py-3 px-4 text-left">Factor</th>
+                                <th class="py-3 px-4 text-left">How to Increase It</th>
+                                <th class="py-3 px-4 text-left">Effect on Rate</th>
+                                <th class="py-3 px-4 text-left">Explanation (in terms of collisions)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700">
+                            <tr class="border-b">
+                                <td class="py-3 px-4 font-semibold">Temperature</td>
+                                <td class="py-3 px-4">Heat the reactants</td>
+                                <td class="py-3 px-4">Increases</td>
+                                <td class="py-3 px-4">Particles move faster, leading to more frequent and more energetic collisions.</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="py-3 px-4 font-semibold">Concentration</td>
+                                <td class="py-3 px-4">Add more reactant to the same volume</td>
+                                <td class="py-3 px-4">Increases</td>
+                                <td class="py-3 px-4">More particles in the same space leads to more frequent collisions.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 font-semibold">Surface Area</td>
+                                <td class="py-3 px-4">Crush a solid into a powder</td>
+                                <td class="py-3 px-4">Increases</td>
+                                <td class="py-3 px-4">More particles are exposed, leading to more frequent collisions.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- At-Home Experiment -->
+            <div class="bg-green-100 border-t-4 border-green-500 rounded-b text-green-900 px-4 py-3 shadow-md my-8" role="alert">
+                <div class="flex">
+                    <div class="py-1"><svg class="fill-current h-6 w-6 text-green-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zM9 11v4h2v-4h-2zm0-6h2v2h-2V5z"/></svg></div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2">At-Home Experiment: Fizzing Race</h4>
+                        <p class="mb-4">You can easily see the effect of temperature on reaction rate in your kitchen.</p>
+                        <p class="font-bold">You will need:</p>
+                        <ul class="list-disc list-inside mb-4">
+                            <li>Two identical glasses</li>
+                            <li>Cold water and warm water</li>
+                            <li>Two effervescent tablets (like Alka-Seltzer or vitamin C tablets)</li>
+                            <li>A stopwatch or phone timer</li>
+                        </ul>
+                        <p class="font-bold">Procedure:</p>
+                        <ol class="list-decimal list-inside mb-4 space-y-1">
+                            <li>Fill one glass with cold water and the other with the same amount of warm water.</li>
+                            <li>Get your timer ready. Simultaneously drop one tablet into each glass and start the timer.</li>
+                            <li>Observe the fizzing reaction. Which tablet dissolves completely first? Record the times.</li>
+                        </ol>
+                        <p class="font-bold">Scientific Explanation:</p>
+                        <p>The tablet will dissolve much faster in the warm water. The higher temperature gives the water and tablet particles more energy, causing them to collide more frequently and with more force, speeding up the reaction rate.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Explanation -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Video Explanation: Rates of Reaction</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/GCRcAL1l3hs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        // Mobile Menu Script
+        const hamburger = document.getElementById('hamburger-button');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+
+        hamburger.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        accordionBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>

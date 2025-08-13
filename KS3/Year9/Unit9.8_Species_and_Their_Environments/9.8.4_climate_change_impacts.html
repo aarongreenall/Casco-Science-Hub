@@ -1,13 +1,318 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Placeholder</title>
-    <link rel="stylesheet" href="../../../style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9.8.4 Climate Change Impacts - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
+    <style>
+        .hotspot {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: rgba(255, 0, 0, 0.6);
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid white;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        .hotspot:hover {
+            transform: scale(1.5);
+            background-color: rgba(255, 0, 0, 1);
+        }
+        .modal {
+            transition: opacity 0.3s ease;
+        }
+    </style>
+
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams'
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
-<body>
-    <p>Placeholder for 9.8.4</p>
-    <script src="../../../script.js"></script>
+
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
+        <nav>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../Year7/index.html">Year 7</a></li>
+                        <li><a href="../../Year8/index.html">Year 8</a></li>
+                        <li><a href="../index.html">Year 9</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 9</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 9.8 Species and Their Environments</a> &gt;
+                <span class="font-semibold">9.8.4 Climate Change Impacts</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">9.8.4 Climate Change Impacts</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Describe the historical and predicted future impacts of climate change, including sea level change, flooding, drought and extreme weather events.</li>
+                </ol>
+            </div>
+
+            <!-- Section: Weather vs Climate -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Weather vs. Climate: What's the Difference?</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    It's essential to understand the difference between these two terms. **Weather** describes the atmospheric conditions over a short period. Is it sunny, rainy, windy, or snowy today? That's the weather. **Climate**, on the other hand, is the long-term average of weather in a particular region, typically over 30 years or more. Panama has a tropical climate; Antarctica has a polar climate.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: Mood vs. Personality</h4>
+                    <p class="text-lg leading-relaxed">
+                        Weather is like your mood. It can change from day to day, or even hour to hour. You might be happy one moment and sad the next. Climate is like your personality. It's your overall long-term disposition. You might have a bad day (bad weather), but it doesn't change your overall cheerful personality (climate). Climate change means the fundamental "personality" of the Earth's weather is shifting.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section: Earth's Warming Trend -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Earth's Warming Trend</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The Earth's climate has always changed naturally over millions of years. However, scientific evidence shows that the warming trend we are seeing now is happening at an unprecedented rate and is primarily caused by human activities, especially the burning of fossil fuels. This releases greenhouse gases like carbon dioxide, which trap more of the Sun's heat in our atmosphere.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: A Thicker Blanket</h4>
+                    <p class="text-lg leading-relaxed">
+                        The greenhouse gases in our atmosphere act like a blanket, trapping some of the Sun's heat to keep our planet at a liveable temperature. By burning fossil fuels, we are adding more greenhouse gases, which is like wrapping the Earth in a thicker blanket. The planet is now trapping too much heat, and its average temperature is rising.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section: The Domino Effect -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">The Domino Effect: Impacts of a Warmer World</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Even a small increase in the global average temperature can trigger a huge domino effect, leading to significant and varied impacts around the world.
+                </p>
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800">1. Sea Level Rise</h4>
+                        <p class="text-lg">This is caused by two main factors: **melting ice** from glaciers and ice sheets on land flowing into the ocean, and **thermal expansion** (as ocean water warms, it expands and takes up more space). This leads to increased flooding in coastal cities and the loss of low-lying islands and habitats.</p>
+                    </div>
+                     <div>
+                        <h4 class="text-xl font-semibold text-gray-800">2. More Flooding and Drought</h4>
+                        <p class="text-lg">Climate change disrupts rainfall patterns. Warmer air holds more moisture, leading to more extreme, heavy rainfall and flooding in some areas. In other regions, shifting weather patterns can lead to longer and more severe periods of drought.</p>
+                    </div>
+                     <div>
+                        <h4 class="text-xl font-semibold text-gray-800">3. More Extreme Weather Events</h4>
+                        <p class="text-lg">More heat in the atmosphere and oceans provides more energy to fuel storms. This is leading to more frequent and more powerful hurricanes, heatwaves, wildfires, and other extreme weather events.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- In-School Research Project -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">In-School Research Project: Debating the Impacts and Solutions</h4>
+                <p class="text-base leading-relaxed mb-2">
+                    The overwhelming scientific consensus, based on millions of measurements, confirms that the Earth's climate is warming due to human activity. The important debate for society now is about the severity of the predicted impacts and the best way to respond.
+                </p>
+                <p class="text-base leading-relaxed mb-4 font-semibold">Your Task:</p>
+                <p class="text-base leading-relaxed mb-4">
+                    Your class will be divided into two groups to research and debate different approaches to tackling climate change. Both teams **must** use real evidence from reputable sources (e.g., reports from NASA, the IPCC, university studies, government data) to support their arguments.
+                </p>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-white p-3 rounded-lg shadow">
+                        <h5 class="font-bold text-green-700">Group A: Urgent Action</h5>
+                        <p>This group will argue that the evidence points to severe and imminent impacts that require immediate, large-scale global action. You should research evidence supporting the most serious predictions and argue for policies like a rapid transition to 100% renewable energy, even if it involves significant short-term costs.</p>
+                    </div>
+                     <div class="bg-white p-3 rounded-lg shadow">
+                        <h5 class="font-bold text-blue-700">Group B: Measured Approach</h5>
+                        <p>This group will argue that while climate change is a serious issue, the most extreme predictions have high uncertainty. You should research evidence about the costs and challenges of rapid change and argue for a more gradual transition that focuses on adaptation, technological innovation (like carbon capture), and avoiding major economic disruption.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Interactive: Global Impact Mapper -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Activity: Global Impact Mapper</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    Click on the hotspots on the world map to learn about some of the specific climate change impacts faced by different regions.
+                </p>
+                <div class="relative">
+                    <img src="https://i.ibb.co/b3C8sK9/world-map-simple.png" alt="A simple world map" class="w-full h-auto rounded-lg">
+                    <!-- Hotspots -->
+                    <div class="hotspot" style="top: 15%; left: 20%;" data-title="The Arctic" data-content="Rapid warming is causing sea ice to melt at an alarming rate, threatening species like polar bears and disrupting global weather patterns."></div>
+                    <div class="hotspot" style="top: 60%; left: 30%;" data-title="The Amazon Rainforest" data-content="Increasing temperatures and changing rainfall patterns are leading to more frequent droughts and wildfires, risking a 'tipping point' where the rainforest could turn into a savanna."></div>
+                    <div class="hotspot" style="top: 35%; left: 55%;" data-title="Central Europe" data-content="This region is experiencing more frequent and intense heatwaves and droughts in summer, impacting agriculture, while also facing a higher risk of extreme river flooding."></div>
+                    <div class="hotspot" style="top: 45%; left: 80%;" data-title="Low-Lying Islands" data-content="Nations like the Maldives and Tuvalu face an existential threat from sea level rise. Rising oceans cause coastal erosion, contaminate freshwater supplies, and could eventually submerge the islands entirely."></div>
+                    <div class="hotspot" style="top: 80%; left: 50%;" data-title="Antarctica" data-content="The vast ice sheets of Antarctica are beginning to melt at an accelerating rate. This meltwater contributes significantly to global sea level rise."></div>
+                </div>
+            </div>
+            <!-- Modal for hotspot info -->
+            <div id="hotspot-modal" class="modal hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50 p-4">
+                <div class="bg-white p-6 rounded-lg shadow-xl max-w-md w-full">
+                    <h3 id="modal-title" class="text-2xl font-bold text-casco-dark-teal mb-2"></h3>
+                    <p id="modal-content" class="text-lg"></p>
+                    <button id="modal-close-btn" class="mt-4 bg-casco-main-teal text-white font-bold py-2 px-6 rounded-lg hover:bg-casco-dark-teal">Close</button>
+                </div>
+            </div>
+
+            <!-- Video Explanation -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Video Explanation: Causes and Effects of Climate Change</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/G4H1N_yXBiA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        // Global Impact Mapper Script
+        const hotspots = document.querySelectorAll('.hotspot');
+        const modal = document.getElementById('hotspot-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalContent = document.getElementById('modal-content');
+        const modalCloseBtn = document.getElementById('modal-close-btn');
+
+        hotspots.forEach(hotspot => {
+            hotspot.addEventListener('click', () => {
+                modalTitle.textContent = hotspot.dataset.title;
+                modalContent.textContent = hotspot.dataset.content;
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            });
+        });
+
+        const closeModal = () => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        };
+
+        modalCloseBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Mobile Menu Script
+        const hamburger = document.getElementById('hamburger-button');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+
+        hamburger.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        accordionBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>

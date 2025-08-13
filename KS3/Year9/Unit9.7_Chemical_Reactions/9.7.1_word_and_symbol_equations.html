@@ -1,13 +1,412 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Placeholder</title>
-    <link rel="stylesheet" href="../../../style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9.7.1 Word and Symbol Equations - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
+    <style>
+        .coeff-card {
+            cursor: grab;
+            user-select: none;
+        }
+        .coeff-card:active {
+            cursor: grabbing;
+        }
+        .drop-box {
+            border: 2px dashed #009999;
+            width: 40px;
+            height: 40px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .drop-box.drag-over {
+            background-color: #cceeee;
+        }
+    </style>
+
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams'
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
-<body>
-    <p>Placeholder for 9.7.1</p>
-    <script src="../../../script.js"></script>
+
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
+        <nav>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../Year7/index.html">Year 7</a></li>
+                        <li><a href="../../Year8/index.html">Year 8</a></li>
+                        <li><a href="../index.html">Year 9</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 9</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 9.7 Chemical Reactions</a> &gt;
+                <span class="font-semibold">9.7.1 Word and Symbol Equations</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">9.7.1 Word and Symbol Equations</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Use word equations and symbol equations to describe reactions (balancing symbol equations is not required).</li>
+                </ol>
+            </div>
+
+            <!-- Section: Language of Reactions -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">The Language of Chemical Reactions</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Chemists need a clear and simple way to describe what happens in a chemical reaction. They use **chemical equations** as a kind of sentence to show the story of the reaction. Every chemical equation has the same basic structure:
+                </p>
+                <div class="text-center my-6">
+                    <p class="text-2xl font-semibold">Reactants $\rightarrow$ Products</p>
+                </div>
+                <ul class="list-disc list-inside ml-4 text-lg space-y-2">
+                    <li><strong>Reactants:</strong> These are the starting ingredients, the substances you have at the beginning of the reaction. They are always written on the left side.</li>
+                    <li><strong>Products:</strong> These are the new substances that are made during the reaction. They are always written on the right side.</li>
+                    <li><strong>The Arrow ($\rightarrow$):</strong> This means "react to form" or "yields".</li>
+                </ul>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: A Baking Recipe</h4>
+                    <p class="text-lg leading-relaxed">
+                        A chemical equation is just like a recipe. The **reactants** are your list of ingredients (e.g., flour + eggs + sugar). The arrow is the instruction to "bake," and the **product** is the delicious cake you get at the end.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section: Word Equations -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Word Equations</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The simplest way to write a chemical equation is to use the full names of the substances. This is called a **word equation**. For example, when hydrogen gas reacts with oxygen gas, they produce water. The word equation is:
+                </p>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner text-center">
+                    <p class="text-xl font-semibold">Hydrogen + Oxygen $\rightarrow$ Water</p>
+                </div>
+            </div>
+
+            <!-- Section: Symbol Equations -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Symbol Equations: A Chemist's Shorthand</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    To be more precise, chemists use the chemical symbols and formulas for each substance. This is called a **symbol equation**. It's a universal shorthand that chemists all over the world can understand. For the reaction that makes water, the symbol equation is:
+                </p>
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner text-center">
+                    <p class="text-xl font-mono">$H_2 + O_2 \rightarrow H_2O$</p>
+                </div>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The small numbers (subscripts) tell us how many atoms are bonded together in a molecule (e.g., $H_2$ means two hydrogen atoms are bonded together).
+                </p>
+            </div>
+
+            <!-- Interactive: Balancing Act -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Activity: Balancing Act</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    A correct symbol equation must be **balanced**. This means it must have the same number of each type of atom on both sides of the arrow. We balance equations by placing large numbers, called **coefficients**, in front of the formulas.
+                </p>
+                <p class="text-base leading-relaxed mb-4">
+                    Drag the number cards from the pool into the empty boxes to balance the equations below.
+                </p>
+                
+                <!-- Equations -->
+                <div class="space-y-6">
+                    <!-- Easy -->
+                    <div class="p-4 bg-white rounded-lg shadow">
+                        <p class="font-bold">Easy: Hydrogen + Chlorine $\rightarrow$ Hydrogen Chloride</p>
+                        <div id="eq1" class="flex items-center justify-center gap-2 text-2xl font-mono p-2 flex-wrap">
+                            <div data-answer="1" class="drop-box flex items-center justify-center"></div>
+                            <span>$H_2$</span>
+                            <span>+</span>
+                            <div data-answer="1" class="drop-box flex items-center justify-center"></div>
+                            <span>$Cl_2$</span>
+                            <span>$\rightarrow$</span>
+                            <div data-answer="2" class="drop-box flex items-center justify-center"></div>
+                            <span>$HCl$</span>
+                        </div>
+                    </div>
+                    <!-- Medium -->
+                    <div class="p-4 bg-white rounded-lg shadow">
+                        <p class="font-bold">Medium: Sodium + Oxygen $\rightarrow$ Sodium Oxide</p>
+                        <div id="eq2" class="flex items-center justify-center gap-2 text-2xl font-mono p-2 flex-wrap">
+                            <div data-answer="4" class="drop-box flex items-center justify-center"></div>
+                            <span>$Na$</span>
+                            <span>+</span>
+                            <div data-answer="1" class="drop-box flex items-center justify-center"></div>
+                            <span>$O_2$</span>
+                            <span>$\rightarrow$</span>
+                            <div data-answer="2" class="drop-box flex items-center justify-center"></div>
+                            <span>$Na_2O$</span>
+                        </div>
+                    </div>
+                    <!-- Hard -->
+                    <div class="p-4 bg-white rounded-lg shadow">
+                        <p class="font-bold">Hard: Methane + Oxygen $\rightarrow$ Carbon Dioxide + Water</p>
+                        <div id="eq3" class="flex items-center justify-center gap-2 text-2xl font-mono p-2 flex-wrap">
+                            <div data-answer="1" class="drop-box flex items-center justify-center"></div>
+                            <span>$CH_4$</span>
+                            <span>+</span>
+                            <div data-answer="2" class="drop-box flex items-center justify-center"></div>
+                            <span>$O_2$</span>
+                            <span>$\rightarrow$</span>
+                            <div data-answer="1" class="drop-box flex items-center justify-center"></div>
+                            <span>$CO_2$</span>
+                            <span>+</span>
+                            <div data-answer="2" class="drop-box flex items-center justify-center"></div>
+                            <span>$H_2O$</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Pool -->
+                <div id="coeff-card-pool" class="mt-4 p-4 bg-gray-200 rounded-lg flex flex-wrap items-center justify-center gap-2">
+                    <!-- Cards will be generated by JS -->
+                </div>
+                 <!-- Controls and Feedback -->
+                <div class="mt-4 text-center">
+                    <button id="check-balance-btn" class="bg-casco-main-teal text-white font-bold py-2 px-6 rounded-lg shadow-md hover:bg-casco-dark-teal transition-colors">Check Answers</button>
+                    <button id="reset-balance-btn" class="bg-gray-500 text-white font-bold py-2 px-6 rounded-lg shadow-md hover:bg-gray-600 transition-colors ml-2">Reset</button>
+                    <p id="balance-feedback-msg" class="mt-3 h-6 text-lg font-semibold"></p>
+                </div>
+            </div>
+
+            <!-- Video Explanation -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Video Explanation: Word and Symbol Equations</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/p554Iu5LI_8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        // Balancing Act Script
+        const cardPool = document.getElementById('coeff-card-pool');
+        const dropBoxes = document.querySelectorAll('.drop-box');
+        const checkBtn = document.getElementById('check-balance-btn');
+        const resetBtn = document.getElementById('reset-balance-btn');
+        const feedbackMsg = document.getElementById('balance-feedback-msg');
+
+        const numbers = [1, 1, 1, 1, 1, 2, 2, 2, 2, 4];
+        let draggedCard = null;
+
+        function createCards() {
+            cardPool.innerHTML = '';
+            numbers.forEach(num => {
+                const card = document.createElement('div');
+                card.textContent = num;
+                card.className = 'coeff-card bg-white p-2 w-10 h-10 flex items-center justify-center rounded shadow text-xl font-bold';
+                card.draggable = true;
+                cardPool.appendChild(card);
+            });
+            addCardEventListeners();
+        }
+
+        function addCardEventListeners() {
+            const cards = document.querySelectorAll('.coeff-card');
+            cards.forEach(card => {
+                card.addEventListener('dragstart', e => {
+                    draggedCard = card;
+                    setTimeout(() => { card.style.opacity = '0.5'; }, 0);
+                });
+                card.addEventListener('dragend', e => {
+                    draggedCard.style.opacity = '1';
+                    draggedCard = null;
+                });
+            });
+        }
+
+        dropBoxes.forEach(box => {
+            box.addEventListener('dragover', e => {
+                e.preventDefault();
+                box.classList.add('drag-over');
+            });
+            box.addEventListener('dragleave', e => {
+                box.classList.remove('drag-over');
+            });
+            box.addEventListener('drop', e => {
+                e.preventDefault();
+                box.classList.remove('drag-over');
+                if (box.children.length === 0) {
+                    box.appendChild(draggedCard);
+                }
+            });
+        });
+
+        cardPool.addEventListener('dragover', e => e.preventDefault());
+        cardPool.addEventListener('drop', e => {
+            e.preventDefault();
+            cardPool.appendChild(draggedCard);
+        });
+
+        checkBtn.addEventListener('click', () => {
+            let allCorrect = true;
+            let allBoxesFilled = true;
+            dropBoxes.forEach(box => {
+                if (box.children.length === 0) {
+                    allBoxesFilled = false;
+                    box.style.borderColor = 'red';
+                } else {
+                    const droppedNum = box.firstElementChild.textContent;
+                    const correctNum = box.dataset.answer;
+                    if (droppedNum === correctNum) {
+                        box.style.borderColor = 'green';
+                    } else {
+                        box.style.borderColor = 'red';
+                        allCorrect = false;
+                    }
+                }
+            });
+
+            if (!allBoxesFilled) {
+                feedbackMsg.textContent = 'Please fill all the empty boxes.';
+                feedbackMsg.className = 'mt-3 h-6 text-lg font-semibold text-red-600';
+            } else if (allCorrect) {
+                feedbackMsg.textContent = 'Correct! Well done!';
+                feedbackMsg.className = 'mt-3 h-6 text-lg font-semibold text-green-600';
+            } else {
+                feedbackMsg.textContent = 'Not quite right. Check the red boxes.';
+                feedbackMsg.className = 'mt-3 h-6 text-lg font-semibold text-red-600';
+            }
+        });
+
+        resetBtn.addEventListener('click', () => {
+            dropBoxes.forEach(box => {
+                box.innerHTML = '';
+                box.style.borderColor = '#009999';
+            });
+            createCards();
+            feedbackMsg.textContent = '';
+        });
+
+        createCards();
+
+
+        // Mobile Menu Script
+        const hamburger = document.getElementById('hamburger-button');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+
+        hamburger.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        accordionBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>

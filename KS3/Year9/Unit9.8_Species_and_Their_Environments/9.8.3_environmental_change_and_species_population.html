@@ -1,13 +1,316 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Placeholder</title>
-    <link rel="stylesheet" href="../../../style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9.8.3 Environmental Change and Species Population - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
+
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams'
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
-<body>
-    <p>Placeholder for 9.8.3</p>
-    <script src="../../../script.js"></script>
+
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
+        <nav>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../Year7/index.html">Year 7</a></li>
+                        <li><a href="../../Year8/index.html">Year 8</a></li>
+                        <li><a href="../index.html">Year 9</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 9</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 9.8 Species and Their Environments</a> &gt;
+                <span class="font-semibold">9.8.3 Environmental Change and Species Population</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">9.8.3 Environmental Change and Species Population</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Describe what could happen to the population of a species, including extinction, when there is an environmental change.</li>
+                </ol>
+            </div>
+
+            <!-- Section: A World in Motion -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">A World in Motion</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Environments are not static; they are constantly changing. These changes can be slow and gradual, like the long-term shifts in climate, or they can be sudden and dramatic, like a volcanic eruption, a flood, or a wildfire. These changes can have profound effects on the **populations** (the number of individuals) of the species that live there.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: A Shifting Home</h4>
+                    <p class="text-lg leading-relaxed">
+                        Think of an organism's environment as its home. If the conditions in your home suddenly change—the heating breaks in winter, or the fridge suddenly becomes empty—you have to do something to cope. Animals and plants face the same challenge when their environment changes.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section: The Three Possible Outcomes -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">The Three Possible Outcomes</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    When faced with a significant environmental change, a species' population generally has three possible fates:
+                </p>
+                <div class="grid md:grid-cols-3 gap-6 mt-6">
+                    <div class="bg-green-50 p-4 rounded-lg shadow">
+                        <h4 class="text-xl font-semibold text-green-800 mb-2">1. Adaptation</h4>
+                        <p>If there is enough genetic variation in the population, some individuals may have traits that help them survive and reproduce in the new conditions. Through natural selection, these advantageous traits become more common over generations, and the population adapts.</p>
+                        <p class="mt-2 font-semibold">Example: The peppered moth adapting to sooty trees.</p>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-lg shadow">
+                        <h4 class="text-xl font-semibold text-blue-800 mb-2">2. Migration</h4>
+                        <p>If the species is mobile, it may be able to move to a new location with a more suitable environment. This is common for birds, which can fly long distances to escape cold winters and find food.</p>
+                        <p class="mt-2 font-semibold">Example: Swallows migrating from Europe to Africa for the winter.</p>
+                    </div>
+                    <div class="bg-red-50 p-4 rounded-lg shadow">
+                        <h4 class="text-xl font-semibold text-red-800 mb-2">3. Extinction</h4>
+                        <p>If the change is too rapid or severe and the species cannot adapt or migrate, its population may decline until no individuals are left. The species becomes **extinct**—gone forever.</p>
+                        <p class="mt-2 font-semibold">Example: The dodo, which could not adapt when its island home was changed by humans.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Case Study -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Case Study: The Polar Bear and Melting Sea Ice</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The polar bear is a powerful, modern example of a species whose population is threatened by environmental change.
+                </p>
+                <ul class="list-disc list-inside ml-4 text-lg space-y-2">
+                    <li><strong>The Change:</strong> Global climate change is causing the Arctic to warm faster than other parts of the world. This is causing the sea ice to melt earlier in the spring and form later in the autumn.</li>
+                    <li><strong>The Impact:</strong> Polar bears are highly adapted to hunt for seals on the sea ice. Less ice means a shorter hunting season. This leads to starvation, lower body weights, and makes it harder for mothers to successfully raise their cubs.</li>
+                    <li><strong>The Likely Outcome:</strong> With their habitat disappearing, polar bear populations are declining. They cannot adapt quickly enough to this rapid change. If the trend of melting sea ice continues, scientists are very concerned that polar bears face a high risk of **extinction**.</li>
+                </ul>
+                <div class="flex justify-center mt-6">
+                     <img src="https://i.ibb.co/L8y8Yyq/polar-bear-melting-ice.jpg" alt="A polar bear on a small piece of melting sea ice" class="rounded-lg shadow-md w-full md:w-4/5" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Polar+Bear+on+Ice';">
+                </div>
+            </div>
+            
+            <!-- Interactive: Survival Scenarios -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Activity: Survival Scenarios</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    For each scenario, choose the most likely outcome for the population and be ready to justify your choice.
+                </p>
+                <div id="scenario-container" class="space-y-4">
+                    <!-- Scenarios will be loaded by JS -->
+                </div>
+            </div>
+
+            <!-- Video Explanation -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Video Explanation: Extinction and Environmental Change</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/Z0_g-4a0g8k" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        // Survival Scenarios Script
+        const scenarios = [
+            {
+                scenario: "A new, fast-spreading disease to which they have no immunity affects a species of flightless bird living on a single, remote island.",
+                options: ["Adaptation", "Migration", "Extinction"],
+                correct: "Extinction",
+                justification: "With no immunity (variation) and no ability to migrate, the population is likely to be wiped out by the disease."
+            },
+            {
+                scenario: "A prolonged drought slowly turns a lush grassland into a much drier, scrubland environment over many generations.",
+                options: ["Adaptation", "Migration", "Extinction"],
+                correct: "Adaptation",
+                justification: "The slow change gives natural selection time to act. Individuals with traits suited to drier conditions (e.g., needing less water) will be more likely to survive and reproduce."
+            },
+            {
+                scenario: "A large forest fire burns down a section of forest where a population of deer lives.",
+                options: ["Adaptation", "Migration", "Extinction"],
+                correct: "Migration",
+                justification: "The deer are mobile and can move to an unburnt section of the forest to find food and shelter."
+            }
+        ];
+        let currentScenarioIndex = 0;
+        const scenarioContainer = document.getElementById('scenario-container');
+
+        function loadScenario(index) {
+            const item = scenarios[index];
+            scenarioContainer.innerHTML = `
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <p class="font-bold">Scenario ${index + 1}:</p>
+                    <p class="mb-3">${item.scenario}</p>
+                    <div class="flex flex-wrap gap-2" id="options-${index}">
+                        ${item.options.map(opt => `<button class="option-btn bg-gray-200 hover:bg-casco-light-teal p-2 rounded">${opt}</button>`).join('')}
+                    </div>
+                    <div id="feedback-${index}" class="mt-2 hidden">
+                        <p class="font-bold text-lg" id="feedback-text-${index}"></p>
+                        <p id="justification-${index}" class="text-base"></p>
+                        <button id="next-scenario-btn" class="mt-2 bg-casco-main-teal text-white font-bold py-1 px-3 rounded text-sm">Next</button>
+                    </div>
+                </div>
+            `;
+            addScenarioListeners(index);
+        }
+
+        function addScenarioListeners(index) {
+            const optionBtns = document.querySelectorAll(`#options-${index} .option-btn`);
+            const feedbackDiv = document.getElementById(`feedback-${index}`);
+            const feedbackText = document.getElementById(`feedback-text-${index}`);
+            const justificationText = document.getElementById(`justification-${index}`);
+            const nextBtn = document.getElementById('next-scenario-btn');
+
+            optionBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const choice = btn.textContent;
+                    const correct = scenarios[index].correct;
+                    
+                    feedbackDiv.classList.remove('hidden');
+                    if (choice === correct) {
+                        feedbackText.textContent = `Correct! The most likely outcome is ${correct}.`;
+                        feedbackText.className = 'font-bold text-lg text-green-600';
+                    } else {
+                        feedbackText.textContent = `Not quite. The most likely outcome is ${correct}.`;
+                        feedbackText.className = 'font-bold text-lg text-red-600';
+                    }
+                    justificationText.textContent = scenarios[index].justification;
+                    optionBtns.forEach(b => b.disabled = true);
+                });
+            });
+
+            nextBtn.addEventListener('click', () => {
+                currentScenarioIndex = (currentScenarioIndex + 1) % scenarios.length;
+                loadScenario(currentScenarioIndex);
+            });
+        }
+
+        loadScenario(currentScenarioIndex);
+
+        // Mobile Menu Script
+        const hamburger = document.getElementById('hamburger-button');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+
+        hamburger.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        accordionBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>

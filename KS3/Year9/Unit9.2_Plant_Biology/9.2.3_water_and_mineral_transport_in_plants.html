@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>9.2.3 Water and Mineral Transport in Plants - Casco School</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9.2.3 Water and Mineral Transport - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -17,127 +19,368 @@
                     }
                 }
             }
-        }
+        };
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
+    <style>
+        .function-card {
+            cursor: grab;
+            transition: background-color 0.2s;
+        }
+        .function-card:active {
+            cursor: grabbing;
+        }
+        .drop-target {
+            border: 2px dashed #009999;
+            transition: background-color 0.2s;
+        }
+        .drop-target.drag-over {
+            background-color: #cceeee;
+        }
+    </style>
+
+    <!-- MathJax -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams'
+            },
             svg: { fontCache: 'global' }
         };
     </script>
 </head>
+
 <body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
             <nav id="desktop-nav" class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div id="mobile-menu-overlay">
-        <button id="close-mobile-menu" aria-label="Close mobile menu">&times;</button>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
         <nav>
-            <ul>
-                <li><a href="../../../index.html">Home</a></li>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
                 <li>
-                    <button class="mobile-accordion-btn">KS3</button>
-                    <ul class="mobile-accordion-content">
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
                         <li><a href="../../Year7/index.html">Year 7</a></li>
                         <li><a href="../../Year8/index.html">Year 8</a></li>
                         <li><a href="../index.html">Year 9</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn">KS4</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS4/Biology/index.html">Biology</a></li>
-                        <li><a href="../../../KS4/Chemistry/index.html">Chemistry</a></li>
-                        <li><a href="../../../KS4/Physics/index.html">Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn">KS5</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS5/ib_biology/index.html">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </div>
 
+    <!-- Main Content -->
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <nav class="text-sm mb-4" aria-label="Breadcrumb">
-                <ol class="list-none p-0 inline-flex">
-                    <li class="flex items-center">
-                        <a href="../../../index.html" class="text-casco-main-teal hover:underline">Home</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../../index.html" class="text-casco-main-teal hover:underline">KS3</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../index.html" class="text-casco-main-teal hover:underline">Year 9</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="index.html" class="text-casco-main-teal hover:underline">Unit 9.2: Plant Biology</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="text-gray-500">9.2.3 Water and Mineral Transport in Plants</li>
-                </ol>
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 9</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 9.2 Plant Biology</a> &gt;
+                <span class="font-semibold">9.2.3 Water and Mineral Transport</span>
             </nav>
-            <h1 class="text-3xl font-bold text-casco-main-teal mb-6">9.2.3 Water and Mineral Transport in Plants</h1>
-            <p class="text-lg leading-relaxed mb-6">
-                Content for this section is under development. Please check back soon!
-            </p>
-            <div class="prose max-w-none">
-                <p>This page will describe the structure and function of the xylem and phloem in transporting substances throughout the plant.</p>
-                <p><strong>Uptake from the Soil:</strong></p>
-                <ul>
-                    <li>Water is absorbed from the soil into root hair cells by <strong>osmosis</strong>.</li>
-                    <li>Mineral ions are absorbed from the soil into root hair cells by <strong>active transport</strong>.</li>
-                </ul>
-                <p><strong>Transport Tissues:</strong></p>
-                <p>Plants have two main transport tissues, found in vascular bundles:</p>
-                <ul>
-                    <li><strong>Xylem:</strong>
-                        <ul>
-                            <li><strong>Function:</strong> Transports water and dissolved mineral ions from the roots to the rest of the plant. Also provides structural support.</li>
-                            <li><strong>Structure:</strong> Composed of dead cells joined end to end with no cross-walls, forming a continuous hollow tube. The walls are strengthened with a tough, waterproof substance called lignin.</li>
-                            <li><strong>Process:</strong> The movement of water up the xylem is called the <strong>transpiration stream</strong>, driven by the evaporation of water from the leaves.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Phloem:</strong>
-                        <ul>
-                            <li><strong>Function:</strong> Transports sugars (mainly sucrose) produced during photosynthesis from the leaves to all other parts of the plant for use in respiration or for storage.</li>
-                            <li><strong>Structure:</strong> Composed of living cells (sieve tube elements) arranged end to end. Sieve plates with pores connect the cells. Companion cells alongside provide energy for transport.</li>
-                            <li><strong>Process:</strong> The movement of sugars in the phloem is called <strong>translocation</strong>. It is an active process requiring energy and can move substances both up and down the plant.</li>
-                        </ul>
-                    </li>
-                </ul>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">9.2.3 Water and Mineral Transport in Plants</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Describe the pathway of water and mineral salts from the roots to the leaves in flowering plants, including absorption in root hair cells, transport through xylem and transpiration from the surface of leaves.</li>
+                </ol>
             </div>
+
+            <!-- Section: The Plant's Plumbing System -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">The Plant's Plumbing System</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    A plant needs a constant supply of water and dissolved minerals from the soil to survive. But how does it get these substances from the ground all the way up to its highest leaves? Plants have a highly efficient, built-in plumbing system to do just this. The journey involves three key stages: **Absorption**, **Transport**, and **Transpiration**.
+                </p>
+                <div class="flex justify-center mt-6">
+                     <img src="https://i.ibb.co/3W6f5yN/plant-water-transport.png" alt="Diagram showing the pathway of water from roots, up the stem, and out of the leaves" class="rounded-lg shadow-md w-full md:w-3/5" onerror="this.onerror=null;this.src='https.placehold.co/400x600/00BFBF/FFFFFF?text=Water+Transport+Pathway';">
+                </div>
+            </div>
+
+            <!-- Stage 1: Absorption -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Stage 1: Absorption at the Roots</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The journey begins underground. A plant's roots are covered in millions of microscopic **root hair cells**. Each of these cells has a long, thin extension that reaches out into the soil. This shape gives the root system a massive surface area, allowing it to absorb water and dissolved mineral salts from the soil very effectively through a process called **osmosis**.
+                </p>
+                 <div class="flex justify-center mt-6">
+                     <img src="https://i.ibb.co/L5T3x2x/root-hair-cell.png" alt="Labelled diagram of a root hair cell showing its large surface area" class="rounded-lg shadow-md w-full md:w-3/4" onerror="this.onerror=null;this.src='https.placehold.co/600x300/009999/FFFFFF?text=Root+Hair+Cell';">
+                </div>
+            </div>
+
+            <!-- Stage 2: Transport -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Stage 2: Transport through the Xylem</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Once inside the root, the water and minerals enter a network of tiny, hollow tubes called the **xylem**. These xylem vessels are like the plant's pipes. They join together to form a continuous pipeline that runs from the roots, up through the stem, and into every leaf.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: A Drinking Straw</h4>
+                    <p class="text-lg leading-relaxed">
+                        The movement of water up the xylem is like sipping a drink through a straw. As water molecules evaporate from the leaves at the top, they pull the next water molecules up behind them. Because water molecules are slightly 'sticky' and attract each other, this creates a continuous, unbroken column of water moving up the plant. This flow is called the **transpiration stream**.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Stage 3: Transpiration -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Stage 3: Transpiration from the Leaves</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The final stage of the journey is **transpiration**. This is the process of water evaporating from the surface of the leaves and escaping into the atmosphere as water vapour. This happens through tiny pores on the underside of the leaf called **stomata**. While the plant needs to open its stomata to get carbon dioxide for photosynthesis, it means some water is inevitably lost. This water loss is the engine that drives the whole system, creating the pulling force that draws the transpiration stream up from the roots.
+                </p>
+                 <div class="flex justify-center mt-6">
+                     <img src="https://i.ibb.co/Kz2XN0s/transpiration-leaf.png" alt="Cross-section of a leaf showing water evaporating from the stomata" class="rounded-lg shadow-md w-full md:w-4/5" onerror="this.onerror=null;this.src='https.placehold.co/600x350/00BFBF/FFFFFF?text=Transpiration';">
+                </div>
+            </div>
+
+            <!-- Interactive Card Sort -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Activity: Match the Part to its Function</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    Drag the function cards from the pool on the right and drop them next to the correct plant part.
+                </p>
+                <div class="flex flex-col md:flex-row gap-6">
+                    <!-- Matching Area -->
+                    <div class="w-full md:w-2/3 space-y-4">
+                        <div class="flex items-center bg-white p-3 rounded-lg shadow">
+                            <span class="font-bold text-lg w-48">Root Hair Cells:</span>
+                            <div id="target-absorption" data-match="card-absorption" class="drop-target flex-grow p-2 rounded-lg ml-2 min-h-[50px]"></div>
+                        </div>
+                        <div class="flex items-center bg-white p-3 rounded-lg shadow">
+                            <span class="font-bold text-lg w-48">Xylem:</span>
+                            <div id="target-transport" data-match="card-transport" class="drop-target flex-grow p-2 rounded-lg ml-2 min-h-[50px]"></div>
+                        </div>
+                        <div class="flex items-center bg-white p-3 rounded-lg shadow">
+                            <span class="font-bold text-lg w-48">Leaves (Stomata):</span>
+                            <div id="target-transpiration" data-match="card-transpiration" class="drop-target flex-grow p-2 rounded-lg ml-2 min-h-[50px]"></div>
+                        </div>
+                    </div>
+                    <!-- Card Pool -->
+                    <div id="function-card-pool" class="w-full md:w-1/3 p-3 bg-gray-200 rounded-lg space-y-3">
+                        <div id="card-transport" draggable="true" class="function-card bg-yellow-200 p-3 rounded shadow text-center">Transporting water up the stem</div>
+                        <div id="card-transpiration" draggable="true" class="function-card bg-yellow-200 p-3 rounded shadow text-center">Releasing water vapour into the air</div>
+                        <div id="card-absorption" draggable="true" class="function-card bg-yellow-200 p-3 rounded shadow text-center">Absorbing water and minerals from soil</div>
+                    </div>
+                </div>
+                 <!-- Controls and Feedback -->
+                <div class="mt-4 text-center">
+                    <button id="check-sort-btn" class="bg-casco-main-teal text-white font-bold py-2 px-6 rounded-lg shadow-md hover:bg-casco-dark-teal transition-colors">Check Answers</button>
+                    <button id="reset-sort-btn" class="bg-gray-500 text-white font-bold py-2 px-6 rounded-lg shadow-md hover:bg-gray-600 transition-colors ml-2">Reset</button>
+                    <p id="sort-feedback-msg" class="mt-3 h-6 text-lg font-semibold"></p>
+                </div>
+            </div>
+
+            <!-- At-Home Experiment -->
+            <div class="bg-green-100 border-t-4 border-green-500 rounded-b text-green-900 px-4 py-3 shadow-md my-8" role="alert">
+                <div class="flex">
+                    <div class="py-1"><svg class="fill-current h-6 w-6 text-green-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zM9 11v4h2v-4h-2zm0-6h2v2h-2V5z"/></svg></div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2">At-Home Experiment: Bag a Leaf</h4>
+                        <p class="mb-4">You can prove that plants release water vapour with this easy experiment.</p>
+                        <p class="font-bold">You will need:</p>
+                        <ul class="list-disc list-inside mb-4">
+                            <li>A living, healthy plant (outdoors or a houseplant)</li>
+                            <li>A small, clear plastic bag</li>
+                            <li>A piece of string or a twist tie</li>
+                        </ul>
+                        <p class="font-bold">Procedure:</p>
+                        <ol class="list-decimal list-inside mb-4 space-y-1">
+                            <li>Choose a healthy, leafy branch on your plant.</li>
+                            <li>Carefully place the plastic bag over the branch, enclosing a few leaves.</li>
+                            <li>Use the string or twist tie to secure the opening of the bag loosely around the stem. Make sure it's sealed but not so tight that it damages the plant.</li>
+                            <li>Leave the bag in place for several hours or overnight.</li>
+                            <li>Come back and observe the inside of the bag. What do you see?</li>
+                        </ol>
+                        <p class="font-bold">Scientific Explanation:</p>
+                        <p>You should see tiny droplets of liquid water have collected on the inside of the bag. This is proof of transpiration! The invisible water vapour released by the leaf has been trapped by the bag and has condensed back into visible liquid water.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Explanation -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Video Explanation: Transport in Plants</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/9-i9-k223oI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
-        <div class="container mx-auto text-center text-sm">
-            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
-        </div>
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        // Card Sort Interactive Script
+        const functionCards = document.querySelectorAll('.function-card');
+        const dropTargets = document.querySelectorAll('.drop-target');
+        const cardPool = document.getElementById('function-card-pool');
+        const checkSortBtn = document.getElementById('check-sort-btn');
+        const resetSortBtn = document.getElementById('reset-sort-btn');
+        const sortFeedbackMsg = document.getElementById('sort-feedback-msg');
+
+        let draggedItem = null;
+
+        functionCards.forEach(card => {
+            card.addEventListener('dragstart', e => {
+                draggedItem = card;
+                setTimeout(() => {
+                    card.style.display = 'none';
+                }, 0);
+            });
+
+            card.addEventListener('dragend', e => {
+                setTimeout(() => {
+                    draggedItem.style.display = 'block';
+                    draggedItem = null;
+                }, 0);
+            });
+        });
+
+        dropTargets.forEach(target => {
+            target.addEventListener('dragover', e => {
+                e.preventDefault();
+                target.classList.add('drag-over');
+            });
+
+            target.addEventListener('dragleave', e => {
+                target.classList.remove('drag-over');
+            });
+
+            target.addEventListener('drop', e => {
+                e.preventDefault();
+                target.classList.remove('drag-over');
+                // If the target is empty, append the card
+                if (target.children.length === 0) {
+                    target.appendChild(draggedItem);
+                }
+            });
+        });
+        
+        // Allow dropping back into the pool
+        cardPool.addEventListener('dragover', e => e.preventDefault());
+        cardPool.addEventListener('drop', e => {
+            e.preventDefault();
+            cardPool.appendChild(draggedItem);
+        });
+
+        checkSortBtn.addEventListener('click', () => {
+            let allCorrect = true;
+            dropTargets.forEach(target => {
+                const droppedCard = target.querySelector('.function-card');
+                if (!droppedCard || droppedCard.id !== target.dataset.match) {
+                    allCorrect = false;
+                    target.style.borderColor = 'red';
+                } else {
+                    target.style.borderColor = 'green';
+                }
+            });
+
+            if(allCorrect && cardPool.children.length === 0) {
+                sortFeedbackMsg.textContent = 'Perfect! All functions are matched correctly.';
+                sortFeedbackMsg.className = 'mt-3 h-6 text-lg font-semibold text-green-600';
+            } else {
+                sortFeedbackMsg.textContent = 'Some are incorrect. Check the red boxes and try again.';
+                sortFeedbackMsg.className = 'mt-3 h-6 text-lg font-semibold text-red-600';
+            }
+        });
+
+        resetSortBtn.addEventListener('click', () => {
+            dropTargets.forEach(target => {
+                if (target.children.length > 0) {
+                    cardPool.appendChild(target.firstElementChild);
+                }
+                target.style.borderColor = '#009999'; // Reset border color
+            });
+            sortFeedbackMsg.textContent = '';
+        });
+
+
+        // Mobile Menu Script
+        const hamburger = document.getElementById('hamburger-button');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+
+        hamburger.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        accordionBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>

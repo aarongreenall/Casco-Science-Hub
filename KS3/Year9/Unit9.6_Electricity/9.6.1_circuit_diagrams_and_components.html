@@ -1,13 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Placeholder</title>
-    <link rel="stylesheet" href="../../../style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9.6.1 Circuit Diagrams and Components - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
+
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams'
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
-<body>
-    <p>Placeholder for 9.6.1</p>
-    <script src="../../../script.js"></script>
+
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
+        <nav>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../Year7/index.html">Year 7</a></li>
+                        <li><a href="../../Year8/index.html">Year 8</a></li>
+                        <li><a href="../index.html">Year 9</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 9</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 9.6 Electricity</a> &gt;
+                <span class="font-semibold">9.6.1 Circuit Diagrams and Components</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">9.6.1 Circuit Diagrams and Components</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Use diagrams and conventional symbols to represent, make and compare circuits that include cells, switches, resistors (fixed and variable), ammeters, voltmeters, lamps and buzzers.</li>
+                </ol>
+            </div>
+
+            <!-- Section: Language of Electricity -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">The Language of Electricity: Circuit Diagrams</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    When we build electrical circuits, it can get complicated quickly. To communicate designs clearly, scientists, engineers, and electricians all over the world use a standard language: **circuit diagrams**. These diagrams use simple, conventional symbols to represent different electrical components, making it easy for anyone to understand how a circuit is connected.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: A Map</h4>
+                    <p class="text-lg leading-relaxed">
+                        A circuit diagram is like a map. A map doesn't show a realistic picture of the buildings and trees, but uses simple symbols to show you where things are and how to get from one place to another. A circuit diagram does the same for electricity, showing the components and the path the current will take.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section: The Component Toolkit -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">The Component Toolkit</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Here are the standard symbols for the components you will use this year. Pay close attention to the new ones: the resistor, variable resistor, and voltmeter.
+                </p>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white rounded-lg shadow">
+                        <thead class="bg-casco-dark-teal text-white">
+                            <tr>
+                                <th class="py-3 px-4 text-left">Component Name</th>
+                                <th class="py-3 px-4 text-center">Circuit Symbol</th>
+                                <th class="py-3 px-4 text-left">Simple Explanation</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700">
+                            <tr class="border-b"><td class="py-3 px-4 font-semibold">Cell</td><td class="py-3 px-4 text-center"><img src="https://i.ibb.co/hZ5H3vX/symbol-cell.png" alt="Cell symbol" class="h-8 mx-auto"></td><td class="py-3 px-4">Provides the electrical energy (voltage).</td></tr>
+                            <tr class="border-b"><td class="py-3 px-4 font-semibold">Battery</td><td class="py-3 px-4 text-center"><img src="https://i.ibb.co/bF6G0p7/symbol-battery.png" alt="Battery symbol" class="h-8 mx-auto"></td><td class="py-3 px-4">Two or more cells connected together.</td></tr>
+                            <tr class="border-b"><td class="py-3 px-4 font-semibold">Switch</td><td class="py-3 px-4 text-center"><img src="https://i.ibb.co/s5f0f0T/symbol-switch.png" alt="Switch symbol" class="h-8 mx-auto"></td><td class="py-3 px-4">Opens or closes a circuit to stop or start the current.</td></tr>
+                            <tr class="border-b"><td class="py-3 px-4 font-semibold">Lamp (Bulb)</td><td class="py-3 px-4 text-center"><img src="https://i.ibb.co/Y09wYjg/symbol-lamp.png" alt="Lamp symbol" class="h-8 mx-auto"></td><td class="py-3 px-4">Converts electrical energy into light energy.</td></tr>
+                             <tr class="border-b"><td class="py-3 px-4 font-semibold">Buzzer</td><td class="py-3 px-4 text-center"><img src="https://i.ibb.co/gZk1sM8/symbol-buzzer.png" alt="Buzzer symbol" class="h-8 mx-auto"></td><td class="py-3 px-4">Converts electrical energy into sound energy.</td></tr>
+                            <tr class="border-b bg-casco-light-bg"><td class="py-3 px-4 font-semibold">Resistor (Fixed)</td><td class="py-3 px-4 text-center"><img src="https://i.ibb.co/hYxY6k4/symbol-resistor.png" alt="Resistor symbol" class="h-8 mx-auto"></td><td class="py-3 px-4">Restricts the flow of current. Has a fixed resistance.</td></tr>
+                            <tr class="border-b bg-casco-light-bg"><td class="py-3 px-4 font-semibold">Variable Resistor</td><td class="py-3 px-4 text-center"><img src="https://i.ibb.co/7YJp1T3/symbol-variable-resistor.png" alt="Variable resistor symbol" class="h-8 mx-auto"></td><td class="py-3 px-4">Allows the resistance in the circuit to be changed.</td></tr>
+                            <tr class="border-b"><td class="py-3 px-4 font-semibold">Ammeter</td><td class="py-3 px-4 text-center"><img src="https://i.ibb.co/GvY7zXb/symbol-ammeter.png" alt="Ammeter symbol" class="h-8 mx-auto"></td><td class="py-3 px-4">Measures the current (in Amps) flowing in a circuit.</td></tr>
+                            <tr class="bg-casco-light-bg"><td class="py-3 px-4 font-semibold">Voltmeter</td><td class="py-3 px-4 text-center"><img src="https://i.ibb.co/qD4Bf1c/symbol-voltmeter.png" alt="Voltmeter symbol" class="h-8 mx-auto"></td><td class="py-3 px-4">Measures the voltage (in Volts) across a component.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Section: Rules of the Road -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Rules of the Road: Drawing Circuits</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">To keep diagrams clear and easy to read, we follow a few simple rules:</p>
+                <ul class="list-disc list-inside ml-4 text-lg space-y-1">
+                    <li>Always use a ruler and pencil.</li>
+                    <li>Wires should be drawn as straight lines.</li>
+                    <li>Corners should be sharp 90-degree angles.</li>
+                    <li>The circuit must form a complete loop from one side of the power supply to the other.</li>
+                </ul>
+                <div class="flex justify-center mt-6">
+                     <img src="https://i.ibb.co/k2v09wQ/circuit-drawing-good-bad.png" alt="A comparison of a messy hand-drawn circuit and a neat, correct circuit diagram" class="rounded-lg shadow-md w-full md:w-4/5" onerror="this.onerror=null;this.src='https://placehold.co/600x300/00BFBF/FFFFFF?text=Good+vs+Bad+Diagram';">
+                </div>
+            </div>
+
+            <!-- At-Home Experiment -->
+            <div class="bg-green-100 border-t-4 border-green-500 rounded-b text-green-900 px-4 py-3 shadow-md my-8" role="alert">
+                <div class="flex">
+                    <div class="py-1"><svg class="fill-current h-6 w-6 text-green-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zM9 11v4h2v-4h-2zm0-6h2v2h-2V5z"/></svg></div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2">At-Home Experiment: The Lemon Battery</h4>
+                        <p class="mb-4">You can make a simple battery (a single cell) using a lemon!</p>
+                        <p class="font-bold">You will need:</p>
+                        <ul class="list-disc list-inside mb-4">
+                            <li>A fresh lemon</li>
+                            <li>A copper coin (like a 1p or a US penny)</li>
+                            <li>A zinc-coated (galvanized) nail</li>
+                            <li>A voltmeter or a low-current LED (optional, to see the result)</li>
+                        </ul>
+                        <p class="font-bold">Procedure:</p>
+                        <ol class="list-decimal list-inside mb-4 space-y-1">
+                            <li>Roll the lemon on a table while pressing down firmly to release the juices inside.</li>
+                            <li>Make a small slit in the lemon and push the copper coin in.</li>
+                            <li>Push the galvanized nail into the lemon, making sure it doesn't touch the coin.</li>
+                            <li>If you have a voltmeter, touch the red lead to the copper coin and the black lead to the nail. You should see a small voltage reading!</li>
+                        </ol>
+                        <p class="font-bold">Scientific Explanation:</p>
+                        <p>The acidic lemon juice acts as an **electrolyte**. A chemical reaction between the two different metals (copper and zinc) and the electrolyte causes electrons to flow from the zinc nail to the copper coin. This flow of electrons creates a small voltage, which is the basic principle of all batteries.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Lab: PhET -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Lab: Circuit Construction Kit</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    Now it's your turn to build! Use this virtual electronics kit to create your own circuits.
+                </p>
+                 <p class="text-base leading-relaxed mb-4 font-semibold">Your Challenge:</p>
+                <ul class="list-disc list-inside ml-4 text-base space-y-1">
+                    <li>Drag a battery, a switch, and a lamp from the toolbox on the left.</li>
+                    <li>Connect them together using wires to make a complete circuit.</li>
+                    <li>Close the switch. Can you make the lamp light up?</li>
+                    <li>Now, try drawing the circuit diagram for the circuit you just built using the correct symbols.</li>
+                </ul>
+                <div class="w-full h-[75vh] mt-4">
+                    <iframe src="https://phet.colorado.edu/sims/html/circuit-construction-kit-dc/latest/circuit-construction-kit-dc_en.html" allow="fullscreen" class="w-full h-full rounded-lg shadow-md border-2 border-casco-dark-teal"></iframe>
+                </div>
+            </div>
+
+            <!-- In-School Activity -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">In-School Activity: Build and Draw</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    Work in pairs to test your circuit diagram skills.
+                </p>
+                <ul class="list-decimal list-inside ml-4 text-base space-y-2">
+                    <li><strong>Task 1 (See → Draw):</strong> Your teacher will show you a simple physical circuit made with real components. Your job is to draw the correct circuit diagram for it.</li>
+                    <li><strong>Task 2 (Draw → Build):</strong> Your teacher will give you a circuit diagram. Your job is to use the lab equipment to build the physical circuit correctly.</li>
+                </ul>
+            </div>
+
+            <!-- Video Explanation -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Video Explanation: Circuit Symbols</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/t8-s4wI-Oa4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        // Mobile Menu Script
+        const hamburger = document.getElementById('hamburger-button');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+
+        hamburger.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        accordionBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>

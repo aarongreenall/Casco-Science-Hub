@@ -1,13 +1,491 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Placeholder</title>
-    <link rel="stylesheet" href="../../../style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9.7.4 Preparation of Salts - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
+    <style>
+        .draggable-card {
+            cursor: grab;
+            user-select: none;
+        }
+        .draggable-card:active {
+            cursor: grabbing;
+        }
+        .drop-zone {
+            border: 2px dashed #009999;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .drop-zone.drag-over {
+            background-color: #cceeee;
+        }
+        .drop-box {
+            width: 70px;
+            height: 50px;
+        }
+    </style>
+
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams'
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
-<body>
-    <p>Placeholder for 9.7.4</p>
-    <script src="../../../script.js"></script>
+
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
+        <nav>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../Year7/index.html">Year 7</a></li>
+                        <li><a href="../../Year8/index.html">Year 8</a></li>
+                        <li><a href="../index.html">Year 9</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 9</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 9.7 Chemical Reactions</a> &gt;
+                <span class="font-semibold">9.7.4 Preparation of Salts</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">9.7.4 Preparation of Salts</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Describe how to prepare some common salts by the reactions of metals with acids, and metal carbonates with acids, and purify them, using filtration, evaporation and crystallisation.</li>
+                </ol>
+            </div>
+
+            <!-- Section: What is a Salt? -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">What is a Salt?</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    In chemistry, a **salt** is an ionic compound formed when an **acid** is neutralised by a **base** (such as a metal, a metal oxide, or a metal carbonate). The positive ion in the salt comes from the base, and the negative ion comes from the acid.
+                </p>
+            </div>
+
+            <!-- Section: Making Salts -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Making Salts: Two Key Recipes</h3>
+                <div class="space-y-6 mt-4">
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h4 class="text-xl font-semibold text-blue-800 mb-2">1. Metal + Acid</h4>
+                        <p class="text-lg font-semibold text-center p-2 bg-white rounded">Metal + Acid $\rightarrow$ Salt + Hydrogen</p>
+                        <div class="mt-2 p-2 bg-white rounded overflow-x-auto">
+                            <p class="font-semibold">Symbol Equation:</p>
+                            <p class="font-mono whitespace-nowrap">$Zn(s) + H_2SO_4(aq) \rightarrow ZnSO_4(aq) + H_2(g)$</p>
+                        </div>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <h4 class="text-xl font-semibold text-green-800 mb-2">2. Metal Carbonate + Acid</h4>
+                        <p class="text-lg font-semibold text-center p-2 bg-white rounded">Metal Carbonate + Acid $\rightarrow$ Salt + Carbon Dioxide + Water</p>
+                         <div class="mt-2 p-2 bg-white rounded overflow-x-auto">
+                            <p class="font-semibold">Symbol Equation:</p>
+                            <p class="font-mono whitespace-nowrap">$CuCO_3(s) + 2HNO_3(aq) \rightarrow Cu(NO_3)_2(aq) + CO_2(g) + H_2O(l)$</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Section: Purification -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">From Solution to Crystal: Purification</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    After these reactions, the salt you have made is dissolved in water. To get a pure, solid sample of the salt, we need to follow a three-step purification process.
+                </p>
+                <div class="flex justify-center mt-6">
+                     <img src="https://i.ibb.co/6P6f2yY/salt-purification-steps.png" alt="Diagram showing filtration, evaporation, and crystallisation" class="rounded-lg shadow-md w-full" onerror="this.onerror=null;this.src='https://placehold.co/800x300/00BFBF/FFFFFF?text=Purification+Steps';">
+                </div>
+                <ol class="list-decimal list-inside space-y-4 text-lg mt-4">
+                    <li><strong>Filtration:</strong> First, add an excess of the solid reactant (the metal or metal carbonate) to ensure all the acid reacts. Then, **filter** the mixture to remove the unreacted solid, leaving a pure salt solution.</li>
+                    <li><strong>Evaporation:</strong> Next, gently heat the salt solution to boil off about half of the water, making the solution concentrated.</li>
+                    <li><strong>Crystallisation:</strong> Finally, leave the hot, concentrated solution to cool down slowly. As it cools, the salt becomes less soluble and starts to form pure crystals.</li>
+                </ol>
+            </div>
+
+            <!-- Interactive: Salt Shaker -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Activity 1: Salt Shaker</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    Your goal is to make **Magnesium Chloride**. Drag the correct Acid and the correct Metal/Carbonate from the pool into the flask to start the reaction!
+                </p>
+                <div class="flex flex-col md:flex-row gap-6 items-center">
+                    <div class="w-full md:w-1/2">
+                        <div class="relative">
+                            <img src="https://i.ibb.co/RSCk4F0/conical-flask.png" alt="A conical flask" class="w-full h-auto">
+                            <div id="acid-drop-zone" data-correct="acid-hcl" class="drop-zone absolute top-[40%] left-[10%] w-[35%] h-[40%] rounded-full"></div>
+                            <div id="base-drop-zone" data-correct="base-mg" class="drop-zone absolute top-[40%] right-[10%] w-[35%] h-[40%] rounded-full"></div>
+                        </div>
+                    </div>
+                    <div id="reactant-card-pool" class="w-full md:w-1/2 p-3 bg-gray-200 rounded-lg grid grid-cols-2 gap-2">
+                        <div id="acid-hcl" draggable="true" class="draggable-card bg-blue-200 p-2 rounded shadow text-center">Hydrochloric Acid</div>
+                        <div id="acid-h2so4" draggable="true" class="draggable-card bg-blue-200 p-2 rounded shadow text-center">Sulfuric Acid</div>
+                        <div id="base-mg" draggable="true" class="draggable-card bg-green-200 p-2 rounded shadow text-center">Magnesium</div>
+                        <div id="base-cu" draggable="true" class="draggable-card bg-green-200 p-2 rounded shadow text-center">Copper</div>
+                    </div>
+                </div>
+                <div class="mt-4 text-center">
+                    <button id="check-salt-btn" class="bg-casco-main-teal text-white font-bold py-2 px-6 rounded-lg shadow-md hover:bg-casco-dark-teal transition-colors">Check Recipe</button>
+                    <button id="reset-salt-btn" class="bg-gray-500 text-white font-bold py-2 px-6 rounded-lg shadow-md hover:bg-gray-600 transition-colors ml-2">Reset</button>
+                    <p id="salt-feedback-msg" class="mt-3 h-6 text-lg font-semibold"></p>
+                </div>
+            </div>
+
+            <!-- Interactive: Build the Products -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Activity 2: Build the Products</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    When reactants mix, their ions and molecules rearrange to form products. Drag the pieces from the pool to build the correct, neutral products for each reaction.
+                </p>
+                <div id="ion-builder-container">
+                    <!-- JS will load challenges here -->
+                </div>
+            </div>
+
+            <!-- Video Explanation -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Video Explanation: Making Copper Sulfate Crystals</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/aPqQ3-h7-X4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        // --- Salt Shaker Script ---
+        const reactantCards = document.querySelectorAll('#reactant-card-pool .draggable-card');
+        const flaskDropZones = document.querySelectorAll('.flask-drop-zone');
+        const reactantCardPool = document.getElementById('reactant-card-pool');
+        const checkSaltBtn = document.getElementById('check-salt-btn');
+        const resetSaltBtn = document.getElementById('reset-salt-btn');
+        const saltFeedbackMsg = document.getElementById('salt-feedback-msg');
+        let draggedReactant = null;
+
+        const setupDraggable = (card) => {
+            card.addEventListener('dragstart', e => {
+                draggedReactant = card;
+                setTimeout(() => { card.style.opacity = '0.5'; }, 0);
+            });
+            card.addEventListener('dragend', e => {
+                if (draggedReactant) {
+                    draggedReactant.style.opacity = '1';
+                    draggedReactant = null;
+                }
+            });
+        };
+        reactantCards.forEach(setupDraggable);
+
+        const setupDropZone = (zone, pool) => {
+            zone.addEventListener('dragover', e => {
+                e.preventDefault();
+                zone.classList.add('drag-over');
+            });
+            zone.addEventListener('dragleave', e => {
+                zone.classList.remove('drag-over');
+            });
+            zone.addEventListener('drop', e => {
+                e.preventDefault();
+                zone.classList.remove('drag-over');
+                if (zone.children.length === 0 || zone === pool) {
+                    zone.appendChild(draggedReactant);
+                }
+            });
+        };
+
+        flaskDropZones.forEach(zone => setupDropZone(zone, reactantCardPool));
+        setupDropZone(reactantCardPool, reactantCardPool);
+
+        checkSaltBtn.addEventListener('click', () => {
+            const acidZone = document.getElementById('acid-drop-zone');
+            const baseZone = document.getElementById('base-drop-zone');
+            const isAcidCorrect = acidZone.children.length > 0 && acidZone.firstElementChild.id === acidZone.dataset.correct;
+            const isBaseCorrect = baseZone.children.length > 0 && baseZone.firstElementChild.id === baseZone.dataset.correct;
+
+            if (isAcidCorrect && isBaseCorrect) {
+                saltFeedbackMsg.textContent = 'Correct! Magnesium + Hydrochloric Acid makes Magnesium Chloride.';
+                saltFeedbackMsg.className = 'mt-3 h-6 text-lg font-semibold text-green-600';
+            } else {
+                saltFeedbackMsg.textContent = 'Not quite the right recipe. Try again!';
+                saltFeedbackMsg.className = 'mt-3 h-6 text-lg font-semibold text-red-600';
+            }
+        });
+
+        resetSaltBtn.addEventListener('click', () => {
+            flaskDropZones.forEach(zone => {
+                if (zone.firstChild) {
+                    reactantCardPool.appendChild(zone.firstChild);
+                }
+            });
+            saltFeedbackMsg.textContent = '';
+        });
+
+        // --- Ion Builder Script ---
+        const ionBuilderContainer = document.getElementById('ion-builder-container');
+        const ionChallenges = [
+            {
+                title: "Metal + Acid: Magnesium + Sulfuric Acid",
+                reactants: "$Mg(s) + H_2SO_4(aq) \\rightarrow ?$",
+                pool: [
+                    { id: 'mg', html: 'Mg<sup>2+</sup>', charge: 2, correctZone: 'salt' },
+                    { id: 'so4', html: 'SO<sub>4</sub><sup>2-</sup>', charge: -2, correctZone: 'salt' },
+                    { id: 'h2', html: 'H<sub>2</sub>', charge: 0, correctZone: 'other' }
+                ],
+                productZones: {
+                    salt: { name: "Salt", slots: 2 },
+                    other: { name: "Other Product", slots: 1 }
+                }
+            },
+            {
+                title: "Metal Carbonate + Acid: Calcium Carbonate + Hydrochloric Acid",
+                reactants: "$CaCO_3(s) + 2HCl(aq) \\rightarrow ?$",
+                pool: [
+                    { id: 'ca', html: 'Ca<sup>2+</sup>', charge: 2, correctZone: 'salt' },
+                    { id: 'cl1', html: 'Cl<sup>-</sup>', charge: -1, correctZone: 'salt' },
+                    { id: 'cl2', html: 'Cl<sup>-</sup>', charge: -1, correctZone: 'salt' },
+                    { id: 'h2o', html: 'H<sub>2</sub>O', charge: 0, correctZone: 'other' },
+                    { id: 'co2', html: 'CO<sub>2</sub>', charge: 0, correctZone: 'other' }
+                ],
+                productZones: {
+                    salt: { name: "Salt", slots: 3 },
+                    other: { name: "Other Products", slots: 2 }
+                }
+            }
+        ];
+        let currentIonChallenge = 0;
+        let draggedIonCard = null;
+
+        function loadIonChallenge(index) {
+            const challenge = ionChallenges[index];
+            ionBuilderContainer.innerHTML = `
+                <p class="text-base leading-relaxed mb-2 text-center"><strong>Challenge:</strong> ${challenge.title}</p>
+                <p class="text-xl font-mono text-center mb-4">${challenge.reactants}</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-2 bg-white rounded-lg shadow">
+                        <h5 class="font-bold text-center">${challenge.productZones.salt.name}</h5>
+                        <div class="flex items-center justify-center gap-2 mt-2">
+                            <div id="salt-zone" class="flex-grow flex flex-wrap items-center justify-center gap-1 p-1">
+                                ${Array(challenge.productZones.salt.slots).fill('<div class="drop-zone drop-box"></div>').join('')}
+                            </div>
+                            <div class="p-2 bg-gray-200 rounded text-center">
+                                <p class="text-xs font-bold">Charge</p>
+                                <p id="salt-charge" class="text-2xl font-bold">0</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-2 bg-white rounded-lg shadow">
+                        <h5 class="font-bold text-center">${challenge.productZones.other.name}</h5>
+                         <div class="flex items-center justify-center gap-2 mt-2">
+                            <div id="other-zone" class="flex-grow flex flex-wrap items-center justify-center gap-1 p-1">
+                                ${Array(challenge.productZones.other.slots).fill('<div class="drop-zone drop-box"></div>').join('')}
+                            </div>
+                            <div class="p-2 bg-gray-200 rounded text-center">
+                                <p class="text-xs font-bold">Charge</p>
+                                <p id="other-charge" class="text-2xl font-bold">0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="ion-pool" class="mt-4 p-4 bg-gray-200 rounded-lg flex flex-wrap items-center justify-center gap-2 min-h-[70px]">
+                    ${challenge.pool.map(ion => `<div id="${ion.id}" data-charge="${ion.charge}" data-correct-zone="${ion.correctZone}" draggable="true" class="draggable-card bg-yellow-200 p-2 rounded shadow text-center text-lg font-semibold">${ion.html}</div>`).join('')}
+                </div>
+                <div class="mt-4 text-center">
+                    <button id="reset-ion-btn" class="bg-gray-500 text-white font-bold py-2 px-6 rounded-lg shadow-md hover:bg-gray-600 transition-colors">Reset</button>
+                    <button id="next-ion-btn" class="bg-casco-main-teal text-white font-bold py-2 px-6 rounded-lg shadow-md hover:bg-casco-dark-teal transition-colors ml-2">Next Challenge</button>
+                </div>
+            `;
+            MathJax.typesetPromise();
+            addIonBuilderListeners();
+        }
+
+        function updateIonCharge(zoneId) {
+            const zone = document.getElementById(zoneId);
+            const chargeDisplay = document.getElementById(zoneId.replace('-zone', '-charge'));
+            let totalCharge = 0;
+            zone.querySelectorAll('.draggable-card').forEach(card => {
+                totalCharge += parseInt(card.dataset.charge);
+            });
+            chargeDisplay.textContent = totalCharge > 0 ? `+${totalCharge}` : totalCharge;
+            if (totalCharge === 0 && zone.querySelector('.draggable-card')) {
+                chargeDisplay.classList.add('text-green-600');
+            } else {
+                chargeDisplay.classList.remove('text-green-600');
+            }
+        }
+
+        function addIonBuilderListeners() {
+            const cards = ionBuilderContainer.querySelectorAll('.draggable-card');
+            const dropBoxes = ionBuilderContainer.querySelectorAll('.drop-zone');
+            const ionPool = document.getElementById('ion-pool');
+            const resetBtn = document.getElementById('reset-ion-btn');
+            const nextBtn = document.getElementById('next-ion-btn');
+
+            cards.forEach(card => {
+                card.addEventListener('dragstart', e => { draggedIonCard = card; });
+            });
+
+            dropBoxes.forEach(box => {
+                box.addEventListener('dragover', e => {
+                    e.preventDefault();
+                    if (box.children.length === 0) box.classList.add('drag-over');
+                });
+                box.addEventListener('dragleave', e => box.classList.remove('drag-over'));
+                box.addEventListener('drop', e => {
+                    e.preventDefault();
+                    box.classList.remove('drag-over');
+                    if (box.children.length === 0) {
+                        box.appendChild(draggedIonCard);
+                        const parentZoneId = box.closest('div[id$="-zone"]').id;
+                        if (draggedIonCard.dataset.correctZone === parentZoneId.replace('-zone', '')) {
+                            box.style.borderColor = 'green';
+                        } else {
+                            box.style.borderColor = 'red';
+                        }
+                        updateIonCharge('salt-zone');
+                        updateIonCharge('other-zone');
+                    }
+                });
+            });
+            
+            ionPool.addEventListener('dragover', e => e.preventDefault());
+            ionPool.addEventListener('drop', e => {
+                e.preventDefault();
+                ionPool.appendChild(draggedIonCard);
+                updateIonCharge('salt-zone');
+                updateIonCharge('other-zone');
+            });
+
+            resetBtn.addEventListener('click', () => loadIonChallenge(currentIonChallenge));
+            nextBtn.addEventListener('click', () => {
+                currentIonChallenge = (currentIonChallenge + 1) % ionChallenges.length;
+                loadIonChallenge(currentIonChallenge);
+            });
+        }
+        
+        loadIonChallenge(currentIonChallenge);
+
+        // Mobile Menu Script
+        const hamburger = document.getElementById('hamburger-button');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+
+        hamburger.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        accordionBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>

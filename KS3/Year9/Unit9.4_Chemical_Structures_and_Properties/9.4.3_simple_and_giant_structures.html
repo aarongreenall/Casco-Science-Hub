@@ -1,13 +1,387 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Placeholder</title>
-    <link rel="stylesheet" href="../../../style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9.4.3 Simple and Giant Structures - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
+    <style>
+        .structure-card {
+            cursor: grab;
+        }
+        .structure-card:active {
+            cursor: grabbing;
+        }
+        .structure-zone {
+            border: 2px dashed #009999;
+            min-height: 100px;
+            transition: background-color 0.3s;
+        }
+        .structure-zone.drag-over {
+            background-color: #cceeee;
+        }
+    </style>
+
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams'
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
-<body>
-    <p>Placeholder for 9.4.3</p>
-    <script src="../../../script.js"></script>
+
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
+        <nav>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../Year7/index.html">Year 7</a></li>
+                        <li><a href="../../Year8/index.html">Year 8</a></li>
+                        <li><a href="../index.html">Year 9</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 9</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 9.4 Chemical Structures and Properties</a> &gt;
+                <span class="font-semibold">9.4.3 Simple and Giant Structures</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">9.4.3 Simple and Giant Structures</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn that:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Elements and compounds exist in structures (simple or giant), and this influences their physical properties.</li>
+                </ol>
+            </div>
+
+            <!-- Section: Beyond Single Molecules -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Beyond Single Molecules</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Knowing how atoms bond together is only half the story. The way these atoms and molecules are arranged on a large scale determines the physical properties of a substance, like its melting point and whether it conducts electricity. We can classify substances into two main types of structure: **simple molecular structures** and **giant structures**.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: Building with Bricks</h4>
+                    <p class="text-lg leading-relaxed">
+                        Imagine you have thousands of identical LEGO® bricks (these are your molecules).
+                    </p>
+                    <ul class="list-disc list-inside ml-4 mt-2 text-lg space-y-1">
+                        <li>You could leave them as a loose pile in a box. The bricks themselves are strong, but there's nothing really holding them to each other. It's easy to separate them. This is like a **simple molecular structure**.</li>
+                        <li>Alternatively, you could click every single brick together to build a huge, solid wall. Now, it's very difficult to break apart. This is like a **giant structure**.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section: Simple Molecular Structures -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Simple Molecular Structures</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    These substances are made of individual, separate molecules, such as water ($H_2O$), oxygen ($O_2$), and carbon dioxide ($CO_2$). A key point to understand is that while the covalent bonds *inside* each molecule are very strong, the forces of attraction *between* the molecules (intermolecular forces) are very weak.
+                </p>
+                <div class="flex flex-col md:flex-row items-center gap-6">
+                    <div class="md:w-1/2">
+                         <h4 class="text-xl font-semibold text-gray-800 mb-2">Properties:</h4>
+                         <ul class="list-disc list-inside ml-4 text-lg space-y-2">
+                            <li><strong>Low Melting and Boiling Points:</strong> Because the forces between molecules are weak, it takes very little energy to overcome them and separate the molecules. This is why these substances are often gases or liquids at room temperature.</li>
+                            <li><strong>Do Not Conduct Electricity:</strong> The molecules have no overall charge, and there are no free-moving electrons or ions to carry an electrical current.</li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="https://i.ibb.co/bF0C8GZ/simple-molecular-structure.png" alt="Diagram showing separate water molecules with weak forces between them" class="rounded-lg shadow-md w-full" onerror="this.onerror=null;this.src='https://placehold.co/400x300/00BFBF/FFFFFF?text=Simple+Molecules';">
+                        <p class="text-center mt-2">In water, the forces *between* the molecules are weak and easily broken.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Giant Structures -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Giant Structures</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    In a giant structure, there are no individual molecules. Instead, billions of atoms are joined together by a vast network of strong bonds, forming a crystal lattice.
+                </p>
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">1. Giant Covalent Structures</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    All the atoms are joined to each other by strong covalent bonds. Examples include diamond and graphite (both made of carbon) and silicon dioxide (sand).
+                </p>
+                 <div class="flex flex-col md:flex-row items-center gap-6 bg-blue-50 p-4 rounded-lg">
+                    <div class="md:w-1/2">
+                        <img src="https://i.ibb.co/Jqg0VzX/diamond-structure.png" alt="The giant covalent lattice structure of diamond" class="rounded-lg shadow-md w-full" onerror="this.onerror=null;this.src='https://placehold.co/400x300/009999/FFFFFF?text=Diamond+Lattice';">
+                    </div>
+                    <div class="md:w-1/2">
+                         <h5 class="font-bold text-lg">Properties:</h5>
+                         <p class="text-lg">They have extremely high melting and boiling points because a huge amount of energy is needed to break the millions of strong covalent bonds throughout the structure.</p>
+                    </div>
+                </div>
+
+                <h4 class="text-xl font-semibold text-gray-800 mt-8 mb-2">2. Giant Ionic Structures</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    These are formed from positive and negative ions held together by strong electrostatic forces of attraction. An example is sodium chloride (table salt).
+                </p>
+                <div class="flex flex-col md:flex-row items-center gap-6 bg-red-50 p-4 rounded-lg">
+                    <div class="md:w-1/2">
+                        <img src="https://i.ibb.co/k3kC53J/ionic-lattice-structure.png" alt="The giant ionic lattice structure of sodium chloride" class="rounded-lg shadow-md w-full" onerror="this.onerror=null;this.src='https://placehold.co/400x300/009999/FFFFFF?text=Ionic+Lattice';">
+                    </div>
+                    <div class="md:w-1/2">
+                         <h5 class="font-bold text-lg">Properties:</h5>
+                         <p class="text-lg">They have high melting and boiling points because a lot of energy is needed to overcome the strong forces between the ions. They can conduct electricity when molten or dissolved because the ions are then free to move and carry charge.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive: Structure Sorter -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Activity: Structure Sorter</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    Read the properties of each substance, then drag it into the correct structure category.
+                </p>
+                <div class="flex flex-col md:flex-row gap-4">
+                    <!-- Drop Zones -->
+                    <div class="w-full md:w-1/2">
+                        <h5 class="text-lg font-bold text-center mb-2">Simple Molecular Structures</h5>
+                        <div id="simple-zone" data-structure="simple" class="structure-zone p-2 bg-white rounded-lg space-y-2"></div>
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <h5 class="text-lg font-bold text-center mb-2">Giant Structures</h5>
+                        <div id="giant-zone" data-structure="giant" class="structure-zone p-2 bg-white rounded-lg space-y-2"></div>
+                    </div>
+                </div>
+                <!-- Card Pool -->
+                <div id="structure-card-pool" class="mt-4 p-4 bg-gray-200 rounded-lg flex flex-wrap items-start justify-center gap-2">
+                    <div data-structure="giant" draggable="true" class="structure-card bg-white p-2 rounded shadow w-48">
+                        <p class="font-bold">Diamond</p>
+                        <p class="text-sm">Extremely hard, very high melting point (>3500°C).</p>
+                    </div>
+                    <div data-structure="simple" draggable="true" class="structure-card bg-white p-2 rounded shadow w-48">
+                        <p class="font-bold">Oxygen Gas</p>
+                        <p class="text-sm">A gas at room temperature, boiling point of -183°C.</p>
+                    </div>
+                    <div data-structure="giant" draggable="true" class="structure-card bg-white p-2 rounded shadow w-48">
+                        <p class="font-bold">Table Salt (NaCl)</p>
+                        <p class="text-sm">A crystal solid, high melting point (801°C), conducts electricity when dissolved.</p>
+                    </div>
+                    <div data-structure="simple" draggable="true" class="structure-card bg-white p-2 rounded shadow w-48">
+                        <p class="font-bold">Carbon Dioxide</p>
+                        <p class="text-sm">A gas at room temperature, turns solid (dry ice) at -78°C.</p>
+                    </div>
+                </div>
+                 <!-- Controls and Feedback -->
+                <div class="mt-4 text-center">
+                    <button id="check-structure-btn" class="bg-casco-main-teal text-white font-bold py-2 px-6 rounded-lg shadow-md hover:bg-casco-dark-teal transition-colors">Check Answers</button>
+                    <button id="reset-structure-btn" class="bg-gray-500 text-white font-bold py-2 px-6 rounded-lg shadow-md hover:bg-gray-600 transition-colors ml-2">Reset</button>
+                    <p id="structure-feedback-msg" class="mt-3 h-6 text-lg font-semibold"></p>
+                </div>
+            </div>
+
+            <!-- Video Explanation -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Video Explanation: Simple vs. Giant Structures</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/FiNJH5bBG-s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        // Structure Sorter Script
+        const structureCards = document.querySelectorAll('.structure-card');
+        const structureZones = document.querySelectorAll('.structure-zone');
+        const structureCardPool = document.getElementById('structure-card-pool');
+        const checkStructureBtn = document.getElementById('check-structure-btn');
+        const resetStructureBtn = document.getElementById('reset-structure-btn');
+        const structureFeedbackMsg = document.getElementById('structure-feedback-msg');
+
+        let draggedStructureItem = null;
+
+        structureCards.forEach(card => {
+            card.addEventListener('dragstart', e => {
+                draggedStructureItem = card;
+                setTimeout(() => { card.style.display = 'none'; }, 0);
+            });
+            card.addEventListener('dragend', e => {
+                setTimeout(() => { draggedStructureItem.style.display = 'block'; draggedStructureItem = null; }, 0);
+            });
+        });
+
+        structureZones.forEach(zone => {
+            zone.addEventListener('dragover', e => {
+                e.preventDefault();
+                zone.classList.add('drag-over');
+            });
+            zone.addEventListener('dragleave', e => {
+                zone.classList.remove('drag-over');
+            });
+            zone.addEventListener('drop', e => {
+                e.preventDefault();
+                zone.classList.remove('drag-over');
+                zone.appendChild(draggedStructureItem);
+            });
+        });
+        
+        structureCardPool.addEventListener('dragover', e => e.preventDefault());
+        structureCardPool.addEventListener('drop', e => {
+            e.preventDefault();
+            structureCardPool.appendChild(draggedStructureItem);
+        });
+
+        checkStructureBtn.addEventListener('click', () => {
+            let allCorrect = true;
+            structureZones.forEach(zone => {
+                for (const card of zone.children) {
+                    if (card.dataset.structure !== zone.dataset.structure) {
+                        allCorrect = false;
+                        card.style.borderColor = 'red';
+                        card.style.borderWidth = '2px';
+                    } else {
+                        card.style.borderColor = 'green';
+                        card.style.borderWidth = '2px';
+                    }
+                }
+            });
+            
+            if (structureCardPool.children.length > 0) {
+                 allCorrect = false;
+            }
+
+            if (allCorrect) {
+                structureFeedbackMsg.textContent = 'Perfect! All substances are sorted correctly.';
+                structureFeedbackMsg.className = 'mt-3 h-6 text-lg font-semibold text-green-600';
+            } else {
+                structureFeedbackMsg.textContent = 'Not quite right. Check the cards with red borders.';
+                structureFeedbackMsg.className = 'mt-3 h-6 text-lg font-semibold text-red-600';
+            }
+        });
+
+        resetStructureBtn.addEventListener('click', () => {
+            structureZones.forEach(zone => {
+                while (zone.firstChild) {
+                    zone.firstChild.style.border = 'none';
+                    structureCardPool.appendChild(zone.firstChild);
+                }
+            });
+            structureFeedbackMsg.textContent = '';
+        });
+
+        // Mobile Menu Script
+        const hamburger = document.getElementById('hamburger-button');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+
+        hamburger.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        accordionBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>

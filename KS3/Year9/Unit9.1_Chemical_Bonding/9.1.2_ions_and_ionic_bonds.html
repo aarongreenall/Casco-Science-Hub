@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>9.1.2 Ions and Ionic Bonds - Casco School</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9.1.2 Ions and Ionic Bonds - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -17,132 +19,241 @@
                     }
                 }
             }
-        }
+        };
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
+
+    <!-- MathJax -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], tags: 'ams' },
             svg: { fontCache: 'global' }
         };
     </script>
 </head>
+
 <body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
             <nav id="desktop-nav" class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div id="mobile-menu-overlay">
-        <button id="close-mobile-menu" aria-label="Close mobile menu">&times;</button>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
         <nav>
-            <ul>
-                <li><a href="../../../index.html">Home</a></li>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
                 <li>
-                    <button class="mobile-accordion-btn">KS3</button>
-                    <ul class="mobile-accordion-content">
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
                         <li><a href="../../Year7/index.html">Year 7</a></li>
                         <li><a href="../../Year8/index.html">Year 8</a></li>
                         <li><a href="../index.html">Year 9</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn">KS4</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS4/Biology/index.html">Biology</a></li>
-                        <li><a href="../../../KS4/Chemistry/index.html">Chemistry</a></li>
-                        <li><a href="../../../KS4/Physics/index.html">Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn">KS5</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS5/ib_biology/index.html">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </div>
 
+    <!-- Main Content -->
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <nav class="text-sm mb-4" aria-label="Breadcrumb">
-                <ol class="list-none p-0 inline-flex">
-                    <li class="flex items-center">
-                        <a href="../../../index.html" class="text-casco-main-teal hover:underline">Home</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../../index.html" class="text-casco-main-teal hover:underline">KS3</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../index.html" class="text-casco-main-teal hover:underline">Year 9</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="index.html" class="text-casco-main-teal hover:underline">Unit 9.1: Chemical Bonding</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="text-gray-500">9.1.2 Ions and Ionic Bonds</li>
-                </ol>
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 9</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 9.1 Chemical Bonding</a> &gt;
+                <span class="font-semibold">9.1.2 Ions and Ionic Bonds</span>
             </nav>
-            <h1 class="text-3xl font-bold text-casco-main-teal mb-6">9.1.2 Ions and Ionic Bonds</h1>
-            <p class="text-lg leading-relaxed mb-6">
-                Content for this section is under development. Please check back soon!
-            </p>
-            <div class="prose max-w-none">
-                <p>This page will explain how ionic bonds form between metal and non-metal atoms through the transfer of electrons.</p>
-                <p><strong>Ions:</strong></p>
-                <ul>
-                    <li>An ion is an atom or molecule that has an overall electrical charge.</li>
-                    <li>This happens when an atom loses or gains one or more electrons to achieve a full outer shell.
-                        <ul>
-                            <li><strong>Cations:</strong> Positively charged ions formed when <strong>metal</strong> atoms <strong>lose</strong> electrons.</li>
-                            <li><strong>Anions:</strong> Negatively charged ions formed when <strong>non-metal</strong> atoms <strong>gain</strong> electrons.</li>
-                        </ul>
-                    </li>
-                </ul>
-                <p><strong>Ionic Bonding:</strong></p>
-                <ul>
-                    <li>The electrostatic force of attraction between oppositely charged ions.</li>
-                    <li>It occurs between a <strong>metal</strong> and a <strong>non-metal</strong>.</li>
-                    <li>The metal atom transfers its outer shell electron(s) to the non-metal atom.</li>
-                    <li>This results in the metal atom becoming a positive ion and the non-metal atom becoming a negative ion, both with stable, full outer shells.</li>
-                    <li>These oppositely charged ions are strongly attracted to each other.</li>
-                </ul>
-                <p><strong>Ionic Compounds:</strong></p>
-                <ul>
-                    <li>Substances formed through ionic bonding.</li>
-                    <li>They form giant, three-dimensional lattice structures of alternating positive and negative ions.</li>
-                    <li>Ionic compounds have high melting and boiling points due to the strong electrostatic forces between the ions, which require a lot of energy to overcome.</li>
-                </ul>
-                <p><strong>Example (with dot-and-cross diagrams):</strong></p>
-                <ul>
-                    <li><strong>Sodium Chloride (NaCl):</strong> A sodium atom (metal) transfers its one outer electron to a chlorine atom (non-metal). Sodium becomes Na⁺ and chlorine becomes Cl⁻.</li>
-                </ul>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">9.1.2 Ions and Ionic Bonds</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Describe an ion as an atom which has gained at least one electron to be negatively charged or lost at least one electron to be positively charged.</li>
+                    <li>Describe an ionic bond as an attraction between a positively charged ion and a negatively charged ion.</li>
+                </ol>
             </div>
+
+            <!-- Section on Ions -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">From Atoms to Ions: Gaining and Losing Electrons</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    As we know, atoms are normally electrically neutral. This is because they have the same number of positive protons in their nucleus as they have negative electrons in their shells. However, atoms can gain or lose electrons to achieve a stable, full outer shell. When this happens, an **ion** is formed. An ion is an atom (or group of atoms) that has an overall electrical charge.
+                </p>
+
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: Trading Cards</h4>
+                    <p class="text-lg leading-relaxed">Imagine an atom is a collector trying to get a complete, stable set of trading cards (a full outer electron shell). A **metal atom** might have one or two spare cards it doesn't need for its set. By giving away these spare cards (losing electrons), it achieves a complete set and feels 'positive' about it. A **non-metal atom** might be missing one or two cards. By taking the spare cards (gaining electrons), it completes its set, but now feels like it 'owes' something, giving it a 'negative' status.</p>
+                </div>
+
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Making Positive Ions (Cations)</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    **Metal** atoms tend to **lose** the electrons in their outer shell. When an atom loses negative electrons, it has more positive protons than electrons, so it becomes a **positively charged ion**, also known as a **cation**.
+                </p>
+                <div class="flex flex-col md:flex-row items-center justify-center bg-blue-50 p-4 rounded-lg">
+                    <img src="https://i.ibb.co/yN0G7Bq/ion-formation-Na.png" alt="Formation of a sodium ion" class="rounded-lg shadow-md w-full md:w-1/2" onerror="this.onerror=null;this.src='https://placehold.co/400x300/00BFBF/FFFFFF?text=Sodium+Ion+Formation';">
+                    <div class="md:ml-6 mt-4 md:mt-0">
+                        <p class="text-lg">A sodium atom (Na) has 11 protons (+) and 11 electrons (-). It loses its one outer electron to become stable.</p>
+                        <p class="text-lg mt-2">The resulting sodium ion ($Na^+$) now has 11 protons (+) but only 10 electrons (-). The overall charge is +1.</p>
+                    </div>
+                </div>
+
+                <h4 class="text-xl font-semibold text-gray-800 mt-8 mb-2">Making Negative Ions (Anions)</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    **Non-metal** atoms tend to **gain** electrons to fill their outer shell. When an atom gains negative electrons, it has more electrons than protons, so it becomes a **negatively charged ion**, also known as an **anion**.
+                </p>
+                <div class="flex flex-col md:flex-row items-center justify-center bg-red-50 p-4 rounded-lg">
+                    <img src="https://i.ibb.co/GvLz8qK/ion-formation-Cl.png" alt="Formation of a chloride ion" class="rounded-lg shadow-md w-full md:w-1/2" onerror="this.onerror=null;this.src='https://placehold.co/400x300/009999/FFFFFF?text=Chloride+Ion+Formation';">
+                    <div class="md:ml-6 mt-4 md:mt-0">
+                         <p class="text-lg">A chlorine atom (Cl) has 17 protons (+) and 17 electrons (-). It gains one electron to complete its outer shell.</p>
+                        <p class="text-lg mt-2">The resulting chloride ion ($Cl^-$) now has 17 protons (+) but 18 electrons (-). The overall charge is -1.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section on Ionic Bonds -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">The Ionic Bond: An Attraction of Opposites</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    When a metal and a non-metal react, the metal atom transfers its outer electrons to the non-metal atom. This creates a positive ion and a negative ion. Because opposites attract, these newly formed ions are powerfully drawn to each other. This strong force of attraction between oppositely charged ions is called an **ionic bond**.
+                </p>
+
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: Magnets</h4>
+                    <p class="text-lg leading-relaxed">Think of a positive ion as the North pole of a magnet and a negative ion as the South pole. When you bring them close, they don't physically touch with hooks or glue, but a powerful, invisible force snaps them together. That invisible force is like the **ionic bond**.</p>
+                </div>
+
+                <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-6">
+                    <h4 class="text-xl font-semibold text-center text-gray-800 mb-2">Formation of Sodium Chloride (NaCl)</h4>
+                    <img src="https://i.ibb.co/bF9hYxS/ionic-bond-formation-Na-Cl.png" alt="Formation of an ionic bond between sodium and chlorine" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x300/00BFBF/FFFFFF?text=Ionic+Bond+Formation';">
+                    <p class="mt-2 text-lg text-center">1. Sodium (a metal) transfers its outer electron to Chlorine (a non-metal).<br>2. Sodium becomes a positive ion ($Na^+$) and Chlorine becomes a negative ion ($Cl^-$).<br>3. The oppositely charged ions are strongly attracted to each other, forming an ionic bond.</p>
+                </div>
+            </div>
+
+            <!-- At-Home Experiment -->
+            <div class="bg-green-100 border-t-4 border-green-500 rounded-b text-green-900 px-4 py-3 shadow-md my-8" role="alert">
+                <div class="flex">
+                    <div class="py-1"><svg class="fill-current h-6 w-6 text-green-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zM9 11v4h2v-4h-2zm0-6h2v2h-2V5z"/></svg></div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2">At-Home Experiment: Grow Your Own Salt Crystals</h4>
+                        <p class="mb-4">See a real-life ionic compound form before your eyes! Table salt (sodium chloride) is held together by ionic bonds. By growing crystals, you are creating a giant, organised structure of ions called a lattice.</p>
+                        <p class="font-bold">You will need:</p>
+                        <ul class="list-disc list-inside mb-4">
+                            <li>Table salt</li>
+                            <li>Warm water</li>
+                            <li>A clean glass jar</li>
+                            <li>A pencil or stick</li>
+                            <li>A piece of string</li>
+                            <li>A paperclip or small weight</li>
+                        </ul>
+                        <p class="font-bold">Procedure:</p>
+                        <ol class="list-decimal list-inside mb-4 space-y-1">
+                            <li><span class="font-bold text-red-600">Adult supervision required.</span> Ask an adult to help you with the warm water.</li>
+                            <li>Pour warm water into the jar until it's about three-quarters full.</li>
+                            <li>Stir in salt, one teaspoon at a time, until no more salt will dissolve. You've now made a supersaturated solution!</li>
+                            <li>Tie one end of the string to the middle of the pencil and the other end to the paperclip.</li>
+                            <li>Rest the pencil across the top of the jar so the string hangs down into the salt solution.</li>
+                            <li>Place the jar in a safe, sunny spot where it won't be disturbed.</li>
+                            <li>Observe the jar every day. After a few days, you should see crystals begin to grow on the string!</li>
+                        </ol>
+                        <p class="font-bold">Scientific Explanation:</p>
+                        <p>As the water slowly evaporates, there is less space for the dissolved sodium ($Na^+$) and chloride ($Cl^-$) ions. They start to bond together, arranging themselves into a perfect, repeating cubic pattern called a **giant ionic lattice**. The beautiful crystals you see are made of billions of ions held together by ionic bonds.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Explanation -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Video Explanation: Ions and Ionic Bonding</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/DEVRKk6fi3o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
-        <div class="container mx-auto text-center text-sm">
-            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
-        </div>
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        const hamburger = document.getElementById('hamburger-button');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+
+        hamburger.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        accordionBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>

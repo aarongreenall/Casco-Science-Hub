@@ -1,13 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Placeholder</title>
-    <link rel="stylesheet" href="../../../style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9.7.2 Conservation of Mass and Energy - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
+
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams'
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
-<body>
-    <p>Placeholder for 9.7.2</p>
-    <script src="../../../script.js"></script>
+
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
+        <nav>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../Year7/index.html">Year 7</a></li>
+                        <li><a href="../../Year8/index.html">Year 8</a></li>
+                        <li><a href="../index.html">Year 9</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 9</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 9.7 Chemical Reactions</a> &gt;
+                <span class="font-semibold">9.7.2 Conservation of Mass and Energy</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">9.7.2 Conservation of Mass and Energy</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn that:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>In chemical reactions mass and energy are conserved.</li>
+                </ol>
+            </div>
+
+            <!-- Section: Golden Rules -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">The Two Golden Rules of a Chemical Reaction</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    All chemical reactions, from a simple campfire to the complex reactions in our bodies, are governed by two fundamental laws of the universe. These laws tell us that nothing is ever truly lost during a reaction; it just gets rearranged or transferred.
+                </p>
+            </div>
+
+            <!-- Section: Conservation of Mass -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">The Law of Conservation of Mass</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    This law states that **mass cannot be created or destroyed in a chemical reaction**. This means that the total mass of all the reactants at the start must be exactly equal to the total mass of all the products at the end. The atoms are simply rearranged to form new substances, but no atoms are ever lost or gained.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: LEGO® Bricks</h4>
+                    <p class="text-lg leading-relaxed">
+                        Imagine you have a pile of red and blue LEGO® bricks with a total mass of 500g. You use these bricks to build a house. If you weigh the finished house, its mass will be exactly 500g. No bricks were created or destroyed; they were just rearranged into a new structure. A chemical reaction does the same with atoms.
+                    </p>
+                </div>
+                <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mt-6 mb-6 rounded-lg" role="alert">
+                  <h4 class="font-bold">Misconception Alert: "Lost" Mass</h4>
+                  <p>When a log burns, the ash left behind has much less mass than the original log. It seems like mass has been lost, but it hasn't! The reaction happened in an **open system**, meaning substances could escape. The "missing" mass has turned into gases (carbon dioxide and water vapour) and escaped into the air. If you could perform the reaction in a sealed container (a **closed system**) and weigh everything, including the gases, the total mass would be exactly the same before and after.</p>
+                </div>
+            </div>
+
+            <!-- Section: Conservation of Energy -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">The Law of Conservation of Energy</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    This is another golden rule: **energy cannot be created or destroyed, only transferred from one store to another**. In chemical reactions, we are mainly concerned with the transfer of energy from the **chemical energy store** (in the bonds of the reactants) to other stores, usually heat and light.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Exothermic Reactions</h4>
+                        <p class="text-lg leading-relaxed mb-4">These reactions **release** energy into the surroundings, which get hotter. The products have less chemical energy than the reactants. Combustion (burning) is a classic example.</p>
+                        <img src="https://i.ibb.co/3k5f72j/exothermic-profile.png" alt="Energy profile for an exothermic reaction" class="rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/400x300/009999/FFFFFF?text=Exothermic';">
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Endothermic Reactions</h4>
+                        <p class="text-lg leading-relaxed mb-4">These reactions **absorb** energy from the surroundings, which get colder. The products have more chemical energy than the reactants. Sports injury cold packs are a good example.</p>
+                        <img src="https://i.ibb.co/L5SgqXz/endothermic-profile.png" alt="Energy profile for an endothermic reaction" class="rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/400x300/009999/FFFFFF?text=Endothermic';">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- In-School Investigation -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">In-School Investigation: Proving Conservation of Mass</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    This experiment demonstrates that even when a gas is produced, no mass is lost in a closed system.
+                </p>
+                <p class="text-base leading-relaxed mb-2 font-semibold">You will need:</p>
+                <ul class="list-disc list-inside ml-4 text-base space-y-1 mb-4">
+                    <li>A conical flask</li>
+                    <li>A small amount of vinegar (acetic acid)</li>
+                    <li>A teaspoon of baking soda (sodium bicarbonate)</li>
+                    <li>A balloon</li>
+                    <li>A sensitive mass balance</li>
+                </ul>
+                <p class="text-base leading-relaxed mb-2 font-semibold">Procedure:</p>
+                <ol class="list-decimal list-inside ml-4 text-base space-y-2">
+                    <li>Pour the vinegar into the conical flask.</li>
+                    <li>Carefully put the baking soda into the balloon.</li>
+                    <li>Stretch the neck of the balloon over the neck of the flask, being careful not to let the baking soda fall in yet.</li>
+                    <li>Place the whole setup on the mass balance and record the starting mass.</li>
+                    <li>Lift the balloon to tip the baking soda into the vinegar. The mixture will fizz and the balloon will inflate.</li>
+                    <li>Once the reaction stops, place the flask with the inflated balloon back on the mass balance. Record the final mass.</li>
+                </ol>
+                <p class="text-base leading-relaxed mt-4 font-semibold">Observation:</p>
+                <p>You will see that the mass reading on the balance **does not change**. The gas produced (carbon dioxide) is trapped in the balloon, so its mass is still part of the system. This proves that mass is conserved in the reaction.</p>
+            </div>
+
+            <!-- Video Explanation -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Video Explanation: Conservation of Mass</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/2K6B12i85Ok" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        // Mobile Menu Script
+        const hamburger = document.getElementById('hamburger-button');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+
+        hamburger.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        accordionBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>

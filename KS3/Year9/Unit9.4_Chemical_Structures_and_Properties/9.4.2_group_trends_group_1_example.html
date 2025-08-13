@@ -1,13 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Placeholder</title>
-    <link rel="stylesheet" href="../../../style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9.4.2 Group Trends: Group 1 Example - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
+
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams'
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
-<body>
-    <p>Placeholder for 9.4.2</p>
-    <script src="../../../script.js"></script>
+
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
+        <nav>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../Year7/index.html">Year 7</a></li>
+                        <li><a href="../../Year8/index.html">Year 8</a></li>
+                        <li><a href="../index.html">Year 9</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 9</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 9.4 Chemical Structures and Properties</a> &gt;
+                <span class="font-semibold">9.4.2 Group Trends: Group 1 Example</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">9.4.2 Group Trends: Group 1 Example</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Understand that the groups within the Periodic Table have trends in physical and chemical properties, using Group 1 as an example.</li>
+                </ol>
+            </div>
+
+            <!-- Section: What is a Trend? -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">What is a Trend? The Alkali Metals</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Because the Periodic Table is so well organised, the properties of elements often change in a predictable way as you move around it. A **trend** is a recognisable pattern of change in properties. By studying one group, we can see these trends in action.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Our case study is **Group 1**, also known as the **Alkali Metals**. This group includes Lithium (Li), Sodium (Na), Potassium (K), Rubidium (Rb), and others. As we learned, everything in Group 1 has **one electron in its outer shell**. This single outer electron dominates their chemical behaviour and is the reason they all react in similar ways.
+                </p>
+            </div>
+
+            <!-- Section: Chemical Trend -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">The Chemical Trend: Reactivity with Water</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The most famous chemical property of the alkali metals is their vigorous reaction with water. The key trend is: **Reactivity increases as you go down Group 1.**
+                </p>
+                <div class="grid md:grid-cols-3 gap-6 text-center">
+                    <div class="bg-white p-4 rounded-lg shadow">
+                        <h4 class="text-xl font-semibold text-casco-dark-teal mb-2">Lithium (Li)</h4>
+                        <p>Reacts steadily, fizzing and moving around on the water's surface as it produces hydrogen gas.</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow">
+                        <h4 class="text-xl font-semibold text-casco-dark-teal mb-2">Sodium (Na)</h4>
+                        <p>Reacts much more vigorously. It melts into a silver ball, darts rapidly across the surface, and fizzes intensely.</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow">
+                        <h4 class="text-xl font-semibold text-casco-dark-teal mb-2">Potassium (K)</h4>
+                        <p>Reacts so quickly that the heat produced ignites the hydrogen gas, causing it to burn with a distinctive lilac flame.</p>
+                    </div>
+                </div>
+                <h4 class="text-xl font-semibold text-gray-800 mt-8 mb-2">Why does reactivity increase?</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The reason lies in their atomic structure. To react, a Group 1 metal must lose its single outer electron. As you go down the group, each element has an extra electron shell. This means the outer electron is further away from the positive nucleus and is "shielded" by more inner shells. The attraction from the nucleus is weaker, so the electron is lost much more easily, making the element more reactive.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: A Whisper in a Crowded Room</h4>
+                    <p class="text-lg leading-relaxed">
+                        Imagine the nucleus's pull on its outer electron is like a person whispering. For **Lithium**, the electron is close by in a quiet room; it hears the whisper clearly and is held tightly. For **Potassium**, the electron is much further away, across a noisy, crowded room (the inner electron shells are the "crowd"). The nucleus's whisper is harder to hear, so the electron is not held as tightly and can escape (be lost) much more easily.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section: Physical Trends -->
+            <div class="py-4 mt-8">
+                 <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Physical Trends in Group 1</h3>
+                 <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The physical properties of the alkali metals also show clear trends as you go down the group.
+                 </p>
+                 <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white rounded-lg shadow mt-4">
+                        <thead class="bg-casco-dark-teal text-white">
+                            <tr>
+                                <th class="py-3 px-4 text-left">Element</th>
+                                <th class="py-3 px-4 text-left">Melting Point (°C)</th>
+                                <th class="py-3 px-4 text-left">Boiling Point (°C)</th>
+                                <th class="py-3 px-4 text-left">Density (g/cm³)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700">
+                            <tr class="border-b">
+                                <td class="py-3 px-4 font-semibold">Lithium (Li)</td>
+                                <td class="py-3 px-4">181</td>
+                                <td class="py-3 px-4">1342</td>
+                                <td class="py-3 px-4">0.53</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="py-3 px-4 font-semibold">Sodium (Na)</td>
+                                <td class="py-3 px-4">98</td>
+                                <td class="py-3 px-4">883</td>
+                                <td class="py-3 px-4">0.97</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="py-3 px-4 font-semibold">Potassium (K)</td>
+                                <td class="py-3 px-4">63</td>
+                                <td class="py-3 px-4">760</td>
+                                <td class="py-3 px-4">0.86</td>
+                            </tr>
+                             <tr>
+                                <td class="py-3 px-4 font-semibold">Rubidium (Rb)</td>
+                                <td class="py-3 px-4">39</td>
+                                <td class="py-3 px-4">688</td>
+                                <td class="py-3 px-4">1.53</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    You can see two clear trends here:
+                    <ul class="list-disc list-inside ml-4 text-lg space-y-1">
+                        <li>The **melting and boiling points decrease** as you go down the group. This is because the atoms get larger, and the forces holding them together (metallic bonds) get weaker.</li>
+                        <li>The **density generally increases** as you go down the group. The atoms are getting heavier faster than they are getting bigger.</li>
+                    </ul>
+                </p>
+            </div>
+
+            <!-- In-School Demo -->
+            <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mt-8 rounded-lg" role-alert">
+                <h4 class="font-bold text-xl">Safety Warning: Teacher Demonstration</h4>
+                <p>The reactions of alkali metals with water are very dangerous. They produce a corrosive alkali solution and flammable hydrogen gas. These reactions must **only** be performed by a qualified teacher using the correct safety equipment, including a safety screen, goggles, and tongs. **Never attempt this experiment yourself.**</p>
+            </div>
+
+            <!-- Interactive: Predict the Reaction -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Activity: Predict the Reaction</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    You have seen that reactivity increases from Lithium to Sodium to Potassium. What do you predict will happen when **Rubidium (Rb)**, the next element down the group, is added to water?
+                </p>
+                <div id="prediction-options" class="flex flex-col md:flex-row justify-center gap-4">
+                    <button class="prediction-btn bg-white p-3 rounded-lg shadow hover:bg-gray-200" data-correct="false">It will react less violently</button>
+                    <button class="prediction-btn bg-white p-3 rounded-lg shadow hover:bg-gray-200" data-correct="false">It will react about the same as Potassium</button>
+                    <button class="prediction-btn bg-white p-3 rounded-lg shadow hover:bg-gray-200" data-correct="true">It will react even more violently and explosively</button>
+                </div>
+                <p id="prediction-feedback" class="text-center font-semibold mt-4 h-6"></p>
+                <div id="video-reveal" class="hidden mt-4">
+                    <p class="text-center font-bold mb-2">Correct! Watch what happens:</p>
+                    <div class="w-full h-[30vh] md:h-[40vh]">
+                        <iframe id="reaction-video" src="https://www.youtube.com/embed/L8b-gsy_3-o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Explanation -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Video Explanation: The Alkali Metals</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    This video shows the reactions of the first five alkali metals with water, including the extremely reactive Rubidium and Caesium.
+                </p>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/m55kgyApYrY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        // Predict the Reaction Script
+        const predictionBtns = document.querySelectorAll('.prediction-btn');
+        const feedback = document.getElementById('prediction-feedback');
+        const videoReveal = document.getElementById('video-reveal');
+
+        predictionBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const isCorrect = btn.dataset.correct === 'true';
+                if (isCorrect) {
+                    feedback.textContent = 'Correct!';
+                    feedback.className = 'text-center font-semibold mt-4 h-6 text-green-600';
+                    videoReveal.classList.remove('hidden');
+                } else {
+                    feedback.textContent = 'Not quite, think about the trend!';
+                    feedback.className = 'text-center font-semibold mt-4 h-6 text-red-600';
+                    videoReveal.classList.add('hidden');
+                }
+            });
+        });
+
+        // Mobile Menu Script
+        const hamburger = document.getElementById('hamburger-button');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+
+        hamburger.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        accordionBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>

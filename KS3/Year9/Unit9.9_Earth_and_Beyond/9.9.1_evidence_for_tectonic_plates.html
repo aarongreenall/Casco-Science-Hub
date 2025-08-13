@@ -1,13 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Placeholder</title>
-    <link rel="stylesheet" href="../../../style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9.9.1 Evidence for Tectonic Plates - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
+
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams'
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
-<body>
-    <p>Placeholder for 9.9.1</p>
-    <script src="../../../script.js"></script>
+
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
+        <nav>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../Year7/index.html">Year 7</a></li>
+                        <li><a href="../../Year8/index.html">Year 8</a></li>
+                        <li><a href="../index.html">Year 9</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 9</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 9.9 Earth and Beyond</a> &gt;
+                <span class="font-semibold">9.9.1 Evidence for Tectonic Plates</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">9.9.1 Evidence for Tectonic Plates</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Explain why the jigsaw appearance of continental coasts, location of volcanoes and earthquakes, fossil record and alignment of magnetic materials in the Earth's crust are all evidence for tectonic plates.</li>
+                </ol>
+            </div>
+
+            <!-- Section: Jigsaw Puzzle -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">The Jigsaw Puzzle Earth</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The theory of **Plate Tectonics** states that the Earth's outer layer is broken into large, moving pieces called tectonic plates. This idea grew from an earlier theory called **Continental Drift**, proposed by a scientist named Alfred Wegener in 1912. His first and most intuitive piece of evidence was simple: the continents look like they could fit together like pieces of a giant jigsaw puzzle.
+                </p>
+                <div class="flex justify-center mt-6">
+                     <img src="https://i.ibb.co/hK7Jv4s/jigsaw-continents.png" alt="World map showing the jigsaw fit of South America and Africa" class="rounded-lg shadow-md w-full md:w-4/5" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Jigsaw+Fit';">
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: A Torn Newspaper</h4>
+                    <p class="text-lg leading-relaxed">
+                        If you tear a newspaper page in half, you can perfectly match the jagged edges. Not only that, but the lines of text will also line up across the tear. The matching coastlines and similar rock formations and mountain ranges found on different continents are like the torn edges and matching text, providing strong evidence that they were once connected.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section: Fossil Record -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Clues from the Past: The Fossil Record</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Wegener's theory was strengthened by fossil evidence. Identical fossils of land-dwelling animals and plants have been found on continents that are now separated by thousands of kilometres of ocean.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    For example, fossils of the land reptile *Lystrosaurus* have been found in Antarctica, India, and South Africa. This animal could not have swum across the vast oceans. The only logical explanation is that these continents were once joined together in a single supercontinent, which scientists call **Pangaea**, allowing the animals to walk from one area to the other.
+                </p>
+                <div class="flex justify-center mt-6">
+                     <img src="https://i.ibb.co/L8y8Yyq/pangaea-fossil-evidence.png" alt="A map of Pangaea showing how fossil distributions match across continents" class="rounded-lg shadow-md w-full md:w-4/5" onerror="this.onerror=null;this.src='https://placehold.co/600x400/009999/FFFFFF?text=Fossil+Evidence';">
+                </div>
+            </div>
+
+            <!-- Section: Volcanoes and Earthquakes -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">The Earth's Fiery Footprint: Volcanoes and Earthquakes</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    If you plot the locations of the world's major volcanoes and earthquakes on a map, they don't appear randomly. They form distinct lines and clusters that perfectly outline the edges of the tectonic plates. These plate boundaries are where plates are colliding, pulling apart, or sliding past each other. This movement creates the immense stress and heat that leads to earthquakes and volcanic activity, providing a clear "footprint" of the plates.
+                </p>
+                 <div class="flex justify-center mt-6">
+                     <img src="https://i.ibb.co/3k5fHwY/ring-of-fire-map.png" alt="Map showing the correlation between plate boundaries and earthquake/volcano locations" class="rounded-lg shadow-md w-full md:w-4/5" onerror="this.onerror=null;this.src='https://placehold.co/600x350/00BFBF/FFFFFF?text=Volcanoes+and+Earthquakes';">
+                </div>
+            </div>
+
+            <!-- Section: Magnetic Tape Recorder -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">A Magnetic Tape Recorder: Seafloor Spreading</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The final, conclusive piece of evidence for plate tectonics came from the bottom of the ocean. Scientists discovered that the Earth's magnetic field has "flipped" its polarity many times throughout history.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    At mid-ocean ridges, molten rock (magma) rises from the mantle to form new oceanic crust. As this rock cools, magnetic minerals inside it act like tiny compasses, aligning with the Earth's magnetic field at that time. This process has created a perfectly symmetrical pattern of magnetic "stripes" of normal and reversed polarity on either side of the ridges. This pattern is like a magnetic tape recording of the Earth's history, proving that the seafloor is spreading apart from the centre and pushing the continents with it.
+                </p>
+                 <div class="flex justify-center mt-6">
+                     <img src="https://i.ibb.co/d0h3Vj4/seafloor-spreading-magnetic-stripes.png" alt="Diagram showing symmetrical magnetic stripes on either side of a mid-ocean ridge" class="rounded-lg shadow-md w-full md:w-4/5" onerror="this.onerror=null;this.src='https://placehold.co/600x350/009999/FFFFFF?text=Magnetic+Stripes';">
+                </div>
+            </div>
+
+            <!-- Video Explanation -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Video Explanation: Evidence for Plate Tectonics</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/p-v16kYQfpE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        // Mobile Menu Script
+        const hamburger = document.getElementById('hamburger-button');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+
+        hamburger.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        accordionBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>

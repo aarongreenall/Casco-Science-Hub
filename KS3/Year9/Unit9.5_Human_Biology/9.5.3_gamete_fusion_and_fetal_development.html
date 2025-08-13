@@ -1,13 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Placeholder</title>
-    <link rel="stylesheet" href="../../../style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9.5.3 Gamete Fusion and Fetal Development - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
+
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams'
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
-<body>
-    <p>Placeholder for 9.5.3</p>
-    <script src="../../../script.js"></script>
+
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
+        <nav>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../Year7/index.html">Year 7</a></li>
+                        <li><a href="../../Year8/index.html">Year 8</a></li>
+                        <li><a href="../index.html">Year 9</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 9</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 9.5 Human Biology</a> &gt;
+                <span class="font-semibold">9.5.3 Gamete Fusion and Fetal Development</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">9.5.3 Gamete Fusion and Fetal Development</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Describe the fusion of gametes to produce a fertilised egg with a new combination of DNA.</li>
+                    <li>Discuss how fetal development is affected by the health of the mother, including the effect of diet, smoking and drugs.</li>
+                </ol>
+            </div>
+
+            <!-- Section: Start of a New Life -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">The Start of a New Life: Gametes and Fertilisation</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Sexual reproduction in humans begins with special reproductive cells called **gametes**. The male gamete is the **sperm**, and the female gamete is the **egg** (or ovum). These cells are unique because they contain only half the number of chromosomes of a normal body cell. While a skin cell or muscle cell has 46 chromosomes, a gamete has just 23.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    **Fertilisation** is the moment when the nucleus of a sperm cell fuses with the nucleus of an egg cell. This fusion combines their genetic information.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: Combining Two Half-Cookbooks</h4>
+                    <p class="text-lg leading-relaxed">
+                        Think of the 46 chromosomes in a normal cell as a complete, two-volume cookbook of instructions for building a person. A gamete (sperm or egg) is like having only one of those volumes, containing just half the recipes (23 chromosomes). To create a new, complete cookbook for a new person, you must combine the two half-books—one from the mother (the egg) and one from the father (the sperm).
+                    </p>
+                </div>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The result of this fusion is a single new cell called a **fertilised egg**, or **zygote**. It now has a full set of 46 chromosomes (23 from each parent) and a completely unique combination of DNA. This single cell contains all the instructions needed to grow into a new human being.
+                </p>
+                <div class="flex justify-center mt-6">
+                     <img src="https://i.ibb.co/8Y4nL9j/fertilisation-diagram.png" alt="Diagram showing a sperm and an egg, their fusion, and the resulting zygote" class="rounded-lg shadow-md w-full" onerror="this.onerror=null;this.src='https://placehold.co/800x300/00BFBF/FFFFFF?text=Fertilisation';">
+                </div>
+            </div>
+
+            <!-- Section: Fetal Development -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">From Fertilised Egg to Fetus: A Nine-Month Journey</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    After fertilisation, the zygote begins to divide rapidly, becoming an embryo and then a **fetus**. This development takes place over about nine months inside the mother's **uterus** (womb). The fetus is entirely dependent on the mother for survival.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The **placenta** is a special organ that develops in the uterus during pregnancy. It forms a vital link between the mother and the fetus. The **umbilical cord** connects the fetus to the placenta. Nutrients and oxygen pass from the mother's blood, across the placenta, and to the fetus. Waste products, like carbon dioxide, pass from the fetus back to the mother's blood to be removed.
+                </p>
+                 <div class="flex justify-center mt-6">
+                     <img src="https://i.ibb.co/hL7s9k1/fetus-placenta-diagram.png" alt="Diagram of a fetus in the uterus with the placenta and umbilical cord labelled" class="rounded-lg shadow-md w-full md:w-3/5" onerror="this.onerror=null;this.src='https://placehold.co/400x450/009999/FFFFFF?text=Fetal+Development';">
+                </div>
+            </div>
+
+            <!-- Section: Mother's Health -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">A Healthy Start: How a Mother's Health Affects the Fetus</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Because the fetus gets everything it needs from the mother's blood via the placenta, the mother's health and lifestyle choices have a direct and profound impact on the baby's development.
+                </p>
+                <div class="space-y-4">
+                    <div class="bg-green-100 p-4 rounded-lg">
+                        <h4 class="text-xl font-semibold text-green-800 mb-2">Diet</h4>
+                        <p>A balanced diet rich in nutrients is crucial. For example, calcium is needed for the fetus's bones and teeth to develop, and iron is needed to make healthy red blood cells.</p>
+                    </div>
+                    <div class="bg-yellow-100 p-4 rounded-lg">
+                        <h4 class="text-xl font-semibold text-yellow-800 mb-2">Smoking</h4>
+                        <p>Harmful chemicals in cigarette smoke, like nicotine and carbon monoxide, can cross the placenta. They can restrict the amount of oxygen the fetus receives, which can lead to a low birth weight and other health problems.</p>
+                    </div>
+                    <div class="bg-red-100 p-4 rounded-lg">
+                        <h4 class="text-xl font-semibold text-red-800 mb-2">Drugs (including Alcohol)</h4>
+                        <p>Many drugs, both legal and illegal, can pass through the placenta and harm the fetus. Alcohol consumption during pregnancy can cause serious, lifelong physical and mental problems known as Fetal Alcohol Syndrome. It is safest to avoid alcohol completely during pregnancy.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- In-School Activity -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">In-School Activity: Discussion Scenarios</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    In small groups, discuss the following scenarios. What are the potential risks to the developing fetus in each case? Be ready to share your ideas with the class.
+                </p>
+                <ul class="list-disc list-inside ml-4 text-base space-y-2">
+                    <li>A pregnant woman's diet consists mainly of fast food, crisps, and sugary drinks.</li>
+                    <li>A pregnant woman continues to smoke five cigarettes a day because she finds it helps her relax.</li>
+                    <li>A pregnant woman has a glass of wine with her dinner a few times a week.</li>
+                </ul>
+            </div>
+
+            <!-- Video Explanation -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Video Explanation: Fertilisation and Fetal Development</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/bQy_p43d5R4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        // Mobile Menu Script
+        const hamburger = document.getElementById('hamburger-button');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+
+        hamburger.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        accordionBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>

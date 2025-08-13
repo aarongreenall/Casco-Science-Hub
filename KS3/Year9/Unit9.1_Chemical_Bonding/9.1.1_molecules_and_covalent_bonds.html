@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>9.1.1 Molecules and Covalent Bonds - Casco School</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9.1.1 Molecules and Covalent Bonds - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -17,125 +19,240 @@
                     }
                 }
             }
-        }
+        };
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
+
+    <!-- MathJax -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], tags: 'ams' },
             svg: { fontCache: 'global' }
         };
     </script>
 </head>
+
 <body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
             <nav id="desktop-nav" class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div id="mobile-menu-overlay">
-        <button id="close-mobile-menu" aria-label="Close mobile menu">&times;</button>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
         <nav>
-            <ul>
-                <li><a href="../../../index.html">Home</a></li>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
                 <li>
-                    <button class="mobile-accordion-btn">KS3</button>
-                    <ul class="mobile-accordion-content">
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
                         <li><a href="../../Year7/index.html">Year 7</a></li>
                         <li><a href="../../Year8/index.html">Year 8</a></li>
                         <li><a href="../index.html">Year 9</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn">KS4</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS4/Biology/index.html">Biology</a></li>
-                        <li><a href="../../../KS4/Chemistry/index.html">Chemistry</a></li>
-                        <li><a href="../../../KS4/Physics/index.html">Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn">KS5</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS5/ib_biology/index.html">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </div>
 
+    <!-- Main Content -->
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <nav class="text-sm mb-4" aria-label="Breadcrumb">
-                <ol class="list-none p-0 inline-flex">
-                    <li class="flex items-center">
-                        <a href="../../../index.html" class="text-casco-main-teal hover:underline">Home</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../../index.html" class="text-casco-main-teal hover:underline">KS3</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../index.html" class="text-casco-main-teal hover:underline">Year 9</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="index.html" class="text-casco-main-teal hover:underline">Unit 9.1: Chemical Bonding</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="text-gray-500">9.1.1 Molecules and Covalent Bonds</li>
-                </ol>
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 9</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 9.1 Chemical Bonding</a> &gt;
+                <span class="font-semibold">9.1.1 Molecules and Covalent Bonds</span>
             </nav>
-            <h1 class="text-3xl font-bold text-casco-main-teal mb-6">9.1.1 Molecules and Covalent Bonds</h1>
-            <p class="text-lg leading-relaxed mb-6">
-                Content for this section is under development. Please check back soon!
-            </p>
-            <div class="prose max-w-none">
-                <p>This page will explain how covalent bonds form between non-metal atoms to create molecules.</p>
-                <p><strong>Covalent Bonding:</strong></p>
-                <ul>
-                    <li>A type of chemical bond that involves the <strong>sharing</strong> of electron pairs between atoms.</li>
-                    <li>This type of bonding occurs between <strong>non-metal atoms</strong>.</li>
-                    <li>By sharing electrons, each atom achieves a stable, full outer shell of electrons (like a noble gas).</li>
-                    <li>The shared pair of electrons creates a strong electrostatic attraction between the positive nuclei of the two atoms, holding them together.</li>
-                </ul>
-                <p><strong>Molecules:</strong></p>
-                <ul>
-                    <li>A molecule is a group of two or more atoms held together by covalent bonds.</li>
-                    <li>Molecules are electrically neutral.</li>
-                    <li>Substances made of simple molecules often have low melting and boiling points because the forces between the molecules (intermolecular forces) are weak, even though the covalent bonds within the molecules are strong.</li>
-                </ul>
-                <p><strong>Examples (with dot-and-cross diagrams):</strong></p>
-                <ul>
-                    <li><strong>Hydrogen (H₂):</strong> Each hydrogen atom shares its one electron with the other to form a single covalent bond.</li>
-                    <li><strong>Chlorine (Cl₂):</strong> Each chlorine atom shares one electron from its outer shell to form a single covalent bond.</li>
-                    <li><strong>Water (H₂O):</strong> The oxygen atom shares electrons with two hydrogen atoms.</li>
-                    <li><strong>Methane (CH₄):</strong> The carbon atom shares electrons with four hydrogen atoms.</li>
-                    <li><strong>Oxygen (O₂):</strong> Each oxygen atom shares two electrons, forming a double covalent bond.</li>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">9.1.1 Molecules and Covalent Bonds</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Understand that a molecule is formed when two or more atoms join together chemically, through a covalent bond.</li>
+                    <li>Describe a covalent bond as a bond made when a pair of electrons is shared by two atoms (limited to single bonds).</li>
+                </ol>
+            </div>
+
+            <!-- Section on Molecules -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">What is a Molecule?</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    In chemistry, a **molecule** is a particle made of two or more atoms that are chemically bonded together. Think of atoms as the basic building blocks of everything. When these blocks join together in a specific way, they form a molecule.
+                </p>
+                
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: LEGO® Bricks</h4>
+                    <p class="text-lg leading-relaxed">Imagine atoms are individual LEGO® bricks. You can have a pile of single red bricks, single blue bricks, and so on. A **molecule** is what you get when you click two or more of these bricks together. The strong connection that holds them is the **chemical bond**. You can have a molecule made of two red bricks clicked together, or one made of a red brick and a blue brick clicked together.
+                    </p>
+                </div>
+
+                <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mt-6 mb-6 rounded-lg" role="alert">
+                  <h4 class="font-bold">Misconception Alert!</h4>
+                  <p>A common mistake is thinking that molecules must be made of different types of atoms. This is not true! A molecule of oxygen gas ($O_2$) is a pure substance because it only contains oxygen atoms, but it's still a molecule because two oxygen atoms are chemically bonded together. The key is the **chemical bond**.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8 text-center mt-6">
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Pure Element (Atoms)</h4>
+                        <img src="https://placehold.co/300x300/E0F2F1/009999?text=Atoms" alt="Particle diagram of separate atoms" class="rounded-lg shadow-md w-full h-auto">
+                        <p class="mt-2 text-lg">e.g., Helium (He). All particles are separate, individual atoms.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Pure Element (Molecules)</h4>
+                        <img src="https://placehold.co/300x300/00BFBF/FFFFFF?text=Diatomic+Element" alt="Particle diagram of diatomic molecules" class="rounded-lg shadow-md w-full h-auto">
+                        <p class="mt-2 text-lg">e.g., Oxygen ($O_2$). All particles are identical molecules made of two of the same atom bonded together.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Pure Compound (Molecules)</h4>
+                        <img src="https://placehold.co/300x300/009999/FFFFFF?text=Compound" alt="Particle diagram of a compound" class="rounded-lg shadow-md w-full h-auto">
+                        <p class="mt-2 text-lg">e.g., Water ($H_2O$). All particles are identical molecules made of different atoms bonded together.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section on Covalent Bonds -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">The Covalent Bond: A Sharing Agreement</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    So how do atoms join together? One of the most common ways is by forming a **covalent bond**. This type of bond typically forms between **non-metal atoms**. A covalent bond is formed when two atoms **share** one or more pairs of electrons. By sharing electrons, each atom can achieve a full outer shell, which is a very stable arrangement.
+                </p>
+
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: Sharing a Video Game Controller</h4>
+                    <p class="text-lg leading-relaxed">Imagine two friends (atoms) both want to play a two-player video game, but they each only have one controller. The game needs two controllers to work. If they sit close together and **share** their controllers, they can both play the game. This sharing creates a strong link holding them together so they can play. The shared pair of controllers is like the shared pair of electrons in a covalent bond.</p>
+                </div>
+
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    We can show this sharing using **dot and cross diagrams**. Let's look at how two hydrogen atoms form a covalent bond to make a hydrogen molecule ($H_2$). Each hydrogen atom has one electron. They can share this electron with another hydrogen atom to get a full outer shell of two electrons.
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-8 items-center mt-6">
+                    <div>
+                        <h4 class="text-xl font-semibold text-center text-gray-800 mb-2">Formation of a Hydrogen Molecule ($H_2$)</h4>
+                        <img src="https://i.ibb.co/6gZz6Yc/dot-cross-H2.png" alt="Dot and cross diagram for hydrogen molecule formation" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/400x250/00BFBF/FFFFFF?text=H2+Formation';">
+                        <p class="mt-2 text-lg text-center">The electron shells overlap, and the two atoms share a pair of electrons, forming a stable molecule.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-center text-gray-800 mb-2">Methane Molecule ($CH_4$)</h4>
+                        <img src="https://i.ibb.co/yQdJg4x/dot-cross-CH4.png" alt="Dot and cross diagram for methane" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/400x400/009999/FFFFFF?text=CH4+Molecule';">
+                        <p class="mt-2 text-lg text-center">A central carbon atom shares electrons with four hydrogen atoms, forming four single covalent bonds.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- In-School Activity -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">In-School Activity: Build-a-Molecule</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    Using a molecular modelling kit (or marshmallows for atoms and toothpicks for bonds), work in groups to build the following molecules:
+                </p>
+                <ol class="list-decimal list-inside ml-4 text-base space-y-2">
+                    <li>Water ($H_2O$)</li>
+                    <li>Ammonia ($NH_3$)</li>
+                    <li>Methane ($CH_4$)</li>
+                    <li>Hydrogen ($H_2$)</li>
+                </ol>
+                <p class="text-base leading-relaxed mt-4 font-semibold">Discussion Questions:</p>
+                <ul class="list-disc list-inside ml-4 text-base space-y-1">
+                    <li>What does each part of your model represent (the balls and the sticks)?</li>
+                    <li>What are the strengths of using a model like this to understand molecules?</li>
+                    <li>What are the limitations? (e.g., Do electrons really look like sticks?)</li>
                 </ul>
             </div>
+
+            <!-- Video Explanation -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Video Explanation: Covalent Bonding</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/Zl2R4K3vN5A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
-        <div class="container mx-auto text-center text-sm">
-            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
-        </div>
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        const hamburger = document.getElementById('hamburger-button');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+
+        hamburger.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        accordionBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>

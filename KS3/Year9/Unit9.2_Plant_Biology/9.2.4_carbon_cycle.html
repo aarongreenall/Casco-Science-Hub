@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>9.2.4 Carbon Cycle - Casco School</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9.2.4 The Carbon Cycle - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -17,130 +19,348 @@
                     }
                 }
             }
-        }
+        };
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
+    <style>
+        .example-card {
+            cursor: grab;
+            transition: background-color 0.2s;
+        }
+        .example-card:active {
+            cursor: grabbing;
+        }
+        .process-zone {
+            border: 2px dashed #009999;
+            transition: background-color 0.2s;
+            min-height: 80px;
+        }
+        .process-zone.drag-over {
+            background-color: #cceeee;
+        }
+    </style>
+
+    <!-- MathJax -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams'
+            },
             svg: { fontCache: 'global' }
         };
     </script>
 </head>
+
 <body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
             <nav id="desktop-nav" class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div id="mobile-menu-overlay">
-        <button id="close-mobile-menu" aria-label="Close mobile menu">&times;</button>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
         <nav>
-            <ul>
-                <li><a href="../../../index.html">Home</a></li>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
                 <li>
-                    <button class="mobile-accordion-btn">KS3</button>
-                    <ul class="mobile-accordion-content">
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
                         <li><a href="../../Year7/index.html">Year 7</a></li>
                         <li><a href="../../Year8/index.html">Year 8</a></li>
                         <li><a href="../index.html">Year 9</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn">KS4</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS4/Biology/index.html">Biology</a></li>
-                        <li><a href="../../../KS4/Chemistry/index.html">Chemistry</a></li>
-                        <li><a href="../../../KS4/Physics/index.html">Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn">KS5</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS5/ib_biology/index.html">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </div>
 
+    <!-- Main Content -->
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <nav class="text-sm mb-4" aria-label="Breadcrumb">
-                <ol class="list-none p-0 inline-flex">
-                    <li class="flex items-center">
-                        <a href="../../../index.html" class="text-casco-main-teal hover:underline">Home</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../../index.html" class="text-casco-main-teal hover:underline">KS3</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../index.html" class="text-casco-main-teal hover:underline">Year 9</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="index.html" class="text-casco-main-teal hover:underline">Unit 9.2: Plant Biology</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="text-gray-500">9.2.4 Carbon Cycle</li>
-                </ol>
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 9</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 9.2 Plant Biology</a> &gt;
+                <span class="font-semibold">9.2.4 The Carbon Cycle</span>
             </nav>
-            <h1 class="text-3xl font-bold text-casco-main-teal mb-6">9.2.4 Carbon Cycle</h1>
-            <p class="text-lg leading-relaxed mb-6">
-                Content for this section is under development. Please check back soon!
-            </p>
-            <div class="prose max-w-none">
-                <p>This page will describe the carbon cycle, showing how carbon is recycled in ecosystems.</p>
-                <p><strong>The Carbon Cycle:</strong></p>
-                <p>The carbon cycle is the process by which carbon atoms are continuously cycled between the living (biotic) and non-living (abiotic) parts of the Earth.</p>
-                <p><strong>Key Processes:</strong></p>
-                <ul>
-                    <li>
-                        <strong>Photosynthesis:</strong>
-                        <p>Plants and algae take in carbon dioxide ($CO_2$) from the atmosphere. They use the carbon to make carbohydrates (glucose), which become part of the plant's biomass. This is the main way carbon enters the food chain.</p>
-                    </li>
-                    <li>
-                        <strong>Respiration:</strong>
-                        <p>Plants, animals, and decomposers release energy from their food through respiration. This process releases carbon dioxide back into the atmosphere.</p>
-                    </li>
-                    <li>
-                        <strong>Consumption:</strong>
-                        <p>Animals get carbon by eating plants or other animals.</p>
-                    </li>
-                    <li>
-                        <strong>Decomposition:</strong>
-                        <p>When plants and animals die, decomposers (bacteria and fungi) break down their bodies. This process releases carbon dioxide back into the atmosphere through decomposer respiration.</p>
-                    </li>
-                    <li>
-                        <strong>Combustion:</strong>
-                        <p>Over millions of years, some dead organic matter can form fossil fuels (coal, oil, natural gas). When humans burn these fuels, the stored carbon is released into the atmosphere as carbon dioxide.</p>
-                    </li>
-                </ul>
-                <p>A diagram illustrating the carbon cycle, showing the flows between the atmosphere, plants, animals, and decomposers, is essential for understanding this concept.</p>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">9.2.4 The Carbon Cycle</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Describe the carbon cycle (limited to photosynthesis, respiration, feeding, decomposition and combustion).</li>
+                </ol>
             </div>
+
+            <!-- Section: What is Carbon? -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">What is Carbon and Why Does it Cycle?</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Carbon is one of the most important elements on Earth—it's the fundamental building block of life! Every living thing, from the smallest bacterium to the largest whale, contains carbon. It's in the sugars that give us energy, the proteins that build our muscles, and the DNA that makes us who we are. Carbon is also found in the non-living world, most notably in the atmosphere as **carbon dioxide ($CO_2$)**.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The amount of carbon on Earth is fixed; it doesn't increase or decrease. Therefore, it must be constantly recycled between the atmosphere, the oceans, the land, and living organisms. This continuous movement of carbon is known as the **carbon cycle**.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: Library Books</h4>
+                    <p class="text-lg leading-relaxed">
+                        Think of all the carbon atoms on Earth as a fixed number of books in a giant library. These books are constantly being checked out by different people (organisms), read and used (for life processes), and then returned to the library shelves (the atmosphere or soil) for the next person to use. The books themselves are never created or destroyed, they are just passed around the system.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section: Key Processes -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">The Key Processes of the Carbon Cycle</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The carbon cycle is driven by five key processes that move carbon atoms between different stores.
+                </p>
+                <div class="flex justify-center mt-6 mb-6">
+                     <img src="https://i.ibb.co/C0W2X24/carbon-cycle-diagram.png" alt="A diagram of the carbon cycle showing photosynthesis, respiration, decomposition, feeding and combustion" class="rounded-lg shadow-md w-full" onerror="this.onerror=null;this.src='https.placehold.co/800x500/00BFBF/FFFFFF?text=The+Carbon+Cycle';">
+                </div>
+                <ol class="list-decimal list-inside space-y-4 text-lg">
+                    <li><strong>Photosynthesis:</strong> This is how carbon enters the living part of the cycle. Plants take in carbon dioxide from the atmosphere and use it to make glucose (food). This locks atmospheric carbon into the plant's structure.</li>
+                    <li><strong>Respiration:</strong> This is a major way carbon returns to the atmosphere. Both plants and animals carry out respiration to release energy from glucose, and in the process, they breathe out carbon dioxide.</li>
+                    <li><strong>Feeding (Consumption):</strong> Carbon moves from one organism to another through the food chain. When a herbivore eats a plant, the carbon from the plant becomes part of the herbivore's body. When a carnivore eats the herbivore, the carbon is transferred again.</li>
+                    <li><strong>Decomposition:</strong> When plants and animals die, decomposers like bacteria and fungi go to work. They break down the dead organic matter, and as they respire, they release the carbon back into the atmosphere and soil.</li>
+                    <li><strong>Combustion:</strong> This means burning. When we burn fossil fuels (coal, oil, and natural gas), which are the carbon-rich remains of ancient organisms, the carbon that was stored underground for millions of years is released very quickly into the atmosphere as carbon dioxide.</li>
+                </ol>
+            </div>
+
+            <!-- Interactive Cycle Sorter -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Activity: Cycle Sorter</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    Drag each example from the pool at the bottom into the correct process box.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                    <div class="bg-white p-2 rounded-lg shadow">
+                        <h5 class="font-bold text-center bg-green-200 p-1 rounded">Photosynthesis</h5>
+                        <div id="photosynthesis-zone" data-process="photosynthesis" class="process-zone p-2 space-y-2"></div>
+                    </div>
+                    <div class="bg-white p-2 rounded-lg shadow">
+                        <h5 class="font-bold text-center bg-blue-200 p-1 rounded">Respiration</h5>
+                        <div id="respiration-zone" data-process="respiration" class="process-zone p-2 space-y-2"></div>
+                    </div>
+                    <div class="bg-white p-2 rounded-lg shadow">
+                        <h5 class="font-bold text-center bg-yellow-200 p-1 rounded">Feeding</h5>
+                        <div id="feeding-zone" data-process="feeding" class="process-zone p-2 space-y-2"></div>
+                    </div>
+                    <div class="bg-white p-2 rounded-lg shadow">
+                        <h5 class="font-bold text-center bg-orange-200 p-1 rounded">Decomposition</h5>
+                        <div id="decomposition-zone" data-process="decomposition" class="process-zone p-2 space-y-2"></div>
+                    </div>
+                    <div class="bg-white p-2 rounded-lg shadow">
+                        <h5 class="font-bold text-center bg-red-200 p-1 rounded">Combustion</h5>
+                        <div id="combustion-zone" data-process="combustion" class="process-zone p-2 space-y-2"></div>
+                    </div>
+                </div>
+                <!-- Card Pool -->
+                <div id="example-card-pool" class="mt-4 p-4 bg-gray-200 rounded-lg flex flex-wrap items-start justify-center gap-2">
+                    <div data-process="feeding" draggable="true" class="example-card bg-white p-2 rounded shadow text-sm">A lion eats a zebra.</div>
+                    <div data-process="combustion" draggable="true" class="example-card bg-white p-2 rounded shadow text-sm">A factory burns coal for power.</div>
+                    <div data-process="photosynthesis" draggable="true" class="example-card bg-white p-2 rounded shadow text-sm">An oak tree makes glucose.</div>
+                    <div data-process="respiration" draggable="true" class="example-card bg-white p-2 rounded shadow text-sm">You breathe out carbon dioxide.</div>
+                    <div data-process="decomposition" draggable="true" class="example-card bg-white p-2 rounded shadow text-sm">Fungi break down a dead log.</div>
+                    <div data-process="feeding" draggable="true" class="example-card bg-white p-2 rounded shadow text-sm">A rabbit eats lettuce.</div>
+                    <div data-process="combustion" draggable="true" class="example-card bg-white p-2 rounded shadow text-sm">A car burns petrol.</div>
+                </div>
+                 <!-- Controls and Feedback -->
+                <div class="mt-4 text-center">
+                    <button id="check-cycle-btn" class="bg-casco-main-teal text-white font-bold py-2 px-6 rounded-lg shadow-md hover:bg-casco-dark-teal transition-colors">Check Answers</button>
+                    <button id="reset-cycle-btn" class="bg-gray-500 text-white font-bold py-2 px-6 rounded-lg shadow-md hover:bg-gray-600 transition-colors ml-2">Reset</button>
+                    <p id="cycle-feedback-msg" class="mt-3 h-6 text-lg font-semibold"></p>
+                </div>
+            </div>
+
+            <!-- Section: Balancing the Cycle -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Balancing the Cycle</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    For thousands of years, the carbon cycle was naturally balanced. The amount of $CO_2$ removed by photosynthesis was roughly equal to the amount returned by respiration and decomposition. However, human activities, especially the widespread **combustion** of fossil fuels since the Industrial Revolution, have started to disrupt this balance. We are adding extra carbon dioxide to the atmosphere much faster than plants can remove it.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: A Bathtub</h4>
+                    <p class="text-lg leading-relaxed">
+                        Imagine the amount of $CO_2$ in the atmosphere is the water level in a bathtub.
+                        <br>• <strong>Photosynthesis</strong> is the drain, constantly removing water.
+                        <br>• <strong>Respiration and decomposition</strong> are the main tap, adding water back in.
+                        <br>For a long time, the tap and the drain were balanced, and the water level stayed the same. Now, **combustion** is like turning on a second, high-powered tap. More water is flowing in than the drain can handle, so the water level in the tub is rising.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Video Explanation -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Video Explanation: The Carbon Cycle</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/A42W23gS-sI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
-        <div class="container mx-auto text-center text-sm">
-            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
-        </div>
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        // Cycle Sorter Interactive Script
+        const exampleCards = document.querySelectorAll('.example-card');
+        const processZones = document.querySelectorAll('.process-zone');
+        const exampleCardPool = document.getElementById('example-card-pool');
+        const checkCycleBtn = document.getElementById('check-cycle-btn');
+        const resetCycleBtn = document.getElementById('reset-cycle-btn');
+        const cycleFeedbackMsg = document.getElementById('cycle-feedback-msg');
+
+        let draggedCycleItem = null;
+
+        exampleCards.forEach(card => {
+            card.addEventListener('dragstart', e => {
+                draggedCycleItem = card;
+                setTimeout(() => { card.style.display = 'none'; }, 0);
+            });
+            card.addEventListener('dragend', e => {
+                setTimeout(() => { draggedCycleItem.style.display = 'block'; draggedCycleItem = null; }, 0);
+            });
+        });
+
+        processZones.forEach(zone => {
+            zone.addEventListener('dragover', e => {
+                e.preventDefault();
+                zone.classList.add('drag-over');
+            });
+            zone.addEventListener('dragleave', e => {
+                zone.classList.remove('drag-over');
+            });
+            zone.addEventListener('drop', e => {
+                e.preventDefault();
+                zone.classList.remove('drag-over');
+                zone.appendChild(draggedCycleItem);
+            });
+        });
+        
+        exampleCardPool.addEventListener('dragover', e => e.preventDefault());
+        exampleCardPool.addEventListener('drop', e => {
+            e.preventDefault();
+            exampleCardPool.appendChild(draggedCycleItem);
+        });
+
+        checkCycleBtn.addEventListener('click', () => {
+            let allSortedCorrectly = true;
+            processZones.forEach(zone => {
+                for (const card of zone.children) {
+                    if (card.dataset.process !== zone.dataset.process) {
+                        allSortedCorrectly = false;
+                        card.style.border = '2px solid red';
+                    } else {
+                        card.style.border = '2px solid green';
+                    }
+                }
+            });
+            
+            if (exampleCardPool.children.length > 0) {
+                 allSortedCorrectly = false;
+            }
+
+            if (allSortedCorrectly) {
+                cycleFeedbackMsg.textContent = 'Excellent! You sorted them all correctly.';
+                cycleFeedbackMsg.className = 'mt-3 h-6 text-lg font-semibold text-green-600';
+            } else {
+                cycleFeedbackMsg.textContent = 'Not quite right. Check the cards with red borders.';
+                cycleFeedbackMsg.className = 'mt-3 h-6 text-lg font-semibold text-red-600';
+            }
+        });
+
+        resetCycleBtn.addEventListener('click', () => {
+            processZones.forEach(zone => {
+                while (zone.firstChild) {
+                    zone.firstChild.style.border = 'none';
+                    exampleCardPool.appendChild(zone.firstChild);
+                }
+            });
+            cycleFeedbackMsg.textContent = '';
+        });
+
+        // Mobile Menu Script
+        const hamburger = document.getElementById('hamburger-button');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+
+        hamburger.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        accordionBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>

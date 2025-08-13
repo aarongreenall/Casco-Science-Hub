@@ -1,13 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Placeholder</title>
-    <link rel="stylesheet" href="../../../style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9.8.2 Natural Selection - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
+
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams'
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
-<body>
-    <p>Placeholder for 9.8.2</p>
-    <script src="../../../script.js"></script>
+
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
+        <nav>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../Year7/index.html">Year 7</a></li>
+                        <li><a href="../../Year8/index.html">Year 8</a></li>
+                        <li><a href="../index.html">Year 9</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 9</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 9.8 Species and Their Environments</a> &gt;
+                <span class="font-semibold">9.8.2 Natural Selection</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">9.8.2 Natural Selection</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Describe the scientific theory of natural selection and how it relates to genetic changes over time.</li>
+                </ol>
+            </div>
+
+            <!-- Section: It's Not "Just" a Theory! -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">It's Not "Just" a Theory!</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    You might hear someone dismiss an idea by saying, "it's just a theory." In everyday language, this means it's a guess or a hunch. In science, a **scientific theory** is the exact opposite. It is our highest level of understanding—a comprehensive, well-substantiated explanation for a wide range of facts, which has been repeatedly tested and confirmed through experiments and evidence.
+                </p>
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">The Shift from "Law" to "Theory"</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    In the past, scientists often called their biggest ideas "Laws," like **Newton's Law of Gravity**. The word "Law" suggested it was a final, unbreakable rule. However, science is always learning. While Newton's Law is incredibly accurate for most situations, precise measurements later showed it couldn't perfectly predict the orbit of the planet Mercury.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Later, Albert Einstein developed the **Theory of General Relativity**, a more complete explanation for gravity that *did* perfectly predict Mercury's orbit. This doesn't mean Newton was "wrong"—his laws are so good that we still use them to plan space travel to Mars! But for technology that needs extreme precision, like GPS satellites, we *must* use Einstein's theory, or our navigation would be wrong by several kilometres every day.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Because of this, scientists now prefer the word **Theory**. It's more honest and useful. It represents the best, most complete explanation we have, based on all the evidence, while acknowledging that it can be refined if new, measurable data comes along.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">The Power of a Theory: The Feynman Test</h4>
+                    <p class="text-lg leading-relaxed italic">
+                        "It doesn't matter how beautiful your theory is, it doesn't matter how smart you are. If it doesn't agree with experiment, it's wrong."
+                    </p>
+                    <p class="text-right text-lg font-semibold">- Richard Feynman, Physicist</p>
+                    <p class="text-lg leading-relaxed mt-2">
+                        This is why scientific theories are so powerful. The **Theory of Natural Selection**, like the **Theory of General Relativity**, has survived over 150 years of rigorous testing and agrees with all the evidence we have found. It is the bedrock of modern biology.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section: Introducing Natural Selection -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Introducing Natural Selection</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    **Natural selection** is the main process that drives evolution. It is the process where organisms that have inherited traits (due to genetic variation) that make them better suited to their environment are more likely to survive, reproduce, and pass those advantageous traits on to their offspring.
+                </p>
+                <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mt-6 mb-6 rounded-lg" role="alert">
+                  <h4 class="font-bold">A Crucial Point: Generations, not Individuals</h4>
+                  <p>Natural selection acts on **populations over many generations**. An individual organism cannot change its genes or "evolve" during its lifetime. An ape did not turn into a human; rather, over millions of years, tiny changes in the offspring of ape-like ancestors, one generation at a time, led to the evolution of humans.</p>
+                </div>
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Case Study: The Peppered Moths of England</h4>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Before the Industrial Revolution in England, most peppered moths were a light, speckled colour, providing excellent camouflage against lichen-covered trees. A rare dark form existed but was easily spotted and eaten by birds. When factories released soot that blackened the trees, the roles reversed. The light moths became easy targets, while the dark moths were now camouflaged. The dark moths were more likely to survive and reproduce, passing on their genes. Over generations, the dark form became the most common in industrial areas. The environment had "selected" for the dark trait.
+                </p>
+                <div class="flex justify-center mt-6">
+                     <img src="https://i.ibb.co/L8y2wXW/peppered-moths-camouflage.jpg" alt="A light and a dark peppered moth on a sooty tree trunk" class="rounded-lg shadow-md w-full md:w-4/5" onerror="this.onerror=null;this.src='https://placehold.co/600x300/00BFBF/FFFFFF?text=Peppered+Moths';">
+                </div>
+            </div>
+
+            <!-- Section: The Four Steps -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">The Four Steps of Natural Selection</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The theory can be broken down into four logical steps, using rabbits and foxes as an example:
+                </p>
+                <ol class="list-decimal list-inside space-y-4 text-lg">
+                    <li><strong>Variation:</strong> Within a rabbit population, there is a range of inherited traits. Some rabbits are born slightly faster than others, or with fur that provides better camouflage.</li>
+                    <li><strong>Competition:</strong> Rabbits produce more offspring than can possibly survive, leading to a "struggle for existence." They compete for food and face pressure from predators like foxes.</li>
+                    <li><strong>Survival of the Fittest:</strong> "Fittest" means best adapted. The faster rabbits or those with better camouflage are more likely to escape the foxes and survive.</li>
+                    <li><strong>Reproduction:</strong> The survivors reproduce, passing their advantageous genes (for speed or camouflage) to their offspring. Over many generations, these traits become more common in the population.</li>
+                </ol>
+            </div>
+
+            <!-- Section: Galapagos -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">A Window into Evolution: The Galápagos Finches</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Evolution can be hard to see because it happens over such long timescales. However, in animals and plants with short lifespans and fast reproduction, we can see the outcomes of natural selection more clearly. Even minuscule changes in each generation can add up to significant differences over a period of recorded history.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The Galápagos Islands provided a perfect natural laboratory for Charles Darwin. He observed that finches on different islands had distinctly different beak shapes. He realised each beak was perfectly adapted to the main food source on its island—strong beaks for cracking nuts, sharp beaks for eating insects. This was powerful evidence that the finches had evolved from a common ancestor, with each population adapting to its specific environment over many generations.
+                </p>
+                <div class="flex justify-center mt-6">
+                     <img src="https://i.ibb.co/Fz6w1Bw/galapagos-finches-beaks.png" alt="Illustration of different finch beaks adapted for different foods" class="rounded-lg shadow-md w-full md:w-4/5" onerror="this.onerror=null;this.src='https://placehold.co/600x400/009999/FFFFFF?text=Darwin%27s+Finches';">
+                </div>
+            </div>
+
+            <!-- In-School Research Project -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">In-School Research Project: Darwin's Voyage</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    Use textbooks or reliable internet sources to research Charles Darwin and his journey.
+                </p>
+                <p class="text-base leading-relaxed mb-2 font-semibold">Guiding Questions:</p>
+                <ul class="list-disc list-inside ml-4 text-base space-y-1">
+                    <li>Who was Charles Darwin and what was the name of his famous ship?</li>
+                    <li>What key observations did he make about the finches and tortoises on the different Galápagos Islands?</li>
+                    <li>How did these observations help him develop his Theory of Natural Selection?</li>
+                    <li>What was the name of the famous book he published with his ideas?</li>
+                </ul>
+            </div>
+
+            <!-- Interactive Lab: PhET -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Lab: Natural Selection Simulation</h4>
+                <p class="text-base leading-relaxed mb-4 font-semibold">Use this simulation to see natural selection happen in real-time!</p>
+                <ol class="list-decimal list-inside ml-4 text-base space-y-2">
+                    <li>Go to the 'Intro' tab and click 'Add a Mate' to start your rabbit population.</li>
+                    <li>Let the simulation run for a few generations in the 'Equator' (green) environment. What happens?</li>
+                    <li>Switch the environment to 'Arctic' (white). Observe for several generations. Which fur colour is now a disadvantage?</li>
+                    <li>Reset, and in the 'Arctic' environment, add a 'Selection Factor' by clicking 'Wolves'. Let it run for at least 5 generations. What happens to the proportion of white vs. brown rabbits? You are watching the environment "select" for the best-adapted trait!</li>
+                </ol>
+                <div class="w-full h-[75vh] mt-4">
+                    <iframe src="https://phet.colorado.edu/sims/html/natural-selection/latest/natural-selection_en.html" allow="fullscreen" class="w-full h-full rounded-lg shadow-md border-2 border-casco-dark-teal"></iframe>
+                </div>
+            </div>
+
+            <!-- Video Explanation -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Video Explanation: Natural Selection</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/0-5i3K16deU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        // Mobile Menu Script
+        const hamburger = document.getElementById('hamburger-button');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+
+        hamburger.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        accordionBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>

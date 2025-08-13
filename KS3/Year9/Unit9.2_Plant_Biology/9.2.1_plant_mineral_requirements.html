@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>9.2.1 Plant Mineral Requirements - Casco School</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9.2.1 Plant Mineral Requirements - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -17,138 +19,240 @@
                     }
                 }
             }
-        }
+        };
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
+
+    <!-- MathJax -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], tags: 'ams' },
             svg: { fontCache: 'global' }
         };
     </script>
 </head>
+
 <body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
             <nav id="desktop-nav" class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div id="mobile-menu-overlay">
-        <button id="close-mobile-menu" aria-label="Close mobile menu">&times;</button>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
         <nav>
-            <ul>
-                <li><a href="../../../index.html">Home</a></li>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
                 <li>
-                    <button class="mobile-accordion-btn">KS3</button>
-                    <ul class="mobile-accordion-content">
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
                         <li><a href="../../Year7/index.html">Year 7</a></li>
                         <li><a href="../../Year8/index.html">Year 8</a></li>
                         <li><a href="../index.html">Year 9</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn">KS4</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS4/Biology/index.html">Biology</a></li>
-                        <li><a href="../../../KS4/Chemistry/index.html">Chemistry</a></li>
-                        <li><a href="../../../KS4/Physics/index.html">Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn">KS5</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS5/ib_biology/index.html">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </div>
 
+    <!-- Main Content -->
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <nav class="text-sm mb-4" aria-label="Breadcrumb">
-                <ol class="list-none p-0 inline-flex">
-                    <li class="flex items-center">
-                        <a href="../../../index.html" class="text-casco-main-teal hover:underline">Home</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../../index.html" class="text-casco-main-teal hover:underline">KS3</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../index.html" class="text-casco-main-teal hover:underline">Year 9</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="index.html" class="text-casco-main-teal hover:underline">Unit 9.2: Plant Biology</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="text-gray-500">9.2.1 Plant Mineral Requirements</li>
-                </ol>
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 9</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 9.2 Plant Biology</a> &gt;
+                <span class="font-semibold">9.2.1 Plant Mineral Requirements</span>
             </nav>
-            <h1 class="text-3xl font-bold text-casco-main-teal mb-6">9.2.1 Plant Mineral Requirements</h1>
-            <p class="text-lg leading-relaxed mb-6">
-                Content for this section is under development. Please check back soon!
-            </p>
-            <div class="prose max-w-none">
-                <p>This page will explain why plants need certain mineral ions for healthy growth and the signs of mineral deficiencies.</p>
-                <p><strong>Essential Mineral Ions:</strong></p>
-                <p>Plants absorb mineral ions from the soil through their root hair cells. These are essential for building larger molecules and carrying out life processes.</p>
-                <table class="w-full text-left border-collapse">
-                    <thead>
-                        <tr>
-                            <th class="border p-2">Mineral Ion</th>
-                            <th class="border p-2">Function</th>
-                            <th class="border p-2">Deficiency Symptoms</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="border p-2"><strong>Nitrates (containing Nitrogen)</strong></td>
-                            <td class="border p-2">Needed to make amino acids, which are the building blocks of proteins. Proteins are essential for growth.</td>
-                            <td class="border p-2">Stunted growth, older leaves turn yellow.</td>
-                        </tr>
-                        <tr>
-                            <td class="border p-2"><strong>Phosphates (containing Phosphorus)</strong></td>
-                            <td class="border p-2">Needed for respiration and growth. Part of DNA and cell membranes.</td>
-                            <td class="border p-2">Poor root growth, younger leaves turn purple.</td>
-                        </tr>
-                        <tr>
-                            <td class="border p-2"><strong>Potassium</strong></td>
-                            <td class="border p-2">Helps enzymes to work in photosynthesis and respiration.</td>
-                            <td class="border p-2">Yellow leaves with dead spots.</td>
-                        </tr>
-                        <tr>
-                            <td class="border p-2"><strong>Magnesium</strong></td>
-                            <td class="border p-2">Needed to make chlorophyll, the green pigment that absorbs light for photosynthesis.</td>
-                            <td class="border p-2">Yellowing of leaves between the veins (chlorosis).</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p>Fertilizers are often used in agriculture to replenish these essential minerals in the soil.</p>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">9.2.1 Plant Mineral Requirements</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Know that plants require minerals to maintain healthy growth and life processes (limited to magnesium to make chlorophyll and nitrates to make protein).</li>
+                </ol>
             </div>
+
+            <!-- Section: More Than Just Sunlight -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">More Than Just Sunlight and Water</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    We know that plants make their own food (glucose) through photosynthesis, using sunlight, water, and carbon dioxide. This provides the plant with energy. But that's not the whole story! To grow strong and healthy, build new cells, and carry out all its life processes, a plant must absorb essential **minerals** from the soil through its roots. These minerals are dissolved in water in the soil and are just as vital as sunlight.
+                </p>
+                
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: A Baker's Kitchen</h4>
+                    <p class="text-lg leading-relaxed">
+                        Think of a baker making a cake. The flour, sugar, and eggs are the main ingredients that provide the cake's structure and energy (like the glucose from photosynthesis). But to make a truly great cake, the baker needs special ingredients in smaller amounts, like vanilla extract for flavour or baking powder to help it rise. **Minerals are the plant's special ingredients.** They are needed in small amounts but are essential for very important jobs. Without them, the plant cannot grow properly.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section: Two Vital Minerals -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Two Vital Minerals: Magnesium and Nitrates</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    While plants need many different minerals, we are going to focus on two of the most important ones: magnesium and nitrates.
+                </p>
+
+                <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Magnesium (Mg) - The Heart of Chlorophyll</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    Magnesium's most important job is to be the central atom in a molecule of **chlorophyll**. Chlorophyll is the green pigment in leaves that absorbs sunlight for photosynthesis. Without magnesium, the plant simply cannot make chlorophyll.
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong>Consequence of Deficiency:</strong> A lack of magnesium causes the leaves to turn yellow, a condition known as **chlorosis**. The plant can't photosynthesise properly, leading to poor, stunted growth.
+                </p>
+                <div class="flex justify-center">
+                    <img src="https://i.ibb.co/JkR9C12/magnesium-deficiency.jpg" alt="A healthy green leaf next to a leaf yellowed by magnesium deficiency" class="rounded-lg shadow-md w-full md:w-3/4" onerror="this.onerror=null;this.src='https.placehold.co/600x300/00BFBF/FFFFFF?text=Magnesium+Deficiency';">
+                </div>
+
+                <h4 class="text-xl font-semibold text-gray-800 mt-8 mb-2">Nitrates ($NO_3^−$) - The Protein Builders</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    Plants absorb **nitrates** from the soil to get the element nitrogen. Nitrogen is a vital component for making **proteins**. Proteins are the fundamental building blocks of life, used to create new cells, enzymes, and all the structures a plant needs to grow taller and stronger.
+                </p>
+                 <p class="text-lg leading-relaxed mb-4">
+                    <strong>Consequence of Deficiency:</strong> A plant lacking nitrates will suffer from very poor growth. It will be small and stunted, with weak stems and older leaves that turn a pale yellowy-green.
+                </p>
+                <div class="flex justify-center">
+                    <img src="https://i.ibb.co/k3vWJg6/nitrate-deficiency.jpg" alt="A tall, healthy plant next to a small, stunted plant with nitrate deficiency" class="rounded-lg shadow-md w-full md:w-3/4" onerror="this.onerror=null;this.src='https://placehold.co/600x300/009999/FFFFFF?text=Nitrate+Deficiency';">
+                </div>
+            </div>
+
+            <!-- Summary Table -->
+            <div class="py-4 mt-8">
+                 <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Summary: Mineral Deficiencies</h3>
+                 <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white rounded-lg shadow mt-4">
+                        <thead class="bg-casco-dark-teal text-white">
+                            <tr>
+                                <th class="py-3 px-4 text-left">Mineral</th>
+                                <th class="py-3 px-4 text-left">Role in the Plant</th>
+                                <th class="py-3 px-4 text-left">Signs of Deficiency</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700">
+                            <tr class="border-b">
+                                <td class="py-3 px-4 font-semibold">Magnesium (Mg)</td>
+                                <td class="py-3 px-4">A core part of the chlorophyll molecule; needed to absorb light.</td>
+                                <td class="py-3 px-4">Yellowing of leaves, especially between the veins (chlorosis). Stunted growth.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 font-semibold">Nitrates ($NO_3^−$)</td>
+                                <td class="py-3 px-4">Provides nitrogen needed to build proteins for new cells and growth.</td>
+                                <td class="py-3 px-4">Poor overall growth (stunted). Weak stem and pale, yellow-green older leaves.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- In-School Investigation -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">In-School Investigation: What's Wrong With My Plant?</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    Work in groups. Your teacher will provide you with high-quality photographs of plants that are not healthy. Acting as "plant doctors," your group must:
+                </p>
+                <ol class="list-decimal list-inside ml-4 text-base space-y-2">
+                    <li>Observe the visual symptoms of each plant carefully.</li>
+                    <li>Diagnose the problem: is it suffering from a **magnesium deficiency** or a **nitrate deficiency**?</li>
+                    <li>Write down your diagnosis and be ready to justify it to the class using evidence from the photograph.</li>
+                </ol>
+                <p class="text-base leading-relaxed mt-4 font-semibold">Discussion:</p>
+                <p>Why do farmers and gardeners often add fertilisers to their soil? How does this relate to what we've learned today?</p>
+            </div>
+
+            <!-- Video Explanation -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Video Explanation: Plant Mineral Deficiencies</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/a-bX3K2Cq6c" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
-        <div class="container mx-auto text-center text-sm">
-            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
-        </div>
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        const hamburger = document.getElementById('hamburger-button');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+
+        hamburger.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        accordionBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>

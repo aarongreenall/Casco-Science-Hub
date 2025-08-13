@@ -1,13 +1,341 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Placeholder</title>
-    <link rel="stylesheet" href="../../../style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9.4.4 Density and Calculations - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
+
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams'
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
-<body>
-    <p>Placeholder for 9.4.4</p>
-    <script src="../../../script.js"></script>
+
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
+        <nav>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../Year7/index.html">Year 7</a></li>
+                        <li><a href="../../Year8/index.html">Year 8</a></li>
+                        <li><a href="../index.html">Year 9</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 9</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 9.4 Chemical Structures and Properties</a> &gt;
+                <span class="font-semibold">9.4.4 Density and Calculations</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">9.4.4 Density and Calculations</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Describe how the density of a substance relates to its mass in a defined volume.</li>
+                    <li>Calculate and compare densities of solids, liquids and gases.</li>
+                    <li>Use density to explain why objects float or sink in water.</li>
+                </ol>
+            </div>
+
+            <!-- Section: What is Density? -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">What is Density?</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Which is heavier: a kilogram of feathers or a kilogram of rocks? It's a trick question—they both have a mass of one kilogram! The difference is the amount of space they take up. The rocks are much more compact. This property of how much "stuff" (mass) is packed into a certain amount of space (volume) is called **density**.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: Two Suitcases</h4>
+                    <p class="text-lg leading-relaxed">
+                        Imagine you have two identical suitcases (they have the same volume). You pack one completely full of fluffy feathers. You pack the other one with heavy rocks. The suitcase of rocks has far more mass packed into the same amount of space, so it is much more **dense** than the suitcase of feathers.
+                    </p>
+                </div>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    We can calculate density using a simple formula.
+                </p>
+                <div class="bg-blue-100 border-l-4 border-blue-500 text-blue-800 p-4 my-6 rounded-lg text-center">
+                    <p class="text-2xl font-semibold">Density = $\frac{\text{Mass}}{\text{Volume}}$</p>
+                    <p class="text-xl font-mono mt-2">$\rho = \frac{m}{V}$</p>
+                    <p class="mt-2">The standard units for density are grams per cubic centimetre (g/cm³).</p>
+                </div>
+            </div>
+
+            <!-- Section: How to Calculate Density -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">How to Calculate Density</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    To calculate density, we need to find two things: the mass and the volume of an object.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Example 1: A Regular Solid</h4>
+                        <p class="mb-2">Let's find the density of a wooden block.</p>
+                        <ol class="list-decimal list-inside space-y-1">
+                            <li><strong>Find the mass:</strong> Use a balance. Let's say it's <strong>80 g</strong>.</li>
+                            <li><strong>Find the volume:</strong> Use a ruler. If the block is 5 cm long, 4 cm wide, and 2 cm high, its volume is 5 x 4 x 2 = <strong>40 cm³</strong>.</li>
+                            <li><strong>Calculate density:</strong><br>Density = 80 g / 40 cm³ = <strong>2 g/cm³</strong>.</li>
+                        </ol>
+                    </div>
+                    <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Example 2: An Irregular Solid</h4>
+                        <p class="mb-2">Let's find the density of a stone.</p>
+                        <ol class="list-decimal list-inside space-y-1">
+                            <li><strong>Find the mass:</strong> Use a balance. Let's say it's <strong>90 g</strong>.</li>
+                            <li><strong>Find the volume:</strong> Use water displacement. A measuring cylinder has 50 cm³ of water. After adding the stone, the level rises to 80 cm³. The volume of the stone is 80 - 50 = <strong>30 cm³</strong>.</li>
+                            <li><strong>Calculate density:</strong><br>Density = 90 g / 30 cm³ = <strong>3 g/cm³</strong>.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Section: Why Do Things Float? -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Why Do Things Float?</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Density explains why some things float and others sink. The rule is simple:
+                </p>
+                <ul class="list-disc list-inside ml-4 text-lg space-y-2">
+                    <li>An object will **float** if it is **less dense** than the fluid (liquid or gas) it is placed in.</li>
+                    <li>An object will **sink** if it is **more dense** than the fluid it is placed in.</li>
+                </ul>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The density of pure water is 1 g/cm³. This means any object with a density less than 1 g/cm³ will float in water, and any object with a density greater than 1 g/cm³ will sink.
+                </p>
+                <div class="flex justify-center mt-6">
+                     <img src="https://i.ibb.co/3mN9B4g/float-sink-diagram.png" alt="Diagram showing a less dense object floating and a more dense object sinking in water" class="rounded-lg shadow-md w-full md:w-3/5" onerror="this.onerror=null;this.src='https://placehold.co/500x300/00BFBF/FFFFFF?text=Float+or+Sink';">
+                </div>
+            </div>
+
+            <!-- At-Home Experiment -->
+            <div class="bg-green-100 border-t-4 border-green-500 rounded-b text-green-900 px-4 py-3 shadow-md my-8" role="alert">
+                <div class="flex">
+                    <div class="py-1"><svg class="fill-current h-6 w-6 text-green-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zM9 11v4h2v-4h-2zm0-6h2v2h-2V5z"/></svg></div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2">At-Home Experiment: The Floating Egg</h4>
+                        <p class="mb-4">You can change a liquid's density to make an object float!</p>
+                        <p class="font-bold">You will need:</p>
+                        <ul class="list-disc list-inside mb-4">
+                            <li>A tall glass</li>
+                            <li>A fresh egg</li>
+                            <li>Water</li>
+                            <li>Table salt</li>
+                            <li>A spoon</li>
+                        </ul>
+                        <p class="font-bold">Procedure:</p>
+                        <ol class="list-decimal list-inside mb-4 space-y-1">
+                            <li>Fill the glass about halfway with tap water.</li>
+                            <li>Gently place the egg in the water. It should sink. (The egg is denser than tap water).</li>
+                            <li>Remove the egg. Now, stir in salt, a few spoonfuls at a time, until it is all dissolved.</li>
+                            <li>Gently place the egg back into the saltwater. What happens now?</li>
+                        </ol>
+                        <p class="font-bold">Scientific Explanation:</p>
+                        <p>The egg now floats! By dissolving salt in the water, you added a lot of mass without changing the volume very much. This **increased the density of the water**. Once the saltwater became denser than the egg, the egg was able to float.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive: Density Simulator -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Lab: Density Simulator</h4>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Calculator -->
+                    <div class="bg-white p-4 rounded-lg shadow">
+                        <h5 class="font-bold text-lg mb-2">Density Calculator</h5>
+                        <div>
+                            <label for="mass-input" class="block">Mass (g):</label>
+                            <input type="number" id="mass-input" class="w-full p-1 border rounded" placeholder="e.g., 100">
+                        </div>
+                        <div class="mt-2">
+                            <label for="volume-input" class="block">Volume (cm³):</label>
+                            <input type="number" id="volume-input" class="w-full p-1 border rounded" placeholder="e.g., 50">
+                        </div>
+                        <button id="calculate-btn" class="mt-3 bg-casco-main-teal text-white font-bold py-2 px-4 rounded hover:bg-casco-dark-teal">Calculate</button>
+                        <p id="density-result" class="mt-2 font-semibold h-6"></p>
+                    </div>
+                    <!-- Float or Sink -->
+                    <div class="bg-white p-4 rounded-lg shadow">
+                        <h5 class="font-bold text-lg mb-2">Float or Sink?</h5>
+                        <div>
+                            <label for="object-density-input" class="block">Object Density (g/cm³):</label>
+                            <input type="number" id="object-density-input" class="w-full p-1 border rounded" placeholder="e.g., 0.8">
+                        </div>
+                        <div class="mt-2">
+                            <label for="liquid-density-input" class="block">Liquid Density (g/cm³):</label>
+                            <input type="number" id="liquid-density-input" class="w-full p-1 border rounded" value="1.0" placeholder="e.g., 1.0 for water">
+                        </div>
+                        <button id="simulate-btn" class="mt-3 bg-casco-main-teal text-white font-bold py-2 px-4 rounded hover:bg-casco-dark-teal">Simulate</button>
+                        <p id="simulation-result" class="mt-2 font-semibold h-6"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Explanation -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Video Explanation: Density</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/vSXTB_GUS6s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        // Density Simulator Script
+        const calculateBtn = document.getElementById('calculate-btn');
+        const densityResult = document.getElementById('density-result');
+        const simulateBtn = document.getElementById('simulate-btn');
+        const simulationResult = document.getElementById('simulation-result');
+
+        calculateBtn.addEventListener('click', () => {
+            const mass = parseFloat(document.getElementById('mass-input').value);
+            const volume = parseFloat(document.getElementById('volume-input').value);
+            if (mass > 0 && volume > 0) {
+                const density = mass / volume;
+                densityResult.textContent = `Density: ${density.toFixed(2)} g/cm³`;
+            } else {
+                densityResult.textContent = 'Please enter valid numbers.';
+            }
+        });
+
+        simulateBtn.addEventListener('click', () => {
+            const objectDensity = parseFloat(document.getElementById('object-density-input').value);
+            const liquidDensity = parseFloat(document.getElementById('liquid-density-input').value);
+            if (objectDensity >= 0 && liquidDensity > 0) {
+                if (objectDensity > liquidDensity) {
+                    simulationResult.textContent = 'Result: It Sinks!';
+                    simulationResult.style.color = 'red';
+                } else {
+                    simulationResult.textContent = 'Result: It Floats!';
+                    simulationResult.style.color = 'green';
+                }
+            } else {
+                simulationResult.textContent = 'Please enter valid densities.';
+                 simulationResult.style.color = 'black';
+            }
+        });
+
+        // Mobile Menu Script
+        const hamburger = document.getElementById('hamburger-button');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+
+        hamburger.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        accordionBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>

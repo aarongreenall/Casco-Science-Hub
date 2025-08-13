@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>9.3.2 Wave Interaction (Superposition) - Casco School</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9.3.2 Wave Interaction and Superposition - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -17,132 +19,322 @@
                     }
                 }
             }
-        }
+        };
     </script>
-    <link rel="stylesheet" href="../../../style.css">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
+
+    <!-- D3.js for interactive graph -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <!-- MathJax -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams'
+            },
             svg: { fontCache: 'global' }
         };
     </script>
 </head>
+
 <body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
     <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">Casco School Science</a>
-            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">&#9776;</button>
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
             <nav id="desktop-nav" class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="../../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">Home</a></li>
-                    <li><a href="../../index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS3</a></li>
-                    <li><a href="../../../KS4/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS4</a></li>
-                    <li><a href="../../../KS5/index.html" class="hover:text-casco-light-teal transition-colors duration-300 text-lg p-2 rounded-md">KS5</a></li>
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div id="mobile-menu-overlay">
-        <button id="close-mobile-menu" aria-label="Close mobile menu">&times;</button>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
         <nav>
-            <ul>
-                <li><a href="../../../index.html">Home</a></li>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
                 <li>
-                    <button class="mobile-accordion-btn">KS3</button>
-                    <ul class="mobile-accordion-content">
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
                         <li><a href="../../Year7/index.html">Year 7</a></li>
                         <li><a href="../../Year8/index.html">Year 8</a></li>
                         <li><a href="../index.html">Year 9</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn">KS4</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS4/Biology/index.html">Biology</a></li>
-                        <li><a href="../../../KS4/Chemistry/index.html">Chemistry</a></li>
-                        <li><a href="../../../KS4/Physics/index.html">Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-accordion-btn">KS5</button>
-                    <ul class="mobile-accordion-content">
-                        <li><a href="../../../KS5/ib_biology/index.html">IB Biology</a></li>
-                        <li><a href="../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
-                        <li><a href="../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </div>
 
+    <!-- Main Content -->
     <main class="container mx-auto p-4 md:p-8">
         <section class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <nav class="text-sm mb-4" aria-label="Breadcrumb">
-                <ol class="list-none p-0 inline-flex">
-                    <li class="flex items-center">
-                        <a href="../../../index.html" class="text-casco-main-teal hover:underline">Home</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../../index.html" class="text-casco-main-teal hover:underline">KS3</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="../index.html" class="text-casco-main-teal hover:underline">Year 9</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="index.html" class="text-casco-main-teal hover:underline">Unit 9.3: Sound and Energy</a>
-                        <span class="mx-2">/</span>
-                    </li>
-                    <li class="text-gray-500">9.3.2 Wave Interaction (Superposition)</li>
-                </ol>
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 9</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 9.3 Sound and Energy</a> &gt;
+                <span class="font-semibold">9.3.2 Wave Interaction and Superposition</span>
             </nav>
-            <h1 class="text-3xl font-bold text-casco-main-teal mb-6">9.3.2 Wave Interaction (Superposition)</h1>
-            <p class="text-lg leading-relaxed mb-6">
-                Content for this section is under development. Please check back soon!
-            </p>
-            <div class="prose max-w-none">
-                <p>This page will explain the principle of superposition and how it leads to constructive and destructive interference.</p>
-                <p><strong>Principle of Superposition:</strong></p>
-                <ul>
-                    <li>When two or more waves meet at a point, the resultant displacement at that point is equal to the vector sum of the displacements of the individual waves.</li>
-                    <li>In simple terms, the waves add up or cancel each other out.</li>
-                </ul>
-                <p><strong>Types of Interference:</strong></p>
-                <ul>
-                    <li><strong>Constructive Interference:</strong>
-                        <ul>
-                            <li>Occurs when the crests (or troughs) of two waves align.</li>
-                            <li>The amplitudes of the waves add together to produce a wave with a larger amplitude.</li>
-                            <li>In sound, this results in a <strong>louder</strong> sound.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Destructive Interference:</strong>
-                        <ul>
-                            <li>Occurs when the crest of one wave aligns with the trough of another wave.</li>
-                            <li>The amplitudes cancel each other out. If the original waves had equal amplitudes, the resultant displacement is zero.</li>
-                            <li>In sound, this results in a <strong>quieter</strong> sound or silence.</li>
-                        </ul>
-                    </li>
-                </ul>
-                <p><strong>Applications:</strong></p>
-                <ul>
-                    <li><strong>Noise-cancelling headphones:</strong> They detect the surrounding sound waves and produce an "anti-sound" wave that is perfectly out of phase. This creates destructive interference, cancelling out the external noise.</li>
-                    <li><strong>Musical instruments:</strong> The complex sounds produced are a result of the superposition of many different waves (harmonics).</li>
-                </ul>
-                <p>Diagrams showing two waves and the resultant wave for both constructive and destructive interference are crucial for understanding this topic.</p>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">9.3.2 Wave Interaction and Superposition</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Use waveforms to show how sound waves interact to reinforce or cancel each other.</li>
+                </ol>
             </div>
+
+            <!-- Section: Principle of Superposition -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">When Waves Collide: The Principle of Superposition</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    What happens when two waves meet? Do they bounce off each other like billiard balls? The answer is much more interesting: they pass right through each other. While they are in the same place at the same time, they combine. The **Principle of Superposition** states that when two or more waves overlap, the total displacement is the sum of the individual displacements of each wave. In simpler terms, the waves just add up!
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: Ripples in a Pond</h4>
+                    <p class="text-lg leading-relaxed">
+                        Imagine dropping two pebbles into a still pond at the same time. Ripples spread out from each pebble. Where the peak of one ripple meets the peak of another, they combine to create a double-height peak. Where a peak from one ripple meets a trough (a dip) from another, they cancel each other out, and the water is momentarily flat. This is superposition in action.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section: Constructive Interference -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Constructive Interference: Building a Bigger Wave</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    **Constructive interference** occurs when two waves that are **in phase** meet. This means their peaks align with peaks, and their troughs align with troughs. When they combine, they reinforce each other, creating a new wave with a larger amplitude. For sound waves, a larger amplitude means a **louder sound**.
+                </p>
+                <div class="flex justify-center mt-6">
+                     <img src="https://i.ibb.co/kX4B78M/constructive-interference.png" alt="Diagram showing two waves in phase adding up to a wave with larger amplitude" class="rounded-lg shadow-md w-full md:w-4/5" onerror="this.onerror=null;this.src='https://placehold.co/600x300/00BFBF/FFFFFF?text=Constructive+Interference';">
+                </div>
+                 <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: Pushing a Swing</h4>
+                    <p class="text-lg leading-relaxed">
+                        If you push someone on a swing, you get the best result by pushing at the perfect moment—just as they reach the highest point and are about to move forward again. Your pushes are 'in phase' with the swing's motion. Your energy adds to the swing's energy, making it go higher (a larger amplitude). This is constructive interference.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section: Destructive Interference -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Destructive Interference: Cancelling Out</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    **Destructive interference** occurs when two waves that are **out of phase** meet. This means the peak of one wave aligns with the trough of the other. When they combine, they cancel each other out. If the waves have the same amplitude, this cancellation can be total, resulting in zero amplitude. For sound waves, this means a **quieter sound**, or even silence.
+                </p>
+                <div class="flex justify-center mt-6">
+                     <img src="https://i.ibb.co/q0w5h0f/destructive-interference.png" alt="Diagram showing two waves out of phase cancelling each other out" class="rounded-lg shadow-md w-full md:w-4/5" onerror="this.onerror=null;this.src='https://placehold.co/600x300/009999/FFFFFF?text=Destructive+Interference';">
+                </div>
+                 <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: Pushing a Swing (Badly!)</h4>
+                    <p class="text-lg leading-relaxed">
+                        Now imagine you try to push the swing as it's coming *towards* you. Your push is 'out of phase' with the swing's motion. You'll work against the swing, and it will slow down or stop. Your energy has cancelled out the swing's energy. This is destructive interference.
+                    </p>
+                </div>
+            </div>
+
+             <!-- Section: Real-World Application -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Real-World Application: Noise-Cancelling Headphones</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    This isn't just abstract theory; it's used in technology you might own! High-tech noise-cancelling headphones use destructive interference to create silence.
+                </p>
+                <ol class="list-decimal list-inside space-y-2 text-lg">
+                    <li>A microphone on the outside of the headphone 'listens' to the incoming ambient noise (like the drone of a plane engine).</li>
+                    <li>Sophisticated electronics instantly analyse the noise wave and create a brand new wave that is perfectly out of phase with it - an "anti-noise" wave.</li>
+                    <li>This anti-noise is played through the headphone speakers at the same time as the real noise enters your ear.</li>
+                    <li>The noise and the anti-noise waves meet inside your ear canal, cancel each other out through destructive interference, and you hear near-silence!</li>
+                </ol>
+            </div>
+
+            <!-- Interactive Wave Combiner -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Lab: The Wave Combiner</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    Below are two waves. Drag the slider to move Wave 2 left and right, changing its phase relative to Wave 1. Watch the "Resultant Wave" at the bottom to see how they add up in real-time through superposition.
+                </p>
+                <div class="space-y-4">
+                    <div>
+                        <p class="font-bold">Wave 1 (Fixed)</p>
+                        <svg id="wave1-svg" class="w-full h-24 bg-white rounded shadow"></svg>
+                    </div>
+                    <div>
+                        <p class="font-bold">Wave 2 (Movable)</p>
+                        <svg id="wave2-svg" class="w-full h-24 bg-white rounded shadow"></svg>
+                    </div>
+                     <div>
+                        <label for="phase-slider" class="font-bold">Phase Shift for Wave 2</label>
+                        <input id="phase-slider" type="range" min="0" max="360" value="0" step="1" class="w-full">
+                    </div>
+                    <div>
+                        <p class="font-bold text-casco-dark-teal">Resultant Wave (Wave 1 + Wave 2)</p>
+                        <svg id="result-svg" class="w-full h-64 bg-white rounded shadow"></svg>
+                    </div>
+                </div>
+                <div id="interference-description" class="text-center text-lg font-semibold mt-4 h-6"></div>
+            </div>
+
+            <!-- Video Explanation -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Video Explanation: Wave Interference</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/EW_G4-T_G14" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
-        <div class="container mx-auto text-center text-sm">
-            &copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.
-        </div>
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        // Wave Combiner Script
+        const phaseSlider = document.getElementById('phase-slider');
+        const description = document.getElementById('interference-description');
+
+        const setupWaveSVG = (selector, height, yDomain) => {
+            const svg = d3.select(selector);
+            const width = svg.node().getBoundingClientRect().width;
+            const xScale = d3.scaleLinear().domain([0, 4 * Math.PI]).range([0, width]);
+            const yScale = d3.scaleLinear().domain(yDomain).range([height, 0]);
+            
+            svg.selectAll('*').remove(); // Clear previous drawings
+            svg.append("path").attr("class", "wave-path").attr("fill", "none").attr("stroke-width", 2);
+            svg.append("line").attr("x1", 0).attr("y1", height / 2).attr("x2", width).attr("y2", height / 2).attr("stroke", "black").attr("stroke-dasharray", "2");
+            
+            return { svg, width, height, xScale, yScale };
+        };
+
+        let wave1Setup, wave2Setup, resultSetup;
+
+        function initializeSVGs() {
+            wave1Setup = setupWaveSVG("#wave1-svg", 96, [-1.1, 1.1]);
+            wave2Setup = setupWaveSVG("#wave2-svg", 96, [-1.1, 1.1]);
+            resultSetup = setupWaveSVG("#result-svg", 256, [-2.2, 2.2]);
+        }
+
+
+        const line = d3.line()
+            .x(d => d.x)
+            .y(d => d.y);
+
+        function drawWaves() {
+            if (!wave1Setup) initializeSVGs(); // Initialize if not already done
+
+            const phaseShift = +phaseSlider.value * (Math.PI / 180); // convert degrees to radians
+            
+            const wave1Data = d3.range(0, 4 * Math.PI, 0.1).map(x => ({ x: wave1Setup.xScale(x), y: wave1Setup.yScale(Math.sin(x)) }));
+            const wave2Data = d3.range(0, 4 * Math.PI, 0.1).map(x => ({ x: wave2Setup.xScale(x), y: wave2Setup.yScale(Math.sin(x + phaseShift)) }));
+            
+            const resultData = d3.range(0, 4 * Math.PI, 0.1).map(x => {
+                const y1 = Math.sin(x);
+                const y2 = Math.sin(x + phaseShift);
+                return { x: resultSetup.xScale(x), y: resultSetup.yScale(y1 + y2) };
+            });
+
+            wave1Setup.svg.select(".wave-path").attr("d", line(wave1Data)).attr("stroke", "#00BFBF");
+            wave2Setup.svg.select(".wave-path").attr("d", line(wave2Data)).attr("stroke", "#FF5733");
+            resultSetup.svg.select(".wave-path").attr("d", line(resultData)).attr("stroke", "#333333").attr("stroke-width", 3);
+            
+            // Update description
+            const phase = +phaseSlider.value;
+            if (phase < 10 || phase > 350) {
+                description.textContent = "Fully Constructive Interference (In Phase)";
+                description.className = "text-center text-lg font-semibold mt-4 h-6 text-green-600";
+            } else if (phase > 170 && phase < 190) {
+                description.textContent = "Fully Destructive Interference (Out of Phase)";
+                description.className = "text-center text-lg font-semibold mt-4 h-6 text-red-600";
+            } else {
+                description.textContent = "Partial Interference";
+                description.className = "text-center text-lg font-semibold mt-4 h-6 text-gray-700";
+            }
+        }
+
+        phaseSlider.addEventListener('input', drawWaves);
+        
+        // Redraw on resize
+        window.addEventListener('resize', () => {
+            initializeSVGs();
+            drawWaves();
+        });
+
+        // Initial draw
+        initializeSVGs();
+        drawWaves();
+
+        // Mobile Menu Script
+        const hamburger = document.getElementById('hamburger-button');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+
+        hamburger.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        accordionBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>

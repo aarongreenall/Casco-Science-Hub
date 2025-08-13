@@ -1,13 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Placeholder</title>
-    <link rel="stylesheet" href="../../../style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9.6.3 Current in Parallel Circuits - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
+
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams'
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
-<body>
-    <p>Placeholder for 9.6.3</p>
-    <script src="../../../script.js"></script>
+
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
+        <nav>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../Year7/index.html">Year 7</a></li>
+                        <li><a href="../../Year8/index.html">Year 8</a></li>
+                        <li><a href="../index.html">Year 9</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 9</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 9.6 Electricity</a> &gt;
+                <span class="font-semibold">9.6.3 Current in Parallel Circuits</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">9.6.3 Current in Parallel Circuits</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn to:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Describe how current divides in parallel circuits.</li>
+                </ol>
+            </div>
+
+            <!-- Section: Revisiting Circuit Types -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Revisiting Circuit Types: Series vs. Parallel</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Let's quickly recap the two basic ways to build a circuit. In a **series circuit**, all the components are connected in a single loop, one after the other. There is only one path for the current to take. In a **parallel circuit**, the circuit is split into two or more separate branches, giving the current multiple paths to follow.
+                </p>
+                <div class="flex flex-col md:flex-row justify-around items-center gap-8">
+                    <div class="text-center">
+                        <img src="https://i.ibb.co/Gvj9Z0Q/series-circuit-diagram.png" alt="A series circuit with two lamps" class="rounded-lg shadow-md h-48" onerror="this.onerror=null;this.src='https://placehold.co/250x200/00BFBF/FFFFFF?text=Series';">
+                        <p class="mt-2 font-semibold text-lg">Series Circuit: One Path</p>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://i.ibb.co/G03jR2C/parallel-circuit-diagram.png" alt="A parallel circuit with two lamps" class="rounded-lg shadow-md h-48" onerror="this.onerror=null;this.src='https://placehold.co/250x200/009999/FFFFFF?text=Parallel';">
+                        <p class="mt-2 font-semibold text-lg">Parallel Circuit: Multiple Paths</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: The Rules of the Road -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">The Rules of the Road: Current in Parallel Circuits</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Current behaves differently in a parallel circuit. The fundamental rule is: **the total current flowing from the battery splits up at the junctions**. Some of the current flows down one branch, and the rest flows down the other branches. After passing through the branches, the currents join back together before returning to the battery.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4 font-bold text-casco-dark-teal">
+                    The sum of the currents in the separate branches is equal to the total current flowing from the source.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: A River Splitting</h4>
+                    <p class="text-lg leading-relaxed">
+                        Imagine the total current from the battery is a large river. When the river reaches an island, it has to split into two smaller streams to flow around it. After the island, the two streams merge back together to form the same large river again. The total amount of water flowing is always conserved. The current in a parallel circuit splits and rejoins in exactly the same way.
+                    </p>
+                </div>
+                 <div class="flex justify-center mt-6">
+                     <img src="https://i.ibb.co/h7gQpX8/parallel-current-split.png" alt="A parallel circuit diagram with ammeters showing the current splitting" class="rounded-lg shadow-md w-full md:w-4/5" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Current+Splitting';">
+                     <p class="text-center mt-2">As shown by the ammeters, the total current from the battery (A1) is equal to the sum of the currents in the two branches (A2 + A3).</p>
+                </div>
+            </div>
+
+            <!-- Section: Important Consequence -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">An Important Consequence: Adding More Branches</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    A very important feature of parallel circuits is that adding a new branch provides another pathway for the current to flow. This actually **decreases the total resistance** of the whole circuit.
+                </p>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    Since resistance and current are inversely related ($I = V/R$), a lower total resistance means that the **total current flowing from the battery increases** when you add more components in parallel. This is why all the sockets and lights in your house are wired in parallel. You can plug in a new appliance without affecting the others, and each one draws the current it needs from the main supply.
+                </p>
+            </div>
+
+            <!-- Interactive Lab: PhET -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Interactive Lab: Circuit Construction Kit</h4>
+                <p class="text-base leading-relaxed mb-4 font-semibold">Investigate how current behaves in a parallel circuit.</p>
+                <ol class="list-decimal list-inside ml-4 text-base space-y-2">
+                    <li>Build a simple circuit with one battery and one lamp. Use the ammeter to measure the total current. Note down the value.</li>
+                    <li>Now, add a second lamp in a separate, parallel branch. What happens to the brightness of the first lamp? What happens to the total current leaving the battery?</li>
+                    <li>Use multiple ammeters to measure the current in each branch and the total current from the battery. Do the currents in the branches add up to the total?</li>
+                    <li>Add a third lamp in another parallel branch. What happens to the total current now? Why do you think this is?</li>
+                </ol>
+                <div class="w-full h-[75vh] mt-4">
+                    <iframe src="https://phet.colorado.edu/sims/html/circuit-construction-kit-dc/latest/circuit-construction-kit-dc_en.html" allow="fullscreen" class="w-full h-full rounded-lg shadow-md border-2 border-casco-dark-teal"></iframe>
+                </div>
+            </div>
+
+            <!-- Video Explanation -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Video Explanation: Current in Parallel Circuits</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/y-8-2P3gW5w" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        // Mobile Menu Script
+        const hamburger = document.getElementById('hamburger-button');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+
+        hamburger.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        accordionBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>

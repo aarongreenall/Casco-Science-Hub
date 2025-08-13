@@ -1,13 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Placeholder</title>
-    <link rel="stylesheet" href="../../../style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9.9.4 Star Formation and Nebulae - Casco School Science</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'casco-main-teal': '#00BFBF',
+                        'casco-dark-teal': '#009999',
+                        'casco-light-teal': '#33EBEB',
+                        'casco-light-bg': '#E0F2F1',
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../../../style.css" />
+
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                tags: 'ams'
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
 </head>
-<body>
-    <p>Placeholder for 9.9.4</p>
-    <script src="../../../script.js"></script>
+
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white p-6 shadow-lg rounded-b-xl relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../../../index.html" class="text-3xl md:text-4xl font-bold hover:text-casco-light-teal transition-colors duration-300">
+                Casco School Science
+            </a>
+            <button id="hamburger-button" aria-label="Open mobile menu" class="md:hidden p-2 rounded-md hover:bg-casco-main-teal transition-colors duration-200">
+                &#9776;
+            </button>
+            <nav id="desktop-nav" class="hidden md:block">
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="../../../../index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../index.html" class="bg-white text-casco-dark-teal text-lg font-bold py-2 px-4 rounded-lg shadow-xl ring-2 ring-white">
+                            KS3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS4/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../../KS5/index.html" class="bg-gradient-to-r from-casco-dark-teal to-casco-main-teal text-white text-lg font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:from-casco-main-teal hover:to-casco-light-teal transform hover:-translate-y-0.5 transition-all duration-300">
+                            KS5
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <button id="close-mobile-menu" aria-label="Close mobile menu" class="text-3xl absolute top-4 right-6 text-casco-dark-teal">&times;</button>
+        <nav>
+            <ul class="space-y-4 text-lg">
+                <li><a href="../../../../index.html" class="text-casco-dark-teal font-semibold">Home</a></li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS3</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../Year7/index.html">Year 7</a></li>
+                        <li><a href="../../Year8/index.html">Year 8</a></li>
+                        <li><a href="../index.html">Year 9</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS4</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS4/Biology/index.html">Biology</a></li>
+                        <li><a href="../../../../KS4/Chemistry/index.html">Chemistry</a></li>
+                        <li><a href="../../../../KS4/Physics/index.html">Physics</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-accordion-btn font-semibold text-casco-dark-teal">KS5</button>
+                    <ul class="mobile-accordion-content ml-4 mt-2 space-y-2 hidden">
+                        <li><a href="../../../../KS5/ib_biology/index.html">IB Biology</a></li>
+                        <li><a href="../../../../KS5/ib_chemistry/index.html">IB Chemistry</a></li>
+                        <li><a href="../../../../KS5/ib_physics/index.html">IB Physics</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm mb-4 text-gray-500">
+                <a href="../../../index.html" class="hover:underline">KS3 Science</a> &gt;
+                <a href="../index.html" class="hover:underline">Year 9</a> &gt;
+                <a href="index.html" class="hover:underline">Unit 9.9 Earth and Beyond</a> &gt;
+                <span class="font-semibold">9.9.4 Star Formation and Nebulae</span>
+            </nav>
+            
+            <h2 class="text-3xl font-bold text-casco-main-teal mb-4">9.9.4 Star Formation and Nebulae</h2>
+
+            <!-- Learning Objectives -->
+            <div class="bg-casco-light-bg p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-casco-dark-teal mb-2">In this lesson, you will learn that:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                    <li>Nebulae are clouds of dust and gas and can act as stellar nurseries.</li>
+                </ol>
+            </div>
+
+            <!-- Section: Where are Stars Born? -->
+            <div class="py-4">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">Where are Stars Born?</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    When we look up at the night sky, we see countless stars. But where do they all come from? Stars are born inside enormous, beautiful clouds of gas and dust floating in space called **nebulae** (the singular is nebula). These vast clouds are made mostly of hydrogen and helium, the basic building blocks of the universe. Nebulae are not just empty space; they are the active "stellar nurseries" of our galaxy, the places where new stars are created.
+                </p>
+                <div class="flex justify-center mt-6">
+                     <img src="https://i.ibb.co/L8y8Yyq/pillars-of-creation-nebula.jpg" alt="The Pillars of Creation in the Eagle Nebula" class="rounded-lg shadow-md w-full md:w-4/5" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00BFBF/FFFFFF?text=Eagle+Nebula';">
+                     <p class="text-center mt-2">The famous "Pillars of Creation" in the Eagle Nebula, imaged by the James Webb Space Telescope. New stars are forming within these dense clouds of gas and dust.</p>
+                </div>
+            </div>
+
+            <!-- Section: Recipe for a Star -->
+            <div class="py-4 mt-8">
+                <h3 class="text-2xl font-semibold text-casco-dark-teal mb-3 border-b-2 border-casco-main-teal pb-2">The Recipe for a Star</h3>
+                <p class="text-lg leading-relaxed mt-4 mb-4">
+                    The birth of a star is a long and dramatic process, driven by the fundamental force of **gravity**.
+                </p>
+                <ol class="list-decimal list-inside space-y-4 text-lg">
+                    <li><strong>Gravitational Collapse:</strong> A nebula can be many light-years across and is very spread out. Over millions of years, the weak gravitational pull between the gas and dust particles starts to draw them together into denser clumps.</li>
+                    <li><strong>Protostar Formation:</strong> As a clump grows, its gravity gets stronger, pulling in more and more material. The particles at the center get squashed together, causing the pressure and temperature to rise dramatically. This hot, dense, glowing core is called a **protostar**. It's like a star in waiting.</li>
+                    <li><strong>Ignition (Nuclear Fusion):</strong> If the protostar gathers enough mass, the core becomes incredibly hot and dense—millions of degrees Celsius. The pressure becomes so immense that hydrogen atoms are forced to fuse together to form helium. This process, called **nuclear fusion**, releases a tremendous amount of energy. This energy pushes outwards, balancing the inward pull of gravity, and a stable star is born.</li>
+                </ol>
+                <div class="bg-gray-100 p-4 rounded-lg my-6 border-l-4 border-casco-dark-teal">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Analogy: A Cosmic Snowball</h4>
+                    <p class="text-lg leading-relaxed">
+                        Making a star is like making a giant snowball. You start with a small handful of snow (a dense clump in the nebula). As you roll it downhill, it picks up more and more snow (gravity pulling in more gas and dust). The bigger it gets, the more compressed and packed the snow at the center becomes (increasing pressure and temperature). If you could make the snowball as big as a mountain, the pressure at its core would become so great that it would ignite with the energy of nuclear fusion.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- In-School Activity -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">In-School Activity: A Nebula in a Jar</h4>
+                <p class="text-base leading-relaxed mb-4">
+                    You can create a beautiful model of a nebula using simple materials.
+                </p>
+                <p class="text-base leading-relaxed mb-2 font-semibold">You will need:</p>
+                <ul class="list-disc list-inside ml-4 text-base space-y-1 mb-4">
+                    <li>A clean glass jar with a lid</li>
+                    <li>Water</li>
+                    <li>Cotton wool balls</li>
+                    <li>Different colours of food colouring or paint</li>
+                    <li>Glitter</li>
+                </ul>
+                <p class="text-base leading-relaxed mb-2 font-semibold">Procedure:</p>
+                <ol class="list-decimal list-inside ml-4 text-base space-y-2">
+                    <li>Fill the jar about one-third full with water. Add a few drops of one colour.</li>
+                    <li>Stretch out some cotton wool balls and drop them into the water to form a "cloud layer".</li>
+                    <li>Sprinkle some glitter on top of the cotton wool. This represents the dust and newly forming stars.</li>
+                    <li>Add another layer of water and a different colour, followed by more cotton wool and glitter.</li>
+                    <li>Repeat until the jar is full. Seal the lid and gently shake or tilt the jar to see your nebula swirl. Shining a torch through it can create a stunning effect.</li>
+                </ol>
+            </div>
+
+            <!-- Video Explanation -->
+            <div class="bg-casco-light-bg p-4 rounded-lg shadow-inner my-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Video Explanation: Star Formation</h4>
+                <div class="w-full h-[50vh] md:h-[60vh]">
+                    <iframe src="https://www.youtube.com/embed/mD2a2G7IXf0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-md"></iframe>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-casco-dark-teal text-white p-6 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm">&copy; 2025 The Casco School Science Department. Curated by Mr. Aaron.</div>
+    </footer>
+
+    <!-- Main script file -->
+    <script src="../../../../script.js"></script>
+    <script>
+        // Mobile Menu Script
+        const hamburger = document.getElementById('hamburger-button');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+
+        hamburger.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        accordionBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>
